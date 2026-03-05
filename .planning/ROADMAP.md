@@ -117,7 +117,7 @@ Order: 2 -> 3 -> 4 || 5 -> 6
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | - | Complete | 2026-03-05 |
-| 2. HTTP Layer + Telegram Bot | 0/? | Not started | - |
+| 2. HTTP Layer + Telegram Bot | 1/2 | In Progress|  |
 | 3. Monitor Agent | 0/2 | Planned | - |
 | 4. Leads Agent | 0/4 | Planned | - |
 | 5. Finance Agent | 0/2 | Planned | - |

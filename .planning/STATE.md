@@ -10,28 +10,29 @@ See: .planning/PROJECT.md (updated 2026-03-05)
 ## Current Position
 
 Phase: 2 of 6 (HTTP Layer + Telegram Bot)
-Plan: 0 of ? in current phase
-Status: Ready to plan
-Last activity: 2026-03-05 — Roadmap created, Phase 1 already complete
+Plan: 1 of 2 in current phase
+Status: Executing
+Last activity: 2026-03-05 — Completed 02-01 (HTTP Layer + Telegram Queue)
 
-Progress: [##________] 17% (Phase 1 complete, 5 phases remaining)
+Progress: [###_______] 25% (Phase 1 complete, Phase 2 plan 1/2 done)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 0 (Phase 1 was pre-existing)
-- Average duration: -
-- Total execution time: -
+- Total plans completed: 1
+- Average duration: 7 min
+- Total execution time: 7 min
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 1. Foundation | pre-existing | - | - |
+| 2. HTTP Layer | 1/2 | 7 min | 7 min |
 
 **Recent Trend:**
-- Last 5 plans: N/A
-- Trend: N/A
+- Last 5 plans: 02-01 (7 min)
+- Trend: First plan executed
 
 *Updated after each plan completion*
 
@@ -46,6 +47,10 @@ Recent decisions affecting current work:
 - [Roadmap]: Phase 6 combines Learning + Dashboard since both need data from all agents
 - [Research]: Use @google/genai v1.43+ with gemini-2.5-flash-lite (deprecated SDK and 2.0 Flash model avoided)
 - [Research]: n8n orchestrator uses incorrect Convex API path — must fix with HTTP Actions in Phase 2
+- [02-01]: Initialized git repo in SAAN directory for code version control
+- [02-01]: HTTP dispatch pattern: POST /api/call with allowlist + shared-secret auth
+- [02-01]: Circuit breaker pattern: atomic count + insert in single mutation
+- [02-01]: Telegram consolidation: 30-second windows per agent, CRITICAL bypasses
 
 ### Pending Todos
 
@@ -61,5 +66,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-03-05
-Stopped at: Roadmap created, ready to plan Phase 2
+Stopped at: Completed 02-01-PLAN.md (HTTP Layer + Telegram Queue)
 Resume file: None

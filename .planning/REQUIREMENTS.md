@@ -7,13 +7,13 @@
 
 ### Infrastructure (HTTP Layer + Telegram)
 
-- [ ] **INFRA-01**: Convex HTTP Actions exponen endpoints REST en *.convex.site para que n8n pueda llamar mutations y queries
-- [ ] **INFRA-02**: Autenticacion de requests n8n→Convex via shared secret header
+- [x] **INFRA-01**: Convex HTTP Actions exponen endpoints REST en *.convex.site para que n8n pueda llamar mutations y queries
+- [x] **INFRA-02**: Autenticacion de requests n8n→Convex via shared secret header
 - [ ] **INFRA-03**: Telegram Bot creado via @BotFather con webhook configurado hacia n8n
 - [ ] **INFRA-04**: Workflow n8n unico para Telegram con Switch node para routing de comandos
 - [ ] **INFRA-05**: Comandos basicos del bot: /status (estado agentes), /help (lista comandos), /health (servicios)
-- [ ] **INFRA-06**: Cola de mensajes Telegram centralizada para respetar rate limits (30 msg/sec)
-- [ ] **INFRA-07**: Circuit breaker global: limite de tareas por agente por hora (previene runaway loops)
+- [x] **INFRA-06**: Cola de mensajes Telegram centralizada para respetar rate limits (30 msg/sec)
+- [x] **INFRA-07**: Circuit breaker global: limite de tareas por agente por hora (previene runaway loops)
 
 ### Monitor Agent
 
@@ -103,13 +103,13 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| INFRA-01 | Phase 2 | Pending |
-| INFRA-02 | Phase 2 | Pending |
+| INFRA-01 | Phase 2 | Complete |
+| INFRA-02 | Phase 2 | Complete |
 | INFRA-03 | Phase 2 | Pending |
 | INFRA-04 | Phase 2 | Pending |
 | INFRA-05 | Phase 2 | Pending |
-| INFRA-06 | Phase 2 | Pending |
-| INFRA-07 | Phase 2 | Pending |
+| INFRA-06 | Phase 2 | Complete |
+| INFRA-07 | Phase 2 | Complete |
 | MON-01 | Phase 3 | Pending |
 | MON-02 | Phase 3 | Pending |
 | MON-03 | Phase 3 | Pending |
