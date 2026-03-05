@@ -69,11 +69,13 @@ Plans:
   3. El scoring IA con Gemini 2.5 Flash Lite clasifica cada lead en HOT/WARM/NURTURE/SKIP respetando rate limits (batch async)
   4. Los leads HOT generan automaticamente una tarea para el CEO (toAgent:"human") visible en dashboard y Telegram
   5. El agente guarda resultados de scoring en agentMemory para mejorar sus decisiones futuras
-**Plans**: TBD
+**Plans**: 4 planes
 
 Plans:
-- [ ] 04-01: TBD
-- [ ] 04-02: TBD
+- [ ] 04-01-PLAN.md — Schema tabla leads + CRUD mutations con deduplicacion
+- [ ] 04-02-PLAN.md — Workflows n8n discover (Firecrawl Search) + enrich (Firecrawl Scrape)
+- [ ] 04-03-PLAN.md — Workflow n8n scoring IA (Gemini 2.5 Flash Lite) + tareas HOT para CEO
+- [ ] 04-04-PLAN.md — Actualizar skill lead-scraper + seccion leads en dashboard + verificacion
 
 ### Phase 5: Finance Agent
 **Goal**: Sisteco tiene visibilidad financiera en tiempo real con alertas de cobros fallidos y reportes semanales automaticos
@@ -117,6 +119,6 @@ Order: 2 -> 3 -> 4 || 5 -> 6
 | 1. Foundation | - | Complete | 2026-03-05 |
 | 2. HTTP Layer + Telegram Bot | 0/? | Not started | - |
 | 3. Monitor Agent | 0/2 | Planned | - |
-| 4. Leads Agent | 0/? | Not started | - |
+| 4. Leads Agent | 0/4 | Planned | - |
 | 5. Finance Agent | 0/2 | Planned | - |
 | 6. Agent Learning + Dashboard CEO | 0/? | Not started | - |
