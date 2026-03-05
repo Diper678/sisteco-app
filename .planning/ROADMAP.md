@@ -53,11 +53,11 @@ Plans:
   3. A las 8:00 AM Chile el CEO recibe un resumen de 24h con uptime, incidentes y estado de agentes
   4. Las alertas usan taxonomia de severidad (CRITICAL/WARNING/INFO) para evitar fatiga de notificaciones
   5. Si n8n se reinicia, los workflows retoman sin duplicar alertas ni perder estado
-**Plans**: TBD
+**Plans**: 2 planes
 
 Plans:
-- [ ] 03-01: TBD
-- [ ] 03-02: TBD
+- [ ] 03-01-PLAN.md — Funciones Convex del Monitor Agent + workflow heartbeat cada 5 min
+- [ ] 03-02-PLAN.md — Workflow de reporte diario 8:00 AM Chile
 
 ### Phase 4: Leads Agent
 **Goal**: Sisteco descubre, enriquece y califica prospectos B2B automaticamente, generando tareas de venta para los leads mas prometedores
@@ -116,7 +116,7 @@ Order: 2 -> 3 -> 4 || 5 -> 6
 |-------|----------------|--------|-----------|
 | 1. Foundation | - | Complete | 2026-03-05 |
 | 2. HTTP Layer + Telegram Bot | 0/? | Not started | - |
-| 3. Monitor Agent | 0/? | Not started | - |
+| 3. Monitor Agent | 0/2 | Planned | - |
 | 4. Leads Agent | 0/? | Not started | - |
 | 5. Finance Agent | 0/? | Not started | - |
 | 6. Agent Learning + Dashboard CEO | 0/? | Not started | - |
