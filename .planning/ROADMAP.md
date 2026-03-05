@@ -37,11 +37,11 @@ Decimal phases appear between their surrounding integers in numeric order.
   2. El CEO puede enviar /status, /help y /health al bot de Telegram y recibir respuestas correctas
   3. Todos los mensajes Telegram pasan por una cola centralizada que respeta rate limits (30 msg/sec)
   4. Un circuit breaker global detiene agentes que excedan su limite de tareas por hora
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 02-01: TBD
-- [ ] 02-02: TBD
+- [ ] 02-01-PLAN.md — Convex HTTP endpoint, telegramQueue schema, circuit breaker
+- [ ] 02-02-PLAN.md — n8n workflows: Telegram bot, queue consumer, orchestrator replacement
 
 ### Phase 3: Monitor Agent
 **Goal**: El sistema vigila automaticamente todos los servicios 24/7, detecta caidas en minutos, y entrega un reporte diario al CEO
@@ -102,7 +102,7 @@ Plans:
   2. Semanalmente un workflow de reflexion analiza las ultimas 50 memorias con Gemini y genera 1-3 insights nuevos
   3. Las memorias expiran segun retencion escalonada (insights=permanente, reports=90d, errors=30d, decisions=180d) con purga mensual automatica
   4. El dashboard muestra health de servicios, estado de agentes, tareas pendientes del CEO y metricas clave (leads, MRR, uptime) sin suscripciones reactivas a tablas completas
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
 - [ ] 06-01: TBD
