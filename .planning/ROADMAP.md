@@ -85,11 +85,11 @@ Plans:
   3. El CEO recibe alerta instantanea en Telegram cuando un cobro falla
   4. Cada lunes el CEO recibe reporte financiero semanal via Telegram con MRR, churn, LTV y tendencia
   5. El agente guarda metricas historicas en agentMemory para detectar tendencias
-**Plans**: TBD
+**Plans**: 2 planes
 
 Plans:
-- [ ] 05-01: TBD
-- [ ] 05-02: TBD
+- [ ] 05-01-PLAN.md — Schema (subscriptions + financialMetrics) y funciones Convex finance.ts
+- [ ] 05-02-PLAN.md — Endpoint webhook Reveniu + 3 workflows n8n (monitor, metricas diarias, reporte semanal)
 
 ### Phase 6: Agent Learning + Dashboard CEO
 **Goal**: Los agentes aprenden de su historial y el CEO tiene un dashboard operativo con toda la informacion critica en un solo lugar
@@ -118,5 +118,5 @@ Order: 2 -> 3 -> 4 || 5 -> 6
 | 2. HTTP Layer + Telegram Bot | 0/? | Not started | - |
 | 3. Monitor Agent | 0/2 | Planned | - |
 | 4. Leads Agent | 0/? | Not started | - |
-| 5. Finance Agent | 0/? | Not started | - |
+| 5. Finance Agent | 0/2 | Planned | - |
 | 6. Agent Learning + Dashboard CEO | 0/? | Not started | - |
