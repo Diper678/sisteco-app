@@ -29,8 +29,8 @@
 ### Leads Agent
 
 - [x] **LEAD-01**: Nueva tabla `leads` en Convex SAAN schema con campos: empresa, contacto, email, industria, tamano, score, status, source, enrichedData
-- [ ] **LEAD-02**: Busqueda de prospectos B2B via Firecrawl (scrape de directorios empresariales)
-- [ ] **LEAD-03**: Enriquecimiento de leads: scrape del sitio web del prospecto con Firecrawl (descripcion, productos, stack)
+- [x] **LEAD-02**: Busqueda de prospectos B2B via Firecrawl (scrape de directorios empresariales)
+- [x] **LEAD-03**: Enriquecimiento de leads: scrape del sitio web del prospecto con Firecrawl (descripcion, productos, stack)
 - [x] **LEAD-04**: Scoring IA con Gemini 2.5 Flash Lite: 100 puntos → HOT (80+) / WARM (50-79) / NURTURE (20-49) / SKIP (<20)
 - [x] **LEAD-05**: Scoring en modo batch async (respetar 5 RPM Gemini Pro / 10 RPM Flash)
 - [x] **LEAD-06**: Leads calificados como HOT generan task automatica para Sales (toAgent:"sales" o "human" si no hay Sales Agent)
@@ -119,8 +119,8 @@
 | MON-07 | Phase 3 | Complete |
 | MON-08 | Phase 3 | Complete |
 | LEAD-01 | Phase 4 | Complete |
-| LEAD-02 | Phase 4 | Pending |
-| LEAD-03 | Phase 4 | Pending |
+| LEAD-02 | Phase 4 | Complete |
+| LEAD-03 | Phase 4 | Complete |
 | LEAD-04 | Phase 4 | Complete |
 | LEAD-05 | Phase 4 | Complete |
 | LEAD-06 | Phase 4 | Complete |
