@@ -74,7 +74,7 @@ Plans:
 **Plans**: 6 planes
 
 Plans:
-- [ ] 04-01-PLAN.md — Schema tabla leads + CRUD mutations con deduplicacion
+- [x] 04-01-PLAN.md — Schema tabla leads + CRUD mutations con deduplicacion
 - [ ] 04-02-PLAN.md — Workflows n8n discover (Firecrawl Search) + enrich (Firecrawl Scrape)
 - [ ] 04-03-PLAN.md — Workflow n8n scoring IA (Gemini 2.5 Flash Lite) + tareas HOT para CEO
 - [ ] 04-04-PLAN.md — Actualizar skill lead-scraper + seccion leads en dashboard + verificacion
@@ -123,6 +123,6 @@ Order: 2 -> 3 -> 4 || 5 -> 6
 | 1. Foundation | - | Complete | 2026-03-05 |
 | 2. HTTP Layer + Telegram Bot | 1/2 | In Progress|  |
 | 3. Monitor Agent | 2/2 | Complete   | 2026-03-06 |
-| 4. Leads Agent | 0/6 | Planned | - |
+| 4. Leads Agent | 1/6 | In Progress | - |
 | 5. Finance Agent | 0/2 | Planned | - |
 | 6. Agent Learning + Dashboard CEO | 0/? | Not started | - |

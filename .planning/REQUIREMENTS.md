@@ -28,14 +28,14 @@
 
 ### Leads Agent
 
-- [ ] **LEAD-01**: Nueva tabla `leads` en Convex SAAN schema con campos: empresa, contacto, email, industria, tamano, score, status, source, enrichedData
+- [x] **LEAD-01**: Nueva tabla `leads` en Convex SAAN schema con campos: empresa, contacto, email, industria, tamano, score, status, source, enrichedData
 - [ ] **LEAD-02**: Busqueda de prospectos B2B via Firecrawl (scrape de directorios empresariales)
 - [ ] **LEAD-03**: Enriquecimiento de leads: scrape del sitio web del prospecto con Firecrawl (descripcion, productos, stack)
 - [ ] **LEAD-04**: Scoring IA con Gemini 2.5 Flash Lite: 100 puntos → HOT (80+) / WARM (50-79) / NURTURE (20-49) / SKIP (<20)
 - [ ] **LEAD-05**: Scoring en modo batch async (respetar 5 RPM Gemini Pro / 10 RPM Flash)
 - [ ] **LEAD-06**: Leads calificados como HOT generan task automatica para Sales (toAgent:"sales" o "human" si no hay Sales Agent)
 - [ ] **LEAD-07**: Leads Agent guarda resultados de scoring en agentMemory para aprendizaje
-- [ ] **LEAD-08**: Deduplicacion de leads por email/empresa antes de insertar
+- [x] **LEAD-08**: Deduplicacion de leads por email/empresa antes de insertar
 
 ### Finance Agent
 
@@ -118,14 +118,14 @@
 | MON-06 | Phase 3 | Complete |
 | MON-07 | Phase 3 | Complete |
 | MON-08 | Phase 3 | Complete |
-| LEAD-01 | Phase 4 | Pending |
+| LEAD-01 | Phase 4 | Complete |
 | LEAD-02 | Phase 4 | Pending |
 | LEAD-03 | Phase 4 | Pending |
 | LEAD-04 | Phase 4 | Pending |
 | LEAD-05 | Phase 4 | Pending |
 | LEAD-06 | Phase 4 | Pending |
 | LEAD-07 | Phase 4 | Pending |
-| LEAD-08 | Phase 4 | Pending |
+| LEAD-08 | Phase 4 | Complete |
 | FIN-01 | Phase 5 | Pending |
 | FIN-02 | Phase 5 | Pending |
 | FIN-03 | Phase 5 | Pending |
