@@ -21,7 +21,7 @@
 - [x] **MON-02**: Health checks registran latencia y status en tabla systemHealth de Convex
 - [x] **MON-03**: Alerta critica instantanea via Telegram cuando un servicio falla (status != 200)
 - [x] **MON-04**: Deteccion de agentes caidos (sin heartbeat > 15 min) con alerta
-- [ ] **MON-05**: Reporte diario a las 8:00 AM Chile con resumen de 24h via Telegram
+- [x] **MON-05**: Reporte diario a las 8:00 AM Chile con resumen de 24h via Telegram
 - [x] **MON-06**: Taxonomia de severidad: CRITICAL (inmediato) / WARNING (consolidado) / INFO (reporte diario)
 - [x] **MON-07**: Monitor Agent actualiza su propio agentsState en Convex (active/idle/error)
 - [x] **MON-08**: Workflows idempotentes: si n8n se reinicia, el workflow retoma sin duplicar alertas
@@ -114,7 +114,7 @@
 | MON-02 | Phase 3 | Complete |
 | MON-03 | Phase 3 | Complete |
 | MON-04 | Phase 3 | Complete |
-| MON-05 | Phase 3 | Pending |
+| MON-05 | Phase 3 | Complete |
 | MON-06 | Phase 3 | Complete |
 | MON-07 | Phase 3 | Complete |
 | MON-08 | Phase 3 | Complete |
