@@ -123,6 +123,6 @@ Order: 2 -> 3 -> 4 || 5 -> 6
 | 1. Foundation | - | Complete | 2026-03-05 |
 | 2. HTTP Layer + Telegram Bot | 1/2 | In Progress|  |
 | 3. Monitor Agent | 2/2 | Complete   | 2026-03-06 |
-| 4. Leads Agent | 1/6 | In Progress | - |
+| 4. Leads Agent | 3/4 | In Progress|  |
 | 5. Finance Agent | 0/2 | Planned | - |
 | 6. Agent Learning + Dashboard CEO | 0/? | Not started | - |
