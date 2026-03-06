@@ -17,14 +17,14 @@
 
 ### Monitor Agent
 
-- [ ] **MON-01**: Heartbeat cada 5 minutos a: Vercel, Convex Landing, Convex SAAN, n8n
-- [ ] **MON-02**: Health checks registran latencia y status en tabla systemHealth de Convex
-- [ ] **MON-03**: Alerta critica instantanea via Telegram cuando un servicio falla (status != 200)
-- [ ] **MON-04**: Deteccion de agentes caidos (sin heartbeat > 15 min) con alerta
+- [x] **MON-01**: Heartbeat cada 5 minutos a: Vercel, Convex Landing, Convex SAAN, n8n
+- [x] **MON-02**: Health checks registran latencia y status en tabla systemHealth de Convex
+- [x] **MON-03**: Alerta critica instantanea via Telegram cuando un servicio falla (status != 200)
+- [x] **MON-04**: Deteccion de agentes caidos (sin heartbeat > 15 min) con alerta
 - [ ] **MON-05**: Reporte diario a las 8:00 AM Chile con resumen de 24h via Telegram
-- [ ] **MON-06**: Taxonomia de severidad: CRITICAL (inmediato) / WARNING (consolidado) / INFO (reporte diario)
-- [ ] **MON-07**: Monitor Agent actualiza su propio agentsState en Convex (active/idle/error)
-- [ ] **MON-08**: Workflows idempotentes: si n8n se reinicia, el workflow retoma sin duplicar alertas
+- [x] **MON-06**: Taxonomia de severidad: CRITICAL (inmediato) / WARNING (consolidado) / INFO (reporte diario)
+- [x] **MON-07**: Monitor Agent actualiza su propio agentsState en Convex (active/idle/error)
+- [x] **MON-08**: Workflows idempotentes: si n8n se reinicia, el workflow retoma sin duplicar alertas
 
 ### Leads Agent
 
@@ -110,14 +110,14 @@
 | INFRA-05 | Phase 2 | Pending |
 | INFRA-06 | Phase 2 | Complete |
 | INFRA-07 | Phase 2 | Complete |
-| MON-01 | Phase 3 | Pending |
-| MON-02 | Phase 3 | Pending |
-| MON-03 | Phase 3 | Pending |
-| MON-04 | Phase 3 | Pending |
+| MON-01 | Phase 3 | Complete |
+| MON-02 | Phase 3 | Complete |
+| MON-03 | Phase 3 | Complete |
+| MON-04 | Phase 3 | Complete |
 | MON-05 | Phase 3 | Pending |
-| MON-06 | Phase 3 | Pending |
-| MON-07 | Phase 3 | Pending |
-| MON-08 | Phase 3 | Pending |
+| MON-06 | Phase 3 | Complete |
+| MON-07 | Phase 3 | Complete |
+| MON-08 | Phase 3 | Complete |
 | LEAD-01 | Phase 4 | Pending |
 | LEAD-02 | Phase 4 | Pending |
 | LEAD-03 | Phase 4 | Pending |

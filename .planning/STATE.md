@@ -1,3 +1,19 @@
+---
+gsd_state_version: 1.0
+milestone: v1.0
+milestone_name: milestone
+status: executing
+stopped_at: Completed 02-01-PLAN.md (HTTP Layer + Telegram Queue)
+last_updated: "2026-03-06T15:25:38.836Z"
+last_activity: 2026-03-05 — Completed 02-01 (HTTP Layer + Telegram Queue)
+progress:
+  total_phases: 6
+  completed_phases: 0
+  total_plans: 10
+  completed_plans: 2
+  percent: 20
+---
+
 # Project State
 
 ## Project Reference
@@ -5,23 +21,23 @@
 See: .planning/PROJECT.md (updated 2026-03-05)
 
 **Core value:** Agentes autonomos ejecutan operaciones 24/7, aprenden de sus resultados, y escalan al CEO solo cuando es necesario.
-**Current focus:** Phase 2: HTTP Layer + Telegram Bot
+**Current focus:** Phase 3: Monitor Agent
 
 ## Current Position
 
-Phase: 2 of 6 (HTTP Layer + Telegram Bot)
+Phase: 3 of 6 (Monitor Agent)
 Plan: 1 of 2 in current phase
 Status: Executing
-Last activity: 2026-03-05 — Completed 02-01 (HTTP Layer + Telegram Queue)
+Last activity: 2026-03-06 — Completed 03-01 (Monitor Agent Core)
 
-Progress: [###_______] 25% (Phase 1 complete, Phase 2 plan 1/2 done)
+Progress: [██░░░░░░░░] 20%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 1
-- Average duration: 7 min
-- Total execution time: 7 min
+- Total plans completed: 2
+- Average duration: 6 min
+- Total execution time: 11 min
 
 **By Phase:**
 
@@ -29,10 +45,11 @@ Progress: [###_______] 25% (Phase 1 complete, Phase 2 plan 1/2 done)
 |-------|-------|-------|----------|
 | 1. Foundation | pre-existing | - | - |
 | 2. HTTP Layer | 1/2 | 7 min | 7 min |
+| 3. Monitor Agent | 1/2 | 4 min | 4 min |
 
 **Recent Trend:**
-- Last 5 plans: 02-01 (7 min)
-- Trend: First plan executed
+- Last 5 plans: 02-01 (7 min), 03-01 (4 min)
+- Trend: Faster execution as patterns established
 
 *Updated after each plan completion*
 
@@ -51,6 +68,9 @@ Recent decisions affecting current work:
 - [02-01]: HTTP dispatch pattern: POST /api/call with allowlist + shared-secret auth
 - [02-01]: Circuit breaker pattern: atomic count + insert in single mutation
 - [02-01]: Telegram consolidation: 30-second windows per agent, CRITICAL bypasses
+- [03-01]: Minute-based heuristic for hourly purge (min < 5) since n8n loses state on restart
+- [03-01]: Alert cooldown 2h via agentMemory prevents duplicates after n8n restart
+- [03-01]: Agent down severity: >30 min = CRITICAL, 15-30 min = WARNING
 
 ### Pending Todos
 
@@ -65,6 +85,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-05
-Stopped at: Completed 02-01-PLAN.md (HTTP Layer + Telegram Queue)
+Last session: 2026-03-06
+Stopped at: Completed 03-01-PLAN.md (Monitor Agent Core)
 Resume file: None
