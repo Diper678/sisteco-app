@@ -1,154 +1,135 @@
-# Requirements: SAAN v1.0 — Monitor + Leads + Finance Agents
+# Requirements: Sisteco Vertical B2B — Lead Gen + Data Layer + Dashboard
 
-**Defined:** 2026-03-05
-**Core Value:** Agentes autonomos ejecutan operaciones 24/7, aprenden de sus resultados, y escalan al CEO solo cuando es necesario.
+**Defined:** 2026-03-05 (SAAN v1.0)
+**Pivotado:** 2026-03-09 (Vertical SaaS B2B Chile)
+**Core Value:** Inteligencia de datos B2B chilena que ningun competidor internacional puede replicar.
 
-## v1 Requirements
+---
 
-### Infrastructure (HTTP Layer + Telegram)
+## v1 Requirements (Q1-Q2 2026) — REVENUE FIRST
 
-- [x] **INFRA-01**: Convex HTTP Actions exponen endpoints REST en *.convex.site para que n8n pueda llamar mutations y queries
-- [x] **INFRA-02**: Autenticacion de requests n8n→Convex via shared secret header
-- [ ] **INFRA-03**: Telegram Bot creado via @BotFather con webhook configurado hacia n8n
-- [ ] **INFRA-04**: Workflow n8n unico para Telegram con Switch node para routing de comandos
-- [ ] **INFRA-05**: Comandos basicos del bot: /status (estado agentes), /help (lista comandos), /health (servicios)
-- [x] **INFRA-06**: Cola de mensajes Telegram centralizada para respetar rate limits (30 msg/sec)
-- [x] **INFRA-07**: Circuit breaker global: limite de tareas por agente por hora (previene runaway loops)
+### Pipeline de Leads (Fase 1 — INMEDIATO)
 
-### Monitor Agent
+- [ ] **LEAD-01**: PhantomBuster workflow activo: LinkedIn Sales Nav → extraccion de prospectos 3x/semana (L/Mi/Vi 07:00)
+- [ ] **LEAD-02**: Datos extraidos se guardan en Convex tabla `leads` (empresa, contacto, email, LinkedIn URL, industria, tamano)
+- [ ] **LEAD-03**: Enriquecimiento con Firecrawl: scrape del sitio web del prospecto (descripcion, productos, stack, tamano)
+- [ ] **LEAD-04**: Scoring IA con Gemini: 100 puntos → HOT (80+) / WARM (50-79) / NURTURE (20-49) / SKIP (<20)
+- [ ] **LEAD-05**: Deduplicacion de leads por email/dominio antes de insertar
+- [ ] **LEAD-06**: Leads HOT generan notificacion al CEO/vendedor via Telegram
+- [ ] **LEAD-07**: ICP (Ideal Customer Profile) configurable por cliente
+- [ ] **LEAD-08**: Exportacion CSV de leads filtrados
 
-- [x] **MON-01**: Heartbeat cada 5 minutos a: Vercel, Convex Landing, Convex SAAN, n8n
-- [x] **MON-02**: Health checks registran latencia y status en tabla systemHealth de Convex
-- [x] **MON-03**: Alerta critica instantanea via Telegram cuando un servicio falla (status != 200)
-- [x] **MON-04**: Deteccion de agentes caidos (sin heartbeat > 15 min) con alerta
-- [x] **MON-05**: Reporte diario a las 8:00 AM Chile con resumen de 24h via Telegram
-- [x] **MON-06**: Taxonomia de severidad: CRITICAL (inmediato) / WARNING (consolidado) / INFO (reporte diario)
-- [x] **MON-07**: Monitor Agent actualiza su propio agentsState en Convex (active/idle/error)
-- [x] **MON-08**: Workflows idempotentes: si n8n se reinicia, el workflow retoma sin duplicar alertas
+### Dashboard de Clientes (Fase 2)
 
-### Leads Agent
+- [ ] **DASH-01**: Login con Clerk (email + Google OAuth)
+- [ ] **DASH-02**: Vista de leads con filtros (score, industria, estado, fecha)
+- [ ] **DASH-03**: KPIs principales: leads nuevos, leads HOT, tasa de conversion, pipeline value
+- [ ] **DASH-04**: Detalle de lead individual (datos enriquecidos, score breakdown, timeline)
+- [ ] **DASH-05**: Multi-tenant: cada cliente ve solo sus datos
+- [ ] **DASH-06**: Responsive (funciona en movil para vendedores)
+- [ ] **DASH-07**: Dashboard NO usa suscripciones reactivas a tablas completas (optimizar queries)
 
-- [x] **LEAD-01**: Nueva tabla `leads` en Convex SAAN schema con campos: empresa, contacto, email, industria, tamano, score, status, source, enrichedData
-- [x] **LEAD-02**: Busqueda de prospectos B2B via Firecrawl (scrape de directorios empresariales)
-- [x] **LEAD-03**: Enriquecimiento de leads: scrape del sitio web del prospecto con Firecrawl (descripcion, productos, stack)
-- [x] **LEAD-04**: Scoring IA con Gemini 2.5 Flash Lite: 100 puntos → HOT (80+) / WARM (50-79) / NURTURE (20-49) / SKIP (<20)
-- [x] **LEAD-05**: Scoring en modo batch async (respetar 5 RPM Gemini Pro / 10 RPM Flash)
-- [x] **LEAD-06**: Leads calificados como HOT generan task automatica para Sales (toAgent:"sales" o "human" si no hay Sales Agent)
-- [x] **LEAD-07**: Leads Agent guarda resultados de scoring en agentMemory para aprendizaje
-- [x] **LEAD-08**: Deduplicacion de leads por email/empresa antes de insertar
+### Datos B2B Chile (Fase 3)
 
-### Finance Agent
+- [ ] **DATA-01**: Integracion con datos publicos del SII (RUTs, actividad economica, tamano)
+- [ ] **DATA-02**: Enriquecimiento con fuentes locales: SOFOFA, Camaras de Comercio, INE
+- [ ] **DATA-03**: Base de datos de industrias chilenas con clasificacion CIIU
+- [ ] **DATA-04**: Verificacion de emails via herramientas de validacion
+- [ ] **DATA-05**: Score de calidad de dato (completitud, frescura, verificacion)
 
-- [ ] **FIN-01**: Nueva tabla `financialMetrics` en Convex SAAN con campos: date, mrr, churn, ltv, activeSubscriptions, failedPayments
-- [ ] **FIN-02**: Monitoreo de suscripciones via webhook de Reveniu (o dLocal Go cuando este activo)
-- [ ] **FIN-03**: Calculo diario de MRR (Monthly Recurring Revenue) basado en suscripciones activas
-- [ ] **FIN-04**: Calculo de churn rate mensual (suscripciones canceladas / total inicio de mes)
-- [ ] **FIN-05**: Alerta via Telegram cuando un cobro falla
-- [ ] **FIN-06**: Reporte financiero semanal via Telegram (MRR, churn, LTV, tendencia)
-- [ ] **FIN-07**: Finance Agent guarda metricas historicas en agentMemory para detectar tendencias
+### Compliance Ley 21.719 (Transversal)
 
-### Agent Learning
+- [ ] **COMP-01**: Aviso de privacidad en dashboard y comunicaciones
+- [ ] **COMP-02**: Registro de bases de datos ante futura Agencia de Proteccion de Datos
+- [ ] **COMP-03**: Mecanismo de opt-out/eliminacion de datos para leads
+- [ ] **COMP-04**: Logging de consentimiento y base legal por lead
+- [ ] **COMP-05**: Politica de retencion de datos (auto-purga configurable)
 
-- [ ] **LEARN-01**: Patron "memory-before-action": cada agente consulta insights previos antes de ejecutar
-- [ ] **LEARN-02**: Patron "action-then-record": cada agente guarda resultado de ejecucion en agentMemory
-- [ ] **LEARN-03**: Workflow de reflexion semanal: consulta ultimas 50 memorias, envia a Gemini, guarda 1-3 insights
-- [ ] **LEARN-04**: Retencion escalonada: insights=permanente, reports=90 dias, errors=30 dias, decisions=180 dias
-- [ ] **LEARN-05**: Cron de purga mensual para memorias expiradas
+### Infraestructura Base (Reutilizada de SAAN)
 
-### Dashboard CEO
+- [x] **INFRA-01**: Convex HTTP Actions para comunicacion n8n ↔ Convex
+- [x] **INFRA-02**: Autenticacion via shared secret
+- [ ] **INFRA-03**: Telegram Bot para alertas al CEO
+- [x] **INFRA-06**: Rate limiting en comunicaciones
+- [x] **INFRA-07**: Circuit breaker para workflows
 
-- [ ] **DASH-01**: Seccion de health de servicios en tiempo real (datos de systemHealth)
-- [ ] **DASH-02**: Estado de cada agente con ultimo run, proximo run, error count
-- [ ] **DASH-03**: Lista de tareas pendientes del CEO (agentTasks con toAgent:"human")
-- [ ] **DASH-04**: Metricas clave: leads nuevos hoy, MRR actual, uptime %
-- [ ] **DASH-05**: Dashboard NO usa suscripciones reactivas a tablas completas (optimizar queries para evitar bandwidth bloat)
+### Monetizacion (Fase 4)
 
-## v2 Requirements
+- [ ] **PAY-01**: Cobro mensual via Reveniu (CLP, sin entidad legal)
+- [ ] **PAY-02**: Planes: Starter ($99.990 CLP), Growth ($249.990 CLP), Enterprise (custom)
+- [ ] **PAY-03**: Trial de 14 dias con datos reales del prospecto
+- [ ] **PAY-04**: Metricas: MRR, churn, LTV calculados automaticamente
 
-### Sales Agent (Fase 4)
+---
 
-- **SALE-01**: Secuencias de email personalizadas por IA via Resend
-- **SALE-02**: Outreach multi-canal: Email → LinkedIn → WhatsApp
-- **SALE-03**: Deteccion de respuestas y clasificacion (positiva/negativa/pregunta)
+## v2 Requirements (Q3-Q4 2026) — ESCALAR
 
-### Marketing Agent (Fase 4)
+### Integraciones Locales
 
-- **MKT-01**: Generacion de ideas de contenido basadas en tendencias (Perplexity)
-- **MKT-02**: Borradores de blog posts y LinkedIn posts
+- [ ] **INT-01**: SII: consulta de datos empresariales por RUT
+- [ ] **INT-02**: Facturacion electronica (DTE) via Bsale o similar
+- [ ] **INT-03**: Integracion con CRMs populares en Chile (HubSpot, Pipedrive)
+- [ ] **INT-04**: WhatsApp Business API para outreach
+- [ ] **INT-05**: Flow.cl / Khipu como opciones de pago adicionales
 
-### SEO Agent (Fase 5)
+### Outreach Automatizado (via Lindy o similar)
 
-- **SEO-01**: Keyword tracking + page audits con Playwright
-- **SEO-02**: Sugerencias de contenido basadas en gaps
+- [ ] **OUT-01**: Secuencias de email personalizadas por IA
+- [ ] **OUT-02**: Outreach multi-canal: Email → LinkedIn → WhatsApp
+- [ ] **OUT-03**: Agendamiento automatico de reuniones
+- [ ] **OUT-04**: Deteccion de respuestas y clasificacion
 
-### Intel Agent (Fase 5)
+### Analytics Avanzados
 
-- **INTEL-01**: Monitoreo de cambios en sitios de competidores (Firecrawl)
-- **INTEL-02**: Escaneo de mercado LATAM (Perplexity)
+- [ ] **ANA-01**: Benchmarking anonimizado entre clientes (por industria)
+- [ ] **ANA-02**: Prediccion de conversion basada en datos historicos
+- [ ] **ANA-03**: ROI calculator: impacto de Sisteco en ventas del cliente
+- [ ] **ANA-04**: Reportes automaticos semanales por email
+
+### Data Flywheel
+
+- [ ] **FLY-01**: Modelo de scoring mejora con datos de conversion de todos los clientes
+- [ ] **FLY-02**: Base de datos B2B crece con cada nuevo cliente (datos compartidos anonimizados)
+- [ ] **FLY-03**: API publica para que agentes de terceros consulten datos (preparar para A2A)
+
+---
 
 ## Out of Scope
 
-| Feature | Reason |
-|---------|--------|
-| Workflow Agent (meta-agente) | Fase 6 — requiere todos los agentes operativos |
-| Skill Discovery | Fase 7 — requiere ecosistema estable |
-| Agent-to-agent commerce | Fase 8 — vision 2028+ |
-| Mobile app | Web dashboard es suficiente para CEO |
-| Real-time chat con agentes | Telegram cubre la comunicacion bidireccional |
-| ScrapingBee integration | Firecrawl cubre la extraccion; ScrapingBee se agrega en v2 si se necesita volumen |
-| PhantomBuster (LinkedIn) | Se integra en Fase 4 con Sales Agent |
-| Multi-idioma | Solo espanol (es-CL) por ahora |
+| Feature | Razon |
+|---------|-------|
+| Construir agentes AI custom | Usar plataformas existentes (Lindy, etc.) |
+| Agent-to-agent commerce | Vision 2028+ |
+| SAAN como red de agentes | Pivotado a vertical SaaS |
+| Sales Agent propio | Usar Lindy o Instantly.ai |
+| Marketing Agent propio | Postergado, no genera revenue directo |
+| SEO Agent | Postergado |
+| Intel Agent | Postergado |
+| Mobile app | Dashboard web responsive es suficiente |
+| Multi-idioma | Solo espanol (es-CL) |
+| Expansion LATAM | Investigar en Q4 2026, ejecutar en 2027 |
+
+---
 
 ## Traceability
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| INFRA-01 | Phase 2 | Complete |
-| INFRA-02 | Phase 2 | Complete |
-| INFRA-03 | Phase 2 | Pending |
-| INFRA-04 | Phase 2 | Pending |
-| INFRA-05 | Phase 2 | Pending |
-| INFRA-06 | Phase 2 | Complete |
-| INFRA-07 | Phase 2 | Complete |
-| MON-01 | Phase 3 | Complete |
-| MON-02 | Phase 3 | Complete |
-| MON-03 | Phase 3 | Complete |
-| MON-04 | Phase 3 | Complete |
-| MON-05 | Phase 3 | Complete |
-| MON-06 | Phase 3 | Complete |
-| MON-07 | Phase 3 | Complete |
-| MON-08 | Phase 3 | Complete |
-| LEAD-01 | Phase 4 | Complete |
-| LEAD-02 | Phase 4 | Complete |
-| LEAD-03 | Phase 4 | Complete |
-| LEAD-04 | Phase 4 | Complete |
-| LEAD-05 | Phase 4 | Complete |
-| LEAD-06 | Phase 4 | Complete |
-| LEAD-07 | Phase 4 | Complete |
-| LEAD-08 | Phase 4 | Complete |
-| FIN-01 | Phase 5 | Pending |
-| FIN-02 | Phase 5 | Pending |
-| FIN-03 | Phase 5 | Pending |
-| FIN-04 | Phase 5 | Pending |
-| FIN-05 | Phase 5 | Pending |
-| FIN-06 | Phase 5 | Pending |
-| FIN-07 | Phase 5 | Pending |
-| LEARN-01 | Phase 6 | Pending |
-| LEARN-02 | Phase 6 | Pending |
-| LEARN-03 | Phase 6 | Pending |
-| LEARN-04 | Phase 6 | Pending |
-| LEARN-05 | Phase 6 | Pending |
-| DASH-01 | Phase 6 | Pending |
-| DASH-02 | Phase 6 | Pending |
-| DASH-03 | Phase 6 | Pending |
-| DASH-04 | Phase 6 | Pending |
-| DASH-05 | Phase 6 | Pending |
+| LEAD-01 a 06 | Phase 1: Pipeline de Leads | Partial (schema + workflows from SAAN) |
+| LEAD-07, LEAD-08 | Phase 3: Dashboard Build | Pending |
+| DASH-01 a 07 | Phase 2 (diseno) + Phase 3 (build) | Pending |
+| DATA-01 a 05 | Phase 1 (SII basico) + H2 (resto) | Partial |
+| COMP-01 a 05 | Phase 4: Compliance | Pending |
+| INFRA-01,02,06,07 | Reutilizado de SAAN v1.0 | Complete |
+| INFRA-03 | Pospuesto (Telegram alertas) | Pending |
+| PAY-01 a 04 | Phase 5: Onboarding | Pending |
 
 **Coverage:**
-- v1 requirements: 40 total
-- Mapped to phases: 40
+- v1 requirements: 31 total
+- Mapped to H1 phases: 31
+- Reutilizado de SAAN: 4 (INFRA)
+- v2 requirements: 14 total (H2 scope)
 - Unmapped: 0
 
 ---
-*Requirements defined: 2026-03-05*
-*Last updated: 2026-03-05 after roadmap creation*
+*Requirements redefined: 2026-03-09 (Strategic Pivot to Vertical SaaS v2.0)*
