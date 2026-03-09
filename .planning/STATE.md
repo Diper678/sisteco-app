@@ -1,152 +1,66 @@
 ---
 gsd_state_version: 1.0
-milestone: v1.0
-milestone_name: milestone
-status: executing
-stopped_at: Completed 04-02-PLAN.md (Multi-Source Discovery + Enrichment)
-last_updated: "2026-03-06T19:00:17.063Z"
-last_activity: 2026-03-06 — Completed 04-03 (AI Scoring + SDR Outreach Workflows)
+milestone: v2.0
+milestone_name: Vertical SaaS B2B Chile
+status: planning
+last_updated: "2026-03-09"
+last_activity: 2026-03-09 — Pivote estrategico de SAAN a Vertical SaaS
 progress:
-  total_phases: 6
-  completed_phases: 1
-  total_plans: 10
-  completed_plans: 6
-  percent: 60
----
-
----
-gsd_state_version: 1.0
-milestone: v1.0
-milestone_name: milestone
-status: executing
-stopped_at: Completed 04-03-PLAN.md (AI Scoring + SDR Outreach Workflows)
-last_updated: "2026-03-06T18:59:01.970Z"
-last_activity: 2026-03-06 — Completed 04-01 (Leads Schema + CRUD)
-progress:
-  [██████░░░░] 60%
-  completed_phases: 1
-  total_plans: 10
-  completed_plans: 5
-  percent: 50
----
-
----
-gsd_state_version: 1.0
-milestone: v1.0
-milestone_name: milestone
-status: executing
-stopped_at: Completed 03-02-PLAN.md (Monitor Daily Report)
-last_updated: "2026-03-06T15:40:01.058Z"
-last_activity: 2026-03-06 — Completed 03-02 (Monitor Daily Report)
-progress:
-  [█████░░░░░] 50%
-  completed_phases: 1
-  total_plans: 10
-  completed_plans: 4
----
-
----
-gsd_state_version: 1.0
-milestone: v1.0
-milestone_name: milestone
-status: executing
-stopped_at: Completed 03-02-PLAN.md (Monitor Daily Report)
-last_updated: "2026-03-06T15:35:19.482Z"
-last_activity: 2026-03-06 — Completed 03-02 (Monitor Daily Report)
-progress:
-  total_phases: 6
-  completed_phases: 1
-  total_plans: 10
-  completed_plans: 4
-  percent: 40
+  total_phases: 5
+  completed_phases: 0
+  total_plans: 0
+  completed_plans: 0
+  percent: 0
 ---
 
 # Project State
 
 ## Project Reference
 
-See: .planning/PROJECT.md (updated 2026-03-05)
+See: .planning/PROJECT.md (updated 2026-03-09)
 
-**Core value:** Agentes autonomos ejecutan operaciones 24/7, aprenden de sus resultados, y escalan al CEO solo cuando es necesario.
-**Current focus:** Phase 4: Leads Agent (Phase 3 complete)
+**Core value:** Inteligencia de leads B2B chilena que ningun competidor internacional puede replicar.
+**Current focus:** Phase 1 (Pipeline de Leads) y Phase 2 (Diseno Dashboard) en paralelo.
 
 ## Current Position
 
-Phase: 4 of 6 (Leads Agent)
-Plan: 3 of 6 in current phase
-Status: Executing
-Last activity: 2026-03-06 — Completed 04-02 (Multi-Source Discovery + Enrichment)
+Phase: 1 of 5 (Pipeline de Leads Activo)
+Plan: Pending planning
+Status: Planning
+Last activity: 2026-03-09 — Strategic pivot completed
 
-Progress: [██████░░░░] 60%
+Progress: [░░░░░░░░░░] 0%
 
-## Performance Metrics
+## Reutilizacion de SAAN v1.0
 
-**Velocity:**
-- Total plans completed: 4
-- Average duration: 5 min
-- Total execution time: 19 min
-
-**By Phase:**
-
-| Phase | Plans | Total | Avg/Plan |
-|-------|-------|-------|----------|
-| 1. Foundation | pre-existing | - | - |
-| 2. HTTP Layer | 1/2 | 7 min | 7 min |
-| 3. Monitor Agent | 2/2 | 7 min | 3.5 min |
-| 4. Leads Agent | 3/6 | 15 min | 5 min |
-
-**Recent Trend:**
-- Last 5 plans: 02-01 (7 min), 03-01 (4 min), 03-02 (3 min), 04-01 (5 min)
-- Trend: Consistent ~5 min per plan
-
-*Updated after each plan completion*
-| Phase 04 P03 | 4 min | 2 tasks | 2 files |
-| Phase 04 P02 | 6min | 4 tasks | 4 files |
+Trabajo completado que se reutiliza directamente:
+- 04-01: Leads schema + CRUD (Convex tables, mutations, dedup)
+- 04-02: Multi-source discovery (Firecrawl search + scrape workflows)
+- 04-03: AI Scoring (Gemini 2.5 Flash Lite scoring workflow)
+- 02-01: Convex HTTP Actions (endpoints para n8n)
+- 03-*: Monitor Agent (health checks — reutilizable como infra)
 
 ## Accumulated Context
 
 ### Decisions
 
-Decisions are logged in PROJECT.md Key Decisions table.
-Recent decisions affecting current work:
-
-- [Roadmap]: Phases 4 (Leads) and 5 (Finance) can run in parallel — no shared dependencies
-- [Roadmap]: Phase 6 combines Learning + Dashboard since both need data from all agents
-- [Research]: Use @google/genai v1.43+ with gemini-2.5-flash-lite (deprecated SDK and 2.0 Flash model avoided)
-- [Research]: n8n orchestrator uses incorrect Convex API path — must fix with HTTP Actions in Phase 2
-- [02-01]: Initialized git repo in SAAN directory for code version control
-- [02-01]: HTTP dispatch pattern: POST /api/call with allowlist + shared-secret auth
-- [02-01]: Circuit breaker pattern: atomic count + insert in single mutation
-- [02-01]: Telegram consolidation: 30-second windows per agent, CRITICAL bypasses
-- [03-01]: Minute-based heuristic for hourly purge (min < 5) since n8n loses state on restart
-- [03-01]: Alert cooldown 2h via agentMemory prevents duplicates after n8n restart
-- [03-01]: Agent down severity: >30 min = CRITICAL, 15-30 min = WARNING
-- [03-02]: Sequential fetch in daily report (n8n lacks native parallel branches in simple chains)
-- [03-02]: Report saved to agentMemory with 90-day TTL for missed-report detection
-- [03-02]: Priority logic: incidents > 0 = normal, otherwise low
-- [04-01]: Lead dedup by email first then empresa for reliable merge
-- [04-01]: Single active ICP enforced at mutation level
-- [04-01]: Default ICP hardcoded as fallback when no DB profile exists
-- [04-01]: Score >= 80 auto-advances status to "scored"
-- [Phase 04]: Gemini 2.5 Flash Lite for bulk scoring (~$0.0002/lead), Claude Sonnet for creative outreach (~$0.01/outreach)
-- [Phase 04]: Memory-before-action pattern: agent fetches previous insights before AI scoring for progressive improvement
-- [Phase 04]: Staggered cron schedules: Firecrawl daily 06:00, PB Mon/Wed/Fri 07:00, SB Tue/Thu 06:30
-- [Phase 04]: PhantomBuster async polling loop (max 10 attempts, 30s) for LinkedIn agent completion
-- [Phase 04]: Minimal enrichment fallback for leads without websiteUrl (marked enriched, not skipped)
-
-### Pending Todos
-
-None yet.
+- [2026-03-09]: Pivote de SAAN a Vertical SaaS B2B Chile
+- [2026-03-09]: Reutilizar 100% de Leads Agent work (04-01, 04-02, 04-03)
+- [2026-03-09]: Dashboard desde cero (no skeleton SAAN)
+- [2026-03-09]: Diseno liderado por usuario (investigacion de mercado)
+- [2026-03-09]: Agentes pospuestos a Horizonte 3 (2027+)
+- [2026-03-09]: Fintechs/bancos pospuestos a Horizonte 2 (Q3-Q4 2026)
+- [2026-03-09]: Fases 1 y 2 paralelas (pipeline + diseno)
 
 ### Blockers/Concerns
 
-- SAAN Convex deployment not yet created (user action: cd SAAN && npm install && npx convex dev)
-- Telegram Bot not yet created via @BotFather (needed for Phase 2)
-- Chilean business directory APIs not yet identified (needed for Phase 4 Leads Agent)
-- Reveniu API endpoint specifics not verified for subscription listing (needed for Phase 5)
+- PhantomBuster necesita configuracion real con Sales Navigator
+- Datos SII: identificar API o scraping method para validacion RUT
+- Clerk Organizations: configurar para multi-tenant
+- Reveniu: verificar API para cobro automatizado
 
 ## Session Continuity
 
-Last session: 2026-03-06T19:00:17.059Z
-Stopped at: Completed 04-02-PLAN.md (Multi-Source Discovery + Enrichment)
+Last session: 2026-03-09
+Stopped at: Strategic pivot — ready to plan Phase 1
 Resume file: None
