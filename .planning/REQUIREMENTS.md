@@ -11,10 +11,10 @@
 ### Pipeline de Leads (Fase 1 — INMEDIATO)
 
 - [ ] **LEAD-01**: PhantomBuster workflow activo: LinkedIn Sales Nav → extraccion de prospectos 3x/semana (L/Mi/Vi 07:00)
-- [ ] **LEAD-02**: Datos extraidos se guardan en Convex tabla `leads` (empresa, contacto, email, LinkedIn URL, industria, tamano)
+- [x] **LEAD-02**: Datos extraidos se guardan en Convex tabla `leads` (empresa, contacto, email, LinkedIn URL, industria, tamano)
 - [ ] **LEAD-03**: Enriquecimiento con Firecrawl: scrape del sitio web del prospecto (descripcion, productos, stack, tamano)
 - [ ] **LEAD-04**: Scoring IA con Gemini: 100 puntos → HOT (80+) / WARM (50-79) / NURTURE (20-49) / SKIP (<20)
-- [ ] **LEAD-05**: Deduplicacion de leads por email/dominio antes de insertar
+- [x] **LEAD-05**: Deduplicacion de leads por email/dominio antes de insertar
 - [ ] **LEAD-06**: Leads HOT generan notificacion al CEO/vendedor via Telegram
 - [ ] **LEAD-07**: ICP (Ideal Customer Profile) configurable por cliente
 - [ ] **LEAD-08**: Exportacion CSV de leads filtrados

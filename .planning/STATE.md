@@ -2,15 +2,15 @@
 gsd_state_version: 1.0
 milestone: v2.0
 milestone_name: Vertical SaaS B2B Chile
-status: planning
-last_updated: "2026-03-09"
-last_activity: 2026-03-09 — Pivote estrategico de SAAN a Vertical SaaS
+status: executing
+last_updated: "2026-03-10"
+last_activity: 2026-03-10 — Completed 01-02 SII enrichment workflow via SimpleAPI
 progress:
   total_phases: 5
   completed_phases: 0
-  total_plans: 0
-  completed_plans: 0
-  percent: 0
+  total_plans: 3
+  completed_plans: 2
+  percent: 13
 ---
 
 # Project State
@@ -25,11 +25,11 @@ See: .planning/PROJECT.md (updated 2026-03-09)
 ## Current Position
 
 Phase: 1 of 5 (Pipeline de Leads Activo)
-Plan: Pending planning
-Status: Planning
-Last activity: 2026-03-09 — Strategic pivot completed
+Plan: 2 of 3 (completed)
+Status: Executing
+Last activity: 2026-03-10 — Completed 01-02 SII enrichment workflow via SimpleAPI
 
-Progress: [░░░░░░░░░░] 0%
+Progress: [█░░░░░░░░░] 13%
 
 ## Reutilizacion de SAAN v1.0
 
@@ -51,16 +51,20 @@ Trabajo completado que se reutiliza directamente:
 - [2026-03-09]: Agentes pospuestos a Horizonte 3 (2027+)
 - [2026-03-09]: Fintechs/bancos pospuestos a Horizonte 2 (Q3-Q4 2026)
 - [2026-03-09]: Fases 1 y 2 paralelas (pipeline + diseno)
+- [2026-03-10]: Dual auth via fallback chain (X-SAAN-Secret || Bearer) en http.ts
+- [2026-03-10]: Todas las funciones leads + ICP agregadas al allowlist de una vez
+- [2026-03-10]: SII enrichment como workflow separado (decoupled de Firecrawl) para rate limits independientes
+- [2026-03-10]: Rate limiting via n8n staticData global counter (10 calls/mes free tier)
 
 ### Blockers/Concerns
 
 - PhantomBuster necesita configuracion real con Sales Navigator
-- Datos SII: identificar API o scraping method para validacion RUT
+- SimpleAPI: verificar formato endpoint y obtener API key antes de activar workflow SII
 - Clerk Organizations: configurar para multi-tenant
 - Reveniu: verificar API para cobro automatizado
 
 ## Session Continuity
 
-Last session: 2026-03-09
-Stopped at: Strategic pivot — ready to plan Phase 1
+Last session: 2026-03-10
+Stopped at: Completed 01-02-PLAN.md (SII enrichment workflow)
 Resume file: None
