@@ -23,6 +23,13 @@ dashboard desde cero, y conseguir los primeros clientes fundadores pagando.
 **Goal**: Los workflows generan leads reales: PhantomBuster extrae de LinkedIn, SII valida empresas, Gemini califica, todo llega a Convex listo para mostrar
 **Depends on**: Nothing (reutiliza trabajo de SAAN v1.0 phases 04-01, 04-02, 04-03)
 **Requirements**: LEAD-01, LEAD-02, LEAD-03, LEAD-04, LEAD-05, LEAD-06
+**Plans:** 3 plans
+
+Plans:
+- [ ] 01-01-PLAN.md — Fix HTTP allowlist + auth header bugs (blocker for all workflows)
+- [ ] 01-02-PLAN.md — SII enrichment workflow via SimpleAPI (datos chilenos)
+- [ ] 01-03-PLAN.md — Scoring auth fix + Telegram HOT notifications + pipeline activation
+
 **Success Criteria**:
   1. PhantomBuster extrae prospectos de LinkedIn Sales Nav 3x/semana y los guarda en Convex
   2. Cada lead se enriquece con datos SII (RUT, rubro, tamano) automaticamente
@@ -82,7 +89,7 @@ Order: 1 || 2 -> 3 -> 4 -> 5
 
 | Phase | Plans | Status | Completed |
 |-------|-------|--------|-----------|
-| 1. Pipeline de Leads | TBD | Not started | - |
+| 1. Pipeline de Leads | 3 plans (2 waves) | Planning complete | - |
 | 2. Diseno Dashboard | TBD | Not started | - |
 | 3. Dashboard Build | TBD | Not started | - |
 | 4. Compliance Ley 21.719 | TBD | Not started | - |
