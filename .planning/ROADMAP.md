@@ -28,20 +28,20 @@ dashboard desde cero, y conseguir los primeros clientes fundadores pagando.
 Plans:
 - [x] 01-01-PLAN.md — Fix HTTP allowlist + auth header bugs (blocker for all workflows)
 - [x] 01-02-PLAN.md — SII enrichment workflow via SimpleAPI (datos chilenos)
-- [ ] 01-03-PLAN.md — Scoring auth fix + Telegram HOT notifications + pipeline activation
+- [ ] 01-03-PLAN.md — Scoring auth fix + Discord HOT notifications + pipeline activation
 
 **Success Criteria**:
   1. PhantomBuster extrae prospectos de LinkedIn Search (gratuito) 3x/semana y los guarda en Convex
   2. Cada lead se enriquece con datos SII (RUT, rubro, tamano) automaticamente
   3. Gemini 2.5 Flash Lite clasifica cada lead en HOT/WARM/NURTURE/SKIP
-  4. Leads HOT generan notificacion (Telegram o email)
+  4. Leads HOT generan notificacion (Discord o email)
   5. El pipeline corre sin intervencion manual por al menos 1 semana
 
 ### Phase 2: Diseno Dashboard (Colaborativo)
 **Goal**: Tener un diseno aprobado del dashboard que refleje el mercado actual de SaaS B2B, listo para construir
 **Depends on**: Nothing (paralelo a Phase 1)
 **Requirements**: DASH-01 a DASH-07 (definicion visual)
-**Plans:** 2 plans
+**Plans:** 1/2 plans executed
 
 Plans:
 - [ ] 02-01-PLAN.md — Design system compartido + mockup vista CEO (KPIs narrativos, funnel, segmentacion)
@@ -93,7 +93,7 @@ Plans:
 Phases 1 y 2 son paralelas. Phase 3 requiere ambas. Phase 4 requiere 1 y 3. Phase 5 requiere 3 y 4.
 Order: 1 || 2 -> 3 -> 4 -> 5
 
-| Phase | Plans | Status | Completed |
+| 1/2 | In Progress|  | Completed |
 |-------|-------|--------|-----------|
 | 1. Pipeline de Leads | 3 plans (2 waves) | 2/3 plans complete | - |
 | 2. Diseno Dashboard | 2 plans (2 waves) | Not started | - |

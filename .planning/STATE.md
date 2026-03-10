@@ -4,13 +4,13 @@ milestone: v2.0
 milestone_name: Vertical SaaS B2B Chile
 status: executing
 last_updated: "2026-03-10"
-last_activity: 2026-03-10 — Completed 01-03 scoring auth fix + HOT notifications + activation checklist
+last_activity: 2026-03-10 — Completed 02-01 design system + CEO mockup — checkpoint:human-verify pending
 progress:
   total_phases: 5
   completed_phases: 1
-  total_plans: 3
+  total_plans: 4
   completed_plans: 3
-  percent: 20
+  percent: 25
 ---
 
 # Project State
@@ -24,12 +24,12 @@ See: .planning/PROJECT.md (updated 2026-03-09)
 
 ## Current Position
 
-Phase: 1 of 5 (Pipeline de Leads Activo) -- COMPLETE (pending human-verify checkpoint)
-Plan: 3 of 3 (completed)
-Status: Checkpoint — awaiting pipeline activation verification
-Last activity: 2026-03-10 — Completed 01-03 scoring auth fix + HOT notifications + activation checklist
+Phase: 2 of 5 (Diseno Dashboard) — EN PROGRESO
+Plan: 1 of ? (02-01 completo — checkpoint:human-verify pendiente)
+Status: Checkpoint — awaiting CEO dashboard visual verification
+Last activity: 2026-03-10 — Completed 02-01 design system + CEO mockup
 
-Progress: [██░░░░░░░░] 20%
+Progress: [███░░░░░░░] 25%
 
 ## Reutilizacion de SAAN v1.0
 
@@ -56,12 +56,15 @@ Trabajo completado que se reutiliza directamente:
 - [2026-03-10]: SII enrichment como workflow separado (decoupled de Firecrawl) para rate limits independientes
 - [2026-03-10]: Rate limiting via n8n staticData global counter (10 calls/mes free tier)
 - [2026-03-10]: All n8n-to-Convex calls standardized on X-SAAN-Secret header (not Authorization Bearer)
-- [2026-03-10]: HOT leads notified via Telegram and moved to outreach_queued to prevent duplicates
+- [2026-03-10]: HOT leads notified via Discord webhook and moved to outreach_queued to prevent duplicates
 - [2026-03-10]: Fixed SAAN_CONVEX_SECRET -> SAAN_API_SECRET for consistency across all workflows
+- [2026-03-10]: Funnel data renderizado via JS desde SISTECO_DATA (no hardcoded) para reutilizacion en Plan 02
+- [2026-03-10]: Command bar suggestions organizadas por rol (ceo/vp/sdr) en interactions.js compartido
+- [2026-03-10]: Nasalization font cargada via ruta relativa desde raiz del proyecto
 
 ### Blockers/Concerns
 
-- PhantomBuster necesita configuracion real con Sales Navigator
+- PhantomBuster configurado con LinkedIn Search gratuito (API key + Agent ID reales). Sales Navigator se agrega cuando haya clientes pagando.
 - SimpleAPI: verificar formato endpoint y obtener API key antes de activar workflow SII
 - Clerk Organizations: configurar para multi-tenant
 - Reveniu: verificar API para cobro automatizado
@@ -69,5 +72,5 @@ Trabajo completado que se reutiliza directamente:
 ## Session Continuity
 
 Last session: 2026-03-10
-Stopped at: Completed 01-03-PLAN.md (scoring auth fix + HOT notifications) — checkpoint:human-verify pending
+Stopped at: Completed 02-01-PLAN.md (design system + CEO mockup) — checkpoint:human-verify pending
 Resume file: None

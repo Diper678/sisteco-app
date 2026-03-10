@@ -10,23 +10,23 @@
 
 ### Pipeline de Leads (Fase 1 — INMEDIATO)
 
-- [x] **LEAD-01**: PhantomBuster workflow activo: LinkedIn Sales Nav → extraccion de prospectos 3x/semana (L/Mi/Vi 07:00)
+- [x] **LEAD-01**: PhantomBuster workflow activo: LinkedIn Search (gratuito) → extraccion de prospectos 3x/semana (L/Mi/Vi 07:00)
 - [x] **LEAD-02**: Datos extraidos se guardan en Convex tabla `leads` (empresa, contacto, email, LinkedIn URL, industria, tamano)
 - [x] **LEAD-03**: Enriquecimiento con Firecrawl: scrape del sitio web del prospecto (descripcion, productos, stack, tamano)
 - [x] **LEAD-04**: Scoring IA con Gemini: 100 puntos → HOT (80+) / WARM (50-79) / NURTURE (20-49) / SKIP (<20)
 - [x] **LEAD-05**: Deduplicacion de leads por email/dominio antes de insertar
-- [x] **LEAD-06**: Leads HOT generan notificacion al CEO/vendedor via Telegram
+- [x] **LEAD-06**: Leads HOT generan notificacion al CEO/vendedor via Discord webhook
 - [ ] **LEAD-07**: ICP (Ideal Customer Profile) configurable por cliente
 - [ ] **LEAD-08**: Exportacion CSV de leads filtrados
 
 ### Dashboard de Clientes (Fase 2)
 
-- [ ] **DASH-01**: Login con Clerk (email + Google OAuth)
+- [x] **DASH-01**: Login con Clerk (email + Google OAuth)
 - [ ] **DASH-02**: Vista de leads con filtros (score, industria, estado, fecha)
-- [ ] **DASH-03**: KPIs principales: leads nuevos, leads HOT, tasa de conversion, pipeline value
+- [x] **DASH-03**: KPIs principales: leads nuevos, leads HOT, tasa de conversion, pipeline value
 - [ ] **DASH-04**: Detalle de lead individual (datos enriquecidos, score breakdown, timeline)
-- [ ] **DASH-05**: Multi-tenant: cada cliente ve solo sus datos
-- [ ] **DASH-06**: Responsive (funciona en movil para vendedores)
+- [x] **DASH-05**: Multi-tenant: cada cliente ve solo sus datos
+- [x] **DASH-06**: Responsive (funciona en movil para vendedores)
 - [ ] **DASH-07**: Dashboard NO usa suscripciones reactivas a tablas completas (optimizar queries)
 
 ### Datos B2B Chile (Fase 3)
@@ -49,7 +49,7 @@
 
 - [x] **INFRA-01**: Convex HTTP Actions para comunicacion n8n ↔ Convex
 - [x] **INFRA-02**: Autenticacion via shared secret
-- [ ] **INFRA-03**: Telegram Bot para alertas al CEO
+- [ ] **INFRA-03**: Discord webhook para alertas al CEO
 - [x] **INFRA-06**: Rate limiting en comunicaciones
 - [x] **INFRA-07**: Circuit breaker para workflows
 
@@ -121,7 +121,7 @@
 | DATA-01 a 05 | Phase 1 (SII basico) + H2 (resto) | Partial |
 | COMP-01 a 05 | Phase 4: Compliance | Pending |
 | INFRA-01,02,06,07 | Reutilizado de SAAN v1.0 | Complete |
-| INFRA-03 | Pospuesto (Telegram alertas) | Pending |
+| INFRA-03 | Pospuesto (Discord alertas) | Pending |
 | PAY-01 a 04 | Phase 5: Onboarding | Pending |
 
 **Coverage:**
