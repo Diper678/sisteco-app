@@ -26,8 +26,8 @@ dashboard desde cero, y conseguir los primeros clientes fundadores pagando.
 **Plans:** 3 plans
 
 Plans:
-- [ ] 01-01-PLAN.md — Fix HTTP allowlist + auth header bugs (blocker for all workflows)
-- [ ] 01-02-PLAN.md — SII enrichment workflow via SimpleAPI (datos chilenos)
+- [x] 01-01-PLAN.md — Fix HTTP allowlist + auth header bugs (blocker for all workflows)
+- [x] 01-02-PLAN.md — SII enrichment workflow via SimpleAPI (datos chilenos)
 - [ ] 01-03-PLAN.md — Scoring auth fix + Telegram HOT notifications + pipeline activation
 
 **Success Criteria**:
@@ -89,7 +89,7 @@ Order: 1 || 2 -> 3 -> 4 -> 5
 
 | Phase | Plans | Status | Completed |
 |-------|-------|--------|-----------|
-| 1. Pipeline de Leads | 3 plans (2 waves) | Planning complete | - |
+| 1. Pipeline de Leads | 3 plans (2 waves) | 2/3 plans complete | - |
 | 2. Diseno Dashboard | TBD | Not started | - |
 | 3. Dashboard Build | TBD | Not started | - |
 | 4. Compliance Ley 21.719 | TBD | Not started | - |

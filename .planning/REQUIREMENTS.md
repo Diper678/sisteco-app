@@ -12,7 +12,7 @@
 
 - [ ] **LEAD-01**: PhantomBuster workflow activo: LinkedIn Sales Nav → extraccion de prospectos 3x/semana (L/Mi/Vi 07:00)
 - [x] **LEAD-02**: Datos extraidos se guardan en Convex tabla `leads` (empresa, contacto, email, LinkedIn URL, industria, tamano)
-- [ ] **LEAD-03**: Enriquecimiento con Firecrawl: scrape del sitio web del prospecto (descripcion, productos, stack, tamano)
+- [x] **LEAD-03**: Enriquecimiento con Firecrawl: scrape del sitio web del prospecto (descripcion, productos, stack, tamano)
 - [ ] **LEAD-04**: Scoring IA con Gemini: 100 puntos → HOT (80+) / WARM (50-79) / NURTURE (20-49) / SKIP (<20)
 - [x] **LEAD-05**: Deduplicacion de leads por email/dominio antes de insertar
 - [ ] **LEAD-06**: Leads HOT generan notificacion al CEO/vendedor via Telegram
