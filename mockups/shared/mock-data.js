@@ -554,6 +554,42 @@ window.SISTECO_DATA = {
     }
   ],
 
+  /* --- Analisis IA por rol (CEO) — respuestas on-demand con insights --- */
+  analysis: {
+    ceo: {
+      funnel: {
+        title: 'Pipeline Funnel',
+        insight: 'De 47 leads nuevos, solo 12 califican como HOT (29%). El cuello de botella esta entre Scored y HOT — la mayoria no cumple el perfil de industria. Tecnologia y Servicios Financieros son los que mejor convierten.',
+        recommendation: 'Ajustar el ICP para priorizar Servicios Financieros medianos. Tienen 25% de conversion vs 14% en Tecnologia y 9% en Manufactura. Mayor ROI por lead.'
+      },
+      kpis: {
+        title: 'Metricas del Mes',
+        insight: 'Pipeline saludable: +15% en volumen y +33% en leads HOT. La tasa de conversion subio 1.2pp gracias a respuestas mas rapidas del equipo. Si se mantiene este ritmo, el cierre proyectado es $3.876.000 CLP este mes.',
+        recommendation: 'Mantener velocidad de contacto. Los leads respondidos en menos de 24h convierten 3x mas que los contactados despues de 48h.'
+      },
+      industria: {
+        title: 'Analisis por Industria',
+        insight: 'Tecnologia lidera con 14 leads (30% del pipeline). Pero Servicios Financieros tiene mejor conversion: 25% vs 14% en Tech. Las empresas medianas (50-199) son el sweet spot — 47% del pipeline y 62% de conversiones.',
+        recommendation: 'Priorizar Servicios Financieros medianos. Son el segmento con mayor ROI por lead. Reducir esfuerzo en Manufactura (9% conversion).'
+      },
+      equipo: {
+        title: 'Rendimiento del Equipo',
+        insight: 'El equipo contacto 8 de 47 leads este mes (17%). Sofia Mendez lidera con 67% de conversion en sus leads. Tiempo promedio de primer contacto: 4.2 horas. Los leads contactados en menos de 2h tienen 3x mas probabilidad de reunion.',
+        recommendation: 'Reducir tiempo de primer contacto a menos de 2h para leads HOT. Asignar mas leads HOT a Sofia Mendez — tiene la mayor tasa de conversion del equipo.'
+      },
+      comparar: {
+        title: 'Comparativa Mensual',
+        insight: 'Marzo vs Febrero: +15% volumen (47 vs 41 leads), +33% leads HOT (12 vs 9), +1.2pp conversion (8.5% vs 7.3%). El cambio a LinkedIn Search esta generando mejor volumen sin reducir la calidad de los HOT.',
+        recommendation: 'Seguir con LinkedIn Search + filtro de scoring agresivo. El volumen compensa la menor calidad promedio porque los leads HOT mantienen la misma calidad que antes.'
+      },
+      hot: {
+        title: 'Leads HOT Ahora',
+        insight: '12 leads clasificados como HOT este mes. 6 sin contactar todavia — 3 llevan mas de 48 horas esperando primer contacto. Cada hora de demora reduce 15% la probabilidad de respuesta.',
+        recommendation: 'Contactar hoy: Ignacio Valenzuela (BioAndes, score 79), Camila Soto (Logistica Pacifico, score 68), y Sebastian Herrera (Distribuidora Central, score 73). Asignar a Sofia Mendez.'
+      }
+    }
+  },
+
   /* --- To-do list del SDR (Sofia Mendez) --- */
   sdrTodos: [
     {

@@ -3,72 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sisteco — Dashboard CEO</title>
+  <title>Sisteco — Workspace Ejecutivo CEO</title>
   <link rel="stylesheet" href="shared/styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    /* Page-specific overrides */
-    .kpi-value-display {
-      font-family: var(--font-heading);
-      font-size: var(--text-4xl);
-      font-weight: 700;
-      letter-spacing: var(--tracking-tight);
-      color: var(--text-primary);
-      line-height: 1;
+    /* Page-specific: wider command bar for this view */
+    .command-bar-wrapper {
+      max-width: 680px;
+      margin: 0 auto var(--space-2);
+      padding: 0 var(--space-8);
     }
-    .funnel-bars-container {
-      display: flex;
-      align-items: flex-end;
-      gap: 8px;
-      height: 180px;
-      padding: 0 0 var(--space-2);
-    }
-    .funnel-step-wrapper {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      height: 100%;
-      gap: var(--space-2);
-    }
-    .funnel-step-top {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2px;
-      flex: 1;
-      justify-content: flex-end;
-    }
-    .funnel-step-name {
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--text-secondary);
-      text-align: center;
-      line-height: 1.2;
-      max-width: 72px;
-    }
-    .funnel-bar-visual {
-      width: 100%;
-      border-radius: 6px 6px 0 0;
-      min-height: 6px;
-    }
-    .funnel-step-bottom {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1px;
-      padding-top: 4px;
-    }
-    .funnel-num {
-      font-family: var(--font-heading);
-      font-size: var(--text-base);
-      font-weight: 700;
-      color: var(--text-primary);
-    }
-    .funnel-pct {
-      font-size: var(--text-xs);
-      color: var(--text-secondary);
-    }
+
+    /* Wide label for industry chart */
     .chart-h-label-wide {
       width: 180px;
       font-size: var(--text-sm);
@@ -78,18 +24,55 @@
       overflow: hidden;
       text-overflow: ellipsis;
     }
+
+    /* Empty state hint when no content loaded */
+    .content-empty-hint {
+      text-align: center;
+      padding: var(--space-8) var(--space-4);
+      color: var(--text-muted);
+      font-size: var(--text-sm);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-3);
+    }
+
+    .content-empty-hint svg,
+    .content-empty-hint [data-lucide] {
+      width: 32px;
+      height: 32px;
+      opacity: 0.3;
+    }
+
+    .content-empty-hint p {
+      max-width: 320px;
+      line-height: var(--leading-normal);
+    }
+
+    /* KPI grid inside content block */
+    .content-block .kpi-grid {
+      margin-bottom: var(--space-4);
+    }
+
+    /* Mobile: funnel responsive inside blocks */
     @media (max-width: 768px) {
+      .command-bar-wrapper {
+        padding: 0 var(--space-4);
+      }
+
       .funnel-bars-container {
         flex-direction: column;
         height: auto;
         align-items: stretch;
         gap: var(--space-2);
       }
+
       .funnel-step-wrapper {
         flex-direction: row;
         height: 40px;
         gap: var(--space-3);
       }
+
       .funnel-step-top {
         flex: none;
         width: 110px;
@@ -97,23 +80,33 @@
         align-items: center;
         justify-content: flex-start;
       }
+
       .funnel-step-name {
         max-width: 80px;
         text-align: left;
       }
+
       .funnel-bar-visual {
         flex: 1;
-        height: 28px;
+        height: 28px !important;
         border-radius: var(--radius-sm);
       }
+
       .funnel-step-bottom {
         flex-direction: row;
         gap: var(--space-2);
         width: 60px;
         justify-content: flex-end;
       }
+
       .chart-h-label-wide {
         width: 120px;
+        font-size: var(--text-xs);
+      }
+
+      .comparison-header,
+      .comparison-row {
+        grid-template-columns: 1fr 72px 72px 80px;
         font-size: var(--text-xs);
       }
     }
@@ -131,8 +124,8 @@
 
     <!-- Navigation items -->
     <nav class="sidebar-nav">
-      <button class="sidebar-nav-item active" title="Overview" aria-label="Overview">
-        <i data-lucide="layout-dashboard"></i>
+      <button class="sidebar-nav-item active" title="Workspace" aria-label="Workspace">
+        <i data-lucide="terminal"></i>
       </button>
       <button class="sidebar-nav-item" title="Leads" aria-label="Leads">
         <i data-lucide="users"></i>
@@ -168,17 +161,17 @@
          ------------------------------------------------------------------ -->
     <header class="topbar" role="banner">
 
-      <!-- Left: page title + subtitle -->
+      <!-- Left: app name -->
       <div class="topbar-left">
-        <h1 class="topbar-title">Dashboard</h1>
-        <span class="topbar-subtitle">Vista ejecutiva</span>
+        <h1 class="topbar-title">Sisteco</h1>
+        <span class="topbar-subtitle">Inteligencia de ventas</span>
       </div>
 
       <!-- Center: org badge -->
       <div class="topbar-center">
         <div class="org-badge" title="Organizacion activa" aria-label="Organizacion: TechCorp Chile SpA">
           <i data-lucide="building-2"></i>
-          <span id="org-name">TechCorp Chile SpA</span>
+          <span>TechCorp Chile SpA</span>
         </div>
       </div>
 
@@ -201,21 +194,31 @@
     </header>
 
     <!-- ------------------------------------------------------------------
-         COMMAND BAR (central element — the differentiator)
+         HERO SECTION — greeting, centered, clean
          ------------------------------------------------------------------ -->
-    <section class="command-bar-wrapper" aria-label="Barra de comandos inteligente">
+    <section aria-label="Bienvenida" style="padding: 0 var(--space-8);">
+      <div class="hero-section">
+        <h2 class="hero-greeting">Buenos dias, Maria</h2>
+        <p class="hero-subtitle">¿Que quieres saber de tu pipeline?</p>
+      </div>
+    </section>
+
+    <!-- ------------------------------------------------------------------
+         COMMAND BAR — prominently centered
+         ------------------------------------------------------------------ -->
+    <section class="command-bar-wrapper" aria-label="Barra de consultas inteligente">
       <div class="command-bar" role="search">
 
         <!-- Input wrapper -->
         <div class="command-input-wrapper">
           <span class="command-icon" aria-hidden="true">
-            <i data-lucide="terminal"></i>
+            <i data-lucide="search"></i>
           </span>
           <input
             type="text"
             class="command-input"
-            placeholder="Que quieres ver? Ej: como va mi funnel, leads HOT, rendimiento del equipo"
-            aria-label="Consulta inteligente del dashboard"
+            placeholder="Pregunta sobre tus leads, pipeline o equipo..."
+            aria-label="Consulta inteligente del workspace"
             autocomplete="off"
           />
           <button class="btn-command-send" aria-label="Enviar consulta">
@@ -223,97 +226,39 @@
           </button>
         </div>
 
-        <!-- Suggestions dropdown (hidden by default) -->
-        <div class="command-suggestions" id="ceo-suggestions" role="listbox" aria-label="Consultas sugeridas">
+        <!-- Autocomplete suggestions dropdown (hidden by default) -->
+        <div class="command-suggestions" role="listbox" aria-label="Consultas frecuentes">
           <div class="command-suggestions-header">Consultas frecuentes</div>
           <div class="command-suggestions-body"></div>
         </div>
-
-        <!-- Inline result -->
-        <div class="command-result" id="command-result" role="region" aria-live="polite" aria-label="Resultado de consulta"></div>
 
       </div>
     </section>
 
     <!-- ------------------------------------------------------------------
-         CONTENT AREA
+         QUERY BUTTONS — 6 cards, 3 columns, load content on click
          ------------------------------------------------------------------ -->
-    <div class="content-area">
+    <section class="query-buttons-wrapper" aria-label="Consultas rapidas">
+      <div class="query-buttons-label">Accesos rapidos</div>
+      <div id="query-buttons" role="list" aria-label="Botones de consulta rapida">
+        <!-- Rendered by interactions.js → initQueryButtons('ceo') -->
+      </div>
+    </section>
 
-      <!-- ---------------------------------------------------------------
-           KPI CARDS (4 — la narrativa es el diferenciador vs Apollo)
-           --------------------------------------------------------------- -->
-      <section aria-label="KPIs ejecutivos" style="margin-bottom: var(--space-8);">
-        <div class="kpi-grid" id="kpi-grid">
-          <!-- Cards rendered by JS below -->
-        </div>
-      </section>
+    <!-- ------------------------------------------------------------------
+         CONTENT AREA — empty on load, blocks appear on demand
+         ------------------------------------------------------------------ -->
+    <section class="content-area-wrapper" aria-label="Resultados">
+      <div id="content-area" aria-live="polite" aria-label="Contenido cargado">
 
-      <!-- ---------------------------------------------------------------
-           FUNNEL DE CONVERSION
-           --------------------------------------------------------------- -->
-      <section class="funnel-section" aria-label="Funnel de conversion">
-
-        <div class="section-header">
-          <span class="section-header-icon" aria-hidden="true"><i data-lucide="git-branch"></i></span>
-          <h2 class="section-header-title">Pipeline Funnel</h2>
-          <div class="section-header-line"></div>
+        <!-- Empty state hint — visible before any query is clicked -->
+        <div class="content-empty-hint" id="empty-hint">
+          <i data-lucide="sparkles"></i>
+          <p>Selecciona una consulta rapida arriba o escribe tu pregunta en la barra de busqueda para ver el analisis.</p>
         </div>
 
-        <div class="card" style="padding: var(--space-6);">
-          <!-- Funnel bars -->
-          <div class="funnel-bars-container" id="funnel-container" role="img" aria-label="Grafico de funnel de conversion">
-            <!-- Rendered by JS -->
-          </div>
-
-          <!-- Funnel narrative -->
-          <div class="funnel-narrative" id="funnel-narrative">
-            <!-- Rendered by JS -->
-          </div>
-        </div>
-
-      </section>
-
-      <!-- ---------------------------------------------------------------
-           SEGMENTACION DE LEADS
-           --------------------------------------------------------------- -->
-      <section class="segmentation-section" aria-label="Distribucion de leads">
-
-        <div class="section-header">
-          <span class="section-header-icon" aria-hidden="true"><i data-lucide="pie-chart"></i></span>
-          <h2 class="section-header-title">Distribucion de Leads</h2>
-          <div class="section-header-line"></div>
-        </div>
-
-        <!-- Industry + Size -->
-        <div class="segmentation-grid" style="margin-bottom: var(--space-4);">
-
-          <!-- Por Industria CIIU -->
-          <div class="chart-card">
-            <div class="chart-card-title">Por Industria CIIU</div>
-            <div class="chart-bar-h" id="chart-industria">
-              <!-- Rendered by JS -->
-            </div>
-          </div>
-
-          <!-- Por Tamano Empresa -->
-          <div class="chart-card">
-            <div class="chart-card-title">Por Tamano Empresa</div>
-            <div class="chart-bar-h" id="chart-tamano">
-              <!-- Rendered by JS -->
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Por Ciudad (pills) -->
-        <div class="city-pills" id="city-pills" role="list" aria-label="Leads por ciudad">
-          <!-- Rendered by JS -->
-        </div>
-
-      </section>
-
-    </div><!-- /content-area -->
+      </div>
+    </section>
 
     <!-- ------------------------------------------------------------------
          FOOTER
@@ -332,208 +277,31 @@
   <script src="shared/mock-data.js"></script>
   <script src="shared/interactions.js"></script>
 
-  <!-- Page-specific rendering -->
+  <!-- Page-specific: hide empty hint when first content block is added -->
   <script>
   (function() {
     'use strict';
 
-    var D = window.SISTECO_DATA;
+    /* Remove empty hint as soon as any content block is added */
+    var contentArea = document.getElementById('content-area');
+    var emptyHint = document.getElementById('empty-hint');
 
-    /* ----------------------------------------------------------------
-       Helper: escape HTML
-       ---------------------------------------------------------------- */
-    function esc(str) {
-      return String(str)
-        .replace(/&/g,'&amp;')
-        .replace(/</g,'&lt;')
-        .replace(/>/g,'&gt;')
-        .replace(/"/g,'&quot;');
-    }
-
-    /* ----------------------------------------------------------------
-       Render KPI Cards
-       ---------------------------------------------------------------- */
-    function renderKPICards() {
-      var grid = document.getElementById('kpi-grid');
-      if (!grid || !D) return;
-
-      var kpis = D.kpis.ceo;
-
-      var cards = [
-        {
-          icon: 'users',
-          label: 'Leads Nuevos',
-          value: kpis.leads_nuevos.valor,
-          displayValue: String(kpis.leads_nuevos.valor),
-          type: 'int',
-          delta: kpis.leads_nuevos.delta,
-          positive: kpis.leads_nuevos.positivo,
-          narrativa: kpis.leads_nuevos.narrativa
-        },
-        {
-          icon: 'flame',
-          label: 'Leads HOT',
-          value: kpis.leads_hot.valor,
-          displayValue: String(kpis.leads_hot.valor),
-          type: 'int',
-          delta: kpis.leads_hot.delta,
-          positive: kpis.leads_hot.positivo,
-          narrativa: kpis.leads_hot.narrativa
-        },
-        {
-          icon: 'trending-up',
-          label: 'Tasa Conversion',
-          value: 8.5,
-          displayValue: '8.5%',
-          type: 'percent',
-          delta: kpis.tasa_conversion.delta,
-          positive: kpis.tasa_conversion.positivo,
-          narrativa: kpis.tasa_conversion.narrativa
-        },
-        {
-          icon: 'banknote',
-          label: 'Pipeline Value',
-          value: kpis.pipeline_value.valor,
-          displayValue: window.formatCLP ? window.formatCLP(kpis.pipeline_value.valor) : '$45.600.000',
-          type: 'currency',
-          delta: kpis.pipeline_value.delta,
-          positive: kpis.pipeline_value.positivo,
-          narrativa: kpis.pipeline_value.narrativa
+    if (contentArea && emptyHint) {
+      var observer = new MutationObserver(function(mutations) {
+        var hasBlocks = contentArea.querySelector('.content-block');
+        if (hasBlocks) {
+          if (emptyHint.parentNode) {
+            emptyHint.style.display = 'none';
+          }
+        } else {
+          if (emptyHint.parentNode) {
+            emptyHint.style.display = '';
+          }
         }
-      ];
+      });
 
-      grid.innerHTML = cards.map(function(c, idx) {
-        var deltaClass = c.positive ? 'positive' : 'negative';
-        var deltaIcon = c.positive ? 'trending-up' : 'trending-down';
-
-        return '<article class="card-kpi" aria-label="' + esc(c.label) + '">' +
-          '<div class="card-kpi-header">' +
-            '<div class="card-kpi-label">' + esc(c.label) + '</div>' +
-            '<div class="card-kpi-icon" aria-hidden="true"><i data-lucide="' + esc(c.icon) + '"></i></div>' +
-          '</div>' +
-          '<div class="kpi-value-display" id="kpi-val-' + idx + '">' + esc(c.displayValue) + '</div>' +
-          '<div class="card-kpi-footer">' +
-            '<span class="card-kpi-delta ' + deltaClass + '">' +
-              '<i data-lucide="' + deltaIcon + '"></i>' +
-              esc(c.delta) +
-            '</span>' +
-            '<span style="font-size:0.75rem;color:var(--text-muted);">vs mes anterior</span>' +
-          '</div>' +
-          '<p class="narrative">' + esc(c.narrativa) + '</p>' +
-        '</article>';
-      }).join('');
+      observer.observe(contentArea, { childList: true });
     }
-
-    /* ----------------------------------------------------------------
-       Render Funnel
-       ---------------------------------------------------------------- */
-    function renderFunnel() {
-      var container = document.getElementById('funnel-container');
-      var narrativeEl = document.getElementById('funnel-narrative');
-      if (!container || !D) return;
-
-      var f = D.funnel;
-      var steps = [
-        { key: 'nuevos', label: f.nuevos.label, valor: f.nuevos.valor, pct: null },
-        { key: 'enriquecidos_sii', label: f.enriquecidos_sii.label, valor: f.enriquecidos_sii.valor, pct: f.enriquecidos_sii.pct_prev },
-        { key: 'scored', label: f.scored.label, valor: f.scored.valor, pct: f.scored.pct_prev },
-        { key: 'hot', label: f.hot.label, valor: f.hot.valor, pct: f.hot.pct_prev },
-        { key: 'contactados', label: f.contactados.label, valor: f.contactados.valor, pct: f.contactados.pct_prev },
-        { key: 'convertidos', label: f.convertidos.label, valor: f.convertidos.valor, pct: f.convertidos.pct_prev }
-      ];
-
-      var maxValor = steps[0].valor;
-      var barColors = ['#c5ed36', '#a8d930', '#8cc52a', '#5dab1a', '#39900e', '#22c55e'];
-
-      container.innerHTML = steps.map(function(step, idx) {
-        var heightPct = Math.max(8, Math.round((step.valor / maxValor) * 100));
-        var pctDisplay = step.pct !== null ? step.pct + '%' : '100%';
-
-        return '<div class="funnel-step-wrapper">' +
-          '<div class="funnel-step-top">' +
-            '<div class="funnel-step-name">' + esc(step.label) + '</div>' +
-            '<div class="funnel-bar-visual" style="height:' + heightPct + '%;background:' + barColors[idx] + ';"></div>' +
-          '</div>' +
-          '<div class="funnel-step-bottom">' +
-            '<div class="funnel-num">' + step.valor + '</div>' +
-            '<div class="funnel-pct">' + pctDisplay + '</div>' +
-          '</div>' +
-        '</div>';
-      }).join('');
-
-      // Funnel narrative
-      if (narrativeEl) {
-        narrativeEl.innerHTML = 'De <strong>47 leads</strong>, <strong>4 se convirtieron en clientes</strong> (8.5%). ' +
-          'El cuello de botella esta entre <strong>Scored y HOT</strong> — solo el 29% califican. ' +
-          'Mejorar los criterios de scoring o aumentar el volumen de leads puede elevar este numero.';
-      }
-    }
-
-    /* ----------------------------------------------------------------
-       Render Segmentation Charts
-       ---------------------------------------------------------------- */
-    function renderSegmentation() {
-      if (!D) return;
-
-      var maxIndustria = D.segmentation.industria[0].valor;
-      var maxTamano = D.segmentation.tamano[0].valor;
-
-      // By industry
-      var industriaEl = document.getElementById('chart-industria');
-      if (industriaEl) {
-        industriaEl.innerHTML = D.segmentation.industria.map(function(item) {
-          var pct = Math.round((item.valor / maxIndustria) * 100);
-          return '<div class="chart-bar-h-item">' +
-            '<div class="chart-h-label-wide">' + esc(item.label) + '</div>' +
-            '<div class="chart-bar-h-track">' +
-              '<div class="chart-bar-h-fill" style="width:' + pct + '%;"></div>' +
-            '</div>' +
-            '<div class="chart-bar-h-value">' + item.valor + '</div>' +
-          '</div>';
-        }).join('');
-      }
-
-      // By size
-      var tamanoEl = document.getElementById('chart-tamano');
-      if (tamanoEl) {
-        tamanoEl.innerHTML = D.segmentation.tamano.map(function(item) {
-          var pct = Math.round((item.valor / maxTamano) * 100);
-          return '<div class="chart-bar-h-item">' +
-            '<div class="chart-bar-h-label">' + esc(item.label) + '</div>' +
-            '<div class="chart-bar-h-track">' +
-              '<div class="chart-bar-h-fill" style="width:' + pct + '%;background:var(--chart-blue);"></div>' +
-            '</div>' +
-            '<div class="chart-bar-h-value">' + item.valor + '</div>' +
-          '</div>';
-        }).join('');
-      }
-
-      // By city (pills)
-      var cityEl = document.getElementById('city-pills');
-      if (cityEl) {
-        cityEl.innerHTML = D.segmentation.ciudad.map(function(item) {
-          return '<div class="city-pill" role="listitem">' +
-            '<span>' + esc(item.label) + '</span>' +
-            '<span class="city-pill-count">' + item.valor + '</span>' +
-          '</div>';
-        }).join('');
-      }
-    }
-
-    /* ----------------------------------------------------------------
-       Init on DOM ready
-       ---------------------------------------------------------------- */
-    document.addEventListener('DOMContentLoaded', function() {
-      // Render dynamic content
-      renderKPICards();
-      renderFunnel();
-      renderSegmentation();
-
-      // Re-init Lucide after dynamic render
-      if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
-      }
-    });
 
   })();
   </script>
