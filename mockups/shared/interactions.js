@@ -332,93 +332,249 @@ contentBuilders.ceo.hot = function() {
 };
 
 /* =============================================================================
-   5. LOAD CONTENT — on-demand block insertion
+   5. LOAD CONTENT — on-demand block insertion (ONE at a time)
    ============================================================================= */
+
+/* Track currently active query id */
+var currentActiveQueryId = null;
 
 function loadContent(queryId, role, queryLabel) {
   var contentArea = document.getElementById('content-area');
   if (!contentArea) return;
 
-  /* Check if already loaded — if so, scroll to it */
-  var existing = document.getElementById('block-' + queryId);
-  if (existing) {
-    existing.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    /* Flash it */
-    if (typeof gsap !== 'undefined') {
-      gsap.fromTo(existing, { boxShadow: '0 0 0 3px var(--accent)' }, { boxShadow: '0 0 0 0px transparent', duration: 0.8, ease: 'power2.out' });
+  /* If same block is already showing, do nothing (already active) */
+  if (currentActiveQueryId === queryId) {
+    var existingBlock = document.getElementById('block-' + queryId);
+    if (existingBlock) {
+      existingBlock.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      return;
     }
-    return;
   }
 
-  /* Get content builder */
-  var builder = contentBuilders[role] && contentBuilders[role][queryId];
-  var innerHtml = '';
+  /* Build and insert new block (after removing old one) */
+  function insertNewBlock() {
+    currentActiveQueryId = queryId;
 
-  if (builder) {
-    innerHtml = builder();
+    /* Get content builder */
+    var builder = contentBuilders[role] && contentBuilders[role][queryId];
+    var innerHtml = '';
+
+    if (builder) {
+      innerHtml = builder();
+    } else {
+      innerHtml = '<p style="color:var(--text-secondary);padding:var(--space-4) 0;">Contenido para "' + esc(queryLabel) + '" disponible en la version de produccion.</p>';
+    }
+
+    /* Build block */
+    var block = document.createElement('div');
+    block.className = 'content-block';
+    block.id = 'block-' + queryId;
+    block.setAttribute('role', 'region');
+    block.setAttribute('aria-label', queryLabel);
+
+    block.innerHTML = '<div class="content-block-header">' +
+      '<h2 class="content-block-title">' + esc(queryLabel) + '</h2>' +
+      '<button class="content-block-close" aria-label="Cerrar ' + esc(queryLabel) + '" data-block-id="' + queryId + '">' +
+        '<i data-lucide="x"></i>' +
+      '</button>' +
+    '</div>' +
+    '<div class="content-block-body">' + innerHtml + '</div>';
+
+    contentArea.appendChild(block);
+
+    /* Close button handler */
+    block.querySelector('.content-block-close').addEventListener('click', function() {
+      currentActiveQueryId = null;
+      /* Deactivate all query buttons */
+      document.querySelectorAll('.query-btn').forEach(function(b) { b.classList.remove('active'); });
+      animateBlockOut(block);
+    });
+
+    /* Init lucide + animate */
+    initLucide();
+    animateBlockIn(block);
+
+    /* Animate chart bars if present */
+    if (typeof gsap !== 'undefined') {
+      var bars = block.querySelectorAll('.chart-bar-h-fill');
+      bars.forEach(function(bar) {
+        var targetWidth = bar.style.width;
+        bar.style.width = '0%';
+        gsap.to(bar, { width: targetWidth, duration: 0.8, ease: 'power3.out', delay: 0.3 });
+      });
+
+      /* Animate funnel bars height */
+      var funnelBars = block.querySelectorAll('.funnel-bar-visual');
+      funnelBars.forEach(function(bar) {
+        var targetH = bar.style.height;
+        bar.style.height = '0%';
+        gsap.to(bar, { height: targetH, duration: 0.7, ease: 'power3.out', delay: 0.2 });
+      });
+    }
+
+    block.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  /* Remove any existing content blocks first, then insert new one */
+  var existingBlocks = contentArea.querySelectorAll('.content-block, .ai-response-block');
+  if (existingBlocks.length > 0) {
+    var blocksArray = Array.prototype.slice.call(existingBlocks);
+    var removed = 0;
+    blocksArray.forEach(function(existingBlock) {
+      animateBlockOut(existingBlock, function() {
+        removed++;
+        if (removed === blocksArray.length) {
+          insertNewBlock();
+        }
+      });
+    });
   } else {
-    /* Fallback for roles without specific builder */
-    innerHtml = '<p style="color:var(--text-secondary);padding:var(--space-4) 0;">Contenido para "' + esc(queryLabel) + '" disponible en la version de produccion.</p>';
+    insertNewBlock();
   }
+}
 
-  /* Build block */
-  var block = document.createElement('div');
-  block.className = 'content-block';
-  block.id = 'block-' + queryId;
-  block.setAttribute('role', 'region');
-  block.setAttribute('aria-label', queryLabel);
+/* =============================================================================
+   5b. CONVERSATIONAL AI RESPONSE — format markdown-like text
+   ============================================================================= */
 
-  block.innerHTML = '<div class="content-block-header">' +
-    '<h2 class="content-block-title">' + esc(queryLabel) + '</h2>' +
-    '<button class="content-block-close" aria-label="Cerrar ' + esc(queryLabel) + '" data-block-id="' + queryId + '">' +
-      '<i data-lucide="x"></i>' +
-    '</button>' +
-  '</div>' +
-  '<div class="content-block-body">' + innerHtml + '</div>';
+function formatConversationResponse(text) {
+  /* Convert **bold** to <strong> */
+  text = text.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
 
-  contentArea.appendChild(block);
+  /* Split by newline and build paragraphs / lists */
+  var lines = text.split('\n');
+  var html = '';
+  var inList = false;
 
-  /* Close button handler */
-  block.querySelector('.content-block-close').addEventListener('click', function() {
-    animateBlockOut(block);
-    /* Re-activate the query button */
-    var btn = document.querySelector('.query-btn[data-query-id="' + queryId + '"]');
-    if (btn) btn.classList.remove('active');
+  lines.forEach(function(line) {
+    line = line.trim();
+    if (!line) {
+      if (inList) { html += '</ul>'; inList = false; }
+      return;
+    }
+    /* Numbered list item: 1. 2. 3. */
+    if (/^\d+\.\s/.test(line)) {
+      if (!inList) { html += '<ul class="ai-response-list">'; inList = true; }
+      html += '<li>' + line.replace(/^\d+\.\s/, '') + '</li>';
+    } else {
+      if (inList) { html += '</ul>'; inList = false; }
+      html += '<p>' + line + '</p>';
+    }
   });
 
-  /* Init lucide + animate */
-  initLucide();
-  animateBlockIn(block);
+  if (inList) html += '</ul>';
+  return html;
+}
 
-  /* Animate chart bars if present */
-  if (typeof gsap !== 'undefined') {
-    var bars = block.querySelectorAll('.chart-bar-h-fill');
-    bars.forEach(function(bar) {
-      var targetWidth = bar.style.width;
-      bar.style.width = '0%';
-      gsap.to(bar, {
-        width: targetWidth,
-        duration: 0.8,
-        ease: 'power3.out',
-        delay: 0.3
-      });
+function showAIResponse(query, responseText, type) {
+  var contentArea = document.getElementById('content-area');
+  if (!contentArea) return;
+
+  /* Deactivate all query buttons */
+  document.querySelectorAll('.query-btn').forEach(function(b) { b.classList.remove('active'); });
+  currentActiveQueryId = null;
+
+  function insertAIBlock() {
+    var typeLabels = { recommendation: 'Recomendacion', analysis: 'Analisis', summary: 'Resumen Ejecutivo' };
+    var typeLabel = typeLabels[type] || 'Respuesta';
+
+    var block = document.createElement('div');
+    block.className = 'ai-response-block';
+    block.setAttribute('role', 'region');
+    block.setAttribute('aria-label', 'Respuesta del asistente');
+
+    block.innerHTML =
+      '<div class="ai-response-header">' +
+        '<div class="ai-response-avatar" aria-hidden="true"><i data-lucide="sparkles"></i></div>' +
+        '<div class="ai-response-meta">' +
+          '<span class="ai-response-label">' + esc(typeLabel) + '</span>' +
+          '<span class="ai-response-query">"' + esc(query) + '"</span>' +
+        '</div>' +
+        '<button class="content-block-close ai-response-close" aria-label="Cerrar respuesta">' +
+          '<i data-lucide="x"></i>' +
+        '</button>' +
+      '</div>' +
+      '<div class="ai-response-message">' + formatConversationResponse(responseText) + '</div>';
+
+    contentArea.appendChild(block);
+
+    block.querySelector('.ai-response-close').addEventListener('click', function() {
+      animateBlockOut(block);
     });
 
-    /* Animate funnel bars height */
-    var funnelBars = block.querySelectorAll('.funnel-bar-visual');
-    funnelBars.forEach(function(bar) {
-      var targetH = bar.style.height;
-      bar.style.height = '0%';
-      gsap.to(bar, {
-        height: targetH,
-        duration: 0.7,
-        ease: 'power3.out',
-        delay: 0.2
+    initLucide();
+    animateBlockIn(block);
+    block.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  /* Remove any existing content blocks */
+  var existingBlocks = contentArea.querySelectorAll('.content-block, .ai-response-block');
+  if (existingBlocks.length > 0) {
+    var blocksArray = Array.prototype.slice.call(existingBlocks);
+    var removed = 0;
+    blocksArray.forEach(function(existingBlock) {
+      animateBlockOut(existingBlock, function() {
+        removed++;
+        if (removed === blocksArray.length) {
+          insertAIBlock();
+        }
       });
+    });
+  } else {
+    insertAIBlock();
+  }
+}
+
+function showNoMatchResponse(query) {
+  var contentArea = document.getElementById('content-area');
+  if (!contentArea) return;
+
+  function insertNoMatchBlock() {
+    var block = document.createElement('div');
+    block.className = 'ai-response-block ai-response-nomatch';
+    block.setAttribute('role', 'region');
+
+    block.innerHTML =
+      '<div class="ai-response-header">' +
+        '<div class="ai-response-avatar" aria-hidden="true"><i data-lucide="help-circle"></i></div>' +
+        '<div class="ai-response-meta">' +
+          '<span class="ai-response-label">Sin resultados</span>' +
+          '<span class="ai-response-query">"' + esc(query) + '"</span>' +
+        '</div>' +
+        '<button class="content-block-close ai-response-close" aria-label="Cerrar">' +
+          '<i data-lucide="x"></i>' +
+        '</button>' +
+      '</div>' +
+      '<div class="ai-response-message">' +
+        '<p>No tengo informacion sobre eso todavia. Prueba con una de las consultas sugeridas abajo o reformula tu pregunta.</p>' +
+      '</div>';
+
+    contentArea.appendChild(block);
+    block.querySelector('.ai-response-close').addEventListener('click', function() { animateBlockOut(block); });
+    initLucide();
+    animateBlockIn(block);
+
+    /* Highlight query buttons to guide user */
+    var allBtns = document.querySelectorAll('.query-btn');
+    allBtns.forEach(function(btn) {
+      btn.style.borderColor = 'var(--accent)';
+      setTimeout(function() { btn.style.borderColor = ''; }, 2000);
     });
   }
 
-  block.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  var existingBlocks = contentArea.querySelectorAll('.content-block, .ai-response-block');
+  if (existingBlocks.length > 0) {
+    var blocksArray = Array.prototype.slice.call(existingBlocks);
+    var removed = 0;
+    blocksArray.forEach(function(existingBlock) {
+      animateBlockOut(existingBlock, function() {
+        removed++;
+        if (removed === blocksArray.length) { insertNoMatchBlock(); }
+      });
+    });
+  } else {
+    insertNoMatchBlock();
+  }
 }
 
 /* =============================================================================
@@ -441,19 +597,24 @@ function initQueryButtons(role) {
     '</button>';
   }).join('');
 
-  /* Wire click handlers */
+  /* Wire click handlers — ONE content at a time */
   container.querySelectorAll('.query-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
       var qId = btn.dataset.queryId;
       var qLabel = btn.dataset.queryLabel;
-      btn.classList.toggle('active');
 
-      /* If deactivating, close block */
-      if (!btn.classList.contains('active')) {
+      /* If this button is already active, deactivate and close */
+      if (btn.classList.contains('active')) {
+        btn.classList.remove('active');
+        currentActiveQueryId = null;
         var block = document.getElementById('block-' + qId);
         if (block) animateBlockOut(block);
         return;
       }
+
+      /* Deactivate all other buttons — only one can be active */
+      container.querySelectorAll('.query-btn').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
 
       loadContent(qId, role, qLabel);
     });
@@ -537,7 +698,7 @@ function initCommandBar(role) {
     }
   });
 
-  /* Enter key: trigger first matching query */
+  /* Enter key: trigger matching query OR conversational AI */
   input.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
       if (suggestionsEl) suggestionsEl.classList.remove('visible');
@@ -549,21 +710,59 @@ function initCommandBar(role) {
       var val = input.value.trim();
       if (!val) return;
 
-      /* Find first matching button */
+      input.value = '';
+      filterQueryButtons('');
+      if (suggestionsEl) suggestionsEl.classList.remove('visible');
+
+      /* 1. Try to match a query button first */
       var match = buttons.find(function(b) {
         return b.label.toLowerCase().includes(val.toLowerCase());
       });
       if (match) {
-        input.value = '';
-        filterQueryButtons('');
-        if (suggestionsEl) suggestionsEl.classList.remove('visible');
-        /* Activate button */
-        var btn = document.querySelector('.query-btn[data-query-id="' + match.id + '"]');
-        if (btn) {
-          btn.classList.add('active');
-          loadContent(match.id, currentRole, match.label);
+        /* Deactivate all, activate matched */
+        document.querySelectorAll('.query-btn').forEach(function(b) { b.classList.remove('active'); });
+        var matchBtn = document.querySelector('.query-btn[data-query-id="' + match.id + '"]');
+        if (matchBtn) matchBtn.classList.add('active');
+        loadContent(match.id, currentRole, match.label);
+        return;
+      }
+
+      /* 2. Try to match conversational patterns */
+      var conversations = window.SISTECO_DATA && window.SISTECO_DATA.conversations && window.SISTECO_DATA.conversations[currentRole];
+      if (conversations) {
+        var valNorm = val.toLowerCase()
+          .replace(/[aeiou]/g, function(c) { return { 'a':'a','e':'e','i':'i','o':'o','u':'u','á':'a','é':'e','í':'i','ó':'o','ú':'u','ü':'u' }[c] || c; })
+          .replace(/[^a-z0-9 ]/g, '');
+
+        var convMatch = null;
+        var bestScore = 0;
+
+        conversations.forEach(function(conv) {
+          var queryNorm = conv.query.toLowerCase().replace(/[^a-z0-9 ]/g, '');
+          /* Check word overlap */
+          var queryWords = queryNorm.split(/\s+/).filter(function(w) { return w.length > 2; });
+          var inputWords = valNorm.split(/\s+/).filter(function(w) { return w.length > 2; });
+          var matches = 0;
+          queryWords.forEach(function(qw) {
+            inputWords.forEach(function(iw) {
+              if (qw.indexOf(iw) !== -1 || iw.indexOf(qw) !== -1) matches++;
+            });
+          });
+          var score = queryWords.length > 0 ? matches / queryWords.length : 0;
+          if (score > bestScore && score >= 0.3) {
+            bestScore = score;
+            convMatch = conv;
+          }
+        });
+
+        if (convMatch) {
+          showAIResponse(val, convMatch.response, convMatch.type);
+          return;
         }
       }
+
+      /* 3. No match at all */
+      showNoMatchResponse(val);
     }
   });
 
@@ -578,10 +777,10 @@ function initCommandBar(role) {
       filterQueryButtons('');
       suggestionsEl.classList.remove('visible');
 
+      /* Deactivate all buttons, activate clicked one */
+      document.querySelectorAll('.query-btn').forEach(function(b) { b.classList.remove('active'); });
       var btn = document.querySelector('.query-btn[data-query-id="' + qId + '"]');
-      if (btn) {
-        btn.classList.add('active');
-      }
+      if (btn) btn.classList.add('active');
       loadContent(qId, currentRole, qLabel);
     });
   }

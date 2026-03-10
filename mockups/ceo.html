@@ -270,12 +270,108 @@
   </main><!-- /main-content -->
 
   <!-- ====================================================================
+       FAB — Floating Action Button "Generar Informe"
+       ==================================================================== -->
+  <button class="fab-report" id="fab-report" aria-label="Generar informe PDF completo" title="Generar Informe PDF">
+    <i data-lucide="file-text"></i>
+    <span>Generar Informe</span>
+  </button>
+
+  <!-- ====================================================================
+       TOAST CONTAINER
+       ==================================================================== -->
+  <div id="toast-container" aria-live="polite" aria-label="Notificaciones"></div>
+
+  <!-- ====================================================================
        SCRIPTS
        ==================================================================== -->
   <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
   <script src="shared/mock-data.js"></script>
   <script src="shared/interactions.js"></script>
+
+  <!-- Page-specific: PDF Report FAB + Toast notifications -->
+  <script>
+  (function() {
+    'use strict';
+
+    /* ---- Toast system ---- */
+    function showToast(iconType, iconName, message, hasProgress, duration) {
+      var container = document.getElementById('toast-container');
+      if (!container) return;
+
+      var toast = document.createElement('div');
+      toast.className = 'toast';
+      toast.innerHTML =
+        '<div class="toast-content">' +
+          '<span class="toast-icon ' + iconType + '"><i data-lucide="' + iconName + '"></i></span>' +
+          '<span class="toast-text">' + message + '</span>' +
+        '</div>' +
+        (hasProgress ? '<div class="toast-progress"><div class="toast-progress-bar" id="toast-bar-' + Date.now() + '"></div></div>' : '');
+
+      container.appendChild(toast);
+
+      /* Init icons */
+      if (typeof lucide !== 'undefined') lucide.createIcons({ nodes: [toast] });
+
+      /* Animate in */
+      if (typeof gsap !== 'undefined') {
+        gsap.fromTo(toast,
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.35, ease: 'power3.out' }
+        );
+      } else {
+        toast.style.opacity = '1';
+      }
+
+      /* Animate progress bar if present */
+      if (hasProgress) {
+        var bar = toast.querySelector('.toast-progress-bar');
+        if (bar) {
+          bar.style.transition = 'width ' + (duration / 1000) + 's linear';
+          requestAnimationFrame(function() {
+            requestAnimationFrame(function() { bar.style.width = '100%'; });
+          });
+        }
+      }
+
+      /* Auto-dismiss */
+      setTimeout(function() {
+        if (typeof gsap !== 'undefined') {
+          gsap.to(toast, {
+            y: -10, opacity: 0, duration: 0.25, ease: 'power2.in',
+            onComplete: function() { if (toast.parentNode) toast.parentNode.removeChild(toast); }
+          });
+        } else {
+          if (toast.parentNode) toast.parentNode.removeChild(toast);
+        }
+      }, duration);
+
+      return toast;
+    }
+
+    /* ---- PDF Report FAB ---- */
+    var fab = document.getElementById('fab-report');
+    if (fab) {
+      fab.addEventListener('click', function() {
+        /* Disable button briefly */
+        fab.disabled = true;
+        fab.style.opacity = '0.7';
+
+        /* Step 1: Generating toast */
+        showToast('loading', 'loader-2', 'Generando informe completo...', true, 2400);
+
+        /* Step 2: Ready toast */
+        setTimeout(function() {
+          showToast('success', 'check-circle', 'Informe listo — descarga iniciada', false, 3000);
+          fab.disabled = false;
+          fab.style.opacity = '';
+        }, 2600);
+      });
+    }
+
+  })();
+  </script>
 
   <!-- Page-specific: hide empty hint when first content block is added -->
   <script>

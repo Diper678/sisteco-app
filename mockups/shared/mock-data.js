@@ -590,6 +590,37 @@ window.SISTECO_DATA = {
     }
   },
 
+  /* --- Conversaciones IA (CEO workspace) --- */
+  conversations: {
+    ceo: [
+      {
+        query: 'que puedo hacer con los leads hot',
+        response: 'Tienes **12 leads HOT** este mes. Recomendaciones:\n\n1. **Contactar en menos de 2h** — los leads respondidos rapido convierten 3x mas\n2. **Priorizar Servicios Financieros** — tienen 67% de conversion en tu pipeline\n3. **Asignar a Sofia** — lidera con 25% de conversion personal en el equipo\n\nTu equipo ha contactado 8 de 12 HOT. Quedan **4 sin contactar** — actua hoy.',
+        type: 'recommendation'
+      },
+      {
+        query: 'como mejoro mi conversion',
+        response: 'Tu conversion actual: **8.5%** (+1.2pp vs mes anterior). Para mejorar:\n\n1. **Velocidad de contacto** — actualmente 4.2h promedio. Bajar a menos de 2h puede duplicar reuniones\n2. **Ajustar ICP** — Manufactura tiene solo 9% conversion. Redirigir busquedas a Finanzas (67%)\n3. **Seguimiento** — 6 leads en estado "contactado" sin reunion hace mas de 5 dias\n\nSi aplicas los 3 cambios, proyeccion: **12-14% conversion** el proximo mes.',
+        type: 'analysis'
+      },
+      {
+        query: 'dame un resumen ejecutivo',
+        response: '**Resumen Ejecutivo — Marzo 2026**\n\nPipeline: 47 leads nuevos (+15%), 12 HOT (+33%)\nConversion: 8.5% (+1.2pp)\nPipeline value: $45.600.000 CLP (+12%)\n\n**Lo bueno:** Volumen y calidad subiendo. LinkedIn Search genera buen flujo.\n**Atencion:** Cuello de botella en Scored → HOT (29%). 6 leads sin asignar.\n**Accion:** Ajustar ICP, reducir tiempo de primer contacto, asignar leads pendientes.\n\nProyeccion de cierre: **$3.876.000 CLP** este mes.',
+        type: 'summary'
+      },
+      {
+        query: 'quien es el mejor vendedor',
+        response: '**Sofia Mendez** lidera el equipo con:\n- 12 leads asignados\n- 8 contactados (67% contacto)\n- 3 reuniones agendadas\n- **25% tasa de conversion** — la mas alta del equipo\n\nDiego Rojas tiene 22% y Paula Vidal 14%. La diferencia clave: Sofia contacta leads HOT en promedio 1.8h vs 5.2h del resto.',
+        type: 'analysis'
+      },
+      {
+        query: 'que industrias funcionan mejor',
+        response: 'Por tasa de conversion:\n\n1. **Servicios Financieros** — 67% conversion, 8 leads activos\n2. **Tecnologia** — 25% conversion, 14 leads (mayor volumen)\n3. **Ingenieria** — 20% conversion, 5 leads\n4. **Manufactura** — 9% conversion (bajo rendimiento)\n\nRecomendacion: enfocar prospecting en **Servicios Financieros medianos** (50-199 empleados). Son el sweet spot de tu pipeline.',
+        type: 'analysis'
+      }
+    ]
+  },
+
   /* --- To-do list del SDR (Sofia Mendez) --- */
   sdrTodos: [
     {
