@@ -4,13 +4,13 @@ milestone: v2.0
 milestone_name: Vertical SaaS B2B Chile
 status: executing
 last_updated: "2026-03-10"
-last_activity: 2026-03-10 — Completed 01-02 SII enrichment workflow via SimpleAPI
+last_activity: 2026-03-10 — Completed 01-03 scoring auth fix + HOT notifications + activation checklist
 progress:
   total_phases: 5
-  completed_phases: 0
+  completed_phases: 1
   total_plans: 3
-  completed_plans: 2
-  percent: 13
+  completed_plans: 3
+  percent: 20
 ---
 
 # Project State
@@ -24,12 +24,12 @@ See: .planning/PROJECT.md (updated 2026-03-09)
 
 ## Current Position
 
-Phase: 1 of 5 (Pipeline de Leads Activo)
-Plan: 2 of 3 (completed)
-Status: Executing
-Last activity: 2026-03-10 — Completed 01-02 SII enrichment workflow via SimpleAPI
+Phase: 1 of 5 (Pipeline de Leads Activo) -- COMPLETE (pending human-verify checkpoint)
+Plan: 3 of 3 (completed)
+Status: Checkpoint — awaiting pipeline activation verification
+Last activity: 2026-03-10 — Completed 01-03 scoring auth fix + HOT notifications + activation checklist
 
-Progress: [█░░░░░░░░░] 13%
+Progress: [██░░░░░░░░] 20%
 
 ## Reutilizacion de SAAN v1.0
 
@@ -55,6 +55,9 @@ Trabajo completado que se reutiliza directamente:
 - [2026-03-10]: Todas las funciones leads + ICP agregadas al allowlist de una vez
 - [2026-03-10]: SII enrichment como workflow separado (decoupled de Firecrawl) para rate limits independientes
 - [2026-03-10]: Rate limiting via n8n staticData global counter (10 calls/mes free tier)
+- [2026-03-10]: All n8n-to-Convex calls standardized on X-SAAN-Secret header (not Authorization Bearer)
+- [2026-03-10]: HOT leads notified via Telegram and moved to outreach_queued to prevent duplicates
+- [2026-03-10]: Fixed SAAN_CONVEX_SECRET -> SAAN_API_SECRET for consistency across all workflows
 
 ### Blockers/Concerns
 
@@ -66,5 +69,5 @@ Trabajo completado que se reutiliza directamente:
 ## Session Continuity
 
 Last session: 2026-03-10
-Stopped at: Completed 01-02-PLAN.md (SII enrichment workflow)
+Stopped at: Completed 01-03-PLAN.md (scoring auth fix + HOT notifications) — checkpoint:human-verify pending
 Resume file: None
