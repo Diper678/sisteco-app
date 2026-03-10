@@ -3,7 +3,7 @@
 ## Overview
 
 Sisteco es la plataforma de inteligencia de leads B2B para Chile. Pipeline de
-datos automatizado (PhantomBuster + Sales Nav + SII) alimenta un dashboard
+datos automatizado (PhantomBuster + LinkedIn Search + SII) alimenta un dashboard
 multi-tenant donde cada cliente ve sus leads calificados y listos para trabajar.
 
 Este roadmap cubre el Horizonte 1 (MVP Revenue): activar pipeline, construir
@@ -31,7 +31,7 @@ Plans:
 - [ ] 01-03-PLAN.md — Scoring auth fix + Telegram HOT notifications + pipeline activation
 
 **Success Criteria**:
-  1. PhantomBuster extrae prospectos de LinkedIn Sales Nav 3x/semana y los guarda en Convex
+  1. PhantomBuster extrae prospectos de LinkedIn Search (gratuito) 3x/semana y los guarda en Convex
   2. Cada lead se enriquece con datos SII (RUT, rubro, tamano) automaticamente
   3. Gemini 2.5 Flash Lite clasifica cada lead en HOT/WARM/NURTURE/SKIP
   4. Leads HOT generan notificacion (Telegram o email)
@@ -41,6 +41,12 @@ Plans:
 **Goal**: Tener un diseno aprobado del dashboard que refleje el mercado actual de SaaS B2B, listo para construir
 **Depends on**: Nothing (paralelo a Phase 1)
 **Requirements**: DASH-01 a DASH-07 (definicion visual)
+**Plans:** 2 plans
+
+Plans:
+- [ ] 02-01-PLAN.md — Design system compartido + mockup vista CEO (KPIs narrativos, funnel, segmentacion)
+- [ ] 02-02-PLAN.md — Mockups VP Ventas (pipeline + equipo) y SDR (to-do + lead detail panel)
+
 **Success Criteria**:
   1. Usuario ha investigado 5+ dashboards SaaS B2B como referencia
   2. Moodboard/referencias compartidas con ejemplos de lo que funciona
@@ -90,7 +96,7 @@ Order: 1 || 2 -> 3 -> 4 -> 5
 | Phase | Plans | Status | Completed |
 |-------|-------|--------|-----------|
 | 1. Pipeline de Leads | 3 plans (2 waves) | 2/3 plans complete | - |
-| 2. Diseno Dashboard | TBD | Not started | - |
+| 2. Diseno Dashboard | 2 plans (2 waves) | Not started | - |
 | 3. Dashboard Build | TBD | Not started | - |
 | 4. Compliance Ley 21.719 | TBD | Not started | - |
 | 5. Onboarding Fundadores | TBD | Not started | - |
