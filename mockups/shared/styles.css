@@ -30,7 +30,8 @@
 /* --- Nasalization (local, SOLO para wordmark "Sisteco") --- */
 @font-face {
   font-family: 'Nasalization';
-  src: url('../../Nasalization Rg.otf') format('opentype');
+  src: url('assets/Nasalization-Rg.otf') format('opentype'),
+       url('../../Nasalization Rg.otf') format('opentype');
   font-weight: 400;
   font-display: swap;
 }
@@ -224,10 +225,12 @@ input, textarea {
   align-items: center;
   justify-content: center;
   margin-bottom: var(--space-6);
-  font-family: var(--font-logo);
-  font-size: var(--text-xl);
-  color: var(--accent);
-  letter-spacing: 0.02em;
+}
+
+.sidebar-logo img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
 }
 
 .sidebar-nav {
@@ -371,6 +374,16 @@ input, textarea {
   letter-spacing: var(--tracking-tight);
   color: var(--text-primary);
   line-height: var(--leading-tight);
+}
+
+.topbar-brand {
+  font-family: var(--font-logo);
+  font-size: var(--text-2xl);
+  font-weight: 400;
+  color: var(--text-primary);
+  letter-spacing: 0.04em;
+  line-height: var(--leading-tight);
+  margin: 0;
 }
 
 .topbar-subtitle {
@@ -2042,6 +2055,688 @@ input, textarea {
 
 .ai-response-nomatch .ai-response-label {
   color: var(--text-muted);
+}
+
+/* =============================================================================
+   16. PIPELINE TABLE (VP Ventas view)
+   ============================================================================= */
+
+/* Filter bar above pipeline table */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.filter-bar-label {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-right: var(--space-1);
+}
+
+.filter-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 12px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-default);
+}
+
+.filter-pill:hover {
+  border-color: var(--accent);
+  color: var(--text-primary);
+}
+
+.filter-pill.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--text-on-accent);
+}
+
+.filter-select {
+  padding: 5px 10px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  outline: none;
+  transition: border-color var(--duration-fast);
+}
+
+.filter-select:hover,
+.filter-select:focus {
+  border-color: var(--accent);
+  color: var(--text-primary);
+}
+
+.filter-search {
+  flex: 1;
+  min-width: 160px;
+  padding: 5px 10px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color var(--duration-fast);
+}
+
+.filter-search:focus {
+  border-color: var(--accent);
+}
+
+.filter-search::placeholder {
+  color: var(--text-placeholder);
+}
+
+/* Pipeline table */
+.table-pipeline {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-body);
+}
+
+.table-pipeline thead {
+  position: sticky;
+  top: var(--topbar-height);
+  z-index: 10;
+}
+
+.table-pipeline th {
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-muted);
+  text-align: left;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 2px solid var(--border);
+  background: var(--bg-surface);
+  white-space: nowrap;
+}
+
+.table-pipeline td {
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--border-subtle);
+  vertical-align: middle;
+}
+
+.table-pipeline tbody tr {
+  transition: background var(--duration-fast);
+}
+
+.table-pipeline tbody tr:hover {
+  background: var(--bg-subtle);
+}
+
+.table-pipeline tbody tr.highlight {
+  background: var(--bg-subtle);
+}
+
+/* SDR unassigned — red */
+.text-unassigned {
+  color: var(--error);
+  font-weight: 600;
+}
+
+/* Pipeline table container with scroll */
+.pipeline-table-wrapper {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  background: var(--bg-surface);
+}
+
+/* Inline progress bar inside table cell */
+.progress-inline {
+  height: 6px;
+  background: var(--border-subtle);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  min-width: 60px;
+}
+
+.progress-inline-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: var(--radius-pill);
+  transition: width 0.8s var(--ease-default);
+}
+
+/* Team table for VP */
+.team-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-body);
+}
+
+.team-table th {
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-muted);
+  text-align: left;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 2px solid var(--border);
+}
+
+.team-table td {
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+  padding: var(--space-4);
+  border-bottom: 1px solid var(--border-subtle);
+  vertical-align: middle;
+}
+
+.team-table tbody tr:hover {
+  background: var(--bg-subtle);
+}
+
+/* =============================================================================
+   17. LEAD DETAIL PANEL (SDR view)
+   ============================================================================= */
+
+/* Sliding panel from the right */
+.lead-panel {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 400px;
+  background: var(--bg-surface);
+  border-left: 1px solid var(--border);
+  z-index: 200;
+  transform: translateX(100%);
+  transition: transform var(--duration-normal) var(--ease-default);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.lead-panel.open {
+  transform: translateX(0);
+}
+
+/* Panel overlay (darkens background) */
+.lead-panel-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.18);
+  z-index: 199;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-normal) var(--ease-default);
+}
+
+.lead-panel-overlay.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Panel header */
+.lead-panel-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: var(--space-6) var(--space-6) var(--space-4);
+  border-bottom: 1px solid var(--border-subtle);
+  flex-shrink: 0;
+}
+
+.lead-panel-name {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-tight);
+}
+
+.lead-panel-cargo {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  margin-top: var(--space-1);
+}
+
+.lead-panel-close {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background var(--duration-fast), color var(--duration-fast);
+}
+
+.lead-panel-close:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+.lead-panel-close svg,
+.lead-panel-close [data-lucide] {
+  width: 16px;
+  height: 16px;
+}
+
+/* Panel scrollable body */
+.lead-panel-body {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+/* Panel sections */
+.lead-section {
+  padding: var(--space-4) var(--space-6);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.lead-section:last-child {
+  border-bottom: none;
+}
+
+.lead-section h3 {
+  font-family: var(--font-heading);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: var(--space-3);
+}
+
+/* Lead fields (label + value pairs) */
+.lead-field {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-2) 0;
+}
+
+.lead-field + .lead-field {
+  border-top: 1px solid var(--border-subtle);
+}
+
+.lead-field-icon {
+  display: flex;
+  align-items: center;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.lead-field-icon svg,
+.lead-field-icon [data-lucide] {
+  width: 14px;
+  height: 14px;
+}
+
+.lead-field-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  width: 120px;
+  flex-shrink: 0;
+  line-height: 1.5;
+}
+
+.lead-field-value {
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+  font-weight: 600;
+  flex: 1;
+  min-width: 0;
+  word-break: break-word;
+  line-height: 1.5;
+}
+
+.lead-field-value a {
+  color: var(--info);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.lead-field-value a:hover {
+  text-decoration: underline;
+}
+
+/* Score breakdown bars */
+.score-bar {
+  height: 8px;
+  background: var(--border-subtle);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  flex: 1;
+  min-width: 60px;
+}
+
+.score-bar-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: var(--radius-pill);
+  transition: width 0.8s var(--ease-default);
+}
+
+.score-factor {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) 0;
+}
+
+.score-factor-label {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  width: 140px;
+  flex-shrink: 0;
+}
+
+.score-factor-value {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--text-primary);
+  width: 40px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* Timeline inside lead panel */
+.timeline-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+}
+
+.timeline-item {
+  display: flex;
+  gap: var(--space-3);
+  position: relative;
+  padding-bottom: var(--space-3);
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-dot-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.timeline-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.timeline-line {
+  width: 1px;
+  flex: 1;
+  background: var(--border-subtle);
+  margin-top: 4px;
+}
+
+.timeline-item:last-child .timeline-line {
+  display: none;
+}
+
+.timeline-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.timeline-action {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.timeline-date {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* =============================================================================
+   18. TODO LIST (SDR view)
+   ============================================================================= */
+
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--border);
+  border-radius: var(--radius-lg);
+  transition: background var(--duration-fast), box-shadow var(--duration-fast);
+  cursor: default;
+}
+
+.todo-item:hover {
+  background: var(--bg-subtle);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Priority colors via border-left */
+.todo-item.priority-urgente {
+  border-left-color: var(--error);
+}
+
+.todo-item.priority-alta {
+  border-left-color: var(--warning);
+}
+
+.todo-item.priority-media {
+  border-left-color: var(--info);
+}
+
+.todo-item.priority-baja {
+  border-left-color: var(--border);
+}
+
+/* Completed state */
+.todo-item.completed {
+  opacity: 0.55;
+}
+
+.todo-item.completed .todo-lead-name,
+.todo-item.completed .todo-action {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+.todo-checkbox {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-xs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: border-color var(--duration-fast), background var(--duration-fast);
+  background: var(--bg-surface);
+}
+
+.todo-checkbox:hover {
+  border-color: var(--accent);
+}
+
+.todo-item.completed .todo-checkbox {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.todo-checkbox svg,
+.todo-checkbox [data-lucide] {
+  width: 12px;
+  height: 12px;
+  color: var(--text-on-accent);
+  display: none;
+}
+
+.todo-item.completed .todo-checkbox svg,
+.todo-item.completed .todo-checkbox [data-lucide] {
+  display: flex;
+}
+
+.todo-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.todo-lead-name {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--text-primary);
+  cursor: pointer;
+  display: inline;
+}
+
+.todo-lead-name:hover {
+  color: var(--info);
+  text-decoration: underline;
+}
+
+.todo-company {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+}
+
+.todo-action {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  margin-top: 2px;
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.todo-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-1);
+  flex-shrink: 0;
+}
+
+.todo-fecha {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.todo-fecha.urgent {
+  color: var(--error);
+}
+
+.todo-fecha.today {
+  color: var(--warning);
+}
+
+/* =============================================================================
+   19. RESPONSIVE ADDITIONS (VP Ventas + SDR)
+   ============================================================================= */
+
+@media (max-width: 768px) {
+  /* Lead panel becomes full-screen modal on mobile */
+  .lead-panel {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Filter bar stacks vertically */
+  .filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-search {
+    min-width: unset;
+  }
+
+  /* Pipeline table horizontal scroll */
+  .pipeline-table-wrapper {
+    overflow-x: auto;
+  }
+
+  /* Todo items smaller gap */
+  .todo-item {
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+  }
+
+  /* SDR KPI grid 1 col */
+  .kpi-grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* KPI grid 3 col variant (SDR) */
+.kpi-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+/* VP login badge — chart-blue tint */
+.login-badge-vp {
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  color: #1d4ed8;
+}
+
+/* SDR login badge — chart-purple tint */
+.login-badge-sdr {
+  background: rgba(168, 85, 247, 0.1);
+  border: 1px solid rgba(168, 85, 247, 0.25);
+  color: #7c3aed;
 }
 
 /* =============================================================================

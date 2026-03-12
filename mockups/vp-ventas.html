@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sisteco — Workspace VP Ventas</title>
+  <link rel="stylesheet" href="shared/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Page-specific overrides */
+    .content-area-vp {
+      padding: var(--space-6) var(--space-8) var(--space-8);
+    }
+
+    /* Pipeline section with scroll */
+    .pipeline-section {
+      margin-bottom: var(--space-8);
+    }
+
+    /* KPI grid 4 columns */
+    .kpi-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-4);
+      margin-bottom: var(--space-8);
+    }
+
+    /* Warning card */
+    .card-kpi-warning {
+      border-left: 4px solid var(--warning);
+    }
+
+    /* Compact narrative */
+    .narrative-compact {
+      font-size: var(--text-xs);
+      color: var(--text-secondary);
+      font-style: italic;
+      line-height: var(--leading-normal);
+      padding-top: var(--space-2);
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    /* Action icon in table */
+    .table-action-btn {
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-xs);
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all var(--duration-fast);
+    }
+
+    .table-action-btn:hover {
+      border-color: var(--accent);
+      color: #5a7a00;
+      background: var(--accent-faint);
+    }
+
+    .table-action-btn svg,
+    .table-action-btn [data-lucide] {
+      width: 14px;
+      height: 14px;
+    }
+
+    /* Team narrative */
+    .team-narrative {
+      margin-top: var(--space-4);
+      padding: var(--space-4);
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-subtle);
+      border-left: 3px solid var(--accent);
+      border-radius: var(--radius-lg);
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      font-style: italic;
+      line-height: var(--leading-normal);
+    }
+
+    @media (max-width: 1200px) {
+      .kpi-grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .kpi-grid-4 {
+        grid-template-columns: 1fr;
+      }
+
+      .content-area-vp {
+        padding: var(--space-4);
+      }
+    }
+  </style>
+</head>
+<body data-role="vp-ventas">
+
+  <!-- ====================================================================
+       SIDEBAR MINI (64px, dark, fixed left)
+       ==================================================================== -->
+  <aside class="sidebar-mini" role="navigation" aria-label="Navegacion principal">
+
+    <div class="sidebar-logo" title="Sisteco">
+      <img src="shared/assets/icon-sisteco.png" alt="Sisteco" width="32" height="32">
+    </div>
+
+    <nav class="sidebar-nav">
+      <button class="sidebar-nav-item" title="Workspace" aria-label="Workspace">
+        <i data-lucide="terminal"></i>
+      </button>
+      <button class="sidebar-nav-item active" title="Leads" aria-label="Leads">
+        <i data-lucide="users"></i>
+      </button>
+      <button class="sidebar-nav-item" title="Pipeline" aria-label="Pipeline">
+        <i data-lucide="git-branch"></i>
+      </button>
+      <button class="sidebar-nav-item" title="Reportes" aria-label="Reportes">
+        <i data-lucide="bar-chart-3"></i>
+      </button>
+      <button class="sidebar-nav-item" title="Settings" aria-label="Settings">
+        <i data-lucide="settings"></i>
+      </button>
+    </nav>
+
+    <footer class="sidebar-footer">
+      <div class="sidebar-avatar" title="Carlos Fuentes — VP Ventas" aria-label="Perfil de usuario">
+        CF
+        <span class="sidebar-avatar-tooltip">Carlos Fuentes — VP Ventas</span>
+      </div>
+    </footer>
+
+  </aside>
+
+  <!-- ====================================================================
+       MAIN CONTENT
+       ==================================================================== -->
+  <main class="main-content" role="main">
+
+    <!-- ------------------------------------------------------------------
+         TOPBAR
+         ------------------------------------------------------------------ -->
+    <header class="topbar" role="banner">
+
+      <div class="topbar-left">
+        <h1 class="topbar-brand">Sisteco</h1>
+        <span class="topbar-subtitle">Gestion de equipo y pipeline</span>
+      </div>
+
+      <div class="topbar-center">
+        <div class="org-badge" title="Organizacion activa" aria-label="Organizacion: TechCorp Chile SpA">
+          <i data-lucide="building-2"></i>
+          <span>TechCorp Chile SpA</span>
+        </div>
+      </div>
+
+      <div class="topbar-right">
+        <span class="login-badge login-badge-vp" aria-label="Rol activo: VP Ventas">VP Ventas</span>
+
+        <div class="date-range" role="group" aria-label="Rango de fechas">
+          <button class="date-range-pill" aria-label="Ultimos 7 dias">7d</button>
+          <button class="date-range-pill active" aria-label="Ultimos 30 dias, activo">30d</button>
+          <button class="date-range-pill" aria-label="Ultimos 90 dias">90d</button>
+          <button class="date-range-pill" aria-label="Todo el tiempo">Todo</button>
+        </div>
+
+        <button class="btn-icon" title="Notificaciones" aria-label="Notificaciones">
+          <i data-lucide="bell"></i>
+        </button>
+      </div>
+
+    </header>
+
+    <!-- ------------------------------------------------------------------
+         HERO SECTION
+         ------------------------------------------------------------------ -->
+    <section aria-label="Bienvenida" style="padding: 0 var(--space-8);">
+      <div class="hero-section">
+        <h2 class="hero-greeting">Hola Carlos, aqui esta tu pipeline</h2>
+        <p class="hero-subtitle">¿Que quieres revisar hoy?</p>
+      </div>
+    </section>
+
+    <!-- ------------------------------------------------------------------
+         COMMAND BAR
+         ------------------------------------------------------------------ -->
+    <section class="command-bar-wrapper" aria-label="Barra de consultas">
+      <div class="command-bar" role="search">
+
+        <div class="command-input-wrapper">
+          <span class="command-icon" aria-hidden="true">
+            <i data-lucide="search"></i>
+          </span>
+          <input
+            type="text"
+            class="command-input"
+            placeholder="Pipeline completo, leads sin asignar, rendimiento del equipo..."
+            aria-label="Consulta del pipeline"
+            autocomplete="off"
+          />
+          <button class="btn-command-send" aria-label="Enviar consulta">
+            <i data-lucide="send"></i>
+          </button>
+        </div>
+
+        <div class="command-suggestions" role="listbox" aria-label="Consultas frecuentes">
+          <div class="command-suggestions-header">Consultas frecuentes</div>
+          <div class="command-suggestions-body"></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ------------------------------------------------------------------
+         QUERY BUTTONS
+         ------------------------------------------------------------------ -->
+    <section class="query-buttons-wrapper" aria-label="Accesos rapidos">
+      <div class="query-buttons-label">Accesos rapidos</div>
+      <div id="query-buttons" role="list" aria-label="Botones de consulta rapida">
+        <!-- Rendered by interactions.js → initQueryButtons('vp') -->
+      </div>
+    </section>
+
+    <!-- ------------------------------------------------------------------
+         CONTENT AREA — on-demand blocks
+         ------------------------------------------------------------------ -->
+    <section class="content-area-wrapper" aria-label="Resultados">
+      <div id="content-area" aria-live="polite" aria-label="Contenido cargado">
+      </div>
+    </section>
+
+    <!-- ------------------------------------------------------------------
+         KPI CARDS (4 columnas)
+         ------------------------------------------------------------------ -->
+    <section class="content-area-vp" aria-label="KPIs del equipo">
+
+      <div class="kpi-grid-4" id="vp-kpi-grid">
+        <!-- Rendered by JS below -->
+      </div>
+
+      <!-- ----------------------------------------------------------------
+           PIPELINE COMPLETO
+           ---------------------------------------------------------------- -->
+      <div class="pipeline-section">
+
+        <div class="section-header">
+          <div class="section-header-icon" aria-hidden="true">
+            <i data-lucide="git-branch"></i>
+          </div>
+          <h2 class="section-header-title">Pipeline Completo</h2>
+          <div class="section-header-line"></div>
+        </div>
+
+        <!-- Filter bar -->
+        <div class="filter-bar" role="toolbar" aria-label="Filtros del pipeline">
+          <span class="filter-bar-label">Estado</span>
+          <button class="filter-pill active" data-filter-state="todos">Todos</button>
+          <button class="filter-pill" data-filter-state="nuevo">Nuevos</button>
+          <button class="filter-pill" data-filter-state="contactado">Contactados</button>
+          <button class="filter-pill" data-filter-state="reunion">Reunion</button>
+          <button class="filter-pill" data-filter-state="propuesta">Propuesta</button>
+          <select class="filter-select" data-filter-type="industria" aria-label="Filtrar por industria">
+            <option value="todas">Industria: Todas</option>
+            <option value="programas informaticos">Tecnologia</option>
+            <option value="servicios financieros">Serv. Financieros</option>
+            <option value="alimenticios">Manufactura</option>
+            <option value="arquitectura">Ingenieria</option>
+            <option value="comercio">Comercio</option>
+          </select>
+          <select class="filter-select" data-filter-type="score" aria-label="Filtrar por score">
+            <option value="todos">Score: Todos</option>
+            <option value="hot">HOT</option>
+            <option value="warm">WARM</option>
+            <option value="nurture">NURTURE</option>
+          </select>
+          <input type="text" class="filter-search" placeholder="Buscar por nombre o empresa..." aria-label="Buscar lead">
+        </div>
+
+        <!-- Table -->
+        <div class="pipeline-table-wrapper" role="region" aria-label="Tabla de pipeline">
+          <table class="table-pipeline" aria-label="Lista de leads en pipeline">
+            <thead>
+              <tr>
+                <th scope="col">Estado</th>
+                <th scope="col">Empresa</th>
+                <th scope="col">Contacto</th>
+                <th scope="col">Score</th>
+                <th scope="col">Industria</th>
+                <th scope="col">SDR Asignado</th>
+                <th scope="col">Ultima Actividad</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="pipeline-tbody">
+              <!-- Rendered by JS below -->
+            </tbody>
+          </table>
+        </div>
+
+      </div><!-- /pipeline-section -->
+
+      <!-- ----------------------------------------------------------------
+           METRICAS DEL EQUIPO
+           ---------------------------------------------------------------- -->
+      <div class="team-section">
+
+        <div class="section-header">
+          <div class="section-header-icon" aria-hidden="true">
+            <i data-lucide="users"></i>
+          </div>
+          <h2 class="section-header-title">Equipo</h2>
+          <div class="section-header-line"></div>
+        </div>
+
+        <div class="pipeline-table-wrapper" role="region" aria-label="Metricas del equipo">
+          <table class="team-table" aria-label="Tabla de rendimiento del equipo">
+            <thead>
+              <tr>
+                <th scope="col">SDR</th>
+                <th scope="col">Leads Asignados</th>
+                <th scope="col">Contactados</th>
+                <th scope="col">Reuniones</th>
+                <th scope="col">Conversion %</th>
+              </tr>
+            </thead>
+            <tbody id="team-tbody">
+              <!-- Rendered by JS below -->
+            </tbody>
+          </table>
+        </div>
+
+        <p class="team-narrative" id="team-narrative">
+          El equipo contacto 16 de 38 leads esta semana.
+          <strong>Sofia Mendez</strong> lidera con 25% de conversion — asigna los proximos HOT a ella.
+        </p>
+
+      </div><!-- /team-section -->
+
+    </section>
+
+    <!-- ------------------------------------------------------------------
+         FOOTER
+         ------------------------------------------------------------------ -->
+    <footer class="page-footer" role="contentinfo">
+      Sisteco v2.0 — Datos simulados para diseno &nbsp;·&nbsp; Marzo 2026
+    </footer>
+
+  </main>
+
+  <!-- ====================================================================
+       SCRIPTS
+       ==================================================================== -->
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+  <script src="shared/mock-data.js"></script>
+  <script src="shared/interactions.js"></script>
+
+  <!-- Page-specific: render KPI cards and pipeline table from mock data -->
+  <script>
+  (function() {
+    'use strict';
+
+    function esc(str) {
+      return String(str || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    /* ---- Render KPI Cards ---- */
+    function renderKPIs() {
+      var grid = document.getElementById('vp-kpi-grid');
+      if (!grid || !window.SISTECO_DATA) return;
+
+      var k = window.SISTECO_DATA.kpis.vp;
+
+      /* Count unassigned leads */
+      var leads = window.SISTECO_DATA.leads;
+      var sinAsignar = leads.filter(function(l) { return !l.sdr_asignado; }).length;
+      var hotSinAsignar = leads.filter(function(l) { return !l.sdr_asignado && l.clasificacion === 'HOT'; }).length;
+      var contactadosHoy = leads.filter(function(l) { return l.estado === 'contactado'; }).length;
+      var reuniones = leads.filter(function(l) { return l.estado === 'reunion'; }).length;
+
+      var cards = [
+        {
+          icon: 'git-branch',
+          label: 'Leads en Pipeline',
+          value: k.leads_total.valor,
+          delta: k.leads_total.delta,
+          positive: k.leads_total.positivo,
+          narrativa: '47 leads en el pipeline activo. 12 son HOT y estan listos para contactar esta semana.',
+          warning: false
+        },
+        {
+          icon: 'user-plus',
+          label: 'Sin Asignar',
+          value: sinAsignar,
+          delta: null,
+          positive: false,
+          narrativa: sinAsignar + ' leads sin asignar — ' + hotSinAsignar + ' son HOT. Requieren accion inmediata.',
+          warning: sinAsignar > 5
+        },
+        {
+          icon: 'phone-call',
+          label: 'Contactados Hoy',
+          value: contactadosHoy,
+          delta: '+2',
+          positive: true,
+          narrativa: 'El equipo contacto ' + contactadosHoy + ' leads hoy. Sofia Mendez lidera con 4 contactos.',
+          warning: false
+        },
+        {
+          icon: 'calendar',
+          label: 'Reuniones Semana',
+          value: reuniones,
+          delta: '+1',
+          positive: true,
+          narrativa: reuniones + ' reuniones agendadas esta semana. Empresas de tecnologia y manufactura muestran mas interes.',
+          warning: false
+        }
+      ];
+
+      grid.innerHTML = cards.map(function(c) {
+        var warningClass = c.warning ? ' card-kpi-warning' : '';
+        var deltaHtml = c.delta
+          ? '<div class="card-kpi-footer">' +
+              '<span class="card-kpi-delta ' + (c.positive ? 'positive' : 'negative') + '">' +
+                '<i data-lucide="' + (c.positive ? 'trending-up' : 'trending-down') + '"></i>' +
+                esc(c.delta) +
+              '</span>' +
+            '</div>'
+          : '';
+        return '<article class="card-kpi' + warningClass + '">' +
+          '<div class="card-kpi-header">' +
+            '<div class="card-kpi-label">' + esc(c.label) + '</div>' +
+            '<div class="card-kpi-icon" aria-hidden="true"><i data-lucide="' + esc(c.icon) + '"></i></div>' +
+          '</div>' +
+          '<div class="card-kpi-value">' + esc(String(c.value)) + '</div>' +
+          deltaHtml +
+          '<p class="narrative-compact">' + esc(c.narrativa) + '</p>' +
+        '</article>';
+      }).join('');
+    }
+
+    /* ---- Render Pipeline Table ---- */
+    function estadoBadgeClass(estado) {
+      var map = {
+        'nuevo': 'badge-nurture',
+        'contactado': 'badge-warm',
+        'reunion': 'badge-hot',
+        'propuesta': 'badge-hot'
+      };
+      return map[estado] || 'badge-skip';
+    }
+
+    function estadoLabel(estado) {
+      var map = {
+        'nuevo': 'Nuevo',
+        'contactado': 'Contactado',
+        'reunion': 'Reunion',
+        'propuesta': 'Propuesta'
+      };
+      return map[estado] || estado;
+    }
+
+    function clasificacionBadgeClass(cls) {
+      var map = { 'HOT': 'badge-hot', 'WARM': 'badge-warm', 'NURTURE': 'badge-nurture', 'SKIP': 'badge-skip' };
+      return map[cls] || 'badge-skip';
+    }
+
+    function renderPipelineTable() {
+      var tbody = document.getElementById('pipeline-tbody');
+      if (!tbody || !window.SISTECO_DATA) return;
+
+      /* Show leads that are active (exclude SKIP) */
+      var leads = window.SISTECO_DATA.leads.filter(function(l) { return l.clasificacion !== 'SKIP'; });
+
+      tbody.innerHTML = leads.map(function(lead) {
+        var sdrHtml = lead.sdr_asignado
+          ? esc(lead.sdr_asignado)
+          : '<span class="text-unassigned">Sin asignar</span>';
+
+        var actividadLabel = lead.fecha_ingreso_dias === 0 ? 'hoy'
+          : lead.fecha_ingreso_dias === 1 ? 'ayer'
+          : 'hace ' + lead.fecha_ingreso_dias + 'd';
+
+        return '<tr data-estado="' + esc(lead.estado) + '" data-industria="' + esc(lead.sii_actividad.toLowerCase()) + '" data-score="' + esc(lead.clasificacion.toLowerCase()) + '">' +
+          '<td><span class="badge ' + estadoBadgeClass(lead.estado) + '">' + esc(estadoLabel(lead.estado)) + '</span></td>' +
+          '<td style="font-weight:600;">' + esc(lead.empresa) + '</td>' +
+          '<td>' +
+            '<div style="font-size:var(--text-sm);font-weight:600;color:var(--text-primary);">' + esc(lead.nombre) + '</div>' +
+            '<div style="font-size:var(--text-xs);color:var(--text-muted);">' + esc(lead.cargo) + '</div>' +
+          '</td>' +
+          '<td><span class="badge ' + clasificacionBadgeClass(lead.clasificacion) + '">' + esc(lead.clasificacion) + ' ' + lead.score + '</span></td>' +
+          '<td style="color:var(--text-secondary);font-size:var(--text-xs);">' + esc(lead.industria.split(' ').slice(0, 3).join(' ')) + '</td>' +
+          '<td>' + sdrHtml + '</td>' +
+          '<td style="color:var(--text-muted);font-size:var(--text-xs);">' + actividadLabel + '</td>' +
+          '<td>' +
+            '<button class="table-action-btn" title="Asignar SDR" aria-label="Asignar SDR a ' + esc(lead.nombre) + '">' +
+              '<i data-lucide="user-plus"></i>' +
+            '</button>' +
+          '</td>' +
+        '</tr>';
+      }).join('');
+    }
+
+    /* ---- Render Team Table ---- */
+    function renderTeamTable() {
+      var tbody = document.getElementById('team-tbody');
+      if (!tbody || !window.SISTECO_DATA) return;
+
+      var team = window.SISTECO_DATA.team;
+
+      tbody.innerHTML = team.map(function(sdr) {
+        var pct = sdr.conversion_pct;
+        var convColor = pct >= 25 ? 'var(--success)' : pct >= 20 ? 'var(--warning)' : 'var(--error)';
+        var barPct = Math.min(pct * 2, 100); /* scale to 100 */
+
+        return '<tr>' +
+          '<td>' +
+            '<div style="display:flex;align-items:center;gap:var(--space-3);">' +
+              '<div class="team-avatar">' + esc(sdr.iniciales) + '</div>' +
+              '<div>' +
+                '<div style="font-weight:600;font-size:var(--text-sm);">' + esc(sdr.nombre) + '</div>' +
+                '<div style="font-size:var(--text-xs);color:var(--text-muted);">SDR</div>' +
+              '</div>' +
+            '</div>' +
+          '</td>' +
+          '<td style="font-family:var(--font-heading);font-weight:700;">' + sdr.leads_asignados + '</td>' +
+          '<td style="font-family:var(--font-heading);font-weight:700;">' + sdr.contactados + '</td>' +
+          '<td style="font-family:var(--font-heading);font-weight:700;">' + sdr.reuniones + '</td>' +
+          '<td>' +
+            '<div style="display:flex;align-items:center;gap:var(--space-3);">' +
+              '<div style="font-family:var(--font-heading);font-weight:700;color:' + convColor + ';width:36px;">' + pct + '%</div>' +
+              '<div class="progress-inline" style="flex:1;">' +
+                '<div class="progress-inline-fill" style="width:' + barPct + '%;background:' + convColor + ';"></div>' +
+              '</div>' +
+            '</div>' +
+          '</td>' +
+        '</tr>';
+      }).join('');
+    }
+
+    /* ---- Run on DOM ready ---- */
+    document.addEventListener('DOMContentLoaded', function() {
+      renderKPIs();
+      renderPipelineTable();
+      renderTeamTable();
+
+      /* Re-init lucide after dynamic render */
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+
+      /* Animate KPI cards in */
+      if (typeof gsap !== 'undefined') {
+        gsap.from('#vp-kpi-grid .card-kpi', {
+          y: 20,
+          opacity: 0,
+          duration: 0.5,
+          stagger: 0.08,
+          ease: 'power3.out',
+          delay: 0.2
+        });
+      }
+    });
+
+  })();
+  </script>
+
+</body>
+</html>

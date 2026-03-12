@@ -851,7 +851,297 @@ function initHeroGreeting() {
 }
 
 /* =============================================================================
-   11. DOM CONTENT LOADED — main init
+   11. INIT FILTERS — VP Ventas pipeline filter pills
+   ============================================================================= */
+
+function initFilters() {
+  /* Filter pills (estado) */
+  var filterPills = document.querySelectorAll('.filter-pill[data-filter-state]');
+  var tableRows = document.querySelectorAll('.table-pipeline tbody tr');
+  var filterSelects = document.querySelectorAll('.filter-select');
+  var filterSearch = document.querySelector('.filter-search');
+
+  var activeState = 'todos';
+  var activeIndustria = 'todas';
+  var activeScore = 'todos';
+  var searchText = '';
+
+  function applyFilters() {
+    tableRows.forEach(function(row) {
+      var estado = (row.dataset.estado || '').toLowerCase();
+      var industria = (row.dataset.industria || '').toLowerCase();
+      var score = (row.dataset.score || '').toLowerCase();
+      var text = row.textContent.toLowerCase();
+
+      var matchState = (activeState === 'todos') || (estado === activeState);
+      var matchInd = (activeIndustria === 'todas') || (industria.indexOf(activeIndustria) !== -1);
+      var matchScore = (activeScore === 'todos') || (score === activeScore);
+      var matchSearch = !searchText || (text.indexOf(searchText) !== -1);
+
+      if (matchState && matchInd && matchScore && matchSearch) {
+        row.style.display = '';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  }
+
+  /* State pills */
+  filterPills.forEach(function(pill) {
+    pill.addEventListener('click', function() {
+      filterPills.forEach(function(p) { p.classList.remove('active'); });
+      pill.classList.add('active');
+      activeState = pill.dataset.filterState;
+      applyFilters();
+    });
+  });
+
+  /* Dropdowns */
+  filterSelects.forEach(function(sel) {
+    sel.addEventListener('change', function() {
+      if (sel.dataset.filterType === 'industria') {
+        activeIndustria = sel.value;
+      } else if (sel.dataset.filterType === 'score') {
+        activeScore = sel.value;
+      }
+      applyFilters();
+    });
+  });
+
+  /* Search input */
+  if (filterSearch) {
+    filterSearch.addEventListener('input', function() {
+      searchText = filterSearch.value.trim().toLowerCase();
+      applyFilters();
+    });
+  }
+}
+
+/* =============================================================================
+   12. INIT PIPELINE TABLE — row highlight on click (VP)
+   ============================================================================= */
+
+function initPipelineTable() {
+  var tableRows = document.querySelectorAll('.table-pipeline tbody tr');
+  tableRows.forEach(function(row) {
+    row.addEventListener('click', function() {
+      tableRows.forEach(function(r) { r.classList.remove('highlight'); });
+      row.classList.add('highlight');
+    });
+  });
+}
+
+/* =============================================================================
+   13. INIT LEAD PANEL — slide-in panel with lead data (SDR)
+   ============================================================================= */
+
+function initLeadPanel() {
+  var panel = document.getElementById('lead-panel');
+  var overlay = document.getElementById('lead-panel-overlay');
+  var closeBtn = document.getElementById('lead-panel-close');
+
+  if (!panel) return;
+
+  function openPanel(leadId) {
+    var lead = null;
+    if (window.SISTECO_DATA && window.SISTECO_DATA.leads) {
+      window.SISTECO_DATA.leads.forEach(function(l) {
+        if (l.id === leadId) lead = l;
+      });
+    }
+    if (!lead) return;
+
+    /* Populate panel */
+    fillLeadPanel(lead);
+
+    /* Animate open */
+    if (typeof gsap !== 'undefined') {
+      gsap.to(panel, { x: 0, duration: 0.4, ease: 'power3.out', clearProps: 'x' });
+    }
+    panel.classList.add('open');
+
+    if (overlay) {
+      overlay.classList.add('visible');
+    }
+
+    /* Re-init icons */
+    initLucide();
+  }
+
+  function closePanel() {
+    if (typeof gsap !== 'undefined') {
+      gsap.to(panel, {
+        x: 400,
+        duration: 0.3,
+        ease: 'power2.in',
+        onComplete: function() {
+          panel.classList.remove('open');
+          gsap.set(panel, { clearProps: 'x' });
+        }
+      });
+    } else {
+      panel.classList.remove('open');
+    }
+    if (overlay) {
+      overlay.classList.remove('visible');
+    }
+  }
+
+  /* Wire close button */
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closePanel);
+  }
+
+  /* Wire overlay click */
+  if (overlay) {
+    overlay.addEventListener('click', closePanel);
+  }
+
+  /* Wire table row clicks */
+  var leadRows = document.querySelectorAll('.leads-table-row[data-lead-id]');
+  leadRows.forEach(function(row) {
+    row.style.cursor = 'pointer';
+    row.addEventListener('click', function() {
+      leadRows.forEach(function(r) { r.classList.remove('highlight'); });
+      row.classList.add('highlight');
+      openPanel(row.dataset.leadId);
+    });
+  });
+
+  /* Wire todo-list lead name clicks */
+  var todoLeadLinks = document.querySelectorAll('.todo-lead-name[data-lead-id]');
+  todoLeadLinks.forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      e.stopPropagation();
+      openPanel(link.dataset.leadId);
+    });
+  });
+
+  /* Open first HOT lead by default */
+  var firstHotRow = document.querySelector('.leads-table-row[data-clasificacion="HOT"]');
+  if (firstHotRow) {
+    firstHotRow.classList.add('highlight');
+    openPanel(firstHotRow.dataset.leadId);
+  }
+}
+
+/* Fill lead panel with data */
+function fillLeadPanel(lead) {
+  /* Helper to set text safely */
+  function setText(id, value) {
+    var el = document.getElementById(id);
+    if (el) el.textContent = value || '—';
+  }
+  function setHtml(id, value) {
+    var el = document.getElementById(id);
+    if (el) el.innerHTML = value || '—';
+  }
+
+  setText('panel-nombre', lead.nombre || '');
+  setText('panel-cargo', (lead.cargo || '') + ' · ' + (lead.empresa || ''));
+
+  /* Score badge */
+  var scoreBadgeEl = document.getElementById('panel-score-badge');
+  if (scoreBadgeEl) {
+    var cls = lead.clasificacion === 'HOT' ? 'badge-hot' : lead.clasificacion === 'WARM' ? 'badge-warm' : 'badge-nurture';
+    scoreBadgeEl.className = 'badge ' + cls;
+    scoreBadgeEl.textContent = lead.clasificacion + ' ' + lead.score;
+  }
+
+  /* Contact */
+  setText('panel-email', lead.email);
+  setText('panel-tel', lead.telefono);
+  setText('panel-ciudad', lead.ciudad);
+
+  /* Email link */
+  var emailLink = document.getElementById('panel-email-link');
+  if (emailLink && lead.email) {
+    emailLink.href = 'mailto:' + lead.email;
+    emailLink.textContent = lead.email;
+  }
+
+  /* Tel link */
+  var telLink = document.getElementById('panel-tel-link');
+  if (telLink && lead.telefono) {
+    telLink.href = 'tel:' + lead.telefono;
+    telLink.textContent = lead.telefono;
+  }
+
+  /* Empresa */
+  setText('panel-empresa', lead.empresa);
+  setText('panel-rut', lead.empresa_rut);
+  setText('panel-actividad', lead.sii_actividad);
+  setText('panel-tamano', lead.tamano);
+  setText('panel-inicio', lead.sii_inicio_actividades);
+  setText('panel-industria-label', lead.industria);
+
+  /* Score breakdown bars */
+  var scoreTotal = lead.score || 0;
+  setText('panel-score-total', scoreTotal + '/100');
+
+  /* Fill factor bars based on total score (normalized) */
+  var factors = [
+    { id: 'bar-tamano', label: 'Tamano empresa', max: 25, pct: Math.min(Math.round(scoreTotal * 0.28), 25) },
+    { id: 'bar-industria', label: 'Industria match', max: 25, pct: Math.min(Math.round(scoreTotal * 0.25), 25) },
+    { id: 'bar-actividad', label: 'Actividad reciente', max: 25, pct: Math.min(Math.round(scoreTotal * 0.25), 25) },
+    { id: 'bar-completitud', label: 'Completitud datos', max: 25, pct: Math.min(Math.round(scoreTotal * 0.22), 25) }
+  ];
+
+  factors.forEach(function(f) {
+    var fillEl = document.getElementById(f.id);
+    if (fillEl) {
+      fillEl.style.width = Math.round((f.pct / f.max) * 100) + '%';
+    }
+    var valEl = document.getElementById(f.id + '-val');
+    if (valEl) {
+      valEl.textContent = f.pct + '/' + f.max;
+    }
+  });
+
+  /* Timeline — generate based on lead data */
+  var timelineEl = document.getElementById('panel-timeline');
+  if (timelineEl) {
+    var events = [
+      { action: 'Ingresado al pipeline', days: lead.fecha_ingreso_dias + 5 },
+      { action: 'Enriquecido con datos SII', days: lead.fecha_ingreso_dias + 3 },
+      { action: 'Scored: ' + lead.clasificacion + ' ' + lead.score, days: lead.fecha_ingreso_dias + 2 },
+      { action: lead.sdr_asignado ? ('Asignado a ' + lead.sdr_asignado.split(' ')[0]) : 'Sin asignar', days: lead.fecha_ingreso_dias }
+    ];
+
+    timelineEl.innerHTML = events.map(function(ev, idx) {
+      var dateLabel = ev.days === 0 ? 'hoy' : ev.days === 1 ? 'ayer' : 'hace ' + ev.days + ' dias';
+      return '<div class="timeline-item">' +
+        '<div class="timeline-dot-wrapper">' +
+          '<div class="timeline-dot" style="background:' + (idx === 0 ? 'var(--accent)' : 'var(--border)') + ';"></div>' +
+          (idx < events.length - 1 ? '<div class="timeline-line"></div>' : '') +
+        '</div>' +
+        '<div class="timeline-content">' +
+          '<div class="timeline-action">' + esc(ev.action) + '</div>' +
+          '<div class="timeline-date">' + dateLabel + '</div>' +
+        '</div>' +
+      '</div>';
+    }).join('');
+  }
+}
+
+/* =============================================================================
+   14. INIT TODO LIST — checkbox toggle (SDR)
+   ============================================================================= */
+
+function initTodoList() {
+  var todoItems = document.querySelectorAll('.todo-item');
+  todoItems.forEach(function(item) {
+    var checkbox = item.querySelector('.todo-checkbox');
+    if (!checkbox) return;
+    checkbox.addEventListener('click', function(e) {
+      e.stopPropagation();
+      item.classList.toggle('completed');
+    });
+  });
+}
+
+/* =============================================================================
+   15. DOM CONTENT LOADED — main init
    ============================================================================= */
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -862,6 +1152,17 @@ document.addEventListener('DOMContentLoaded', function() {
   initSidebar();
   initHeroGreeting();
   initQueryButtons(role);
+
+  /* Role-specific inits */
+  if (role === 'vp' || role === 'vp-ventas') {
+    initFilters();
+    initPipelineTable();
+  }
+
+  if (role === 'sdr') {
+    initTodoList();
+    initLeadPanel();
+  }
 
   /* Command bar last so lucide is ready */
   requestAnimationFrame(function() {
