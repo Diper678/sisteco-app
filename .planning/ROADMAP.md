@@ -44,8 +44,8 @@ Plans:
 **Plans:** 2/2 plans complete
 
 Plans:
-- [ ] 02-01-PLAN.md — Design system compartido + mockup vista CEO (KPIs narrativos, funnel, segmentacion)
-- [ ] 02-02-PLAN.md — Mockups VP Ventas (pipeline + equipo) y SDR (to-do + lead detail panel)
+- [x] 02-01-PLAN.md — Design system compartido + mockup vista CEO (KPIs narrativos, funnel, segmentacion)
+- [x] 02-02-PLAN.md — Mockups VP Ventas (pipeline + equipo) y SDR (to-do + lead detail panel)
 
 **Success Criteria**:
   1. Usuario ha investigado 5+ dashboards SaaS B2B como referencia
@@ -93,10 +93,10 @@ Plans:
 Phases 1 y 2 son paralelas. Phase 3 requiere ambas. Phase 4 requiere 1 y 3. Phase 5 requiere 3 y 4.
 Order: 1 || 2 -> 3 -> 4 -> 5
 
-| 2/2 | Complete   | 2026-03-12 | Completed |
+| Phase | Plans | Progress | Completed |
 |-------|-------|--------|-----------|
 | 1. Pipeline de Leads | 3 plans (2 waves) | 2/3 plans complete | - |
-| 2. Diseno Dashboard | 2 plans (2 waves) | Not started | - |
+| 2. Diseno Dashboard | 2 plans (2 waves) | 2/2 plans complete | 2026-03-12 |
 | 3. Dashboard Build | TBD | Not started | - |
 | 4. Compliance Ley 21.719 | TBD | Not started | - |
 | 5. Onboarding Fundadores | TBD | Not started | - |
