@@ -57,6 +57,15 @@ Plans:
 **Goal**: Dashboard funcional multi-tenant multi-rol conectado a datos reales de Convex
 **Depends on**: Phase 1 (datos reales), Phase 2 (diseno aprobado)
 **Requirements**: DASH-01, DASH-02, DASH-03, DASH-04, DASH-05, DASH-06, DASH-07
+**Plans:** 5 plans
+
+Plans:
+- [ ] 03-01-PLAN.md — Foundation: Clerk auth + Convex schema multi-tenant + shared JS modules + login
+- [ ] 03-02-PLAN.md — CEO + VP Ventas con datos reales (KPIs, pipeline table, filtros, asignacion)
+- [ ] 03-03-PLAN.md — SDR con datos reales (to-do list, lead detail panel, audit trail, contacto)
+- [ ] 03-04-PLAN.md — Gemini fallback NL + PDF reports + command bar historial/persistencia
+- [ ] 03-05-PLAN.md — Mobile responsive + empty states + ICP wizard + pipeline activation + verificacion
+
 **Success Criteria**:
   1. Login con Clerk (email + Google OAuth) con organizations para multi-tenant
   2. Cada empresa ve SOLO sus leads (aislamiento por org)
@@ -97,6 +106,6 @@ Order: 1 || 2 -> 3 -> 4 -> 5
 |-------|-------|--------|-----------|
 | 1. Pipeline de Leads | 3 plans (2 waves) | 2/3 plans complete | - |
 | 2. Diseno Dashboard | 2 plans (2 waves) | 2/2 plans complete | 2026-03-12 |
-| 3. Dashboard Build | TBD | Not started | - |
+| 3. Dashboard Build | 5 plans (4 waves) | 0/5 plans complete | - |
 | 4. Compliance Ley 21.719 | TBD | Not started | - |
 | 5. Onboarding Fundadores | TBD | Not started | - |
