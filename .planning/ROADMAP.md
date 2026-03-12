@@ -12,7 +12,7 @@ dashboard desde cero, y conseguir los primeros clientes fundadores pagando.
 ## Phases
 
 - [ ] **Phase 1: Pipeline de Leads Activo** - Activar workflows reales: PhantomBuster extrae, SII valida, Gemini califica, datos llegan a Convex
-- [ ] **Phase 2: Diseno Dashboard (Colaborativo)** - Usuario investiga mercado, selecciona referencias, define UX. Claude propone wireframes.
+- [x] **Phase 2: Diseno Dashboard (Colaborativo)** - Usuario investiga mercado, selecciona referencias, define UX. Claude propone wireframes. (completed 2026-03-12)
 - [ ] **Phase 3: Dashboard Build** - Construir dashboard multi-tenant multi-rol desde cero conectado a datos reales de Convex
 - [ ] **Phase 4: Compliance Basico Ley 21.719** - RAT, opt-out, base legal documentada, aviso de privacidad — lo minimo para operar legal
 - [ ] **Phase 5: Onboarding Clientes Fundadores** - Trial con datos reales, cobro via Reveniu, primeros 3-10 clientes pagando
@@ -41,7 +41,7 @@ Plans:
 **Goal**: Tener un diseno aprobado del dashboard que refleje el mercado actual de SaaS B2B, listo para construir
 **Depends on**: Nothing (paralelo a Phase 1)
 **Requirements**: DASH-01 a DASH-07 (definicion visual)
-**Plans:** 1/2 plans executed
+**Plans:** 2/2 plans complete
 
 Plans:
 - [ ] 02-01-PLAN.md — Design system compartido + mockup vista CEO (KPIs narrativos, funnel, segmentacion)
@@ -93,7 +93,7 @@ Plans:
 Phases 1 y 2 son paralelas. Phase 3 requiere ambas. Phase 4 requiere 1 y 3. Phase 5 requiere 3 y 4.
 Order: 1 || 2 -> 3 -> 4 -> 5
 
-| 1/2 | In Progress|  | Completed |
+| 2/2 | Complete   | 2026-03-12 | Completed |
 |-------|-------|--------|-----------|
 | 1. Pipeline de Leads | 3 plans (2 waves) | 2/3 plans complete | - |
 | 2. Diseno Dashboard | 2 plans (2 waves) | Not started | - |

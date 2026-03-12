@@ -22,12 +22,12 @@
 ### Dashboard de Clientes (Fase 2)
 
 - [x] **DASH-01**: Login con Clerk (email + Google OAuth)
-- [ ] **DASH-02**: Vista de leads con filtros (score, industria, estado, fecha)
+- [x] **DASH-02**: Vista de leads con filtros (score, industria, estado, fecha)
 - [x] **DASH-03**: KPIs principales: leads nuevos, leads HOT, tasa de conversion, pipeline value
-- [ ] **DASH-04**: Detalle de lead individual (datos enriquecidos, score breakdown, timeline)
+- [x] **DASH-04**: Detalle de lead individual (datos enriquecidos, score breakdown, timeline)
 - [x] **DASH-05**: Multi-tenant: cada cliente ve solo sus datos
 - [x] **DASH-06**: Responsive (funciona en movil para vendedores)
-- [ ] **DASH-07**: Dashboard NO usa suscripciones reactivas a tablas completas (optimizar queries)
+- [x] **DASH-07**: Dashboard NO usa suscripciones reactivas a tablas completas (optimizar queries)
 
 ### Datos B2B Chile (Fase 3)
 

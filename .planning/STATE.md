@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v2.0
 milestone_name: Vertical SaaS B2B Chile
 status: executing
-last_updated: "2026-03-10"
-last_activity: 2026-03-10 — Completed 02-01 design system + CEO mockup — checkpoint:human-verify pending
+last_updated: "2026-03-12"
+last_activity: 2026-03-12 — Completed 02-02 VP Ventas + SDR mockups — checkpoint:human-verify pending
 progress:
   total_phases: 5
   completed_phases: 1
   total_plans: 4
-  completed_plans: 3
-  percent: 25
+  completed_plans: 4
+  percent: 40
 ---
 
 # Project State
@@ -20,16 +20,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-09)
 
 **Core value:** Inteligencia de leads B2B chilena que ningun competidor internacional puede replicar.
-**Current focus:** Phase 1 (Pipeline de Leads) y Phase 2 (Diseno Dashboard) en paralelo.
+**Current focus:** Phase 2 (Diseno Dashboard) — aprobacion final de las 3 vistas pendiente.
 
 ## Current Position
 
 Phase: 2 of 5 (Diseno Dashboard) — EN PROGRESO
-Plan: 1 of ? (02-01 completo — checkpoint:human-verify pendiente)
-Status: Checkpoint — awaiting CEO dashboard visual verification
-Last activity: 2026-03-10 — Completed 02-01 design system + CEO mockup
+Plan: 2 of 2 (02-02 completo — checkpoint:human-verify pendiente)
+Status: Checkpoint — awaiting visual verification of VP Ventas + SDR mockups
+Last activity: 2026-03-12 — Completed 02-02 VP Ventas + SDR mockups
 
-Progress: [███░░░░░░░] 25%
+Progress: [████░░░░░░] 40%
 
 ## Reutilizacion de SAAN v1.0
 
@@ -61,6 +61,8 @@ Trabajo completado que se reutiliza directamente:
 - [2026-03-10]: Funnel data renderizado via JS desde SISTECO_DATA (no hardcoded) para reutilizacion en Plan 02
 - [2026-03-10]: Command bar suggestions organizadas por rol (ceo/vp/sdr) en interactions.js compartido
 - [2026-03-10]: Nasalization font cargada via ruta relativa desde raiz del proyecto
+- [Phase 02-diseno-dashboard]: Login badge con color por rol: lime CEO, chart-blue VP, chart-purple SDR
+- [Phase 02-diseno-dashboard]: Lead detail panel se abre por defecto con primer lead HOT para demostrar el patron
 
 ### Blockers/Concerns
 
@@ -71,6 +73,6 @@ Trabajo completado que se reutiliza directamente:
 
 ## Session Continuity
 
-Last session: 2026-03-10
-Stopped at: Completed 02-01-PLAN.md (design system + CEO mockup) — checkpoint:human-verify pending
+Last session: 2026-03-12T00:14:22.552Z
+Stopped at: Completed 02-02-PLAN.md (VP Ventas + SDR mockups) — checkpoint:human-verify pending
 Resume file: None
