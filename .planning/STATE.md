@@ -3,11 +3,27 @@ gsd_state_version: 1.0
 milestone: v2.0
 milestone_name: milestone
 status: executing
+stopped_at: Completed Phase 03 Plan 03 (SDR dashboard — leads asignados + lead detail panel)
+last_updated: "2026-03-13T00:47:42.157Z"
+last_activity: 2026-03-13 — Phase 3 Plan 01 completado — Clerk auth + Convex schema multi-tenant deployado
+progress:
+  total_phases: 5
+  completed_phases: 2
+  total_plans: 10
+  completed_plans: 7
+  percent: 70
+---
+
+---
+gsd_state_version: 1.0
+milestone: v2.0
+milestone_name: milestone
+status: executing
 stopped_at: Phase 3 context gathered
 last_updated: "2026-03-12T17:49:39.456Z"
 last_activity: 2026-03-12 — Phase 2 diseno dashboard completada y aprobada
 progress:
-  total_phases: 5
+  [███████░░░] 70%
   completed_phases: 2
   total_plans: 5
   completed_plans: 5
@@ -83,6 +99,9 @@ Trabajo completado que se reutiliza directamente:
 - [2026-03-13]: orgId SIEMPRE desde JWT via getUserIdentity() — nunca del request body para prevenir spoofing cross-tenant
 - [2026-03-13]: Schema leads extiende SAAN v1.0 (mantiene todos los campos) + agrega orgId, estado, subestado, asignadoA, auditTrail
 - [2026-03-13]: Rol de usuario almacenado en tabla users de Convex — mas flexible que Clerk custom org roles
+- [Phase 03]: Async content builders dual dispatch: tareas/mis-leads render into pre-existing DOM elements; hot-pending/stats return HTML strings for content block injection
+- [Phase 03]: window.openLeadPanelConvex exposed globally from content-builders.js for cross-file panel delegation without circular dependency
+- [Phase 03]: getLeadsByAssignee uses by_asignadoA index then also filters by orgId for multi-tenant defense in depth
 
 ### Blockers/Concerns
 
@@ -93,6 +112,6 @@ Trabajo completado que se reutiliza directamente:
 
 ## Session Continuity
 
-Last session: 2026-03-13T00:03:57Z
-Stopped at: Phase 3 Plan 01 (auth foundation) completado
-Resume file: .planning/phases/03-dashboard-build/03-01-SUMMARY.md
+Last session: 2026-03-13T00:47:42.154Z
+Stopped at: Completed Phase 03 Plan 03 (SDR dashboard — leads asignados + lead detail panel)
+Resume file: None
