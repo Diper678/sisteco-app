@@ -83,8 +83,14 @@ var queryButtonConfig = {
    ============================================================================= */
 
 var contentBuilders = {
-  ceo: {}
+  ceo: {},
+  vp: {},
+  sdr: {}
 };
+
+/* Note: SDR builders are in shared/content-builders.js (window.contentBuilders.sdr)
+   They are merged into this map after DOMContentLoaded.
+   CEO builders remain inline here for backward compat with ceo.html mock data. */
 
 /* Helper: escape HTML */
 function esc(str) {
@@ -342,6 +348,12 @@ function loadContent(queryId, role, queryLabel) {
   var contentArea = document.getElementById('content-area');
   if (!contentArea) return;
 
+  /* SDR role: delegate to content-builders.js SDR builders (async, render into DOM directly) */
+  if (role === 'sdr') {
+    _loadContentSdr(queryId, queryLabel);
+    return;
+  }
+
   /* If same block is already showing, do nothing (already active) */
   if (currentActiveQueryId === queryId) {
     var existingBlock = document.getElementById('block-' + queryId);
@@ -355,12 +367,33 @@ function loadContent(queryId, role, queryLabel) {
   function insertNewBlock() {
     currentActiveQueryId = queryId;
 
+    /* Merge external content builders (from content-builders.js) into local map */
+    if (window.contentBuilders && window.contentBuilders[role]) {
+      Object.keys(window.contentBuilders[role]).forEach(function(k) {
+        if (!contentBuilders[role]) contentBuilders[role] = {};
+        contentBuilders[role][k] = window.contentBuilders[role][k];
+      });
+    }
+
     /* Get content builder */
     var builder = contentBuilders[role] && contentBuilders[role][queryId];
     var innerHtml = '';
 
     if (builder) {
-      innerHtml = builder();
+      var result = builder();
+      /* If builder returns a Promise (async builder), handle it */
+      if (result && typeof result.then === 'function') {
+        innerHtml = '<p style="color:var(--text-muted);">Cargando...</p>';
+        result.then(function(html) {
+          var bodyEl = block && block.querySelector('.content-block-body');
+          if (bodyEl && html) {
+            bodyEl.innerHTML = html;
+            initLucide();
+          }
+        });
+      } else {
+        innerHtml = result || '';
+      }
     } else {
       innerHtml = '<p style="color:var(--text-secondary);padding:var(--space-4) 0;">Contenido para "' + esc(queryLabel) + '" disponible en la version de produccion.</p>';
     }
@@ -434,7 +467,106 @@ function loadContent(queryId, role, queryLabel) {
 }
 
 /* =============================================================================
-   5b. CONVERSATIONAL AI RESPONSE — format markdown-like text
+   5b. SDR CONTENT LOADER — async builders that render directly into DOM
+   Routes SDR query button clicks to content-builders.js SDR builders.
+   SDR builders render into page DOM (todo-list, sdr-leads-tbody) instead of
+   injecting a content block, so we scroll the user to the relevant section.
+   ============================================================================= */
+
+function _loadContentSdr(queryId, queryLabel) {
+  var sdr = window.contentBuilders && window.contentBuilders.sdr;
+  if (!sdr) {
+    console.warn('[SDR] SDR content builders not loaded yet');
+    return;
+  }
+
+  /* Map query button IDs to SDR builder methods + target scroll element */
+  var builderMap = {
+    'mis-tareas':  { fn: sdr.buildSdrTareas,    scrollTo: 'todo-list' },
+    'mis-leads':   { fn: sdr.buildSdrMisLeads,   scrollTo: 'sdr-leads-tbody' },
+    'hot-pending': { fn: sdr.buildSdrHotPending, scrollTo: 'todo-list' },
+    'stats':       { fn: sdr.buildSdrStats,      scrollTo: 'sdr-kpi-grid' },
+    'reuniones':   { fn: null,                   scrollTo: 'todo-list' },
+    'contactar':   { fn: null,                   scrollTo: 'todo-list' }
+  };
+
+  var entry = builderMap[queryId];
+  if (!entry) return;
+
+  if (entry.fn) {
+    /* For hot-pending and stats, show in a content block */
+    if (queryId === 'hot-pending' || queryId === 'stats') {
+      var contentArea = document.getElementById('content-area');
+      if (!contentArea) return;
+
+      var block = document.createElement('div');
+      block.className = 'content-block';
+      block.id = 'block-' + queryId;
+      block.setAttribute('role', 'region');
+      block.setAttribute('aria-label', queryLabel);
+      block.innerHTML = '<div class="content-block-header">' +
+        '<h2 class="content-block-title">' + esc(queryLabel) + '</h2>' +
+        '<button class="content-block-close" aria-label="Cerrar ' + esc(queryLabel) + '" data-block-id="' + queryId + '">' +
+          '<i data-lucide="x"></i>' +
+        '</button>' +
+      '</div>' +
+      '<div class="content-block-body"><p style="color:var(--text-muted);">Cargando...</p></div>';
+
+      /* Remove existing blocks */
+      var existing = contentArea.querySelectorAll('.content-block, .ai-response-block');
+      existing.forEach(function(b) { b.remove(); });
+
+      contentArea.appendChild(block);
+
+      block.querySelector('.content-block-close').addEventListener('click', function() {
+        document.querySelectorAll('.query-btn').forEach(function(b) { b.classList.remove('active'); });
+        animateBlockOut(block);
+      });
+
+      initLucide();
+      animateBlockIn(block);
+
+      /* Call async builder and inject result */
+      entry.fn().then(function(html) {
+        var bodyEl = block.querySelector('.content-block-body');
+        if (bodyEl && html) {
+          bodyEl.innerHTML = html;
+          initLucide();
+          if (typeof gsap !== 'undefined') {
+            var bars = bodyEl.querySelectorAll('.chart-bar-h-fill');
+            bars.forEach(function(bar) {
+              var targetWidth = bar.style.width;
+              bar.style.width = '0%';
+              gsap.to(bar, { width: targetWidth, duration: 0.8, ease: 'power3.out', delay: 0.3 });
+            });
+          }
+        }
+      }).catch(function(err) {
+        console.error('[SDR] Builder error:', err);
+      });
+
+      block.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      return;
+    }
+
+    /* For mis-tareas and mis-leads, just call the builder (renders into existing DOM) */
+    entry.fn().then(function() {
+      /* Scroll to section */
+      var target = entry.scrollTo && document.getElementById(entry.scrollTo);
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      initLucide();
+    }).catch(function(err) {
+      console.error('[SDR] Builder error:', err);
+    });
+  } else {
+    /* No builder yet — scroll to relevant section */
+    var target = entry.scrollTo && document.getElementById(entry.scrollTo);
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+/* =============================================================================
+   5c. CONVERSATIONAL AI RESPONSE — format markdown-like text
    ============================================================================= */
 
 function formatConversationResponse(text) {
@@ -942,7 +1074,12 @@ function initLeadPanel() {
 
   if (!panel) return;
 
-  function openPanel(leadId) {
+  /* Use Convex-backed panel opener if available (content-builders.js SDR plan) */
+  var _openPanelFn = typeof window.openLeadPanelConvex === 'function'
+    ? window.openLeadPanelConvex
+    : openPanelMockData;
+
+  function openPanelMockData(leadId) {
     var lead = null;
     if (window.SISTECO_DATA && window.SISTECO_DATA.leads) {
       window.SISTECO_DATA.leads.forEach(function(l) {
@@ -951,20 +1088,16 @@ function initLeadPanel() {
     }
     if (!lead) return;
 
-    /* Populate panel */
+    /* Populate panel with mock data */
     fillLeadPanel(lead);
 
     /* Animate open */
     if (typeof gsap !== 'undefined') {
+      gsap.set(panel, { x: 400 });
       gsap.to(panel, { x: 0, duration: 0.4, ease: 'power3.out', clearProps: 'x' });
     }
     panel.classList.add('open');
-
-    if (overlay) {
-      overlay.classList.add('visible');
-    }
-
-    /* Re-init icons */
+    if (overlay) overlay.classList.add('visible');
     initLucide();
   }
 
@@ -1004,7 +1137,7 @@ function initLeadPanel() {
     row.addEventListener('click', function() {
       leadRows.forEach(function(r) { r.classList.remove('highlight'); });
       row.classList.add('highlight');
-      openPanel(row.dataset.leadId);
+      _openPanelFn(row.dataset.leadId);
     });
   });
 
@@ -1013,15 +1146,19 @@ function initLeadPanel() {
   todoLeadLinks.forEach(function(link) {
     link.addEventListener('click', function(e) {
       e.stopPropagation();
-      openPanel(link.dataset.leadId);
+      _openPanelFn(link.dataset.leadId);
     });
   });
 
-  /* Open first HOT lead by default */
-  var firstHotRow = document.querySelector('.leads-table-row[data-clasificacion="HOT"]');
-  if (firstHotRow) {
-    firstHotRow.classList.add('highlight');
-    openPanel(firstHotRow.dataset.leadId);
+  /* Open first HOT lead by default — prefer Convex opener */
+  /* Note: when Convex builders run (async), they auto-open first HOT via buildSdrTareas.
+     This fallback handles the mock-data path only. */
+  if (typeof window.openLeadPanelConvex !== 'function') {
+    var firstHotRow = document.querySelector('.leads-table-row[data-clasificacion="HOT"]');
+    if (firstHotRow) {
+      firstHotRow.classList.add('highlight');
+      openPanelMockData(firstHotRow.dataset.leadId);
+    }
   }
 }
 

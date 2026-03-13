@@ -551,7 +551,7 @@
     window.ConvexHttpClient = ConvexHttpClient;
   </script>
 
-  <!-- Sisteco shared modules -->
+  <!-- Sisteco shared modules (orden obligatorio) -->
   <script src="../shared/auth.js"></script>
   <script src="../shared/convex-client.js"></script>
 
@@ -559,216 +559,90 @@
   <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
 
-  <!-- Mock data (fallback para desarrollo — se reemplaza con datos Convex en Plan 02-03) -->
+  <!-- Shared content builders (CEO/VP/SDR namespaces) -->
+  <script src="../shared/content-builders.js"></script>
+
+  <!-- Mock data (fallback para desarrollo) + Interactions -->
   <script src="../shared/mock-data.js"></script>
   <script src="../shared/interactions.js"></script>
 
-  <!-- Auth guard: verificar sesion antes de iniciar dashboard -->
+  <!-- Auth guard + SDR dashboard init con datos reales de Convex -->
   <script>
   (function() {
     'use strict';
     window.CONVEX_URL = 'https://animated-pika-122.convex.cloud';
 
     window.addEventListener('load', async function() {
+      /* 1. Autenticar */
       var orgId = await window.SistecoAuth.initAuth();
-      if (!orgId) return;
+      if (!orgId) return; /* initAuth redirige a login si no hay sesion */
+
+      /* 2. Actualizar UI con datos del usuario (nombre, org, avatar) */
       window.SistecoAuth.mountUserInfo();
+
+      /* 3. Actualizar topbar subtitle con nombre real del usuario */
+      var subtitle = document.querySelector('.topbar-subtitle');
+      if (subtitle && window.CURRENT_USER) {
+        var fullName = (window.CURRENT_USER.firstName || '') + ' ' + (window.CURRENT_USER.lastName || '');
+        subtitle.textContent = 'Mis leads — ' + fullName.trim();
+      }
+
+      /* 4. Cargar to-do list con datos reales de Convex */
+      if (window.contentBuilders && window.contentBuilders.sdr) {
+        await window.contentBuilders.sdr.buildSdrTareas();
+        await window.contentBuilders.sdr.buildSdrMisLeads();
+      }
+
+      /* 5. Actualizar query buttons con conteos reales */
+      _updateQueryButtonBadges();
+
+      /* 6. Wire panel close button (interactions.js puede no haberlo registrado aun) */
+      _wireLeadPanelClose();
+
+      /* 7. Re-init lucide (despues de que los builders rendericen iconos) */
+      if (typeof lucide !== 'undefined') lucide.createIcons();
     });
-  })();
-  </script>
 
-  <!-- Page-specific: render SDR KPI cards, todo list, leads table from mock data -->
-  <script>
-  (function() {
-    'use strict';
-
-    function esc(str) {
-      return String(str || '')
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;');
+    /* ---- Badges dinamicos en query buttons ---- */
+    function _updateQueryButtonBadges() {
+      /* Los badges se actualizan cuando los builders terminan — este es un hook para futuras metricas */
     }
 
-    /* ---- Render SDR KPI Cards (3 compact) ---- */
-    function renderSDRKPIs() {
-      var grid = document.getElementById('sdr-kpi-grid');
-      if (!grid || !window.SISTECO_DATA) return;
+    /* ---- Wire close panel (SDR) ---- */
+    function _wireLeadPanelClose() {
+      var panel = document.getElementById('lead-panel');
+      var overlay = document.getElementById('lead-panel-overlay');
+      var closeBtn = document.getElementById('lead-panel-close');
 
-      var k = window.SISTECO_DATA.kpis.sdr;
-      var todos = window.SISTECO_DATA.sdrTodos;
-      var urgentCount = todos.filter(function(t) { return t.prioridad === 'urgente'; }).length;
-
-      var cards = [
-        {
-          icon: 'users',
-          label: 'Mis Leads',
-          value: 8,
-          sub: 'Total asignados'
-        },
-        {
-          icon: 'alert-circle',
-          label: 'Pendientes Hoy',
-          value: urgentCount + 1,
-          sub: 'Requieren accion',
-          urgent: true
-        },
-        {
-          icon: 'check-circle',
-          label: 'Contactados Esta Semana',
-          value: 5,
-          sub: 'Meta: 10'
+      function closePanel() {
+        if (typeof gsap !== 'undefined') {
+          gsap.to(panel, {
+            x: 400,
+            duration: 0.3,
+            ease: 'power2.in',
+            onComplete: function() {
+              panel.classList.remove('open');
+              gsap.set(panel, { clearProps: 'x' });
+            }
+          });
+        } else {
+          panel.classList.remove('open');
         }
-      ];
-
-      grid.innerHTML = cards.map(function(c) {
-        var urgentStyle = c.urgent ? ' border-left: 4px solid var(--warning);' : '';
-        return '<article class="card-kpi" style="' + urgentStyle + '">' +
-          '<div class="card-kpi-header">' +
-            '<div class="card-kpi-label">' + esc(c.label) + '</div>' +
-            '<div class="card-kpi-icon" aria-hidden="true">' +
-              '<i data-lucide="' + esc(c.icon) + '"></i>' +
-            '</div>' +
-          '</div>' +
-          '<div class="card-kpi-value">' + esc(String(c.value)) + '</div>' +
-          '<p style="font-size:var(--text-xs);color:var(--text-muted);margin-top:var(--space-1);">' + esc(c.sub) + '</p>' +
-        '</article>';
-      }).join('');
-    }
-
-    /* ---- Render To-Do List ---- */
-    function prioridadLabel(p) {
-      var map = { urgente: 'Hoy — urgente', alta: 'Hoy', media: 'Manana', baja: 'Esta semana' };
-      return map[p] || p;
-    }
-
-    function prioridadFechaClass(p) {
-      if (p === 'urgente') return 'urgent';
-      if (p === 'alta') return 'today';
-      return '';
-    }
-
-    function clasificacionBadgeClass(cls) {
-      var map = { 'HOT': 'badge-hot', 'WARM': 'badge-warm', 'NURTURE': 'badge-nurture' };
-      return map[cls] || 'badge-skip';
-    }
-
-    function renderTodoList() {
-      var list = document.getElementById('todo-list');
-      if (!list || !window.SISTECO_DATA) return;
-
-      var todos = window.SISTECO_DATA.sdrTodos;
-
-      list.innerHTML = todos.map(function(todo) {
-        var fechaClass = prioridadFechaClass(todo.prioridad);
-        var actionIcon = {
-          'Enviar propuesta comercial': 'file-text',
-          'Confirmar reunion': 'calendar',
-          'Primer contacto': 'phone',
-          'Follow-up': 'refresh-cw',
-          'Agendar demo': 'monitor',
-          'Preparar casos': 'book-open',
-          'Enviar info': 'mail',
-          'Revisar perfil': 'linkedin'
-        };
-        /* Match action icon */
-        var iconName = 'check';
-        Object.keys(actionIcon).forEach(function(key) {
-          if (todo.accion.indexOf(key) !== -1) iconName = actionIcon[key];
-        });
-
-        return '<li class="todo-item priority-' + esc(todo.prioridad) + '" data-lead-id="' + esc(todo.lead_id) + '">' +
-          '<div class="todo-checkbox" role="checkbox" aria-checked="false" aria-label="Marcar como completado">' +
-            '<i data-lucide="check"></i>' +
-          '</div>' +
-          '<div class="todo-info">' +
-            '<span class="todo-lead-name" data-lead-id="' + esc(todo.lead_id) + '">' +
-              esc(todo.lead_nombre) +
-            '</span>' +
-            '<span style="color:var(--text-muted);font-size:var(--text-xs);"> · ' + esc(todo.empresa) + '</span>' +
-            '<br>' +
-            '<span class="todo-action">' +
-              '<i data-lucide="' + iconName + '" style="width:12px;height:12px;color:var(--text-muted);"></i>' +
-              esc(todo.accion) +
-            '</span>' +
-          '</div>' +
-          '<div class="todo-meta">' +
-            '<span class="badge ' + clasificacionBadgeClass(todo.clasificacion) + '">' + esc(todo.clasificacion) + '</span>' +
-            '<span class="todo-fecha ' + fechaClass + '">' + esc(prioridadLabel(todo.prioridad)) + '</span>' +
-          '</div>' +
-        '</li>';
-      }).join('');
-    }
-
-    /* ---- Render SDR Leads Table (simplified) ---- */
-    function estadoBadgeClass(estado) {
-      var map = { 'nuevo': 'badge-nurture', 'contactado': 'badge-warm', 'reunion': 'badge-hot', 'propuesta': 'badge-hot' };
-      return map[estado] || 'badge-skip';
-    }
-
-    function estadoLabel(estado) {
-      var map = { 'nuevo': 'Nuevo', 'contactado': 'Contactado', 'reunion': 'Reunion', 'propuesta': 'Propuesta' };
-      return map[estado] || estado;
-    }
-
-    function renderSDRLeads() {
-      var tbody = document.getElementById('sdr-leads-tbody');
-      if (!tbody || !window.SISTECO_DATA) return;
-
-      /* Only leads assigned to Sofia/Camila (first SDR in data) */
-      var leads = window.SISTECO_DATA.leads.filter(function(l) {
-        return l.sdr_asignado === 'Sofia Mendez';
-      });
-
-      tbody.innerHTML = leads.map(function(lead) {
-        var actLabel = lead.fecha_ingreso_dias === 0 ? 'hoy' : lead.fecha_ingreso_dias === 1 ? 'ayer' : 'hace ' + lead.fecha_ingreso_dias + 'd';
-        var clasificacionClass = { 'HOT': 'badge-hot', 'WARM': 'badge-warm', 'NURTURE': 'badge-nurture', 'SKIP': 'badge-skip' };
-
-        return '<tr class="leads-table-row" data-lead-id="' + esc(lead.id) + '" data-clasificacion="' + esc(lead.clasificacion) + '">' +
-          '<td style="font-weight:600;">' + esc(lead.empresa) + '</td>' +
-          '<td>' +
-            '<div style="font-size:var(--text-sm);font-weight:600;">' + esc(lead.nombre) + '</div>' +
-            '<div style="font-size:var(--text-xs);color:var(--text-muted);">' + esc(lead.cargo) + '</div>' +
-          '</td>' +
-          '<td><span class="badge ' + (clasificacionClass[lead.clasificacion] || 'badge-skip') + '">' + esc(lead.clasificacion) + ' ' + lead.score + '</span></td>' +
-          '<td><span class="badge ' + estadoBadgeClass(lead.estado) + '">' + esc(estadoLabel(lead.estado)) + '</span></td>' +
-          '<td style="color:var(--text-muted);font-size:var(--text-xs);">' + actLabel + '</td>' +
-        '</tr>';
-      }).join('');
-    }
-
-    /* ---- Run on DOM ready ---- */
-    document.addEventListener('DOMContentLoaded', function() {
-      renderSDRKPIs();
-      renderTodoList();
-      renderSDRLeads();
-
-      /* Re-init lucide */
-      if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
+        if (overlay) overlay.classList.remove('visible');
       }
 
-      /* Animate KPI cards */
-      if (typeof gsap !== 'undefined') {
-        gsap.from('#sdr-kpi-grid .card-kpi', {
-          y: 20,
-          opacity: 0,
-          duration: 0.5,
-          stagger: 0.1,
-          ease: 'power3.out',
-          delay: 0.15
-        });
-
-        gsap.from('.todo-item', {
-          x: -12,
-          opacity: 0,
-          duration: 0.4,
-          stagger: 0.06,
-          ease: 'power3.out',
-          delay: 0.3
-        });
+      if (closeBtn) {
+        closeBtn.addEventListener('click', closePanel);
       }
-    });
+      if (overlay) {
+        overlay.addEventListener('click', closePanel);
+      }
+
+      /* Sobreescribir openLeadPanel de interactions.js para usar Convex */
+      if (typeof window.openLeadPanelConvex === 'function') {
+        /* content-builders.js ya expuso openLeadPanelConvex — no necesitamos hacer nada mas */
+      }
+    }
 
   })();
   </script>
