@@ -3,11 +3,27 @@ gsd_state_version: 1.0
 milestone: v2.0
 milestone_name: milestone
 status: executing
+stopped_at: Completed Phase 03 Plan 04 (Gemini NL fallback + PDF report generation)
+last_updated: "2026-03-13T01:10:18.726Z"
+last_activity: 2026-03-13 — Phase 3 Plan 02 completado — CEO/VP dashboards conectados a Convex real data
+progress:
+  total_phases: 5
+  completed_phases: 2
+  total_plans: 10
+  completed_plans: 9
+  percent: 90
+---
+
+---
+gsd_state_version: 1.0
+milestone: v2.0
+milestone_name: milestone
+status: executing
 stopped_at: Completed Phase 03 Plan 03 (SDR dashboard — leads asignados + lead detail panel)
 last_updated: "2026-03-13T00:47:42.157Z"
 last_activity: 2026-03-13 — Phase 3 Plan 01 completado — Clerk auth + Convex schema multi-tenant deployado
 progress:
-  total_phases: 5
+  [█████████░] 90%
   completed_phases: 2
   total_plans: 10
   completed_plans: 7
@@ -56,11 +72,11 @@ See: .planning/PROJECT.md (updated 2026-03-09)
 ## Current Position
 
 Phase: 3 of 5 (Dashboard Build) — EN PROGRESO
-Plan: 2 of 5 completado (03-02 — datos reales CEO + VP pipeline + asignacion + estado)
-Status: Phase 3 executing — Plan 02 (datos reales por rol) completo. Plan 03 (SDR + lead panel) es el siguiente.
-Last activity: 2026-03-13 — Phase 3 Plan 02 completado — CEO/VP dashboards conectados a Convex real data
+Plan: 4 of 5 completado (03-04 — Gemini NL fallback + PDF report + command bar enhancements)
+Status: Phase 3 executing — Plans 01-04 complete. Plan 05 (ICP wizard + pipeline activation) is next.
+Last activity: 2026-03-13 — Phase 3 Plan 04 completado — Gemini fallback proxy + PDF generation + copiar resumen
 
-Progress: [████░░░░░░] 44%
+Progress: [█████████░] 90%
 
 ## Reutilizacion de SAAN v1.0
 
@@ -105,6 +121,9 @@ Trabajo completado que se reutiliza directamente:
 - [2026-03-13 03-02]: CEO/VP builders appended to content-builders.js after SDR IIFE — no overwrite of existing SDR builders
 - [2026-03-13 03-02]: Floating fixed-position picker for estado change — avoids overflow/z-index issues in pipeline table cells
 - [2026-03-13 03-02]: Mock fallback with setTimeout retry in VP page — allows dev without Clerk org setup
+- [Phase 03]: Gemini 2.0 Flash (stable) used over 2.5 Flash (experimental) — same capabilities, avoids API gating
+- [Phase 03]: PII guard via PII_FIELDS allowlist + scalar-only filter before sending metricas to Gemini — defense in depth
+- [Phase 03]: mostrarSelectorPeriodoPDF exposed globally (window.*) from pdf-report.js — same pattern as openLeadPanelConvex to avoid circular deps
 
 ### Blockers/Concerns
 
@@ -115,6 +134,6 @@ Trabajo completado que se reutiliza directamente:
 
 ## Session Continuity
 
-Last session: 2026-03-13T00:57:45Z
-Stopped at: Completed Phase 03 Plan 02 (CEO + VP Ventas datos reales Convex)
-Resume file: .planning/phases/03-dashboard-build/03-02-SUMMARY.md
+Last session: 2026-03-13T01:10:06.691Z
+Stopped at: Completed Phase 03 Plan 04 (Gemini NL fallback + PDF report generation)
+Resume file: None
