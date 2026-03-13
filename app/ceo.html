@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sisteco — Workspace Ejecutivo CEO</title>
+  <link rel="stylesheet" href="../shared/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Page-specific: wider command bar for this view */
+    .command-bar-wrapper {
+      max-width: 680px;
+      margin: 0 auto var(--space-2);
+      padding: 0 var(--space-8);
+    }
+
+    /* Wide label for industry chart */
+    .chart-h-label-wide {
+      width: 180px;
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      flex-shrink: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Empty state hint when no content loaded */
+    .content-empty-hint {
+      text-align: center;
+      padding: var(--space-8) var(--space-4);
+      color: var(--text-muted);
+      font-size: var(--text-sm);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-3);
+    }
+
+    .content-empty-hint svg,
+    .content-empty-hint [data-lucide] {
+      width: 32px;
+      height: 32px;
+      opacity: 0.3;
+    }
+
+    .content-empty-hint p {
+      max-width: 320px;
+      line-height: var(--leading-normal);
+    }
+
+    /* KPI grid inside content block */
+    .content-block .kpi-grid {
+      margin-bottom: var(--space-4);
+    }
+
+    /* Mobile: funnel responsive inside blocks */
+    @media (max-width: 768px) {
+      .command-bar-wrapper {
+        padding: 0 var(--space-4);
+      }
+
+      .funnel-bars-container {
+        flex-direction: column;
+        height: auto;
+        align-items: stretch;
+        gap: var(--space-2);
+      }
+
+      .funnel-step-wrapper {
+        flex-direction: row;
+        height: 40px;
+        gap: var(--space-3);
+      }
+
+      .funnel-step-top {
+        flex: none;
+        width: 110px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+      }
+
+      .funnel-step-name {
+        max-width: 80px;
+        text-align: left;
+      }
+
+      .funnel-bar-visual {
+        flex: 1;
+        height: 28px !important;
+        border-radius: var(--radius-sm);
+      }
+
+      .funnel-step-bottom {
+        flex-direction: row;
+        gap: var(--space-2);
+        width: 60px;
+        justify-content: flex-end;
+      }
+
+      .chart-h-label-wide {
+        width: 120px;
+        font-size: var(--text-xs);
+      }
+
+      .comparison-header,
+      .comparison-row {
+        grid-template-columns: 1fr 72px 72px 80px;
+        font-size: var(--text-xs);
+      }
+    }
+  </style>
+</head>
+<body data-role="ceo">
+
+  <!-- ====================================================================
+       SIDEBAR MINI (64px, dark, fixed left)
+       ==================================================================== -->
+  <aside class="sidebar-mini" role="navigation" aria-label="Navegacion principal">
+
+    <!-- Logo wordmark "S" -->
+    <div class="sidebar-logo" title="Sisteco">
+      <img src="../shared/assets/icon-sisteco.png" alt="Sisteco" width="32" height="32">
+    </div>
+
+    <!-- Navigation items -->
+    <nav class="sidebar-nav">
+      <button class="sidebar-nav-item active" title="Workspace" aria-label="Workspace">
+        <i data-lucide="terminal"></i>
+      </button>
+      <button class="sidebar-nav-item" title="Leads" aria-label="Leads">
+        <i data-lucide="users"></i>
+      </button>
+      <button class="sidebar-nav-item" title="Pipeline" aria-label="Pipeline">
+        <i data-lucide="git-branch"></i>
+      </button>
+      <button class="sidebar-nav-item" title="Reportes" aria-label="Reportes">
+        <i data-lucide="bar-chart-3"></i>
+      </button>
+      <button class="sidebar-nav-item" title="Settings" aria-label="Settings">
+        <i data-lucide="settings"></i>
+      </button>
+    </nav>
+
+    <!-- Footer: user avatar -->
+    <footer class="sidebar-footer">
+      <div class="sidebar-avatar" title="Maria Rodriguez — CEO" aria-label="Perfil de usuario">
+        MR
+        <span class="sidebar-avatar-tooltip">Maria Rodriguez — CEO</span>
+      </div>
+    </footer>
+
+  </aside>
+
+  <!-- ====================================================================
+       MAIN CONTENT
+       ==================================================================== -->
+  <main class="main-content" role="main">
+
+    <!-- ------------------------------------------------------------------
+         TOPBAR (glassmorphism, sticky)
+         ------------------------------------------------------------------ -->
+    <header class="topbar" role="banner">
+
+      <!-- Left: app name -->
+      <div class="topbar-left">
+        <h1 class="topbar-brand">Sisteco</h1>
+        <span class="topbar-subtitle">Inteligencia de ventas</span>
+      </div>
+
+      <!-- Center: org badge -->
+      <div class="topbar-center">
+        <div class="org-badge" title="Organizacion activa" aria-label="Organizacion: TechCorp Chile SpA">
+          <i data-lucide="building-2"></i>
+          <span>TechCorp Chile SpA</span>
+        </div>
+      </div>
+
+      <!-- Right: role badge + date range + notifications -->
+      <div class="topbar-right">
+        <span class="login-badge" aria-label="Rol activo: CEO">CEO</span>
+
+        <div class="date-range" role="group" aria-label="Rango de fechas">
+          <button class="date-range-pill" aria-label="Ultimos 7 dias">7d</button>
+          <button class="date-range-pill active" aria-label="Ultimos 30 dias, activo">30d</button>
+          <button class="date-range-pill" aria-label="Ultimos 90 dias">90d</button>
+          <button class="date-range-pill" aria-label="Todo el tiempo">Todo</button>
+        </div>
+
+        <button class="btn-icon" title="Notificaciones" aria-label="Notificaciones">
+          <i data-lucide="bell"></i>
+        </button>
+      </div>
+
+    </header>
+
+    <!-- ------------------------------------------------------------------
+         HERO SECTION — greeting, centered, clean
+         ------------------------------------------------------------------ -->
+    <section aria-label="Bienvenida" style="padding: 0 var(--space-8);">
+      <div class="hero-section">
+        <h2 class="hero-greeting">Buenos dias, Maria</h2>
+        <p class="hero-subtitle">¿Que quieres saber de tu pipeline?</p>
+      </div>
+    </section>
+
+    <!-- ------------------------------------------------------------------
+         COMMAND BAR — prominently centered
+         ------------------------------------------------------------------ -->
+    <section class="command-bar-wrapper" aria-label="Barra de consultas inteligente">
+      <div class="command-bar" role="search">
+
+        <!-- Input wrapper -->
+        <div class="command-input-wrapper">
+          <span class="command-icon" aria-hidden="true">
+            <i data-lucide="search"></i>
+          </span>
+          <input
+            type="text"
+            class="command-input"
+            placeholder="Pregunta sobre tus leads, pipeline o equipo..."
+            aria-label="Consulta inteligente del workspace"
+            autocomplete="off"
+          />
+          <button class="btn-command-send" aria-label="Enviar consulta">
+            <i data-lucide="send"></i>
+          </button>
+        </div>
+
+        <!-- Autocomplete suggestions dropdown (hidden by default) -->
+        <div class="command-suggestions" role="listbox" aria-label="Consultas frecuentes">
+          <div class="command-suggestions-header">Consultas frecuentes</div>
+          <div class="command-suggestions-body"></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ------------------------------------------------------------------
+         QUERY BUTTONS — 6 cards, 3 columns, load content on click
+         ------------------------------------------------------------------ -->
+    <section class="query-buttons-wrapper" aria-label="Consultas rapidas">
+      <div class="query-buttons-label">Accesos rapidos</div>
+      <div id="query-buttons" role="list" aria-label="Botones de consulta rapida">
+        <!-- Rendered by interactions.js → initQueryButtons('ceo') -->
+      </div>
+    </section>
+
+    <!-- ------------------------------------------------------------------
+         CONTENT AREA — empty on load, blocks appear on demand
+         ------------------------------------------------------------------ -->
+    <section class="content-area-wrapper" aria-label="Resultados">
+      <div id="content-area" aria-live="polite" aria-label="Contenido cargado">
+
+        <!-- Empty state hint — visible before any query is clicked -->
+        <div class="content-empty-hint" id="empty-hint">
+          <i data-lucide="sparkles"></i>
+          <p>Selecciona una consulta rapida arriba o escribe tu pregunta en la barra de busqueda para ver el analisis.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ------------------------------------------------------------------
+         FOOTER
+         ------------------------------------------------------------------ -->
+    <footer class="page-footer" role="contentinfo">
+      Sisteco v2.0 — Datos simulados para diseno &nbsp;·&nbsp; Marzo 2026
+    </footer>
+
+  </main><!-- /main-content -->
+
+  <!-- ====================================================================
+       FAB — Floating Action Button "Generar Informe"
+       ==================================================================== -->
+  <button class="fab-report" id="fab-report" aria-label="Generar informe PDF completo" title="Generar Informe PDF">
+    <i data-lucide="file-text"></i>
+    <span>Generar Informe</span>
+  </button>
+
+  <!-- ====================================================================
+       TOAST CONTAINER
+       ==================================================================== -->
+  <div id="toast-container" aria-live="polite" aria-label="Notificaciones"></div>
+
+  <!-- ====================================================================
+       SCRIPTS
+       ==================================================================== -->
+
+  <!-- Clerk JS SDK — Auth + Organizations (vanilla JS, CDN) -->
+  <script
+    async
+    crossorigin="anonymous"
+    data-clerk-publishable-key="pk_test_dHJ1ZS1sb2JzdGVyLTM3LmNsZXJrLmFjY291bnRzLmRldiQ"
+    src="https://true-lobster-37.clerk.accounts.dev/npm/@clerk/clerk-js@5/dist/clerk.browser.js"
+    type="text/javascript"
+  ></script>
+
+  <!-- Convex — ConvexHttpClient via ESM (DASH-07: one-shot, no reactive) -->
+  <script type="module">
+    import { ConvexHttpClient } from "https://esm.sh/convex@1.33.0/browser";
+    window.ConvexHttpClient = ConvexHttpClient;
+    // Exponer api references para typed queries
+    import { api } from "https://esm.sh/convex@1.33.0";
+    window.convexApi = api;
+  </script>
+
+  <!-- Sisteco shared modules -->
+  <script src="../shared/auth.js"></script>
+  <script src="../shared/convex-client.js"></script>
+
+  <!-- Lucide icons + GSAP animations -->
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+
+  <!-- Mock data (fallback para desarrollo — se reemplaza con datos Convex en Plan 02-03) -->
+  <script src="../shared/mock-data.js"></script>
+  <script src="../shared/interactions.js"></script>
+
+  <!-- Auth guard: verificar sesion antes de iniciar dashboard -->
+  <script>
+  (function() {
+    'use strict';
+    // Configurar Convex URL antes de inicializar auth
+    window.CONVEX_URL = 'https://animated-pika-122.convex.cloud';
+
+    window.addEventListener('load', async function() {
+      // Inicializar auth (redirige a login si no hay sesion)
+      var orgId = await window.SistecoAuth.initAuth();
+      if (!orgId) return; // initAuth ya redirigió
+
+      // Actualizar UI con datos del usuario real
+      window.SistecoAuth.mountUserInfo();
+
+      // initDashboard() es llamado por interactions.js en DOMContentLoaded
+      // No es necesario llamarlo de nuevo aqui
+    });
+  })();
+  </script>
+
+  <!-- Page-specific: PDF Report FAB + Toast notifications -->
+  <script>
+  (function() {
+    'use strict';
+
+    /* ---- Toast system ---- */
+    function showToast(iconType, iconName, message, hasProgress, duration) {
+      var container = document.getElementById('toast-container');
+      if (!container) return;
+
+      var toast = document.createElement('div');
+      toast.className = 'toast';
+      toast.innerHTML =
+        '<div class="toast-content">' +
+          '<span class="toast-icon ' + iconType + '"><i data-lucide="' + iconName + '"></i></span>' +
+          '<span class="toast-text">' + message + '</span>' +
+        '</div>' +
+        (hasProgress ? '<div class="toast-progress"><div class="toast-progress-bar" id="toast-bar-' + Date.now() + '"></div></div>' : '');
+
+      container.appendChild(toast);
+
+      /* Init icons */
+      if (typeof lucide !== 'undefined') lucide.createIcons({ nodes: [toast] });
+
+      /* Animate in */
+      if (typeof gsap !== 'undefined') {
+        gsap.fromTo(toast,
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.35, ease: 'power3.out' }
+        );
+      } else {
+        toast.style.opacity = '1';
+      }
+
+      /* Animate progress bar if present */
+      if (hasProgress) {
+        var bar = toast.querySelector('.toast-progress-bar');
+        if (bar) {
+          bar.style.transition = 'width ' + (duration / 1000) + 's linear';
+          requestAnimationFrame(function() {
+            requestAnimationFrame(function() { bar.style.width = '100%'; });
+          });
+        }
+      }
+
+      /* Auto-dismiss */
+      setTimeout(function() {
+        if (typeof gsap !== 'undefined') {
+          gsap.to(toast, {
+            y: -10, opacity: 0, duration: 0.25, ease: 'power2.in',
+            onComplete: function() { if (toast.parentNode) toast.parentNode.removeChild(toast); }
+          });
+        } else {
+          if (toast.parentNode) toast.parentNode.removeChild(toast);
+        }
+      }, duration);
+
+      return toast;
+    }
+
+    /* ---- PDF Report FAB ---- */
+    var fab = document.getElementById('fab-report');
+    if (fab) {
+      fab.addEventListener('click', function() {
+        /* Disable button briefly */
+        fab.disabled = true;
+        fab.style.opacity = '0.7';
+
+        /* Step 1: Generating toast */
+        showToast('loading', 'loader-2', 'Generando informe completo...', true, 2400);
+
+        /* Step 2: Ready toast */
+        setTimeout(function() {
+          showToast('success', 'check-circle', 'Informe listo — descarga iniciada', false, 3000);
+          fab.disabled = false;
+          fab.style.opacity = '';
+        }, 2600);
+      });
+    }
+
+  })();
+  </script>
+
+  <!-- Page-specific: hide empty hint when first content block is added -->
+  <script>
+  (function() {
+    'use strict';
+
+    /* Remove empty hint as soon as any content block is added */
+    var contentArea = document.getElementById('content-area');
+    var emptyHint = document.getElementById('empty-hint');
+
+    if (contentArea && emptyHint) {
+      var observer = new MutationObserver(function(mutations) {
+        var hasBlocks = contentArea.querySelector('.content-block');
+        if (hasBlocks) {
+          if (emptyHint.parentNode) {
+            emptyHint.style.display = 'none';
+          }
+        } else {
+          if (emptyHint.parentNode) {
+            emptyHint.style.display = '';
+          }
+        }
+      });
+
+      observer.observe(contentArea, { childList: true });
+    }
+
+  })();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sisteco — Cargando...</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: #F8F7F5;
+      font-family: 'Source Sans 3', system-ui, sans-serif;
+      color: #111;
+    }
+    .loading {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+    .loading-spinner {
+      width: 32px;
+      height: 32px;
+      border: 3px solid #e5e5e5;
+      border-top-color: #c5ed36;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .loading-text {
+      font-size: 14px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="loading">
+    <div class="loading-spinner"></div>
+    <p class="loading-text">Iniciando sesion...</p>
+  </div>
+
+  <!-- Clerk JS SDK -->
+  <script
+    async
+    crossorigin="anonymous"
+    data-clerk-publishable-key="pk_test_dHJ1ZS1sb2JzdGVyLTM3LmNsZXJrLmFjY291bnRzLmRldiQ"
+    src="https://true-lobster-37.clerk.accounts.dev/npm/@clerk/clerk-js@5/dist/clerk.browser.js"
+    type="text/javascript"
+  ></script>
+
+  <!-- Sisteco Auth module -->
+  <script src="../shared/auth.js"></script>
+
+  <script>
+  window.addEventListener('load', async function() {
+    window.CONVEX_URL = 'https://animated-pika-122.convex.cloud';
+
+    if (typeof Clerk === 'undefined') {
+      window.location.href = '/app/login.html';
+      return;
+    }
+
+    await Clerk.load();
+
+    if (!Clerk.user) {
+      window.location.href = '/app/login.html';
+      return;
+    }
+
+    var orgId = Clerk.session?.lastActiveOrganizationId;
+    if (!orgId) {
+      window.location.href = '/app/login.html';
+      return;
+    }
+
+    window.CURRENT_ORG_ID = orgId;
+
+    // Determinar y redirigir a la pagina del rol
+    await window.SistecoAuth.redirectToRolePage();
+  });
+  </script>
+</body>
+</html>
