@@ -266,7 +266,7 @@
          FOOTER
          ------------------------------------------------------------------ -->
     <footer class="page-footer" role="contentinfo">
-      Sisteco v2.0 — Datos simulados para diseno &nbsp;·&nbsp; Marzo 2026
+      Sisteco v2.0 &nbsp;·&nbsp; Datos en tiempo real via Convex
     </footer>
 
   </main><!-- /main-content -->
@@ -314,8 +314,10 @@
   <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
 
-  <!-- Mock data (fallback para desarrollo — se reemplaza con datos Convex en Plan 02-03) -->
+  <!-- Mock data (fallback para desarrollo) -->
   <script src="../shared/mock-data.js"></script>
+  <!-- Content builders: CEO + VP + SDR builders wired to real Convex data -->
+  <script src="../shared/content-builders.js"></script>
   <script src="../shared/interactions.js"></script>
 
   <!-- Auth guard: verificar sesion antes de iniciar dashboard -->
@@ -333,8 +335,15 @@
       // Actualizar UI con datos del usuario real
       window.SistecoAuth.mountUserInfo();
 
-      // initDashboard() es llamado por interactions.js en DOMContentLoaded
-      // No es necesario llamarlo de nuevo aqui
+      // Pre-fetch stats for query badge counts (queryConvex one-shot)
+      // Actual data rendering is handled by content-builders.js CEO builders
+      if (window.queryConvex) {
+        window.queryConvex('stats:getLeadsStats', {}).then(function(stats) {
+          if (!stats) return;
+          // Badge counts updated by refreshQueryBadges() in interactions.js initQueryButtons
+          window._ceoStats = stats; // cache for potential reuse
+        }).catch(function() {});
+      }
     });
   })();
   </script>

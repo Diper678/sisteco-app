@@ -344,6 +344,92 @@ contentBuilders.ceo.hot = function() {
 /* Track currently active query id */
 var currentActiveQueryId = null;
 
+/* =============================================================================
+   QUERY HISTORY — localStorage persistence (last 5 queries per role)
+   ============================================================================= */
+
+var _HISTORY_KEY_PREFIX = 'sisteco_query_history_';
+var _LAST_QUERY_KEY_PREFIX = 'sisteco_last_query_';
+
+function _saveQueryToHistory(role, queryId, queryLabel) {
+  try {
+    var key = _HISTORY_KEY_PREFIX + role;
+    var history = JSON.parse(localStorage.getItem(key) || '[]');
+    /* Remove existing entry with same id */
+    history = history.filter(function(h) { return h.id !== queryId; });
+    /* Prepend new entry */
+    history.unshift({ id: queryId, label: queryLabel, ts: Date.now() });
+    /* Keep only last 5 */
+    history = history.slice(0, 5);
+    localStorage.setItem(key, JSON.stringify(history));
+    /* Save as last active query */
+    localStorage.setItem(_LAST_QUERY_KEY_PREFIX + role, queryId);
+  } catch (e) { /* localStorage not available */ }
+}
+
+function _getQueryHistory(role) {
+  try {
+    return JSON.parse(localStorage.getItem(_HISTORY_KEY_PREFIX + role) || '[]');
+  } catch (e) { return []; }
+}
+
+function _getLastQuery(role) {
+  try {
+    return localStorage.getItem(_LAST_QUERY_KEY_PREFIX + role) || null;
+  } catch (e) { return null; }
+}
+
+/* =============================================================================
+   QUERY BADGE COUNTS — refresh badges with real data on load
+   ============================================================================= */
+
+function refreshQueryBadges(role) {
+  /* Only fetch for CEO and VP roles */
+  if (role !== 'ceo' && role !== 'vp') return;
+  if (!window.queryConvex) return;
+
+  window.queryConvex('stats:getLeadsStats', {})
+    .then(function(stats) {
+      if (!stats) return;
+      var hot = stats.leadsHot || stats.hot || 0;
+      var total = stats.total || 0;
+      var nuevos = stats.nuevosUltimos30Dias || stats.nuevos || 0;
+
+      /* Update badge text on specific query buttons */
+      var btnHot = document.querySelector('.query-btn[data-query-id="hot"]');
+      if (btnHot && hot > 0) {
+        var descEl = btnHot.querySelector('.query-btn-desc');
+        if (descEl) descEl.textContent = hot + ' leads HOT activos';
+      }
+
+      var btnKpis = document.querySelector('.query-btn[data-query-id="kpis"]');
+      if (btnKpis && nuevos > 0) {
+        var descElK = btnKpis.querySelector('.query-btn-desc');
+        if (descElK) descElK.textContent = nuevos + ' nuevos este mes';
+      }
+
+      /* VP-specific */
+      if (role === 'vp') {
+        window.queryConvex('leads:getLeadsByOrg', {})
+          .then(function(leads) {
+            if (!leads) return;
+            var sinAsignar = (leads || []).filter(function(l) { return !l.asignadoA; }).length;
+            var btnSin = document.querySelector('.query-btn[data-query-id="sin-asignar"]');
+            if (btnSin && sinAsignar > 0) {
+              var descElS = btnSin.querySelector('.query-btn-desc');
+              if (descElS) descElS.textContent = sinAsignar + ' pendientes de asignacion';
+            }
+          })
+          .catch(function() {});
+      }
+    })
+    .catch(function() { /* silently fail — badges are optional enhancement */ });
+}
+
+/* =============================================================================
+   LOAD CONTENT (updated) — routes CEO/VP to async content-builders.js
+   ============================================================================= */
+
 function loadContent(queryId, role, queryLabel) {
   var contentArea = document.getElementById('content-area');
   if (!contentArea) return;
@@ -363,42 +449,25 @@ function loadContent(queryId, role, queryLabel) {
     }
   }
 
+  /* Save to query history */
+  _saveQueryToHistory(role, queryId, queryLabel);
+
   /* Build and insert new block (after removing old one) */
   function insertNewBlock() {
     currentActiveQueryId = queryId;
 
-    /* Merge external content builders (from content-builders.js) into local map */
-    if (window.contentBuilders && window.contentBuilders[role]) {
-      Object.keys(window.contentBuilders[role]).forEach(function(k) {
-        if (!contentBuilders[role]) contentBuilders[role] = {};
-        contentBuilders[role][k] = window.contentBuilders[role][k];
-      });
-    }
+    /* Resolve builder — prefer async builders from content-builders.js (CEO/VP) */
+    var asyncBuilder = window.contentBuilders && window.contentBuilders[role] && window.contentBuilders[role][queryId];
 
-    /* Get content builder */
-    var builder = contentBuilders[role] && contentBuilders[role][queryId];
-    var innerHtml = '';
-
-    if (builder) {
-      var result = builder();
-      /* If builder returns a Promise (async builder), handle it */
-      if (result && typeof result.then === 'function') {
-        innerHtml = '<p style="color:var(--text-muted);">Cargando...</p>';
-        result.then(function(html) {
-          var bodyEl = block && block.querySelector('.content-block-body');
-          if (bodyEl && html) {
-            bodyEl.innerHTML = html;
-            initLucide();
-          }
-        });
-      } else {
-        innerHtml = result || '';
+    /* Fallback: sync mock builders for any role not yet migrated */
+    if (!asyncBuilder) {
+      /* Merge mock builders from local contentBuilders map */
+      if (contentBuilders[role] && contentBuilders[role][queryId]) {
+        asyncBuilder = null; /* will fall through to sync path below */
       }
-    } else {
-      innerHtml = '<p style="color:var(--text-secondary);padding:var(--space-4) 0;">Contenido para "' + esc(queryLabel) + '" disponible en la version de produccion.</p>';
     }
 
-    /* Build block */
+    /* Build block container */
     var block = document.createElement('div');
     block.className = 'content-block';
     block.id = 'block-' + queryId;
@@ -411,38 +480,72 @@ function loadContent(queryId, role, queryLabel) {
         '<i data-lucide="x"></i>' +
       '</button>' +
     '</div>' +
-    '<div class="content-block-body">' + innerHtml + '</div>';
+    '<div class="content-block-body"></div>';
 
     contentArea.appendChild(block);
+    var bodyEl = block.querySelector('.content-block-body');
 
     /* Close button handler */
     block.querySelector('.content-block-close').addEventListener('click', function() {
       currentActiveQueryId = null;
-      /* Deactivate all query buttons */
       document.querySelectorAll('.query-btn').forEach(function(b) { b.classList.remove('active'); });
       animateBlockOut(block);
     });
 
-    /* Init lucide + animate */
     initLucide();
     animateBlockIn(block);
 
-    /* Animate chart bars if present */
-    if (typeof gsap !== 'undefined') {
-      var bars = block.querySelectorAll('.chart-bar-h-fill');
-      bars.forEach(function(bar) {
-        var targetWidth = bar.style.width;
-        bar.style.width = '0%';
-        gsap.to(bar, { width: targetWidth, duration: 0.8, ease: 'power3.out', delay: 0.3 });
-      });
+    /* Route to async builder (content-builders.js CEO/VP) */
+    if (asyncBuilder) {
+      var promise = asyncBuilder(bodyEl);
+      if (promise && typeof promise.then === 'function') {
+        promise.then(function() {
+          /* Animate bars that may have been inserted by async builder */
+          if (typeof gsap !== 'undefined') {
+            var bars = bodyEl.querySelectorAll('.chart-bar-h-fill');
+            bars.forEach(function(bar) {
+              if (bar.style.width && !bar._animated) {
+                bar._animated = true;
+                var tw = bar.style.width;
+                bar.style.width = '0%';
+                gsap.to(bar, { width: tw, duration: 0.8, ease: 'power3.out', delay: 0.2 });
+              }
+            });
+          }
+        }).catch(function(err) { console.error('[loadContent]', err); });
+      }
+    } else {
+      /* Sync path for mock builders (backward compat) */
+      var syncBuilder = contentBuilders[role] && contentBuilders[role][queryId];
+      var innerHtml = '';
+      if (syncBuilder) {
+        var result = syncBuilder();
+        if (result && typeof result.then === 'function') {
+          bodyEl.innerHTML = '<p style="color:var(--text-muted);">Cargando...</p>';
+          result.then(function(html) { if (bodyEl && html) { bodyEl.innerHTML = html; initLucide(); } });
+        } else {
+          innerHtml = result || '';
+        }
+      } else {
+        innerHtml = '<p style="color:var(--text-secondary);padding:var(--space-4) 0;">Contenido para "' + esc(queryLabel) + '" disponible pronto.</p>';
+      }
+      if (innerHtml) {
+        bodyEl.innerHTML = innerHtml;
 
-      /* Animate funnel bars height */
-      var funnelBars = block.querySelectorAll('.funnel-bar-visual');
-      funnelBars.forEach(function(bar) {
-        var targetH = bar.style.height;
-        bar.style.height = '0%';
-        gsap.to(bar, { height: targetH, duration: 0.7, ease: 'power3.out', delay: 0.2 });
-      });
+        /* Animate chart bars */
+        if (typeof gsap !== 'undefined') {
+          bodyEl.querySelectorAll('.chart-bar-h-fill').forEach(function(bar) {
+            var tw = bar.style.width;
+            bar.style.width = '0%';
+            gsap.to(bar, { width: tw, duration: 0.8, ease: 'power3.out', delay: 0.3 });
+          });
+          bodyEl.querySelectorAll('.funnel-bar-visual').forEach(function(bar) {
+            var th = bar.style.height;
+            bar.style.height = '0%';
+            gsap.to(bar, { height: th, duration: 0.7, ease: 'power3.out', delay: 0.2 });
+          });
+        }
+      }
     }
 
     block.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -763,6 +866,24 @@ function initQueryButtons(role) {
       delay: 0.15
     });
   }
+
+  /* Refresh dynamic badge counts from real Convex data */
+  refreshQueryBadges(role);
+
+  /* Restore last active query from localStorage */
+  var lastQueryId = _getLastQuery(role);
+  if (lastQueryId) {
+    var matchBtn = container.querySelector('.query-btn[data-query-id="' + lastQueryId + '"]');
+    if (matchBtn) {
+      /* Restore after a small delay to let auth settle */
+      setTimeout(function() {
+        container.querySelectorAll('.query-btn').forEach(function(b) { b.classList.remove('active'); });
+        matchBtn.classList.add('active');
+        var qLabel = matchBtn.dataset.queryLabel || lastQueryId;
+        loadContent(lastQueryId, role, qLabel);
+      }, 600);
+    }
+  }
 }
 
 /* =============================================================================
@@ -783,19 +904,42 @@ function initCommandBar(role) {
   var currentRole = role || document.body.dataset.role || 'ceo';
   var buttons = queryButtonConfig[currentRole] || queryButtonConfig.ceo;
 
-  /* Render autocomplete suggestions */
+  /* Render autocomplete suggestions (with history on empty filter) */
   function renderSuggestions(filter) {
     if (!suggestionsBody) return;
-    var filtered = filter
-      ? buttons.filter(function(b) { return b.label.toLowerCase().includes(filter.toLowerCase()); })
-      : buttons;
 
-    suggestionsBody.innerHTML = filtered.map(function(b) {
-      return '<div class="command-suggestion-item" data-query-id="' + b.id + '" data-query-label="' + esc(b.label) + '">' +
-        '<i data-lucide="' + b.icon + '"></i>' +
-        '<span>' + esc(b.label) + '</span>' +
-      '</div>';
-    }).join('');
+    var html = '';
+
+    if (!filter || !filter.trim()) {
+      /* Show query history first */
+      var history = _getQueryHistory(currentRole);
+      if (history.length > 0) {
+        html += '<div style="font-size:var(--text-xs);color:var(--text-muted);padding:var(--space-2) var(--space-3);border-bottom:1px solid var(--border-subtle);">Recientes</div>';
+        html += history.map(function(h) {
+          return '<div class="command-suggestion-item" data-query-id="' + esc(h.id) + '" data-query-label="' + esc(h.label) + '">' +
+            '<i data-lucide="clock"></i>' +
+            '<span>' + esc(h.label) + '</span>' +
+          '</div>';
+        }).join('');
+        html += '<div style="font-size:var(--text-xs);color:var(--text-muted);padding:var(--space-2) var(--space-3);border-bottom:1px solid var(--border-subtle);margin-top:var(--space-1);">Todas las consultas</div>';
+      }
+      html += buttons.map(function(b) {
+        return '<div class="command-suggestion-item" data-query-id="' + b.id + '" data-query-label="' + esc(b.label) + '">' +
+          '<i data-lucide="' + b.icon + '"></i>' +
+          '<span>' + esc(b.label) + '</span>' +
+        '</div>';
+      }).join('');
+    } else {
+      var filtered = buttons.filter(function(b) { return b.label.toLowerCase().includes(filter.toLowerCase()); });
+      html += filtered.map(function(b) {
+        return '<div class="command-suggestion-item" data-query-id="' + b.id + '" data-query-label="' + esc(b.label) + '">' +
+          '<i data-lucide="' + b.icon + '"></i>' +
+          '<span>' + esc(b.label) + '</span>' +
+        '</div>';
+      }).join('');
+    }
+
+    suggestionsBody.innerHTML = html;
     initLucide();
   }
 
