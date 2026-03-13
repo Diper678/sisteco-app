@@ -1,7 +1,7 @@
 /* =============================================================================
    Sisteco Interactions — interactions.js
    Interactividad compartida: Lucide, GSAP, Command Bar, Query Buttons, On-Demand Content
-   Version: 3.0 — Natural Language Workspace (on-demand UX)
+   Version: 4.0 — Gemini NL Fallback + PDF Report + Command Bar History
    ============================================================================= */
 
 /* =============================================================================
@@ -813,6 +813,238 @@ function showNoMatchResponse(query) {
 }
 
 /* =============================================================================
+   5d. GEMINI NL FALLBACK — call serverless proxy for unrecognized queries
+   ============================================================================= */
+
+/**
+ * showGeminiCard — renders a Gemini-powered mini-card with titulo + valor + narrativa.
+ * Called when user types a free-text query that doesn't match any predefined button.
+ * IMPORTANT: only aggregated metrics are sent to Gemini — never individual lead PII.
+ */
+function showGeminiCard(query, geminiResult) {
+  var contentArea = document.getElementById('content-area');
+  if (!contentArea) return;
+
+  function insertGeminiBlock() {
+    var block = document.createElement('div');
+    block.className = 'content-block gemini-response-block';
+    block.setAttribute('role', 'region');
+    block.setAttribute('aria-label', 'Respuesta de IA');
+
+    block.innerHTML =
+      '<div class="content-block-header">' +
+        '<h2 class="content-block-title">' +
+          '<i data-lucide="sparkles" style="width:16px;height:16px;vertical-align:-2px;margin-right:6px;color:var(--accent);"></i>' +
+          esc(geminiResult.titulo || 'Respuesta') +
+        '</h2>' +
+        '<button class="content-block-close" aria-label="Cerrar">' +
+          '<i data-lucide="x"></i>' +
+        '</button>' +
+      '</div>' +
+      '<div class="content-block-body">' +
+        '<div style="padding:var(--space-4) 0;">' +
+          '<div style="font-size:var(--text-xs);color:var(--text-muted);margin-bottom:var(--space-2);">' +
+            '"' + esc(query) + '"' +
+          '</div>' +
+          '<div style="display:flex;align-items:baseline;gap:var(--space-2);margin-bottom:var(--space-3);">' +
+            '<span style="font-size:2.5rem;font-weight:700;color:var(--text-primary);line-height:1;">' +
+              esc(geminiResult.valor || '—') +
+            '</span>' +
+            (geminiResult.unidad ? '<span style="font-size:var(--text-sm);color:var(--text-muted);">' + esc(geminiResult.unidad) + '</span>' : '') +
+          '</div>' +
+          '<p style="font-size:var(--text-sm);color:var(--text-secondary);line-height:1.6;margin:0;">' +
+            esc(geminiResult.narrativa || '') +
+          '</p>' +
+          '<div style="margin-top:var(--space-3);padding-top:var(--space-3);border-top:1px solid var(--border-subtle);font-size:var(--text-xs);color:var(--text-muted);display:flex;align-items:center;gap:4px;">' +
+            '<i data-lucide="sparkles" style="width:12px;height:12px;"></i>' +
+            'Generado por IA — solo metricas agregadas' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+
+    contentArea.appendChild(block);
+    block.querySelector('.content-block-close').addEventListener('click', function() {
+      currentActiveQueryId = null;
+      document.querySelectorAll('.query-btn').forEach(function(b) { b.classList.remove('active'); });
+      animateBlockOut(block);
+    });
+    initLucide();
+    animateBlockIn(block);
+    block.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  var existingBlocks = contentArea.querySelectorAll('.content-block, .ai-response-block, .gemini-response-block');
+  if (existingBlocks.length > 0) {
+    var blocksArr = Array.prototype.slice.call(existingBlocks);
+    var removed = 0;
+    blocksArr.forEach(function(b) {
+      animateBlockOut(b, function() {
+        removed++;
+        if (removed === blocksArr.length) insertGeminiBlock();
+      });
+    });
+  } else {
+    insertGeminiBlock();
+  }
+}
+
+/**
+ * showGeminiLoading — shows a loading card in the content area while Gemini responds.
+ * Returns the block element so it can be removed/replaced.
+ */
+function showGeminiLoading(query) {
+  var contentArea = document.getElementById('content-area');
+  if (!contentArea) return null;
+
+  var block = document.createElement('div');
+  block.className = 'content-block gemini-loading-block';
+  block.setAttribute('role', 'region');
+  block.setAttribute('aria-label', 'Cargando respuesta');
+
+  block.innerHTML =
+    '<div class="content-block-body">' +
+      '<div style="padding:var(--space-4) 0;display:flex;align-items:center;gap:var(--space-3);color:var(--text-muted);">' +
+        '<i data-lucide="loader-2" style="width:18px;height:18px;animation:spin 1s linear infinite;"></i>' +
+        '<span style="font-size:var(--text-sm);">Pensando sobre "' + esc(query.slice(0, 50)) + '"...</span>' +
+      '</div>' +
+    '</div>';
+
+  /* Remove existing blocks */
+  contentArea.querySelectorAll('.content-block, .ai-response-block, .gemini-response-block').forEach(function(b) { b.remove(); });
+  contentArea.appendChild(block);
+  initLucide();
+  animateBlockIn(block);
+  return block;
+}
+
+/**
+ * callGeminiFallback — fetches aggregated metrics (no PII) and calls /api/gemini-query.
+ * On success: renders Gemini mini-card. On error: shows friendly error.
+ */
+function callGeminiFallback(query, role) {
+  var loadingBlock = showGeminiLoading(query);
+
+  /* Build aggregated metrics payload (NEVER PII) */
+  function doGeminiCall(metricas) {
+    var orgId = window.CURRENT_ORG_ID || '';
+
+    fetch('/api/gemini-query', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        userQuery: query,
+        roleContext: role,
+        metricas: metricas,
+        orgId: orgId
+      })
+    })
+    .then(function(r) { return r.json(); })
+    .then(function(result) {
+      /* Remove loading block */
+      if (loadingBlock && loadingBlock.parentNode) loadingBlock.parentNode.removeChild(loadingBlock);
+
+      if (result && result.error && !result.titulo) {
+        /* Show error card */
+        showNoMatchResponse(query);
+        return;
+      }
+
+      showGeminiCard(query, result);
+    })
+    .catch(function() {
+      if (loadingBlock && loadingBlock.parentNode) loadingBlock.parentNode.removeChild(loadingBlock);
+      showNoMatchResponse(query);
+    });
+  }
+
+  /* Fetch aggregated stats if queryConvex is available */
+  if (window.queryConvex) {
+    window.queryConvex('stats:getLeadsStats', {})
+      .then(function(stats) {
+        /* Only pass numeric/string aggregate fields — no arrays of lead objects */
+        var metricas = {};
+        if (stats && typeof stats === 'object') {
+          var allowed = ['total','leadsHot','leadsWarm','leadsNurture','nuevosUltimos30Dias',
+            'pendientesContactar','cerradosGanados','cerradosPerdidos','tasaConversion',
+            'tiempoPromedioRespuesta','hot','warm','nurture','nuevos'];
+          allowed.forEach(function(k) {
+            if (stats[k] !== undefined) metricas[k] = stats[k];
+          });
+        }
+        doGeminiCall(metricas);
+      })
+      .catch(function() { doGeminiCall({}); });
+  } else {
+    doGeminiCall({});
+  }
+}
+
+/* =============================================================================
+   5e. COPY RESUMEN — copy current content area text to clipboard
+   ============================================================================= */
+
+function copiarResumen() {
+  var contentArea = document.getElementById('content-area');
+  if (!contentArea) return;
+
+  var text = contentArea.innerText || contentArea.textContent || '';
+  text = text.trim();
+
+  if (!text) {
+    _showToastInteractions('No hay contenido para copiar');
+    return;
+  }
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text)
+      .then(function() { _showToastInteractions('Resumen copiado al portapapeles'); })
+      .catch(function() { _fallbackCopy(text); });
+  } else {
+    _fallbackCopy(text);
+  }
+}
+
+function _fallbackCopy(text) {
+  try {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    _showToastInteractions('Resumen copiado al portapapeles');
+  } catch (e) {
+    _showToastInteractions('No se pudo copiar. Intenta manualmente.');
+  }
+}
+
+function _showToastInteractions(message) {
+  var container = document.getElementById('toast-container');
+  if (!container) {
+    /* Create toast container if missing */
+    container = document.createElement('div');
+    container.id = 'toast-container';
+    container.style.cssText = 'position:fixed;bottom:24px;right:24px;z-index:9999;display:flex;flex-direction:column;gap:8px;';
+    document.body.appendChild(container);
+  }
+
+  var toast = document.createElement('div');
+  toast.className = 'toast';
+  toast.style.cssText = 'background:var(--surface-raised,#fff);border:1px solid var(--border,#e5e5e5);padding:10px 16px;border-radius:8px;font-size:0.875rem;box-shadow:0 4px 12px rgba(0,0,0,0.1);animation:none;max-width:300px;';
+  toast.textContent = message;
+  container.appendChild(toast);
+
+  if (typeof gsap !== 'undefined') {
+    gsap.fromTo(toast, { y: 10, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3 });
+    gsap.to(toast, { opacity: 0, y: -5, duration: 0.3, delay: 2.5, onComplete: function() { toast.remove(); } });
+  } else {
+    setTimeout(function() { toast.remove(); }, 3000);
+  }
+}
+
+/* =============================================================================
    6. QUERY BUTTONS — render and wire up
    ============================================================================= */
 
@@ -990,9 +1222,30 @@ function initCommandBar(role) {
       filterQueryButtons('');
       if (suggestionsEl) suggestionsEl.classList.remove('visible');
 
+      var valLower = val.toLowerCase();
+
+      /* 0. Special commands: copiar resumen */
+      if (valLower === 'copiar resumen' || valLower === 'copiar' || valLower === 'copy') {
+        copiarResumen();
+        _saveQueryToHistory(currentRole, '__copiar', 'Copiar resumen');
+        return;
+      }
+
+      /* 0b. Special commands: generar reporte PDF */
+      if (valLower.includes('pdf') || valLower.includes('reporte') || valLower.includes('generar')) {
+        if (typeof window.mostrarSelectorPeriodoPDF === 'function') {
+          window.mostrarSelectorPeriodoPDF(currentRole);
+        } else {
+          /* pdf-report.js not loaded yet — show friendly message */
+          _showToastInteractions('Modulo de PDF cargando...');
+        }
+        _saveQueryToHistory(currentRole, '__pdf', 'Generar reporte PDF');
+        return;
+      }
+
       /* 1. Try to match a query button first */
       var match = buttons.find(function(b) {
-        return b.label.toLowerCase().includes(val.toLowerCase());
+        return b.label.toLowerCase().includes(valLower);
       });
       if (match) {
         /* Deactivate all, activate matched */
@@ -1000,13 +1253,14 @@ function initCommandBar(role) {
         var matchBtn = document.querySelector('.query-btn[data-query-id="' + match.id + '"]');
         if (matchBtn) matchBtn.classList.add('active');
         loadContent(match.id, currentRole, match.label);
+        _saveQueryToHistory(currentRole, match.id, match.label);
         return;
       }
 
       /* 2. Try to match conversational patterns */
       var conversations = window.SISTECO_DATA && window.SISTECO_DATA.conversations && window.SISTECO_DATA.conversations[currentRole];
       if (conversations) {
-        var valNorm = val.toLowerCase()
+        var valNorm = valLower
           .replace(/[aeiou]/g, function(c) { return { 'a':'a','e':'e','i':'i','o':'o','u':'u','á':'a','é':'e','í':'i','ó':'o','ú':'u','ü':'u' }[c] || c; })
           .replace(/[^a-z0-9 ]/g, '');
 
@@ -1033,12 +1287,14 @@ function initCommandBar(role) {
 
         if (convMatch) {
           showAIResponse(val, convMatch.response, convMatch.type);
+          _saveQueryToHistory(currentRole, '__conv_' + Date.now(), val);
           return;
         }
       }
 
-      /* 3. No match at all */
-      showNoMatchResponse(val);
+      /* 3. Gemini NL fallback — call serverless proxy with aggregated metrics only */
+      _saveQueryToHistory(currentRole, '__gemini_' + Date.now(), val);
+      callGeminiFallback(val, currentRole);
     }
   });
 
