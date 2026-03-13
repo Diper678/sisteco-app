@@ -151,6 +151,42 @@ export const getLeadsStats = query({
   },
 });
 
+/**
+ * getLeadsByAssignee — Lista los leads asignados al usuario autenticado
+ * Extrae currentUserId desde ctx.auth.getUserIdentity().subject (Clerk userId)
+ * Filtra por asignadoA === currentUserId AND orgId === orgFromJWT
+ * Ordena por score descendente (HOT first)
+ */
+export const getLeadsByAssignee = query({
+  args: {},
+  handler: async (ctx) => {
+    const identity = await ctx.auth.getUserIdentity();
+    if (!identity) throw new Error("Unauthenticated");
+    const orgId = identity["org_id"] as string;
+    if (!orgId) throw new Error("No active organization. Configure Clerk Organizations.");
+    const currentUserId = identity.subject;
+
+    // Consultar leads asignados al usuario actual en la org
+    const leads = await ctx.db
+      .query("leads")
+      .withIndex("by_asignadoA", (q) => q.eq("asignadoA", currentUserId))
+      .order("desc")
+      .collect();
+
+    // Filtrar por orgId para aislamiento multi-tenant
+    const assignedLeads = leads.filter((lead) => lead.orgId === orgId);
+
+    // Ordenar por score descendente (HOT first)
+    assignedLeads.sort((a, b) => {
+      const scoreA = a.score || 0;
+      const scoreB = b.score || 0;
+      return scoreB - scoreA;
+    });
+
+    return assignedLeads;
+  },
+});
+
 // ── MUTATIONS ─────────────────────────────────────────────────────────────────
 
 /**
