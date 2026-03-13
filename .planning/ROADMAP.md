@@ -13,7 +13,7 @@ dashboard desde cero, y conseguir los primeros clientes fundadores pagando.
 
 - [ ] **Phase 1: Pipeline de Leads Activo** - Activar workflows reales: PhantomBuster extrae, SII valida, Gemini califica, datos llegan a Convex
 - [x] **Phase 2: Diseno Dashboard (Colaborativo)** - Usuario investiga mercado, selecciona referencias, define UX. Claude propone wireframes. (completed 2026-03-12)
-- [ ] **Phase 3: Dashboard Build** - Construir dashboard multi-tenant multi-rol desde cero conectado a datos reales de Convex
+- [x] **Phase 3: Dashboard Build** - Construir dashboard multi-tenant multi-rol desde cero conectado a datos reales de Convex (completed 2026-03-13)
 - [ ] **Phase 4: Compliance Basico Ley 21.719** - RAT, opt-out, base legal documentada, aviso de privacidad — lo minimo para operar legal
 - [ ] **Phase 5: Onboarding Clientes Fundadores** - Trial con datos reales, cobro via Reveniu, primeros 3-10 clientes pagando
 
@@ -57,7 +57,7 @@ Plans:
 **Goal**: Dashboard funcional multi-tenant multi-rol conectado a datos reales de Convex
 **Depends on**: Phase 1 (datos reales), Phase 2 (diseno aprobado)
 **Requirements**: DASH-01, DASH-02, DASH-03, DASH-04, DASH-05, DASH-06, DASH-07
-**Plans:** 4/5 plans executed
+**Plans:** 5/5 plans complete
 
 Plans:
 - [ ] 03-01-PLAN.md — Foundation: Clerk auth + Convex schema multi-tenant + shared JS modules + login
@@ -104,7 +104,7 @@ Order: 1 || 2 -> 3 -> 4 -> 5
 
 | Phase | Plans | Progress | Completed |
 |-------|-------|--------|-----------|
-| 1. Pipeline de Leads | 3 plans (2 waves) | 4/5 | In Progress|  | 2. Diseno Dashboard | 2 plans (2 waves) | 2/2 plans complete | 2026-03-12 |
+| 1. Pipeline de Leads | 3 plans (2 waves) | 5/5 | Complete   | 2026-03-13 | 2. Diseno Dashboard | 2 plans (2 waves) | 2/2 plans complete | 2026-03-12 |
 | 3. Dashboard Build | 5 plans (4 waves) | 0/5 plans complete | - |
 | 4. Compliance Ley 21.719 | TBD | Not started | - |
 | 5. Onboarding Fundadores | TBD | Not started | - |

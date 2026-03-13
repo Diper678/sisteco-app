@@ -3,11 +3,27 @@ gsd_state_version: 1.0
 milestone: v2.0
 milestone_name: milestone
 status: executing
+stopped_at: Completed Phase 03 Plan 05 Task 1 — awaiting human verification checkpoint
+last_updated: "2026-03-13T01:21:39.099Z"
+last_activity: 2026-03-13 — Phase 3 Plan 04 completado — Gemini fallback proxy + PDF generation + copiar resumen
+progress:
+  total_phases: 5
+  completed_phases: 3
+  total_plans: 10
+  completed_plans: 10
+  percent: 100
+---
+
+---
+gsd_state_version: 1.0
+milestone: v2.0
+milestone_name: milestone
+status: executing
 stopped_at: Completed Phase 03 Plan 04 (Gemini NL fallback + PDF report generation)
 last_updated: "2026-03-13T01:10:18.726Z"
 last_activity: 2026-03-13 — Phase 3 Plan 02 completado — CEO/VP dashboards conectados a Convex real data
 progress:
-  total_phases: 5
+  [██████████] 100%
   completed_phases: 2
   total_plans: 10
   completed_plans: 9
@@ -124,6 +140,9 @@ Trabajo completado que se reutiliza directamente:
 - [Phase 03]: Gemini 2.0 Flash (stable) used over 2.5 Flash (experimental) — same capabilities, avoids API gating
 - [Phase 03]: PII guard via PII_FIELDS allowlist + scalar-only filter before sending metricas to Gemini — defense in depth
 - [Phase 03]: mostrarSelectorPeriodoPDF exposed globally (window.*) from pdf-report.js — same pattern as openLeadPanelConvex to avoid circular deps
+- [Phase 03-dashboard-build]: FAB + bottom sheet for mobile command bar avoids vertical space consumption on 375px
+- [Phase 03-dashboard-build]: convex/icp.ts upserts icpProfiles — idempotent pipeline activation
+- [Phase 03-dashboard-build]: VP dual mode: runtime check via getTeamMembers — solo VP sees leads directly
 
 ### Blockers/Concerns
 
@@ -134,6 +153,6 @@ Trabajo completado que se reutiliza directamente:
 
 ## Session Continuity
 
-Last session: 2026-03-13T01:10:06.691Z
-Stopped at: Completed Phase 03 Plan 04 (Gemini NL fallback + PDF report generation)
+Last session: 2026-03-13T01:21:39.094Z
+Stopped at: Completed Phase 03 Plan 05 Task 1 — awaiting human verification checkpoint
 Resume file: None
