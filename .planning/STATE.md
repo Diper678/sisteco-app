@@ -1,79 +1,18 @@
 ---
 gsd_state_version: 1.0
 milestone: v2.0
-milestone_name: milestone
+milestone_name: Vertical SaaS B2B Chile
 status: executing
-stopped_at: Completed Phase 03 Plan 05 Task 1 — awaiting human verification checkpoint
-last_updated: "2026-03-13T01:21:39.099Z"
-last_activity: 2026-03-13 — Phase 3 Plan 04 completado — Gemini fallback proxy + PDF generation + copiar resumen
+stopped_at: Completed Phase 03 Plan 05 — Phase 3 Dashboard Build COMPLETE (user verified and approved)
+last_updated: "2026-03-13T01:32:02.991Z"
+last_activity: 2026-03-13 — Phase 3 Plan 05 completado y aprobado — dashboard completo con mobile + ICP wizard + pipeline activation
 progress:
+  [██████░░░░] 60%
   total_phases: 5
   completed_phases: 3
   total_plans: 10
   completed_plans: 10
-  percent: 100
----
-
----
-gsd_state_version: 1.0
-milestone: v2.0
-milestone_name: milestone
-status: executing
-stopped_at: Completed Phase 03 Plan 04 (Gemini NL fallback + PDF report generation)
-last_updated: "2026-03-13T01:10:18.726Z"
-last_activity: 2026-03-13 — Phase 3 Plan 02 completado — CEO/VP dashboards conectados a Convex real data
-progress:
-  [██████████] 100%
-  completed_phases: 2
-  total_plans: 10
-  completed_plans: 9
-  percent: 90
----
-
----
-gsd_state_version: 1.0
-milestone: v2.0
-milestone_name: milestone
-status: executing
-stopped_at: Completed Phase 03 Plan 03 (SDR dashboard — leads asignados + lead detail panel)
-last_updated: "2026-03-13T00:47:42.157Z"
-last_activity: 2026-03-13 — Phase 3 Plan 01 completado — Clerk auth + Convex schema multi-tenant deployado
-progress:
-  [█████████░] 90%
-  completed_phases: 2
-  total_plans: 10
-  completed_plans: 7
-  percent: 70
----
-
----
-gsd_state_version: 1.0
-milestone: v2.0
-milestone_name: milestone
-status: executing
-stopped_at: Phase 3 context gathered
-last_updated: "2026-03-12T17:49:39.456Z"
-last_activity: 2026-03-12 — Phase 2 diseno dashboard completada y aprobada
-progress:
-  [███████░░░] 70%
-  completed_phases: 2
-  total_plans: 5
-  completed_plans: 5
----
-
----
-gsd_state_version: 1.0
-milestone: v2.0
-milestone_name: Vertical SaaS B2B Chile
-status: executing
-last_updated: "2026-03-12"
-last_activity: 2026-03-12 — Phase 2 complete — 3 vistas aprobadas (CEO + VP Ventas + SDR) — Phase 3 ready
-progress:
-  total_phases: 5
-  completed_phases: 1
-  total_plans: 4
-  completed_plans: 4
-  percent: 40
+  percent: 60
 ---
 
 # Project State
@@ -83,16 +22,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-09)
 
 **Core value:** Inteligencia de leads B2B chilena que ningun competidor internacional puede replicar.
-**Current focus:** Phase 2 (Diseno Dashboard) — aprobacion final de las 3 vistas pendiente.
+**Current focus:** Phase 3 (Dashboard Build) — COMPLETADA. Phase 4 (Compliance Ley 21.719) es siguiente.
 
 ## Current Position
 
-Phase: 3 of 5 (Dashboard Build) — EN PROGRESO
-Plan: 4 of 5 completado (03-04 — Gemini NL fallback + PDF report + command bar enhancements)
-Status: Phase 3 executing — Plans 01-04 complete. Plan 05 (ICP wizard + pipeline activation) is next.
-Last activity: 2026-03-13 — Phase 3 Plan 04 completado — Gemini fallback proxy + PDF generation + copiar resumen
+Phase: 3 of 5 (Dashboard Build) — COMPLETADA
+Plan: 5 of 5 completado (03-05 — Mobile responsive + ICP wizard + pipeline activation + verificacion)
+Status: Phase 3 complete. Phase 4 (Compliance Basico Ley 21.719) ready to begin.
+Last activity: 2026-03-13 — Phase 3 Plan 05 completado — mobile CSS + FAB + ICP wizard 4 pasos + pipeline activation + aprobado por usuario
 
-Progress: [█████████░] 90%
+Progress: [██████░░░░] 60%
 
 ## Reutilizacion de SAAN v1.0
 
@@ -140,9 +79,11 @@ Trabajo completado que se reutiliza directamente:
 - [Phase 03]: Gemini 2.0 Flash (stable) used over 2.5 Flash (experimental) — same capabilities, avoids API gating
 - [Phase 03]: PII guard via PII_FIELDS allowlist + scalar-only filter before sending metricas to Gemini — defense in depth
 - [Phase 03]: mostrarSelectorPeriodoPDF exposed globally (window.*) from pdf-report.js — same pattern as openLeadPanelConvex to avoid circular deps
-- [Phase 03-dashboard-build]: FAB + bottom sheet for mobile command bar avoids vertical space consumption on 375px
-- [Phase 03-dashboard-build]: convex/icp.ts upserts icpProfiles — idempotent pipeline activation
-- [Phase 03-dashboard-build]: VP dual mode: runtime check via getTeamMembers — solo VP sees leads directly
+- [Phase 03-05]: FAB + bottom sheet for mobile command bar avoids vertical space consumption on 375px
+- [Phase 03-05]: convex/icp.ts upserts icpProfiles — idempotent pipeline activation
+- [Phase 03-05]: VP dual mode: runtime check via getTeamMembers — solo VP sees leads directly
+- [Phase 03-05]: Temporal comparison uses leads discoveredAt field for period bucketing — no separate stats table needed
+- [Phase 03-05]: n8n webhook non-fatal in dev — _activarPipeline shows success regardless; no N8N_WEBHOOK_URL still completes gracefully
 
 ### Blockers/Concerns
 
@@ -153,6 +94,6 @@ Trabajo completado que se reutiliza directamente:
 
 ## Session Continuity
 
-Last session: 2026-03-13T01:21:39.094Z
-Stopped at: Completed Phase 03 Plan 05 Task 1 — awaiting human verification checkpoint
+Last session: 2026-03-13T01:30:00Z
+Stopped at: Completed Phase 03 Plan 05 — Phase 3 Dashboard Build COMPLETE (user verified and approved)
 Resume file: None
