@@ -263,21 +263,23 @@
           <button class="filter-pill" data-filter-state="contactado">Contactados</button>
           <button class="filter-pill" data-filter-state="reunion">Reunion</button>
           <button class="filter-pill" data-filter-state="propuesta">Propuesta</button>
-          <select class="filter-select" data-filter-type="industria" aria-label="Filtrar por industria">
-            <option value="todas">Industria: Todas</option>
-            <option value="programas informaticos">Tecnologia</option>
-            <option value="servicios financieros">Serv. Financieros</option>
-            <option value="alimenticios">Manufactura</option>
-            <option value="arquitectura">Ingenieria</option>
-            <option value="comercio">Comercio</option>
-          </select>
           <select class="filter-select" data-filter-type="score" aria-label="Filtrar por score">
             <option value="todos">Score: Todos</option>
-            <option value="hot">HOT</option>
-            <option value="warm">WARM</option>
-            <option value="nurture">NURTURE</option>
+            <option value="HOT">HOT</option>
+            <option value="WARM">WARM</option>
+            <option value="NURTURE">NURTURE</option>
           </select>
           <input type="text" class="filter-search" placeholder="Buscar por nombre o empresa..." aria-label="Buscar lead">
+        </div>
+
+        <!-- Bulk assign bar (hidden until leads selected) -->
+        <div id="vp-bulk-bar" style="display:none;align-items:center;gap:var(--space-3);padding:var(--space-3) var(--space-4);background:var(--accent-faint);border:1px solid var(--accent);border-radius:var(--radius-lg);margin-bottom:var(--space-3);">
+          <span id="vp-bulk-count" style="font-size:var(--text-sm);font-weight:600;">0 seleccionados</span>
+          <select id="vp-bulk-sdr-select" class="filter-select pipeline-sdr-filter" style="font-size:var(--text-sm);">
+            <option value="">Asignar a SDR...</option>
+          </select>
+          <button id="vp-bulk-assign-btn" class="btn btn-primary" style="font-size:var(--text-sm);padding:var(--space-1) var(--space-3);opacity:0.5;" disabled>Asignar</button>
+          <button id="vp-bulk-cancel" style="background:none;border:none;cursor:pointer;color:var(--text-muted);font-size:var(--text-sm);">Cancelar</button>
         </div>
 
         <!-- Table -->
@@ -285,18 +287,18 @@
           <table class="table-pipeline" aria-label="Lista de leads en pipeline">
             <thead>
               <tr>
+                <th scope="col" style="width:36px;"><input type="checkbox" id="vp-select-all" aria-label="Seleccionar todos"></th>
                 <th scope="col">Estado</th>
                 <th scope="col">Empresa</th>
                 <th scope="col">Contacto</th>
                 <th scope="col">Score</th>
                 <th scope="col">Industria</th>
                 <th scope="col">SDR Asignado</th>
-                <th scope="col">Ultima Actividad</th>
-                <th scope="col">Acciones</th>
+                <th scope="col">Actividad</th>
               </tr>
             </thead>
             <tbody id="pipeline-tbody">
-              <!-- Rendered by JS below -->
+              <!-- Rendered by JS: loadPipelineTable() -->
             </tbody>
           </table>
         </div>
@@ -346,10 +348,63 @@
          FOOTER
          ------------------------------------------------------------------ -->
     <footer class="page-footer" role="contentinfo">
-      Sisteco v2.0 — Datos simulados para diseno &nbsp;·&nbsp; Marzo 2026
+      Sisteco v2.0 &nbsp;·&nbsp; Datos en tiempo real via Convex
     </footer>
 
   </main>
+
+  <!-- Toast container -->
+  <div id="toast-container" aria-live="polite" aria-label="Notificaciones"></div>
+
+  <!-- Filter bar wiring for static table (works on rows rendered by loadPipelineTable) -->
+  <script>
+  (function() {
+    'use strict';
+    document.addEventListener('DOMContentLoaded', function() {
+      var filterPills = document.querySelectorAll('.filter-pill[data-filter-state]');
+      var filterScoreSel = document.querySelector('.filter-select[data-filter-type="score"]');
+      var filterSearch = document.querySelector('.filter-search');
+
+      var activeEstado = 'todos', activeScore = 'todos', searchText = '';
+
+      function applyFilters() {
+        var rows = document.querySelectorAll('#pipeline-tbody tr');
+        rows.forEach(function(row) {
+          var est = (row.dataset.estado || '').toLowerCase();
+          var sc  = (row.dataset.score  || '').toUpperCase();
+          var txt = row.textContent.toLowerCase();
+          var ok  = (activeEstado === 'todos' || est === activeEstado) &&
+                    (activeScore === 'todos'  || sc  === activeScore)  &&
+                    (!searchText || txt.indexOf(searchText) !== -1);
+          row.style.display = ok ? '' : 'none';
+        });
+      }
+
+      filterPills.forEach(function(pill) {
+        pill.addEventListener('click', function() {
+          filterPills.forEach(function(p) { p.classList.remove('active'); });
+          pill.classList.add('active');
+          activeEstado = pill.dataset.filterState;
+          applyFilters();
+        });
+      });
+
+      if (filterScoreSel) {
+        filterScoreSel.addEventListener('change', function() {
+          activeScore = filterScoreSel.value === 'todos' ? 'todos' : filterScoreSel.value.toUpperCase();
+          applyFilters();
+        });
+      }
+
+      if (filterSearch) {
+        filterSearch.addEventListener('input', function() {
+          searchText = filterSearch.value.trim().toLowerCase();
+          applyFilters();
+        });
+      }
+    });
+  })();
+  </script>
 
   <!-- ====================================================================
        SCRIPTS
@@ -378,8 +433,10 @@
   <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
 
-  <!-- Mock data (fallback para desarrollo — se reemplaza con datos Convex en Plan 02-03) -->
+  <!-- Mock data (fallback para desarrollo) -->
   <script src="../shared/mock-data.js"></script>
+  <!-- Content builders: CEO + VP + SDR builders wired to real Convex data -->
+  <script src="../shared/content-builders.js"></script>
   <script src="../shared/interactions.js"></script>
 
   <!-- Auth guard: verificar sesion antes de iniciar dashboard -->
@@ -396,219 +453,523 @@
   })();
   </script>
 
-  <!-- Page-specific: render KPI cards and pipeline table from mock data -->
+  <!-- Page-specific: load KPI grid and pipeline table from real Convex data -->
   <script>
   (function() {
     'use strict';
 
     function esc(str) {
-      return String(str || '')
+      return String(str == null ? '' : str)
         .replace(/&/g, '&amp;')
         .replace(/</g, '&lt;')
         .replace(/>/g, '&gt;')
         .replace(/"/g, '&quot;');
     }
 
-    /* ---- Render KPI Cards ---- */
-    function renderKPIs() {
+    /* ---- Load KPI grid from Convex ---- */
+    function loadVpKpis() {
       var grid = document.getElementById('vp-kpi-grid');
-      if (!grid || !window.SISTECO_DATA) return;
+      if (!grid || !window.queryConvex) return;
 
-      var k = window.SISTECO_DATA.kpis.vp;
-
-      /* Count unassigned leads */
-      var leads = window.SISTECO_DATA.leads;
-      var sinAsignar = leads.filter(function(l) { return !l.sdr_asignado; }).length;
-      var hotSinAsignar = leads.filter(function(l) { return !l.sdr_asignado && l.clasificacion === 'HOT'; }).length;
-      var contactadosHoy = leads.filter(function(l) { return l.estado === 'contactado'; }).length;
-      var reuniones = leads.filter(function(l) { return l.estado === 'reunion'; }).length;
-
-      var cards = [
-        {
-          icon: 'git-branch',
-          label: 'Leads en Pipeline',
-          value: k.leads_total.valor,
-          delta: k.leads_total.delta,
-          positive: k.leads_total.positivo,
-          narrativa: '47 leads en el pipeline activo. 12 son HOT y estan listos para contactar esta semana.',
-          warning: false
-        },
-        {
-          icon: 'user-plus',
-          label: 'Sin Asignar',
-          value: sinAsignar,
-          delta: null,
-          positive: false,
-          narrativa: sinAsignar + ' leads sin asignar — ' + hotSinAsignar + ' son HOT. Requieren accion inmediata.',
-          warning: sinAsignar > 5
-        },
-        {
-          icon: 'phone-call',
-          label: 'Contactados Hoy',
-          value: contactadosHoy,
-          delta: '+2',
-          positive: true,
-          narrativa: 'El equipo contacto ' + contactadosHoy + ' leads hoy. Sofia Mendez lidera con 4 contactos.',
-          warning: false
-        },
-        {
-          icon: 'calendar',
-          label: 'Reuniones Semana',
-          value: reuniones,
-          delta: '+1',
-          positive: true,
-          narrativa: reuniones + ' reuniones agendadas esta semana. Empresas de tecnologia y manufactura muestran mas interes.',
-          warning: false
-        }
-      ];
-
-      grid.innerHTML = cards.map(function(c) {
-        var warningClass = c.warning ? ' card-kpi-warning' : '';
-        var deltaHtml = c.delta
-          ? '<div class="card-kpi-footer">' +
-              '<span class="card-kpi-delta ' + (c.positive ? 'positive' : 'negative') + '">' +
-                '<i data-lucide="' + (c.positive ? 'trending-up' : 'trending-down') + '"></i>' +
-                esc(c.delta) +
-              '</span>' +
-            '</div>'
-          : '';
-        return '<article class="card-kpi' + warningClass + '">' +
-          '<div class="card-kpi-header">' +
-            '<div class="card-kpi-label">' + esc(c.label) + '</div>' +
-            '<div class="card-kpi-icon" aria-hidden="true"><i data-lucide="' + esc(c.icon) + '"></i></div>' +
-          '</div>' +
-          '<div class="card-kpi-value">' + esc(String(c.value)) + '</div>' +
-          deltaHtml +
-          '<p class="narrative-compact">' + esc(c.narrativa) + '</p>' +
+      /* Show skeleton while loading */
+      grid.innerHTML = [1,2,3,4].map(function() {
+        return '<article class="card-kpi" style="animation:none;">' +
+          '<div style="height:14px;width:60%;background:var(--border);border-radius:4px;margin-bottom:var(--space-2);"></div>' +
+          '<div style="height:32px;width:40%;background:var(--border);border-radius:4px;margin-bottom:var(--space-2);"></div>' +
+          '<div style="height:12px;width:80%;background:var(--border);border-radius:4px;"></div>' +
         '</article>';
       }).join('');
+
+      Promise.all([
+        window.queryConvex('stats:getLeadsStats', {}),
+        window.queryConvex('leads:getLeadsByOrg', {})
+      ]).then(function(results) {
+        var stats = results[0] || {};
+        var leads = results[1] || [];
+
+        var total       = stats.total || 0;
+        var hot         = stats.leadsHot || stats.hot || 0;
+        var sinAsignar  = leads.filter(function(l) { return !l.asignadoA; }).length;
+        var hotSinAsig  = leads.filter(function(l) { return !l.asignadoA && (l.scoreCategory || l.clasificacion || '').toUpperCase() === 'HOT'; }).length;
+        var reuniones   = leads.filter(function(l) { return (l.estado || '') === 'reunion'; }).length;
+
+        var cards = [
+          { icon:'git-branch', label:'Leads en Pipeline', value:total, narrativa: total + ' leads activos. ' + hot + ' son HOT.', warning:false },
+          { icon:'user-plus',  label:'Sin Asignar', value:sinAsignar, narrativa: sinAsignar + ' sin SDR — ' + hotSinAsig + ' son HOT. Accion requerida.', warning: sinAsignar > 5 },
+          { icon:'flame',      label:'Leads HOT', value:hot, narrativa: hot + ' leads HOT listos para contactar.', warning:false },
+          { icon:'calendar',   label:'Reuniones Semana', value:reuniones, narrativa: reuniones + ' reuniones agendadas esta semana.', warning:false }
+        ];
+
+        grid.innerHTML = cards.map(function(c) {
+          return '<article class="card-kpi' + (c.warning ? ' card-kpi-warning' : '') + '">' +
+            '<div class="card-kpi-header">' +
+              '<div class="card-kpi-label">' + esc(c.label) + '</div>' +
+              '<div class="card-kpi-icon" aria-hidden="true"><i data-lucide="' + esc(c.icon) + '"></i></div>' +
+            '</div>' +
+            '<div class="card-kpi-value">' + c.value + '</div>' +
+            '<p class="narrative-compact">' + esc(c.narrativa) + '</p>' +
+          '</article>';
+        }).join('');
+
+        if (typeof lucide !== 'undefined') lucide.createIcons({ nodes: [grid] });
+        if (typeof gsap !== 'undefined') {
+          gsap.from(grid.querySelectorAll('.card-kpi'), { y:20, opacity:0, duration:0.5, stagger:0.08, ease:'power3.out', delay:0.2 });
+        }
+      }).catch(function(err) {
+        console.warn('[VP KPI] Convex not ready, using mock fallback:', err.message);
+        _renderKpisMock();
+      });
     }
 
-    /* ---- Render Pipeline Table ---- */
-    function estadoBadgeClass(estado) {
-      var map = {
-        'nuevo': 'badge-nurture',
-        'contactado': 'badge-warm',
-        'reunion': 'badge-hot',
-        'propuesta': 'badge-hot'
-      };
-      return map[estado] || 'badge-skip';
+    /* Mock fallback (only used if Convex auth not ready) */
+    function _renderKpisMock() {
+      var grid = document.getElementById('vp-kpi-grid');
+      if (!grid || !window.SISTECO_DATA) return;
+      var k = window.SISTECO_DATA.kpis.vp;
+      var leads = window.SISTECO_DATA.leads;
+      var sinAsignar = leads.filter(function(l) { return !l.sdr_asignado; }).length;
+      grid.innerHTML = [
+        { icon:'git-branch', label:'Leads en Pipeline', value:k.leads_total.valor, narrativa:'Pipeline activo.', warning:false },
+        { icon:'user-plus',  label:'Sin Asignar', value:sinAsignar, narrativa:sinAsignar+' sin SDR.', warning:sinAsignar>5 },
+        { icon:'flame',      label:'Leads HOT', value:leads.filter(function(l){return l.clasificacion==='HOT';}).length, narrativa:'HOT activos.', warning:false },
+        { icon:'calendar',   label:'Reuniones', value:leads.filter(function(l){return l.estado==='reunion';}).length, narrativa:'Esta semana.', warning:false }
+      ].map(function(c) {
+        return '<article class="card-kpi' + (c.warning?' card-kpi-warning':'') + '">' +
+          '<div class="card-kpi-header"><div class="card-kpi-label">' + esc(c.label) + '</div>' +
+          '<div class="card-kpi-icon"><i data-lucide="' + esc(c.icon) + '"></i></div></div>' +
+          '<div class="card-kpi-value">' + c.value + '</div>' +
+          '<p class="narrative-compact">' + esc(c.narrativa) + '</p></article>';
+      }).join('');
+      if (typeof lucide !== 'undefined') lucide.createIcons({ nodes: [grid] });
     }
 
-    function estadoLabel(estado) {
-      var map = {
-        'nuevo': 'Nuevo',
-        'contactado': 'Contactado',
-        'reunion': 'Reunion',
-        'propuesta': 'Propuesta'
-      };
-      return map[estado] || estado;
-    }
-
-    function clasificacionBadgeClass(cls) {
-      var map = { 'HOT': 'badge-hot', 'WARM': 'badge-warm', 'NURTURE': 'badge-nurture', 'SKIP': 'badge-skip' };
-      return map[cls] || 'badge-skip';
-    }
-
-    function renderPipelineTable() {
+    /* ---- Load pipeline table from Convex ---- */
+    function loadPipelineTable() {
       var tbody = document.getElementById('pipeline-tbody');
-      if (!tbody || !window.SISTECO_DATA) return;
+      if (!tbody) return;
 
-      /* Show leads that are active (exclude SKIP) */
-      var leads = window.SISTECO_DATA.leads.filter(function(l) { return l.clasificacion !== 'SKIP'; });
-
-      tbody.innerHTML = leads.map(function(lead) {
-        var sdrHtml = lead.sdr_asignado
-          ? esc(lead.sdr_asignado)
-          : '<span class="text-unassigned">Sin asignar</span>';
-
-        var actividadLabel = lead.fecha_ingreso_dias === 0 ? 'hoy'
-          : lead.fecha_ingreso_dias === 1 ? 'ayer'
-          : 'hace ' + lead.fecha_ingreso_dias + 'd';
-
-        return '<tr data-estado="' + esc(lead.estado) + '" data-industria="' + esc(lead.sii_actividad.toLowerCase()) + '" data-score="' + esc(lead.clasificacion.toLowerCase()) + '">' +
-          '<td><span class="badge ' + estadoBadgeClass(lead.estado) + '">' + esc(estadoLabel(lead.estado)) + '</span></td>' +
-          '<td style="font-weight:600;">' + esc(lead.empresa) + '</td>' +
-          '<td>' +
-            '<div style="font-size:var(--text-sm);font-weight:600;color:var(--text-primary);">' + esc(lead.nombre) + '</div>' +
-            '<div style="font-size:var(--text-xs);color:var(--text-muted);">' + esc(lead.cargo) + '</div>' +
-          '</td>' +
-          '<td><span class="badge ' + clasificacionBadgeClass(lead.clasificacion) + '">' + esc(lead.clasificacion) + ' ' + lead.score + '</span></td>' +
-          '<td style="color:var(--text-secondary);font-size:var(--text-xs);">' + esc(lead.industria.split(' ').slice(0, 3).join(' ')) + '</td>' +
-          '<td>' + sdrHtml + '</td>' +
-          '<td style="color:var(--text-muted);font-size:var(--text-xs);">' + actividadLabel + '</td>' +
-          '<td>' +
-            '<button class="table-action-btn" title="Asignar SDR" aria-label="Asignar SDR a ' + esc(lead.nombre) + '">' +
-              '<i data-lucide="user-plus"></i>' +
-            '</button>' +
-          '</td>' +
-        '</tr>';
-      }).join('');
-    }
-
-    /* ---- Render Team Table ---- */
-    function renderTeamTable() {
-      var tbody = document.getElementById('team-tbody');
-      if (!tbody || !window.SISTECO_DATA) return;
-
-      var team = window.SISTECO_DATA.team;
-
-      tbody.innerHTML = team.map(function(sdr) {
-        var pct = sdr.conversion_pct;
-        var convColor = pct >= 25 ? 'var(--success)' : pct >= 20 ? 'var(--warning)' : 'var(--error)';
-        var barPct = Math.min(pct * 2, 100); /* scale to 100 */
-
-        return '<tr>' +
-          '<td>' +
-            '<div style="display:flex;align-items:center;gap:var(--space-3);">' +
-              '<div class="team-avatar">' + esc(sdr.iniciales) + '</div>' +
-              '<div>' +
-                '<div style="font-weight:600;font-size:var(--text-sm);">' + esc(sdr.nombre) + '</div>' +
-                '<div style="font-size:var(--text-xs);color:var(--text-muted);">SDR</div>' +
-              '</div>' +
-            '</div>' +
-          '</td>' +
-          '<td style="font-family:var(--font-heading);font-weight:700;">' + sdr.leads_asignados + '</td>' +
-          '<td style="font-family:var(--font-heading);font-weight:700;">' + sdr.contactados + '</td>' +
-          '<td style="font-family:var(--font-heading);font-weight:700;">' + sdr.reuniones + '</td>' +
-          '<td>' +
-            '<div style="display:flex;align-items:center;gap:var(--space-3);">' +
-              '<div style="font-family:var(--font-heading);font-weight:700;color:' + convColor + ';width:36px;">' + pct + '%</div>' +
-              '<div class="progress-inline" style="flex:1;">' +
-                '<div class="progress-inline-fill" style="width:' + barPct + '%;background:' + convColor + ';"></div>' +
-              '</div>' +
-            '</div>' +
-          '</td>' +
-        '</tr>';
-      }).join('');
-    }
-
-    /* ---- Run on DOM ready ---- */
-    document.addEventListener('DOMContentLoaded', function() {
-      renderKPIs();
-      renderPipelineTable();
-      renderTeamTable();
-
-      /* Re-init lucide after dynamic render */
-      if (typeof lucide !== 'undefined') {
-        lucide.createIcons();
+      if (!window.queryConvex) {
+        /* Fallback to mock data if Convex not yet ready */
+        setTimeout(function() {
+          if (window.queryConvex) loadPipelineTable();
+          else _renderPipelineMock();
+        }, 800);
+        return;
       }
 
-      /* Animate KPI cards in */
+      tbody.innerHTML = '<tr><td colspan="8" style="text-align:center;padding:var(--space-4);color:var(--text-muted);">Cargando pipeline...</td></tr>';
+
+      Promise.all([
+        window.queryConvex('leads:getLeadsByOrg', {}),
+        window.queryConvex('users:getTeamMembers', {})
+      ]).then(function(results) {
+        var leads   = (results[0] || []).filter(function(l) { return ((l.scoreCategory||l.clasificacion||'').toUpperCase() !== 'SKIP'); });
+        var members = results[1] || [];
+        var sdrs    = members.filter(function(u) { return u.rol === 'sdr' || u.role === 'sdr'; });
+        if (!sdrs.length) sdrs = members;
+
+        /* Store SDRs for bulk assign dropdown */
+        window._vpSdrs = sdrs;
+
+        /* Populate SDR filter dropdown */
+        var filterSel = document.querySelector('.pipeline-sdr-filter');
+        if (filterSel && sdrs.length) {
+          filterSel.innerHTML = '<option value="">Asignar a SDR...</option>' +
+            sdrs.map(function(s) {
+              return '<option value="' + esc(s._id) + '" data-nombre="' + esc(s.nombre||s.name||'') + '">' + esc(s.nombre||s.name||s._id) + '</option>';
+            }).join('');
+        }
+
+        if (!leads.length) {
+          tbody.innerHTML = '<tr><td colspan="8" style="text-align:center;padding:var(--space-6);color:var(--text-muted);">Sin leads en el pipeline todavia.</td></tr>';
+          return;
+        }
+
+        tbody.innerHTML = leads.map(function(lead) {
+          var nombre  = lead.nombre || lead.contactName || ((lead.firstName||'') + ' ' + (lead.lastName||'')).trim() || 'Sin nombre';
+          var empresa = lead.empresa || lead.company || lead.companyName || 'Sin empresa';
+          var cargo   = lead.cargo || lead.title || '';
+          var score   = lead.aiScore || lead.score || 0;
+          var scoreCategory = (lead.scoreCategory || lead.clasificacion || 'NURTURE').toUpperCase();
+          var estado  = lead.estado || 'nuevo';
+          var industria = (lead.industria || lead.sii_actividad || '').split(' ').slice(0,3).join(' ');
+          var asignadoNombre = lead.asignadoNombre || lead.sdr_asignado || '';
+          var lastUpd = lead.lastUpdatedAt || lead.discoveredAt;
+          var actividadLabel = '';
+          if (lastUpd) {
+            var diff = Math.floor((Date.now() - lastUpd) / 86400000);
+            actividadLabel = diff === 0 ? 'hoy' : diff === 1 ? 'ayer' : 'hace ' + diff + 'd';
+          }
+
+          var scoreClassMap = { 'HOT':'badge-hot','WARM':'badge-warm','NURTURE':'badge-nurture','SKIP':'badge-skip' };
+          var estadoClassMap = { 'nuevo':'badge-nurture','contactado':'badge-warm','reunion':'badge-hot','propuesta':'badge-hot','cerrado':'badge-skip','sin_asignar':'badge-nurture','asignado':'badge-warm','en_progreso':'badge-hot' };
+          var estadoLabelMap = { 'nuevo':'Nuevo','contactado':'Contactado','reunion':'Reunion','propuesta':'Propuesta','cerrado':'Cerrado','sin_asignar':'Sin asignar','asignado':'Asignado','en_progreso':'En progreso' };
+
+          return '<tr data-lead-id="' + esc(lead._id) + '" data-estado="' + esc(estado) + '" data-score="' + esc(scoreCategory) + '" data-industria="' + esc((lead.industria||lead.sii_actividad||'').toLowerCase()) + '">' +
+            '<td><input type="checkbox" class="lead-checkbox" data-lead-id="' + esc(lead._id) + '" aria-label="Seleccionar ' + esc(nombre) + '"></td>' +
+            '<td style="position:relative;">' +
+              '<button class="badge ' + (estadoClassMap[estado]||'badge-skip') + ' estado-badge-inline" style="cursor:pointer;border:none;font:inherit;padding:0.2em 0.6em;border-radius:999px;" ' +
+                'data-lead-id="' + esc(lead._id) + '" title="Cambiar estado">' + esc(estadoLabelMap[estado]||estado) + '</button>' +
+            '</td>' +
+            '<td style="font-weight:600;">' + esc(empresa) + '</td>' +
+            '<td>' +
+              '<div style="font-size:var(--text-sm);font-weight:600;">' + esc(nombre) + '</div>' +
+              (cargo ? '<div style="font-size:var(--text-xs);color:var(--text-muted);">' + esc(cargo) + '</div>' : '') +
+            '</td>' +
+            '<td><span class="badge ' + (scoreClassMap[scoreCategory]||'badge-nurture') + '">' + esc(scoreCategory) + ' ' + score + '</span></td>' +
+            '<td style="font-size:var(--text-xs);color:var(--text-secondary);">' + esc(industria) + '</td>' +
+            '<td class="sdr-cell" data-assigned-id="' + esc(lead.asignadoA||'') + '">' +
+              (asignadoNombre
+                ? '<span class="sdr-nombre" style="font-size:var(--text-sm);">' + esc(asignadoNombre) + '</span> ' +
+                  '<button class="table-action-btn reassign-trigger" data-lead-id="' + esc(lead._id) + '" title="Reasignar" style="vertical-align:middle;">' +
+                    '<i data-lucide="refresh-cw"></i>' +
+                  '</button>'
+                : '<span style="color:var(--text-muted);font-size:var(--text-xs);">Sin asignar</span>') +
+            '</td>' +
+            '<td style="color:var(--text-muted);font-size:var(--text-xs);">' + esc(actividadLabel) + '</td>' +
+          '</tr>';
+        }).join('');
+
+        if (typeof lucide !== 'undefined') lucide.createIcons({ nodes: [tbody] });
+
+        /* Wire in-table estado change via a global estado picker popup */
+        _wireEstadoInline(tbody);
+
+        /* Wire reassign */
+        _wireReassign(tbody, sdrs);
+
+        /* Wire checkboxes + bulk assign bar */
+        _wireBulkAssign(tbody);
+
+        if (typeof gsap !== 'undefined') {
+          gsap.from(tbody.querySelectorAll('tr'), { y:8, opacity:0, duration:0.3, stagger:0.04, ease:'power3.out' });
+        }
+      }).catch(function(err) {
+        console.warn('[VP pipeline] Convex error, using mock fallback:', err.message);
+        _renderPipelineMock();
+      });
+    }
+
+    /* ---- Estado inline change ---- */
+    var _estadoPickerEl = null;
+    function _wireEstadoInline(tbody) {
+      tbody.addEventListener('click', function(e) {
+        var btn = e.target.closest('.estado-badge-inline');
+        if (!btn) return;
+        e.stopPropagation();
+
+        /* Remove any existing picker */
+        if (_estadoPickerEl && _estadoPickerEl.parentNode) _estadoPickerEl.parentNode.removeChild(_estadoPickerEl);
+
+        var leadId = btn.dataset.leadId;
+        var picker = document.createElement('div');
+        _estadoPickerEl = picker;
+        picker.style.cssText = 'position:fixed;z-index:9999;background:var(--bg-base);border:1px solid var(--border);border-radius:var(--radius-lg);box-shadow:var(--shadow-md);min-width:150px;padding:var(--space-1) 0;font-size:var(--text-sm);';
+        var rect = btn.getBoundingClientRect();
+        picker.style.left = rect.left + 'px';
+        picker.style.top  = (rect.bottom + 4) + 'px';
+
+        var estados = [
+          { id:'nuevo', label:'Nuevo' },
+          { id:'contactado', label:'Contactado' },
+          { id:'reunion', label:'Reunion' },
+          { id:'propuesta', label:'Propuesta' }
+        ];
+        var cerradoItem = '<div style="padding:var(--space-2) var(--space-3);cursor:pointer;color:var(--text-muted);" data-estado="cerrado">Cerrado ▶</div>';
+        picker.innerHTML = estados.map(function(s) {
+          return '<div style="padding:var(--space-2) var(--space-3);cursor:pointer;" data-estado="' + s.id + '">' + s.label + '</div>';
+        }).join('') + cerradoItem;
+
+        picker.querySelectorAll('[data-estado]').forEach(function(opt) {
+          opt.addEventListener('mouseenter', function() { opt.style.background = 'var(--bg-subtle)'; });
+          opt.addEventListener('mouseleave', function() { opt.style.background = ''; });
+        });
+
+        document.body.appendChild(picker);
+
+        picker.addEventListener('click', function(ev) {
+          var opt = ev.target.closest('[data-estado]');
+          if (!opt) return;
+          var nuevoEstado = opt.dataset.estado;
+          if (nuevoEstado === 'cerrado') {
+            /* Replace with subestado choices */
+            picker.innerHTML = [
+              { id:'ganado', label:'Ganado', color:'var(--success)' },
+              { id:'perdido', label:'Perdido', color:'var(--error)' },
+              { id:'descartado', label:'Descartado', color:'var(--text-muted)' }
+            ].map(function(s) {
+              return '<div style="padding:var(--space-2) var(--space-3);cursor:pointer;color:' + s.color + ';" data-subestado="' + s.id + '">' + s.label + '</div>';
+            }).join('');
+            picker.querySelectorAll('[data-subestado]').forEach(function(sopt) {
+              sopt.addEventListener('click', function(sev) {
+                sev.stopPropagation();
+                var subestado = sopt.dataset.subestado;
+                if (_estadoPickerEl && _estadoPickerEl.parentNode) _estadoPickerEl.parentNode.removeChild(_estadoPickerEl);
+                _applyEstado(tbody, leadId, 'cerrado', subestado, btn);
+              });
+            });
+            return;
+          }
+          if (_estadoPickerEl && _estadoPickerEl.parentNode) _estadoPickerEl.parentNode.removeChild(_estadoPickerEl);
+          _applyEstado(tbody, leadId, nuevoEstado, null, btn);
+        });
+
+        /* Close on outside click */
+        setTimeout(function() {
+          document.addEventListener('click', function closePicker() {
+            if (_estadoPickerEl && _estadoPickerEl.parentNode) _estadoPickerEl.parentNode.removeChild(_estadoPickerEl);
+            document.removeEventListener('click', closePicker);
+          });
+        }, 10);
+      });
+    }
+
+    function _applyEstado(tbody, leadId, nuevoEstado, subestado, badgeBtn) {
+      if (!window.mutateConvex) return;
+      var args = { leadId: leadId, nuevoEstado: nuevoEstado };
+      if (subestado) args.subestado = subestado;
+      if (badgeBtn) { badgeBtn.style.opacity = '0.5'; badgeBtn.disabled = true; }
+
+      window.mutateConvex('leads:updateLeadStatus', args)
+        .then(function() {
+          /* Update badge in-place */
+          if (badgeBtn) {
+            var displayEstado = nuevoEstado === 'cerrado' && subestado ? subestado : nuevoEstado;
+            var newClass = { 'nuevo':'badge-nurture','contactado':'badge-warm','reunion':'badge-hot','propuesta':'badge-hot','cerrado':'badge-skip' }[nuevoEstado] || 'badge-skip';
+            var newLabel = { 'nuevo':'Nuevo','contactado':'Contactado','reunion':'Reunion','propuesta':'Propuesta','cerrado':'Cerrado','ganado':'Ganado','perdido':'Perdido','descartado':'Descartado' }[displayEstado] || displayEstado;
+            badgeBtn.className = 'badge ' + newClass + ' estado-badge-inline';
+            badgeBtn.textContent = newLabel;
+            badgeBtn.style.opacity = '';
+            badgeBtn.disabled = false;
+          }
+          /* Update row data attribute */
+          var row = tbody.querySelector('tr[data-lead-id="' + leadId + '"]');
+          if (row) row.dataset.estado = nuevoEstado;
+          _showToast('Estado cambiado a ' + (nuevoEstado === 'cerrado' && subestado ? subestado : nuevoEstado), 'success');
+        })
+        .catch(function(err) {
+          if (badgeBtn) { badgeBtn.style.opacity = ''; badgeBtn.disabled = false; }
+          _showToast('Error al cambiar estado: ' + err.message, 'error');
+        });
+    }
+
+    function _showToast(message, type) {
+      var container = document.getElementById('toast-container');
+      if (!container) { console.log('[Toast]', message); return; }
+      var toast = document.createElement('div');
+      toast.className = 'toast';
+      var iconName = type === 'error' ? 'alert-circle' : type === 'warning' ? 'alert-triangle' : 'check-circle';
+      var iconClass = type === 'error' ? 'error' : type === 'warning' ? 'warning' : 'success';
+      toast.innerHTML = '<div class="toast-content"><span class="toast-icon ' + iconClass + '"><i data-lucide="' + iconName + '"></i></span><span class="toast-text">' + message + '</span></div>';
+      container.appendChild(toast);
+      if (typeof lucide !== 'undefined') lucide.createIcons({ nodes: [toast] });
       if (typeof gsap !== 'undefined') {
-        gsap.from('#vp-kpi-grid .card-kpi', {
-          y: 20,
-          opacity: 0,
-          duration: 0.5,
-          stagger: 0.08,
-          ease: 'power3.out',
-          delay: 0.2
+        gsap.fromTo(toast, { y:20, opacity:0 }, { y:0, opacity:1, duration:0.35, ease:'power3.out' });
+      }
+      setTimeout(function() {
+        if (typeof gsap !== 'undefined') {
+          gsap.to(toast, { y:-10, opacity:0, duration:0.25, onComplete: function() { if (toast.parentNode) toast.parentNode.removeChild(toast); } });
+        } else { if (toast.parentNode) toast.parentNode.removeChild(toast); }
+      }, 3500);
+    }
+
+    /* ---- Reassign ---- */
+    function _wireReassign(tbody, sdrs) {
+      if (!sdrs || !sdrs.length) return;
+      tbody.addEventListener('click', function(e) {
+        var btn = e.target.closest('.reassign-trigger');
+        if (!btn) return;
+        e.stopPropagation();
+        var leadId = btn.dataset.leadId;
+        var row = tbody.querySelector('tr[data-lead-id="' + leadId + '"]');
+        if (!row) return;
+
+        /* Build simple picker */
+        var picker = document.createElement('div');
+        picker.style.cssText = 'position:fixed;z-index:9999;background:var(--bg-base);border:1px solid var(--border);border-radius:var(--radius-lg);box-shadow:var(--shadow-md);min-width:160px;padding:var(--space-1) 0;font-size:var(--text-sm);';
+        var rect = btn.getBoundingClientRect();
+        picker.style.left = rect.left + 'px';
+        picker.style.top  = (rect.bottom + 4) + 'px';
+
+        picker.innerHTML = sdrs.map(function(s) {
+          return '<div style="padding:var(--space-2) var(--space-3);cursor:pointer;" data-sdr-id="' + esc(s._id) + '" data-sdr-nombre="' + esc(s.nombre||s.name||'') + '">' + esc(s.nombre||s.name||s._id) + '</div>';
+        }).join('');
+
+        picker.querySelectorAll('[data-sdr-id]').forEach(function(opt) {
+          opt.addEventListener('mouseenter', function() { opt.style.background = 'var(--bg-subtle)'; });
+          opt.addEventListener('mouseleave', function() { opt.style.background = ''; });
+        });
+
+        document.body.appendChild(picker);
+
+        picker.addEventListener('click', function(ev) {
+          var opt = ev.target.closest('[data-sdr-id]');
+          if (!opt) return;
+          var sdrId = opt.dataset.sdrId;
+          var sdrNombre = opt.dataset.sdrNombre;
+          if (picker.parentNode) picker.parentNode.removeChild(picker);
+
+          if (!confirm('¿Reasignar este lead a ' + sdrNombre + '?')) return;
+
+          window.mutateConvex('leads:reasignarLead', { leadId: leadId, nuevoSdrUserId: sdrId, nuevoSdrNombre: sdrNombre })
+            .then(function() {
+              var sdrCell = row.querySelector('.sdr-cell');
+              if (sdrCell) {
+                sdrCell.innerHTML = '<span class="sdr-nombre" style="font-size:var(--text-sm);">' + esc(sdrNombre) + '</span> ' +
+                  '<button class="table-action-btn reassign-trigger" data-lead-id="' + esc(leadId) + '" title="Reasignar" style="vertical-align:middle;">' +
+                    '<i data-lucide="refresh-cw"></i>' +
+                  '</button>';
+                if (typeof lucide !== 'undefined') lucide.createIcons({ nodes: [sdrCell] });
+              }
+              _showToast('Lead reasignado a ' + sdrNombre, 'success');
+            })
+            .catch(function(err) { _showToast('Error al reasignar: ' + err.message, 'error'); });
+        });
+
+        setTimeout(function() {
+          document.addEventListener('click', function closePicker() {
+            if (picker.parentNode) picker.parentNode.removeChild(picker);
+            document.removeEventListener('click', closePicker);
+          });
+        }, 10);
+      });
+    }
+
+    /* ---- Bulk assign bar ---- */
+    function _wireBulkAssign(tbody) {
+      var bulkBar    = document.getElementById('vp-bulk-bar');
+      var bulkCount  = document.getElementById('vp-bulk-count');
+      var bulkSelect = document.getElementById('vp-bulk-sdr-select');
+      var bulkBtn    = document.getElementById('vp-bulk-assign-btn');
+      var bulkCancel = document.getElementById('vp-bulk-cancel');
+
+      if (!bulkBar) return;
+
+      function updateBar() {
+        var checked = tbody.querySelectorAll('.lead-checkbox:checked');
+        var count = checked.length;
+        bulkBar.style.display = count > 0 ? 'flex' : 'none';
+        if (bulkCount) bulkCount.textContent = count + ' seleccionado' + (count !== 1 ? 's' : '');
+        if (bulkBtn) { bulkBtn.disabled = count === 0; bulkBtn.style.opacity = count > 0 ? '1' : '0.5'; }
+      }
+
+      /* Select-all checkbox in thead */
+      var selectAll = document.getElementById('vp-select-all');
+      if (selectAll) {
+        selectAll.addEventListener('change', function() {
+          tbody.querySelectorAll('.lead-checkbox').forEach(function(cb) {
+            var row = cb.closest('tr');
+            if (!row || row.style.display === 'none') return;
+            cb.checked = selectAll.checked;
+          });
+          updateBar();
         });
       }
+
+      tbody.addEventListener('change', function(e) {
+        if (e.target.classList.contains('lead-checkbox')) updateBar();
+      });
+
+      if (bulkCancel) {
+        bulkCancel.addEventListener('click', function() {
+          tbody.querySelectorAll('.lead-checkbox').forEach(function(cb) { cb.checked = false; });
+          if (selectAll) selectAll.checked = false;
+          updateBar();
+        });
+      }
+
+      if (bulkBtn) {
+        bulkBtn.addEventListener('click', function() {
+          var sdrId = bulkSelect ? bulkSelect.value : '';
+          var sdrOpt = bulkSelect && bulkSelect.selectedOptions[0];
+          var sdrNombre = sdrOpt ? sdrOpt.dataset.nombre || sdrOpt.textContent : '';
+          if (!sdrId) { _showToast('Selecciona un SDR primero', 'warning'); return; }
+
+          var checked = Array.prototype.slice.call(tbody.querySelectorAll('.lead-checkbox:checked'));
+          var leadIds = checked.map(function(cb) { return cb.dataset.leadId; }).filter(Boolean);
+          if (!leadIds.length) return;
+
+          bulkBtn.disabled = true;
+          bulkBtn.textContent = 'Asignando...';
+
+          window.mutateConvex('leads:bulkAssignLeads', { leadIds: leadIds, sdrUserId: sdrId, sdrNombre: sdrNombre })
+            .then(function() {
+              checked.forEach(function(cb) {
+                var row = cb.closest('tr');
+                if (!row) return;
+                var sdrCell = row.querySelector('.sdr-cell');
+                if (sdrCell) {
+                  sdrCell.innerHTML = '<span class="sdr-nombre" style="font-size:var(--text-sm);">' + esc(sdrNombre) + '</span>';
+                }
+                cb.checked = false;
+              });
+              if (selectAll) selectAll.checked = false;
+              updateBar();
+              bulkBtn.disabled = false;
+              bulkBtn.textContent = 'Asignar';
+              _showToast(leadIds.length + ' leads asignados a ' + sdrNombre, 'success');
+            })
+            .catch(function(err) {
+              bulkBtn.disabled = false;
+              bulkBtn.textContent = 'Asignar';
+              _showToast('Error al asignar: ' + err.message, 'error');
+            });
+        });
+      }
+    }
+
+    /* ---- Mock pipeline fallback ---- */
+    function _renderPipelineMock() {
+      var tbody = document.getElementById('pipeline-tbody');
+      if (!tbody || !window.SISTECO_DATA) return;
+      var leads = window.SISTECO_DATA.leads.filter(function(l) { return l.clasificacion !== 'SKIP'; });
+      var scoreClassMap = { 'HOT':'badge-hot','WARM':'badge-warm','NURTURE':'badge-nurture','SKIP':'badge-skip' };
+      var estadoClassMap = { 'nuevo':'badge-nurture','contactado':'badge-warm','reunion':'badge-hot','propuesta':'badge-hot' };
+      var estadoLabelMap = { 'nuevo':'Nuevo','contactado':'Contactado','reunion':'Reunion','propuesta':'Propuesta' };
+      tbody.innerHTML = leads.map(function(lead) {
+        var actividadLabel = lead.fecha_ingreso_dias === 0 ? 'hoy' : lead.fecha_ingreso_dias === 1 ? 'ayer' : 'hace ' + lead.fecha_ingreso_dias + 'd';
+        return '<tr data-estado="' + esc(lead.estado) + '" data-score="' + esc(lead.clasificacion) + '" data-industria="' + esc((lead.sii_actividad||'').toLowerCase()) + '">' +
+          '<td><input type="checkbox" class="lead-checkbox" disabled></td>' +
+          '<td><span class="badge ' + (estadoClassMap[lead.estado]||'badge-skip') + '">' + esc(estadoLabelMap[lead.estado]||lead.estado) + '</span></td>' +
+          '<td style="font-weight:600;">' + esc(lead.empresa) + '</td>' +
+          '<td><div style="font-size:var(--text-sm);font-weight:600;">' + esc(lead.nombre) + '</div>' +
+          '<div style="font-size:var(--text-xs);color:var(--text-muted);">' + esc(lead.cargo) + '</div></td>' +
+          '<td><span class="badge ' + (scoreClassMap[lead.clasificacion]||'badge-nurture') + '">' + esc(lead.clasificacion) + ' ' + lead.score + '</span></td>' +
+          '<td style="font-size:var(--text-xs);color:var(--text-secondary);">' + esc((lead.industria||'').split(' ').slice(0,3).join(' ')) + '</td>' +
+          '<td>' + (lead.sdr_asignado ? esc(lead.sdr_asignado) : '<span style="color:var(--text-muted);font-size:var(--text-xs);">Sin asignar</span>') + '</td>' +
+          '<td style="color:var(--text-muted);font-size:var(--text-xs);">' + actividadLabel + '</td>' +
+        '</tr>';
+      }).join('');
+      if (typeof lucide !== 'undefined') lucide.createIcons({ nodes: [tbody] });
+    }
+
+    /* ---- Run on DOM ready (with Convex retry) ---- */
+    document.addEventListener('DOMContentLoaded', function() {
+      /* Try Convex data, fall back to mock if auth not ready */
+      function tryLoad() {
+        if (window.queryConvex) {
+          loadVpKpis();
+          loadPipelineTable();
+        } else {
+          setTimeout(function() {
+            if (window.queryConvex) {
+              loadVpKpis();
+              loadPipelineTable();
+            } else {
+              _renderKpisMock();
+              _renderPipelineMock();
+            }
+          }, 1500);
+        }
+      }
+      tryLoad();
     });
 
   })();
   </script>
+
+  <!-- Toast container -->
+  <div id="toast-container" aria-live="polite" aria-label="Notificaciones"></div>
 
 </body>
 </html>
