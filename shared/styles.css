@@ -2680,41 +2680,803 @@ input, textarea {
 }
 
 /* =============================================================================
-   19. RESPONSIVE ADDITIONS (VP Ventas + SDR)
+   19. RESPONSIVE — Full Mobile Support (375px, 480px, 768px)
+   Version 5.0 — Plan 03-05: FAB command bar, card pipeline, full-screen panel
    ============================================================================= */
 
+/* --- 768px breakpoint: Tablet and mobile --- */
 @media (max-width: 768px) {
-  /* Lead panel becomes full-screen modal on mobile */
-  .lead-panel {
-    width: 100%;
-    height: 100%;
+
+  /* Sidebar: hidden by default — show via .sidebar-open class on body */
+  .sidebar-mini {
+    transform: translateX(-100%);
+    transition: transform var(--duration-normal) var(--ease-default);
+    z-index: 400;
+  }
+
+  body.sidebar-open .sidebar-mini {
+    transform: translateX(0);
+  }
+
+  /* Main content: full width (no sidebar offset) */
+  .main-content {
+    margin-left: 0;
+  }
+
+  /* Topbar: compact — show hamburger + title only */
+  .topbar {
+    padding: 0 var(--space-4);
+    height: 60px;
+  }
+
+  .topbar-title {
+    font-size: var(--text-lg);
+  }
+
+  .topbar-subtitle {
+    display: none;
+  }
+
+  /* Show hamburger button on mobile */
+  .btn-hamburger {
+    display: flex;
+  }
+
+  /* KPI cards: 2-column grid */
+  .kpi-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+  }
+
+  /* SDR KPI grid: 1 column */
+  .kpi-grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  /* Content area padding */
+  .content-area {
+    padding: var(--space-4);
+  }
+
+  /* Pipeline table: replaced by card list on mobile (see .pipeline-card-list) */
+  .pipeline-table-wrapper {
+    display: none;
+  }
+
+  /* Pipeline card list: visible on mobile */
+  .pipeline-card-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
   }
 
   /* Filter bar stacks vertically */
   .filter-bar {
     flex-direction: column;
     align-items: stretch;
+    gap: var(--space-2);
   }
 
   .filter-search {
     min-width: unset;
   }
 
-  /* Pipeline table horizontal scroll */
-  .pipeline-table-wrapper {
-    overflow-x: auto;
+  /* Lead panel: full-screen overlay on mobile */
+  .lead-panel {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    border-radius: 0;
+    z-index: 500;
   }
 
-  /* Todo items smaller gap */
+  /* Todo items: compact */
   .todo-item {
     gap: var(--space-2);
     padding: var(--space-2) var(--space-3);
   }
 
-  /* SDR KPI grid 1 col */
+  /* Command bar: hidden (use FAB instead) */
+  .command-bar-container {
+    display: none;
+  }
+
+  /* Command bar FAB */
+  .cmd-fab {
+    display: flex;
+  }
+
+  /* Command bottom sheet: visible when open */
+  .cmd-bottom-sheet {
+    display: flex;
+  }
+
+  /* Date range: hide on mobile */
+  .date-range {
+    display: none;
+  }
+
+  /* Topbar right: reduce items */
+  .topbar-right .org-badge {
+    display: none;
+  }
+
+  /* Chart cards: full width */
+  .chart-card {
+    padding: var(--space-4);
+  }
+
+  /* ICP wizard: full-width steps */
+  .icp-wizard-step {
+    padding: var(--space-4);
+  }
+
+  /* Temporal toggle: smaller pills */
+  .temporal-toggle {
+    font-size: var(--text-xs);
+  }
+}
+
+/* --- 480px breakpoint: Small mobile --- */
+@media (max-width: 480px) {
+
+  /* Single column everything */
+  .kpi-grid-4 {
+    grid-template-columns: 1fr;
+  }
+
   .kpi-grid-3 {
     grid-template-columns: 1fr;
   }
+
+  /* Larger touch targets (min 44px) */
+  .query-btn,
+  .btn,
+  .btn-icon,
+  .filter-chip,
+  .todo-checkbox,
+  .sidebar-nav-item,
+  .cmd-fab,
+  .lead-contact-btn {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Topbar even more compact */
+  .topbar {
+    height: 52px;
+    padding: 0 var(--space-3);
+  }
+
+  .topbar-title {
+    font-size: var(--text-base);
+  }
+
+  /* Lead panel header compact */
+  .lead-panel-header {
+    padding: var(--space-3);
+  }
+
+  /* Content area narrow padding */
+  .content-area {
+    padding: var(--space-3);
+  }
+}
+
+/* =============================================================================
+   20. PIPELINE CARD LIST — mobile alternative to table (VP Ventas)
+   ============================================================================= */
+
+/* Desktop: hide card list, show table */
+.pipeline-card-list {
+  display: none;
+}
+
+.pipeline-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  transition: box-shadow var(--duration-fast) var(--ease-default);
+  cursor: pointer;
+}
+
+.pipeline-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.pipeline-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.pipeline-card-name {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--text-primary);
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pipeline-card-empresa {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+}
+
+.pipeline-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.pipeline-card-contact {
+  display: flex;
+  gap: var(--space-2);
+}
+
+/* Contact action buttons for mobile (44px touch targets) */
+.lead-contact-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: all var(--duration-fast) var(--ease-default);
+}
+
+.lead-contact-btn:hover {
+  background: var(--accent-faint);
+  border-color: var(--accent);
+  color: var(--text-primary);
+}
+
+.lead-contact-btn svg,
+.lead-contact-btn [data-lucide] {
+  width: 18px;
+  height: 18px;
+  pointer-events: none;
+}
+
+.lead-copy-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-xs);
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all var(--duration-fast);
+  flex-shrink: 0;
+}
+
+.lead-copy-btn:hover {
+  color: var(--text-primary);
+  border-color: var(--accent);
+}
+
+.lead-copy-btn svg,
+.lead-copy-btn [data-lucide] {
+  width: 13px;
+  height: 13px;
+  pointer-events: none;
+}
+
+/* =============================================================================
+   21. COMMAND BAR FAB + BOTTOM SHEET — mobile command bar pattern
+   ============================================================================= */
+
+/* FAB: hidden on desktop, shown on mobile via @media */
+.cmd-fab {
+  display: none;
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--text-primary);
+  color: var(--text-on-dark);
+  border: none;
+  cursor: pointer;
+  z-index: 300;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  transition: background var(--duration-fast) var(--ease-default),
+              transform var(--duration-fast) var(--ease-default);
+}
+
+.cmd-fab:hover {
+  background: var(--accent);
+  color: var(--text-on-accent);
+  transform: scale(1.05);
+}
+
+.cmd-fab svg,
+.cmd-fab [data-lucide] {
+  width: 22px;
+  height: 22px;
+  pointer-events: none;
+}
+
+/* Bottom sheet overlay */
+.cmd-bottom-sheet-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 350;
+  opacity: 0;
+  transition: opacity var(--duration-normal);
+}
+
+.cmd-bottom-sheet-overlay.visible {
+  opacity: 1;
+}
+
+/* Bottom sheet */
+.cmd-bottom-sheet {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--bg-surface);
+  border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
+  padding: var(--space-4) var(--space-4) var(--space-8);
+  z-index: 360;
+  max-height: 80vh;
+  overflow-y: auto;
+  transform: translateY(100%);
+  transition: transform var(--duration-normal) var(--ease-default);
+  box-shadow: 0 -4px 24px rgba(0,0,0,0.12);
+}
+
+.cmd-bottom-sheet.open {
+  transform: translateY(0);
+}
+
+.cmd-bottom-sheet-handle {
+  width: 40px;
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  margin: 0 auto var(--space-4);
+}
+
+.cmd-bottom-sheet-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-input);
+  border-radius: var(--radius-pill);
+  padding: 0 var(--space-4);
+  height: 48px;
+  margin-bottom: var(--space-4);
+}
+
+.cmd-bottom-sheet-input-wrap input {
+  flex: 1;
+  background: none;
+  border: none;
+  font-size: var(--text-base);
+  color: var(--text-primary);
+}
+
+.cmd-bottom-sheet-input-wrap input::placeholder {
+  color: var(--text-placeholder);
+}
+
+.cmd-bottom-sheet-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-2);
+}
+
+/* =============================================================================
+   22. ICP WIZARD — pipeline activation flow
+   ============================================================================= */
+
+.icp-wizard {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.icp-wizard-header {
+  text-align: center;
+  margin-bottom: var(--space-6);
+}
+
+.icp-wizard-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--accent-faint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-3);
+  color: hsl(var(--accent-h), 60%, 35%);
+}
+
+.icp-wizard-icon svg,
+.icp-wizard-icon [data-lucide] {
+  width: 24px;
+  height: 24px;
+}
+
+.icp-wizard-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-1);
+}
+
+.icp-wizard-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+/* Progress dots */
+.icp-wizard-progress {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+}
+
+.icp-progress-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border);
+  transition: all var(--duration-normal) var(--ease-default);
+}
+
+.icp-progress-dot.active {
+  background: var(--accent);
+  transform: scale(1.3);
+}
+
+.icp-progress-dot.done {
+  background: var(--success);
+}
+
+/* Step container */
+.icp-wizard-step {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  margin-bottom: var(--space-4);
+  animation: icp-step-in 0.3s var(--ease-default) both;
+}
+
+@keyframes icp-step-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.icp-step-label {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: var(--space-2);
+}
+
+.icp-step-question {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-4);
+}
+
+/* Radio button grid for tamano */
+.icp-radio-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-2);
+}
+
+.icp-radio-option {
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3) var(--space-4);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-default);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-align: center;
+  color: var(--text-secondary);
+  background: var(--bg-surface);
+}
+
+.icp-radio-option:hover {
+  border-color: var(--accent);
+  color: var(--text-primary);
+  background: var(--accent-faint);
+}
+
+.icp-radio-option.selected {
+  border-color: var(--accent);
+  background: var(--accent-faint);
+  color: var(--text-primary);
+}
+
+.icp-radio-option input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Select dropdowns */
+.icp-select {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  border: 1.5px solid var(--border-input);
+  border-radius: var(--radius-lg);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--text-primary);
+  background: var(--bg-surface);
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 24 24'%3E%3Cpath stroke='%23999' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 40px;
+}
+
+.icp-select:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+
+/* Keywords input */
+.icp-keywords-input {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  border: 1.5px solid var(--border-input);
+  border-radius: var(--radius-lg);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--text-primary);
+  background: var(--bg-surface);
+}
+
+.icp-keywords-input:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+
+.icp-keywords-hint {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  margin-top: var(--space-2);
+}
+
+/* Navigation buttons */
+.icp-wizard-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+.icp-btn-back {
+  padding: var(--space-3) var(--space-5);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: var(--bg-surface);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-default);
+}
+
+.icp-btn-back:hover {
+  border-color: var(--text-primary);
+  color: var(--text-primary);
+}
+
+.icp-btn-next {
+  padding: var(--space-3) var(--space-6);
+  border: none;
+  border-radius: var(--radius-pill);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--text-on-accent);
+  background: var(--accent);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-default);
+  flex: 1;
+}
+
+.icp-btn-next:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+.icp-btn-next:disabled {
+  opacity: 0.5;
+  cursor: default;
+  transform: none;
+}
+
+/* Success state */
+.icp-success {
+  text-align: center;
+  padding: var(--space-8) var(--space-4);
+  animation: icp-step-in 0.4s var(--ease-default) both;
+}
+
+.icp-success-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(34,197,94,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-4);
+  color: var(--success);
+}
+
+.icp-success-icon svg,
+.icp-success-icon [data-lucide] {
+  width: 32px;
+  height: 32px;
+}
+
+.icp-success-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.icp-success-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-6);
+}
+
+/* =============================================================================
+   23. TEMPORAL COMPARISON TOGGLE — CEO KPIs
+   ============================================================================= */
+
+.temporal-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  padding: 3px;
+}
+
+.temporal-pill {
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-default);
+  border: none;
+  background: transparent;
+  white-space: nowrap;
+}
+
+.temporal-pill:hover {
+  color: var(--text-primary);
+  background: var(--bg-hover);
+}
+
+.temporal-pill.active {
+  background: var(--accent);
+  color: var(--text-on-accent);
+}
+
+/* Delta indicators on KPI cards */
+.kpi-delta {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  margin-top: var(--space-1);
+}
+
+.kpi-delta.up {
+  color: var(--success);
+}
+
+.kpi-delta.down {
+  color: var(--error);
+}
+
+.kpi-delta.neutral {
+  color: var(--text-muted);
+}
+
+.kpi-delta svg,
+.kpi-delta [data-lucide] {
+  width: 12px;
+  height: 12px;
+}
+
+/* =============================================================================
+   24. HAMBURGER BUTTON — mobile sidebar toggle
+   ============================================================================= */
+
+.btn-hamburger {
+  display: none;
+  width: 36px;
+  height: 36px;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.btn-hamburger svg,
+.btn-hamburger [data-lucide] {
+  width: 18px;
+  height: 18px;
+  pointer-events: none;
+}
+
+/* Mobile sidebar overlay */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 390;
+  opacity: 0;
+  transition: opacity var(--duration-normal);
+}
+
+.sidebar-overlay.visible {
+  opacity: 1;
+}
+
+body.sidebar-open .sidebar-overlay {
+  display: block;
+  opacity: 1;
 }
 
 /* KPI grid 3 col variant (SDR) */

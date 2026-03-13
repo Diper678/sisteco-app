@@ -61,12 +61,13 @@ var queryButtonConfig = {
     { id: 'hot',      icon: 'flame',          label: 'Leads HOT ahora',          desc: 'Listos para contactar' }
   ],
   vp: [
-    { id: 'sin-asignar', icon: 'user-plus',  label: 'Leads sin asignar',        desc: 'Pendientes de asignacion' },
-    { id: 'equipo',      icon: 'users',      label: 'Estado del equipo',         desc: 'SDRs activos' },
-    { id: 'pipeline',    icon: 'git-branch', label: 'Pipeline completo',         desc: 'Vista completa' },
-    { id: 'hot-urgente', icon: 'flame',      label: 'HOT sin contactar 48h',    desc: 'Atencion urgente' },
-    { id: 'conversion',  icon: 'trending-up',label: 'Conversion por SDR',       desc: 'Ranking del equipo' },
-    { id: 'kpis',        icon: 'bar-chart-3',label: 'Metricas del mes',         desc: 'Agregadas del equipo' }
+    { id: 'sin-asignar',       icon: 'user-plus',  label: 'Leads sin asignar',        desc: 'Pendientes de asignacion' },
+    { id: 'equipo',            icon: 'users',      label: 'Estado del equipo',         desc: 'SDRs activos' },
+    { id: 'pipeline',          icon: 'git-branch', label: 'Pipeline completo',         desc: 'Vista completa' },
+    { id: 'hot-urgente',       icon: 'flame',      label: 'HOT sin contactar 48h',    desc: 'Atencion urgente' },
+    { id: 'conversion',        icon: 'trending-up',label: 'Conversion por SDR',       desc: 'Ranking del equipo' },
+    { id: 'kpis',              icon: 'bar-chart-3',label: 'Metricas del mes',         desc: 'Agregadas del equipo' },
+    { id: 'activar-pipeline',  icon: 'play-circle',label: 'Activar pipeline',          desc: 'Configurar ICP y activar' }
   ],
   sdr: [
     { id: 'mis-tareas',  icon: 'list-todo',  label: 'Mis tareas de hoy',        desc: 'Pendientes urgentes' },
@@ -440,6 +441,23 @@ function loadContent(queryId, role, queryLabel) {
     return;
   }
 
+  /* VP special: Activar pipeline -> show ICP wizard */
+  if (queryId === 'activar-pipeline') {
+    if (typeof window.mostrarIcpWizard === 'function') {
+      /* Clear existing blocks first */
+      var existingForIcp = contentArea.querySelectorAll('.content-block, .ai-response-block');
+      existingForIcp.forEach(function(b) { b.remove(); });
+      window.mostrarIcpWizard();
+    }
+    return;
+  }
+
+  /* CEO temporal comparison: comparar -> show temporal toggle */
+  if (queryId === 'comparar' && (role === 'ceo' || role === 'CEO')) {
+    _loadTemporalComparison(contentArea, queryLabel);
+    return;
+  }
+
   /* If same block is already showing, do nothing (already active) */
   if (currentActiveQueryId === queryId) {
     var existingBlock = document.getElementById('block-' + queryId);
@@ -570,7 +588,74 @@ function loadContent(queryId, role, queryLabel) {
 }
 
 /* =============================================================================
-   5b. SDR CONTENT LOADER — async builders that render directly into DOM
+   5b. TEMPORAL COMPARISON — CEO "comparar" query with period toggle
+   ============================================================================= */
+
+function _loadTemporalComparison(contentArea, queryLabel) {
+  /* Remove existing blocks */
+  contentArea.querySelectorAll('.content-block, .ai-response-block').forEach(function(b) { animateBlockOut(b); });
+
+  /* Build block with toggle */
+  var block = document.createElement('div');
+  block.className = 'content-block';
+  block.id = 'block-comparar';
+  block.setAttribute('role', 'region');
+  block.setAttribute('aria-label', queryLabel || 'Comparacion temporal');
+
+  block.innerHTML =
+    '<div class="content-block-header">' +
+      '<h2 class="content-block-title">Comparacion temporal</h2>' +
+      '<div style="display:flex;align-items:center;gap:var(--space-3);">' +
+        '<div class="temporal-toggle">' +
+          '<button class="temporal-pill active" data-period="semana">vs semana</button>' +
+          '<button class="temporal-pill" data-period="mes">vs mes</button>' +
+        '</div>' +
+        '<button class="content-block-close" aria-label="Cerrar comparacion">' +
+          '<i data-lucide="x"></i>' +
+        '</button>' +
+      '</div>' +
+    '</div>' +
+    '<div class="content-block-body"></div>';
+
+  contentArea.appendChild(block);
+
+  var bodyEl = block.querySelector('.content-block-body');
+  var currentPeriod = 'semana';
+
+  /* Close handler */
+  block.querySelector('.content-block-close').addEventListener('click', function() {
+    currentActiveQueryId = null;
+    document.querySelectorAll('.query-btn').forEach(function(b) { b.classList.remove('active'); });
+    animateBlockOut(block);
+  });
+
+  /* Period toggle handler */
+  block.querySelectorAll('.temporal-pill').forEach(function(pill) {
+    pill.addEventListener('click', function() {
+      block.querySelectorAll('.temporal-pill').forEach(function(p) { p.classList.remove('active'); });
+      pill.classList.add('active');
+      currentPeriod = pill.dataset.period || 'semana';
+      if (typeof window.buildTemporalComparison === 'function') {
+        window.buildTemporalComparison(bodyEl, currentPeriod);
+      }
+    });
+  });
+
+  initLucide();
+  animateBlockIn(block);
+
+  /* Initial load */
+  if (typeof window.buildTemporalComparison === 'function') {
+    window.buildTemporalComparison(bodyEl, currentPeriod);
+  } else {
+    bodyEl.innerHTML = '<p style="color:var(--text-muted);">Modulo de comparacion no disponible.</p>';
+  }
+
+  block.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+/* =============================================================================
+   5c. SDR CONTENT LOADER — async builders that render directly into DOM
    Routes SDR query button clicks to content-builders.js SDR builders.
    SDR builders render into page DOM (todo-list, sdr-leads-tbody) instead of
    injecting a content block, so we scroll the user to the relevant section.
@@ -1705,5 +1790,13 @@ document.addEventListener('DOMContentLoaded', function() {
   requestAnimationFrame(function() {
     initCommandBar(role);
     initLucide();
+
+    /* Mobile: FAB command bar + sidebar toggle */
+    if (typeof window.initMobileCommandBar === 'function') {
+      window.initMobileCommandBar(role);
+    }
+    if (typeof window.initMobileSidebar === 'function') {
+      window.initMobileSidebar();
+    }
   });
 });

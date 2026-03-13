@@ -2217,3 +2217,622 @@
   vp.kpis          = vp.buildVpKpis;
 
 })();
+
+/* =============================================================================
+   PLAN 03-05: ICP Wizard + Pipeline Activation + VP Dual Mode + Empty States
+   Appended as standalone IIFE to avoid overwriting SDR/CEO/VP builders above.
+   ============================================================================= */
+(function () {
+  'use strict';
+
+  /* ---- Escape HTML (local copy) ---- */
+  function esc(str) {
+    return String(str || '')
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  /* ==========================================================================
+     EMPTY STATES — Pipeline vacio + proximo batch date
+     ========================================================================== */
+
+  /* Returns HTML for the global pipeline-empty state */
+  window.buildPipelineEmptyState = function (pipelineActive) {
+    /* Next PhantomBuster run: Mon / Wed / Fri at 07:00 */
+    var nextBatch = _getNextBatchDate();
+    var subtitle = pipelineActive
+      ? 'Proximo batch de leads: <strong>' + nextBatch + '</strong>'
+      : 'Activa tu pipeline para empezar a recibir leads.';
+    var ctaHtml = pipelineActive
+      ? ''
+      : '<button class="btn btn-primary" onclick="window.mostrarIcpWizard && window.mostrarIcpWizard()" style="margin-top:var(--space-4);">Activar pipeline</button>';
+
+    return '<div style="' +
+        'text-align:center;padding:var(--space-16) var(--space-8);' +
+        'max-width:480px;margin:0 auto;' +
+      '">' +
+      '<div style="' +
+        'width:72px;height:72px;border-radius:50%;' +
+        'background:var(--bg-subtle);border:1px solid var(--border);' +
+        'display:flex;align-items:center;justify-content:center;' +
+        'margin:0 auto var(--space-5);' +
+      '">' +
+        '<i data-lucide="inbox" style="width:28px;height:28px;color:var(--text-muted);"></i>' +
+      '</div>' +
+      '<div style="font-family:var(--font-heading);font-size:var(--text-xl);font-weight:700;color:var(--text-primary);margin-bottom:var(--space-2);">' +
+        'Tu pipeline esta vacio' +
+      '</div>' +
+      '<div style="font-size:var(--text-sm);color:var(--text-secondary);line-height:1.6;">' +
+        subtitle +
+      '</div>' +
+      ctaHtml +
+    '</div>';
+  };
+
+  /* Calculates next PhantomBuster run: Mon/Wed/Fri 07:00 Chile */
+  function _getNextBatchDate() {
+    var now = new Date();
+    var days = ['dom', 'lun', 'mar', 'mie', 'jue', 'vie', 'sab'];
+    var months = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
+    /* Run days: 1=Mon, 3=Wed, 5=Fri */
+    var runDays = [1, 3, 5];
+    var d = new Date(now);
+    /* Find next run day */
+    for (var i = 1; i <= 7; i++) {
+      d.setDate(now.getDate() + i);
+      if (runDays.indexOf(d.getDay()) !== -1) break;
+    }
+    return days[d.getDay()] + ' ' + d.getDate() + ' ' + months[d.getMonth()] + ' a las 07:00';
+  }
+
+  /* Empty state for command bar queries when pipeline has no data yet */
+  window.buildQueryEmptyState = function (pipelineActive) {
+    var next = pipelineActive
+      ? 'Proximo batch: ' + _getNextBatchDate()
+      : 'Activa tu pipeline para empezar.';
+    return '<div style="text-align:center;padding:var(--space-8) var(--space-4);color:var(--text-muted);">' +
+      '<i data-lucide="search-x" style="width:32px;height:32px;display:block;margin:0 auto var(--space-3);"></i>' +
+      '<div style="font-weight:600;font-size:var(--text-sm);color:var(--text-primary);margin-bottom:var(--space-1);">Aun no hay datos</div>' +
+      '<div style="font-size:var(--text-xs);">' + esc(next) + '</div>' +
+    '</div>';
+  };
+
+  /* ==========================================================================
+     VP DUAL MODE — Solo VP (sin equipo) ve leads directamente como SDR
+     ========================================================================== */
+
+  window.buildVpDualMode = async function (bodyEl) {
+    if (!bodyEl) return;
+    bodyEl.innerHTML = '<div style="padding:var(--space-4);color:var(--text-muted);font-size:var(--text-sm);">Verificando equipo...</div>';
+
+    try {
+      var members = await window.queryConvex('users:getTeamMembers', {});
+      var sdrs = (members || []).filter(function (u) { return u.rol === 'sdr' || u.role === 'sdr'; });
+
+      if (sdrs.length === 0) {
+        /* Solo VP: mostrar leads directamente (vista SDR-like) */
+        bodyEl.innerHTML = '<div style="padding:var(--space-3) var(--space-4);background:var(--accent-faint);border:1px solid var(--accent);border-radius:var(--radius-lg);font-size:var(--text-sm);color:#5a7a00;margin-bottom:var(--space-4);">' +
+          '<i data-lucide="user" style="width:14px;height:14px;display:inline;vertical-align:-2px;margin-right:var(--space-1);"></i>' +
+          'Modo VP individual: gestionas los leads directamente.' +
+          ' <span style="opacity:0.7;">Cuando invites SDRs, cambia a vista de gestion.</span>' +
+        '</div>';
+        var leads = await window.queryConvex('leads:getLeadsByOrg', {});
+        leads = (leads || []).filter(function (l) {
+          return ((l.scoreCategory || '').toUpperCase() !== 'SKIP');
+        }).slice(0, 20);
+
+        if (!leads.length) {
+          bodyEl.innerHTML += window.buildPipelineEmptyState ? window.buildPipelineEmptyState(false) : '<p>Sin leads todavia.</p>';
+          if (typeof lucide !== 'undefined') lucide.createIcons({ nodes: [bodyEl] });
+          return;
+        }
+
+        /* Render simplified card list */
+        var listHtml = '<div class="pipeline-card-list">';
+        leads.forEach(function (lead) {
+          var nombre = lead.contactoNombre || lead.nombre || lead.contacto || 'Sin nombre';
+          var empresa = lead.empresa || 'Sin empresa';
+          var scorecat = (lead.scoreCategory || 'NURTURE').toUpperCase();
+          var badgeColors = { HOT: 'badge-hot', WARM: 'badge-warm', NURTURE: 'badge-nurture', SKIP: 'badge-skip' };
+          var email = lead.contactoEmail || lead.email || '';
+          var tel = lead.contactoTelefono || lead.telefono || '';
+
+          listHtml += '<div class="pipeline-card" data-lead-id="' + esc(lead._id) + '">' +
+            '<div class="pipeline-card-header">' +
+              '<div>' +
+                '<div class="pipeline-card-name">' + esc(nombre) + '</div>' +
+                '<div class="pipeline-card-empresa">' + esc(empresa) + '</div>' +
+              '</div>' +
+              '<span class="badge ' + esc(badgeColors[scorecat] || 'badge-skip') + '">' + esc(scorecat) + ' ' + (lead.score || 0) + '</span>' +
+            '</div>' +
+            '<div class="pipeline-card-contact">' +
+              (tel ? '<a href="tel:' + esc(tel) + '" class="lead-contact-btn" title="Llamar" onclick="event.stopPropagation();"><i data-lucide="phone"></i></a>' : '') +
+              (email ? '<a href="mailto:' + esc(email) + '" class="lead-contact-btn" title="Email" onclick="event.stopPropagation();"><i data-lucide="mail"></i></a>' : '') +
+              '<button class="lead-contact-btn" title="Ver detalle" onclick="event.stopPropagation();if(window.openLeadPanelConvex){window.openLeadPanelConvex(\'' + esc(lead._id) + '\')}"><i data-lucide="arrow-right"></i></button>' +
+            '</div>' +
+          '</div>';
+        });
+        listHtml += '</div>';
+        bodyEl.innerHTML += listHtml;
+      } else {
+        /* Team exists: show normal VP management note */
+        bodyEl.innerHTML = '<p style="color:var(--text-muted);font-size:var(--text-sm);">Usa las queries del command bar para gestionar el pipeline del equipo.</p>';
+      }
+
+      if (typeof lucide !== 'undefined') lucide.createIcons({ nodes: [bodyEl] });
+    } catch (err) {
+      console.error('[VP dual mode]', err);
+      bodyEl.innerHTML = '<p style="color:var(--error);">Error al verificar equipo: ' + esc(err.message) + '</p>';
+    }
+  };
+
+  /* ==========================================================================
+     ICP WIZARD + PIPELINE ACTIVATION
+     ========================================================================== */
+
+  var _icpData = {
+    industria: '',
+    tamano: '',
+    ubicacion: '',
+    keywords: ''
+  };
+  var _icpStep = 1;
+
+  /* Show ICP wizard in the content area */
+  window.mostrarIcpWizard = function () {
+    var contentArea = document.getElementById('content-area');
+    if (!contentArea) return;
+
+    _icpData = { industria: '', tamano: '', ubicacion: '', keywords: '' };
+    _icpStep = 1;
+
+    /* Load current ICP if exists */
+    if (window.queryConvex) {
+      window.queryConvex('icp:getIcpConfig', {}).then(function (cfg) {
+        if (cfg) {
+          _icpData.industria = cfg.industria || '';
+          _icpData.tamano    = cfg.tamano    || '';
+          _icpData.ubicacion = cfg.ubicacion || '';
+          _icpData.keywords  = cfg.keywords  || '';
+        }
+        _renderIcpStep(contentArea, _icpStep);
+      }).catch(function () {
+        _renderIcpStep(contentArea, _icpStep);
+      });
+    } else {
+      _renderIcpStep(contentArea, _icpStep);
+    }
+  };
+
+  function _renderIcpStep(container, step) {
+    var industrias = ['Tecnologia', 'Fintech', 'Retail', 'Manufactura', 'Servicios', 'Construccion', 'Mineria', 'Otro'];
+    var tamanos    = ['10-50', '50-200', '200-1000', '1000+'];
+    var tamanoLabels = { '10-50': '10-50 empleados', '50-200': '50-200 empleados', '200-1000': '200-1000 empleados', '1000+': '1000+ empleados' };
+    var ubicaciones = ['Santiago', 'Regiones', 'Todo Chile'];
+
+    var stepConfigs = [
+      { num: 1, field: 'industria', label: 'Paso 1 de 4',   q: '¿Que industria buscas?', type: 'select',    options: industrias },
+      { num: 2, field: 'tamano',    label: 'Paso 2 de 4',   q: '¿Tamano de empresa objetivo?', type: 'radio', options: tamanos, labels: tamanoLabels },
+      { num: 3, field: 'ubicacion', label: 'Paso 3 de 4',   q: '¿Ubicacion preferida?', type: 'select', options: ubicaciones },
+      { num: 4, field: 'keywords',  label: 'Paso 4 de 4',   q: 'Keywords opcionales (separadas por coma)', type: 'text', placeholder: 'ej: ERP, factura electronica, logistica' }
+    ];
+
+    var cfg = stepConfigs[step - 1];
+
+    var progressDots = stepConfigs.map(function (s) {
+      var cls = s.num < step ? 'icp-progress-dot done' : s.num === step ? 'icp-progress-dot active' : 'icp-progress-dot';
+      return '<div class="' + cls + '"></div>';
+    }).join('');
+
+    var inputHtml = '';
+    if (cfg.type === 'select') {
+      inputHtml = '<select id="icp-input" class="icp-select">' +
+        '<option value="">Selecciona una opcion...</option>' +
+        cfg.options.map(function (o) {
+          return '<option value="' + esc(o) + '"' + (_icpData[cfg.field] === o ? ' selected' : '') + '>' + esc(o) + '</option>';
+        }).join('') +
+      '</select>';
+    } else if (cfg.type === 'radio') {
+      inputHtml = '<div class="icp-radio-grid">' +
+        cfg.options.map(function (o) {
+          var sel = _icpData[cfg.field] === o;
+          return '<label class="icp-radio-option' + (sel ? ' selected' : '') + '" data-value="' + esc(o) + '">' +
+            '<input type="radio" name="icp-radio" value="' + esc(o) + '"' + (sel ? ' checked' : '') + '> ' +
+            esc((cfg.labels && cfg.labels[o]) || o) +
+          '</label>';
+        }).join('') +
+      '</div>';
+    } else {
+      inputHtml = '<input id="icp-input" type="text" class="icp-keywords-input" ' +
+        'placeholder="' + esc(cfg.placeholder || '') + '" ' +
+        'value="' + esc(_icpData[cfg.field]) + '">' +
+        '<div class="icp-keywords-hint">Opcional. Ayuda a afinar el pipeline con terminos especificos.</div>';
+    }
+
+    var backBtn = step > 1
+      ? '<button class="icp-btn-back" id="icp-back">Atras</button>'
+      : '<div></div>';
+
+    var nextLabel = step < 4 ? 'Continuar' : 'Activar Pipeline';
+    var nextBtnId = step < 4 ? 'icp-next' : 'icp-activate';
+
+    var html = '<div class="icp-wizard" id="icp-wizard-container">' +
+      '<div class="icp-wizard-header">' +
+        '<div class="icp-wizard-icon"><i data-lucide="target"></i></div>' +
+        '<div class="icp-wizard-title">Configura tu ICP</div>' +
+        '<div class="icp-wizard-subtitle">Define a quien quieres alcanzar con el pipeline de leads</div>' +
+      '</div>' +
+      '<div class="icp-wizard-progress">' + progressDots + '</div>' +
+      '<div class="icp-wizard-step">' +
+        '<div class="icp-step-label">' + esc(cfg.label) + '</div>' +
+        '<div class="icp-step-question">' + esc(cfg.q) + '</div>' +
+        inputHtml +
+      '</div>' +
+      '<div class="icp-wizard-nav">' +
+        backBtn +
+        '<button class="icp-btn-next" id="' + nextBtnId + '">' + esc(nextLabel) + '</button>' +
+      '</div>' +
+    '</div>';
+
+    container.innerHTML = html;
+
+    if (typeof lucide !== 'undefined') lucide.createIcons({ nodes: [container] });
+    if (typeof gsap !== 'undefined') {
+      gsap.from(container.querySelector('.icp-wizard-step'), { y: 16, opacity: 0, duration: 0.35, ease: 'power3.out' });
+    }
+
+    /* Wire radio options */
+    container.querySelectorAll('.icp-radio-option').forEach(function (label) {
+      label.addEventListener('click', function () {
+        container.querySelectorAll('.icp-radio-option').forEach(function (l) { l.classList.remove('selected'); });
+        label.classList.add('selected');
+        _icpData[cfg.field] = label.dataset.value || '';
+      });
+    });
+
+    /* Wire back */
+    var backEl = document.getElementById('icp-back');
+    if (backEl) {
+      backEl.addEventListener('click', function () {
+        _icpStep--;
+        _renderIcpStep(container, _icpStep);
+      });
+    }
+
+    /* Wire next */
+    var nextEl = document.getElementById('icp-next');
+    if (nextEl) {
+      nextEl.addEventListener('click', function () {
+        /* Collect current value */
+        if (cfg.type === 'select') {
+          var sel = document.getElementById('icp-input');
+          if (sel) _icpData[cfg.field] = sel.value;
+        } else if (cfg.type === 'text') {
+          var inp = document.getElementById('icp-input');
+          if (inp) _icpData[cfg.field] = inp.value;
+        }
+        /* Require value for non-optional steps */
+        if (step < 4 && !_icpData[cfg.field] && cfg.type !== 'text') {
+          var stepEl = container.querySelector('.icp-wizard-step');
+          if (stepEl) {
+            stepEl.style.animation = 'none';
+            stepEl.style.border = '1.5px solid var(--error)';
+            setTimeout(function () { stepEl.style.border = ''; stepEl.style.animation = ''; }, 1200);
+          }
+          return;
+        }
+        _icpStep++;
+        _renderIcpStep(container, _icpStep);
+      });
+    }
+
+    /* Wire activate (step 4) */
+    var activateEl = document.getElementById('icp-activate');
+    if (activateEl) {
+      activateEl.addEventListener('click', function () {
+        var inp = document.getElementById('icp-input');
+        if (inp) _icpData.keywords = inp.value;
+        _activarPipeline(container, _icpData);
+      });
+    }
+  }
+
+  /* Pipeline activation: save ICP to Convex + POST to n8n webhook */
+  async function _activarPipeline(container, icpData) {
+    var activateBtn = document.getElementById('icp-activate');
+    if (activateBtn) {
+      activateBtn.disabled = true;
+      activateBtn.textContent = 'Activando...';
+    }
+
+    try {
+      /* 1. Save ICP config to Convex */
+      if (window.mutateConvex) {
+        await window.mutateConvex('icp:saveIcpConfig', {
+          industria: icpData.industria || 'Servicios',
+          tamano:    icpData.tamano    || '50-200',
+          ubicacion: icpData.ubicacion || 'Todo Chile',
+          keywords:  icpData.keywords  || undefined
+        });
+      }
+
+      /* 2. Call n8n webhook to activate pipeline */
+      var n8nUrl = (window.SISTECO_CONFIG && window.SISTECO_CONFIG.n8nWebhookUrl) ||
+                  (typeof process !== 'undefined' && process.env && process.env.N8N_WEBHOOK_URL) ||
+                  '/api/activate-pipeline';
+
+      var orgId = '';
+      if (window.SistecoAuth && typeof window.SistecoAuth.getOrgId === 'function') {
+        orgId = window.SistecoAuth.getOrgId() || '';
+      }
+
+      try {
+        var resp = await fetch(n8nUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ orgId: orgId, icp: icpData })
+        });
+        if (!resp.ok) throw new Error('Webhook HTTP ' + resp.status);
+      } catch (webhookErr) {
+        /* Non-fatal: webhook may not be configured yet in dev */
+        console.warn('[ICP] n8n webhook call failed (non-fatal in dev):', webhookErr.message);
+      }
+
+      /* 3. Show success */
+      container.innerHTML = '<div class="icp-success">' +
+        '<div class="icp-success-icon"><i data-lucide="check-circle-2"></i></div>' +
+        '<div class="icp-success-title">Pipeline activado</div>' +
+        '<div class="icp-success-subtitle">' +
+          'Primeros leads en 24-48 horas. Tu ICP ha sido guardado:<br>' +
+          '<strong>' + esc(icpData.industria) + '</strong> · ' +
+          '<strong>' + esc(icpData.tamano) + ' empleados</strong> · ' +
+          '<strong>' + esc(icpData.ubicacion) + '</strong>' +
+          (icpData.keywords ? '<br>Keywords: <em>' + esc(icpData.keywords) + '</em>' : '') +
+        '</div>' +
+        '<button class="btn btn-primary" onclick="window.location.reload()" style="margin-top:var(--space-5);">Volver al dashboard</button>' +
+      '</div>';
+
+      if (typeof lucide !== 'undefined') lucide.createIcons({ nodes: [container] });
+      if (typeof gsap !== 'undefined') {
+        gsap.from(container.querySelector('.icp-success'), { scale: 0.92, opacity: 0, duration: 0.4, ease: 'back.out(1.5)' });
+      }
+
+    } catch (err) {
+      console.error('[ICP activate]', err);
+      if (activateBtn) {
+        activateBtn.disabled = false;
+        activateBtn.textContent = 'Activar Pipeline';
+      }
+      /* Show error toast */
+      var existing = document.getElementById('sisteco-toast');
+      if (existing) existing.remove();
+      var toast = document.createElement('div');
+      toast.id = 'sisteco-toast';
+      toast.style.cssText = 'position:fixed;bottom:24px;right:24px;z-index:9999;padding:10px 16px;border-radius:8px;font-size:13px;font-weight:600;font-family:var(--font-body);box-shadow:0 4px 16px rgba(0,0,0,0.15);background:var(--error,#ef4444);color:#fff;transform:translateY(20px);opacity:0;transition:all 0.3s ease;';
+      toast.textContent = 'Error al activar: ' + err.message;
+      document.body.appendChild(toast);
+      requestAnimationFrame(function () { toast.style.transform = 'translateY(0)'; toast.style.opacity = '1'; });
+      setTimeout(function () { toast.style.transform = 'translateY(20px)'; toast.style.opacity = '0'; setTimeout(function () { toast.remove(); }, 300); }, 4000);
+    }
+  }
+
+  /* ==========================================================================
+     CEO TEMPORAL COMPARISON — toggle vs semana / vs mes
+     ========================================================================== */
+
+  window.buildTemporalComparison = async function (bodyEl, period) {
+    if (!bodyEl) return;
+    bodyEl.innerHTML = '<div style="padding:var(--space-4);color:var(--text-muted);">Calculando comparacion...</div>';
+
+    try {
+      /* Get current stats */
+      var stats = await window.queryConvex('stats:getLeadsStats', {});
+      stats = stats || {};
+
+      /* Calculate period cutoff */
+      var now = Date.now();
+      var cutoff = period === 'semana' ? now - 7 * 24 * 3600 * 1000 : now - 30 * 24 * 3600 * 1000;
+      var prevCutoff = period === 'semana' ? cutoff - 7 * 24 * 3600 * 1000 : cutoff - 30 * 24 * 3600 * 1000;
+
+      /* Get all leads to compute period comparison */
+      var leads = await window.queryConvex('leads:getLeadsByOrg', {});
+      leads = leads || [];
+
+      var current = {
+        total: leads.filter(function (l) { return (l.discoveredAt || 0) >= cutoff; }).length,
+        hot: leads.filter(function (l) { return (l.discoveredAt || 0) >= cutoff && (l.scoreCategory || '').toUpperCase() === 'HOT'; }).length,
+        cerrado: leads.filter(function (l) { return (l.discoveredAt || 0) >= cutoff && l.estado === 'cerrado'; }).length
+      };
+
+      var prev = {
+        total: leads.filter(function (l) { return (l.discoveredAt || 0) >= prevCutoff && (l.discoveredAt || 0) < cutoff; }).length,
+        hot: leads.filter(function (l) { return (l.discoveredAt || 0) >= prevCutoff && (l.discoveredAt || 0) < cutoff && (l.scoreCategory || '').toUpperCase() === 'HOT'; }).length,
+        cerrado: leads.filter(function (l) { return (l.discoveredAt || 0) >= prevCutoff && (l.discoveredAt || 0) < cutoff && l.estado === 'cerrado'; }).length
+      };
+
+      function delta(cur, prv) {
+        if (prv === 0) return { pct: cur > 0 ? 100 : 0, dir: cur > 0 ? 'up' : 'neutral' };
+        var d = Math.round(((cur - prv) / prv) * 100);
+        return { pct: Math.abs(d), dir: d > 0 ? 'up' : d < 0 ? 'down' : 'neutral' };
+      }
+
+      var metrics = [
+        { icon: 'trending-up', label: 'Leads Nuevos',  cur: current.total,   prv: prev.total },
+        { icon: 'flame',       label: 'HOT',           cur: current.hot,     prv: prev.hot },
+        { icon: 'check-circle',label: 'Cerrados',      cur: current.cerrado, prv: prev.cerrado }
+      ];
+
+      var periodLabel = period === 'semana' ? 'semana anterior' : 'mes anterior';
+
+      var html = '<div style="margin-bottom:var(--space-3);font-size:var(--text-xs);color:var(--text-muted);">Comparacion vs ' + esc(periodLabel) + '</div>';
+      html += '<div class="kpi-grid-3">';
+
+      metrics.forEach(function (m) {
+        var d = delta(m.cur, m.prv);
+        var arrowIcon = d.dir === 'up' ? 'arrow-up' : d.dir === 'down' ? 'arrow-down' : 'minus';
+        html += '<article class="card-kpi">' +
+          '<div class="card-kpi-header">' +
+            '<div class="card-kpi-label">' + esc(m.label) + '</div>' +
+            '<div class="card-kpi-icon"><i data-lucide="' + esc(m.icon) + '"></i></div>' +
+          '</div>' +
+          '<div class="card-kpi-value">' + m.cur + '</div>' +
+          '<div class="kpi-delta ' + esc(d.dir) + '">' +
+            '<i data-lucide="' + esc(arrowIcon) + '"></i>' +
+            '<span>' + d.pct + '% vs anterior</span>' +
+          '</div>' +
+          '<p style="font-size:var(--text-xs);color:var(--text-muted);">Anterior: ' + m.prv + '</p>' +
+        '</article>';
+      });
+
+      html += '</div>';
+      bodyEl.innerHTML = html;
+
+      if (typeof lucide !== 'undefined') lucide.createIcons({ nodes: [bodyEl] });
+      if (typeof gsap !== 'undefined') {
+        gsap.from(bodyEl.querySelectorAll('.card-kpi'), { y: 12, opacity: 0, duration: 0.4, stagger: 0.08, ease: 'power3.out' });
+      }
+
+    } catch (err) {
+      console.error('[Temporal comparison]', err);
+      bodyEl.innerHTML = '<p style="color:var(--error);">Error al calcular comparacion: ' + esc(err.message) + '</p>';
+    }
+  };
+
+  /* ==========================================================================
+     MOBILE — FAB + Bottom Sheet for command bar
+     ========================================================================== */
+
+  window.initMobileCommandBar = function (role) {
+    /* Inject FAB and bottom sheet if not already present */
+    if (document.getElementById('cmd-fab')) return;
+
+    var fab = document.createElement('button');
+    fab.id = 'cmd-fab';
+    fab.className = 'cmd-fab';
+    fab.setAttribute('aria-label', 'Abrir command bar');
+    fab.innerHTML = '<i data-lucide="search"></i>';
+
+    var overlay = document.createElement('div');
+    overlay.className = 'cmd-bottom-sheet-overlay';
+    overlay.id = 'cmd-sheet-overlay';
+
+    /* Build query buttons for the sheet */
+    var queryButtonConfig = window.queryButtonConfig || {};
+    var buttons = (queryButtonConfig[role] || []).map(function (b) {
+      return '<button class="query-btn" data-query-id="' + (b.id || '') + '">' +
+        '<i data-lucide="' + (b.icon || 'search') + '"></i>' +
+        '<span>' + (b.label || '') + '</span>' +
+      '</button>';
+    }).join('');
+
+    var sheet = document.createElement('div');
+    sheet.className = 'cmd-bottom-sheet';
+    sheet.id = 'cmd-bottom-sheet';
+    sheet.innerHTML = '<div class="cmd-bottom-sheet-handle"></div>' +
+      '<div class="cmd-bottom-sheet-input-wrap">' +
+        '<i data-lucide="search" style="width:16px;height:16px;color:var(--text-muted);flex-shrink:0;"></i>' +
+        '<input type="text" id="cmd-sheet-input" placeholder="Preguntar al dashboard...">' +
+      '</div>' +
+      '<div class="cmd-bottom-sheet-buttons">' + buttons + '</div>';
+
+    document.body.appendChild(overlay);
+    document.body.appendChild(sheet);
+    document.body.appendChild(fab);
+
+    if (typeof lucide !== 'undefined') lucide.createIcons({ nodes: [fab, sheet] });
+
+    function openSheet() {
+      overlay.classList.add('visible');
+      sheet.classList.add('open');
+      setTimeout(function () {
+        var input = document.getElementById('cmd-sheet-input');
+        if (input) input.focus();
+      }, 200);
+    }
+
+    function closeSheet() {
+      overlay.classList.remove('visible');
+      sheet.classList.remove('open');
+    }
+
+    fab.addEventListener('click', openSheet);
+    overlay.addEventListener('click', closeSheet);
+
+    /* Sheet input: forward to main command bar */
+    var sheetInput = document.getElementById('cmd-sheet-input');
+    if (sheetInput) {
+      sheetInput.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' && !e.shiftKey) {
+          e.preventDefault();
+          var mainInput = document.querySelector('.command-bar input[type="text"]');
+          if (mainInput) {
+            mainInput.value = sheetInput.value;
+            mainInput.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true }));
+          }
+          sheetInput.value = '';
+          closeSheet();
+        }
+      });
+    }
+
+    /* Sheet query buttons: forward clicks to main query buttons */
+    sheet.querySelectorAll('.query-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var qid = btn.dataset.queryId;
+        var mainBtn = document.querySelector('.query-btn[data-query-id="' + qid + '"]');
+        if (mainBtn) mainBtn.click();
+        closeSheet();
+      });
+    });
+  };
+
+  /* ==========================================================================
+     MOBILE SIDEBAR TOGGLE
+     ========================================================================== */
+
+  window.initMobileSidebar = function () {
+    var sidebar = document.querySelector('.sidebar-mini');
+    if (!sidebar) return;
+
+    /* Create overlay */
+    var overlay = document.createElement('div');
+    overlay.className = 'sidebar-overlay';
+    overlay.id = 'sidebar-overlay';
+    document.body.appendChild(overlay);
+
+    /* Create hamburger button */
+    var hamburger = document.createElement('button');
+    hamburger.className = 'btn-hamburger';
+    hamburger.id = 'btn-hamburger';
+    hamburger.setAttribute('aria-label', 'Abrir menu');
+    hamburger.innerHTML = '<i data-lucide="menu"></i>';
+
+    /* Inject into topbar-right or topbar */
+    var topbarRight = document.querySelector('.topbar-right');
+    var topbar = document.querySelector('.topbar');
+    if (topbarRight) {
+      topbarRight.insertBefore(hamburger, topbarRight.firstChild);
+    } else if (topbar) {
+      topbar.insertBefore(hamburger, topbar.firstChild);
+    }
+
+    if (typeof lucide !== 'undefined') lucide.createIcons({ nodes: [hamburger] });
+
+    function openSidebar() {
+      document.body.classList.add('sidebar-open');
+    }
+    function closeSidebar() {
+      document.body.classList.remove('sidebar-open');
+    }
+
+    hamburger.addEventListener('click', openSidebar);
+    overlay.addEventListener('click', closeSidebar);
+
+    /* Close sidebar when nav item clicked on mobile */
+    document.querySelectorAll('.sidebar-nav-item').forEach(function (item) {
+      item.addEventListener('click', function () {
+        if (window.innerWidth <= 768) closeSidebar();
+      });
+    });
+  };
+
+})();
