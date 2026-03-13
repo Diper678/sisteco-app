@@ -56,11 +56,11 @@ See: .planning/PROJECT.md (updated 2026-03-09)
 ## Current Position
 
 Phase: 3 of 5 (Dashboard Build) — EN PROGRESO
-Plan: 1 of 5 completado (03-01 — auth + Convex multi-tenant foundation)
-Status: Phase 3 executing — Plan 01 (auth foundation) completo. Plan 02 (datos reales por rol) es el siguiente.
-Last activity: 2026-03-13 — Phase 3 Plan 01 completado — Clerk auth + Convex schema multi-tenant deployado
+Plan: 2 of 5 completado (03-02 — datos reales CEO + VP pipeline + asignacion + estado)
+Status: Phase 3 executing — Plan 02 (datos reales por rol) completo. Plan 03 (SDR + lead panel) es el siguiente.
+Last activity: 2026-03-13 — Phase 3 Plan 02 completado — CEO/VP dashboards conectados a Convex real data
 
-Progress: [████░░░░░░] 42%
+Progress: [████░░░░░░] 44%
 
 ## Reutilizacion de SAAN v1.0
 
@@ -102,6 +102,9 @@ Trabajo completado que se reutiliza directamente:
 - [Phase 03]: Async content builders dual dispatch: tareas/mis-leads render into pre-existing DOM elements; hot-pending/stats return HTML strings for content block injection
 - [Phase 03]: window.openLeadPanelConvex exposed globally from content-builders.js for cross-file panel delegation without circular dependency
 - [Phase 03]: getLeadsByAssignee uses by_asignadoA index then also filters by orgId for multi-tenant defense in depth
+- [2026-03-13 03-02]: CEO/VP builders appended to content-builders.js after SDR IIFE — no overwrite of existing SDR builders
+- [2026-03-13 03-02]: Floating fixed-position picker for estado change — avoids overflow/z-index issues in pipeline table cells
+- [2026-03-13 03-02]: Mock fallback with setTimeout retry in VP page — allows dev without Clerk org setup
 
 ### Blockers/Concerns
 
@@ -112,6 +115,6 @@ Trabajo completado que se reutiliza directamente:
 
 ## Session Continuity
 
-Last session: 2026-03-13T00:47:42.154Z
-Stopped at: Completed Phase 03 Plan 03 (SDR dashboard — leads asignados + lead detail panel)
-Resume file: None
+Last session: 2026-03-13T00:57:45Z
+Stopped at: Completed Phase 03 Plan 02 (CEO + VP Ventas datos reales Convex)
+Resume file: .planning/phases/03-dashboard-build/03-02-SUMMARY.md
