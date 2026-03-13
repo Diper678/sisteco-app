@@ -117,7 +117,8 @@
 |-------------|-------|--------|
 | LEAD-01 a 06 | Phase 1: Pipeline de Leads | Partial (schema + workflows from SAAN) |
 | LEAD-07, LEAD-08 | Phase 3: Dashboard Build | Pending |
-| DASH-01 a 07 | Phase 2 (diseno) + Phase 3 (build) | Pending |
+| DASH-01, DASH-05, DASH-07 | Phase 3 Plan 01 (auth foundation) | Complete |
+| DASH-02, DASH-03, DASH-04, DASH-06 | Phase 3 Plans 02-04 | In Progress |
 | DATA-01 a 05 | Phase 1 (SII basico) + H2 (resto) | Partial |
 | COMP-01 a 05 | Phase 4: Compliance | Pending |
 | INFRA-01,02,06,07 | Reutilizado de SAAN v1.0 | Complete |

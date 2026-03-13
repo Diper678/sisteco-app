@@ -39,12 +39,12 @@ See: .planning/PROJECT.md (updated 2026-03-09)
 
 ## Current Position
 
-Phase: 2 of 5 (Diseno Dashboard) — COMPLETO
-Plan: 2 of 2 (02-02 aprobado — Phase 2 cerrada)
-Status: Phase 2 complete — las 3 vistas fueron aprobadas por el usuario. Phase 3 (Dashboard Build) puede comenzar.
-Last activity: 2026-03-12 — Phase 2 diseno dashboard completada y aprobada
+Phase: 3 of 5 (Dashboard Build) — EN PROGRESO
+Plan: 1 of 5 completado (03-01 — auth + Convex multi-tenant foundation)
+Status: Phase 3 executing — Plan 01 (auth foundation) completo. Plan 02 (datos reales por rol) es el siguiente.
+Last activity: 2026-03-13 — Phase 3 Plan 01 completado — Clerk auth + Convex schema multi-tenant deployado
 
-Progress: [████░░░░░░] 40%
+Progress: [████░░░░░░] 42%
 
 ## Reutilizacion de SAAN v1.0
 
@@ -79,16 +79,20 @@ Trabajo completado que se reutiliza directamente:
 - [Phase 02-diseno-dashboard]: Login badge con color por rol: lime CEO, chart-blue VP, chart-purple SDR
 - [Phase 02-diseno-dashboard]: Lead detail panel se abre por defecto con primer lead HOT para demostrar el patron
 - [2026-03-12]: Phase 2 diseno dashboard completada — usuario aprobo las 3 vistas (CEO + VP Ventas + SDR) como listas para Phase 3
+- [2026-03-13]: ConvexHttpClient (one-shot) en vez de ConvexReactClient — cumple DASH-07 (sin WebSocket abiertos)
+- [2026-03-13]: orgId SIEMPRE desde JWT via getUserIdentity() — nunca del request body para prevenir spoofing cross-tenant
+- [2026-03-13]: Schema leads extiende SAAN v1.0 (mantiene todos los campos) + agrega orgId, estado, subestado, asignadoA, auditTrail
+- [2026-03-13]: Rol de usuario almacenado en tabla users de Convex — mas flexible que Clerk custom org roles
 
 ### Blockers/Concerns
 
 - PhantomBuster configurado con LinkedIn Search gratuito (API key + Agent ID reales). Sales Navigator se agrega cuando haya clientes pagando.
 - SimpleAPI: verificar formato endpoint y obtener API key antes de activar workflow SII
-- Clerk Organizations: configurar para multi-tenant
+- Clerk Organizations: activar en Clerk Dashboard + crear JWT template "convex" con claim org_id = {{org.id}}
 - Reveniu: verificar API para cobro automatizado
 
 ## Session Continuity
 
-Last session: 2026-03-12T17:49:39.447Z
-Stopped at: Phase 3 context gathered
-Resume file: .planning/phases/03-dashboard-build/03-CONTEXT.md
+Last session: 2026-03-13T00:03:57Z
+Stopped at: Phase 3 Plan 01 (auth foundation) completado
+Resume file: .planning/phases/03-dashboard-build/03-01-SUMMARY.md
