@@ -79,12 +79,13 @@ Plans:
 **Goal**: Cumplir los requisitos minimos de la Ley 21.719 para operar legalmente con datos B2B
 **Depends on**: Phase 1 (hay datos que proteger), Phase 3 (dashboard donde mostrar avisos)
 **Requirements**: COMP-01, COMP-02, COMP-03, COMP-04, COMP-05
-**Plans:** 3 plans
+**Plans:** 4 plans
 
 Plans:
 - [ ] 04-01-PLAN.md — Schema compliance fields + legal documents (RAT, DPA, privacy policy, EIPD, balancing test)
 - [ ] 04-02-PLAN.md — Opt-out + ARCO-POL HTTP endpoints + email verification + blacklist
-- [ ] 04-03-PLAN.md — Retention crons (auto-purge 24/36 meses) + compliance smoke tests
+- [ ] 04-03-PLAN.md — Retention crons (auto-purge 24/36 meses) + dashboard privacy link + compliance smoke tests
+- [ ] 04-04-PLAN.md — Sheets propagation on opt-out + ARCO-POL n8n triage webhook + tenant CRM notification
 
 **Success Criteria**:
   1. RAT (Registro de Actividades de Tratamiento) documentado
@@ -92,6 +93,8 @@ Plans:
   3. Mecanismo de opt-out funcional (lead puede pedir eliminacion)
   4. Base legal documentada por tipo de dato (legitimo interes para B2B)
   5. Politica de retencion implementada
+  6. Opt-out propaga eliminacion a Google Sheets del tenant
+  7. ARCO-POL requests trigger n8n triage con human-in-the-loop
 
 ### Phase 5: Onboarding Clientes Fundadores
 **Goal**: Los primeros 3-10 clientes fundadores usan Sisteco con datos reales y pagan mensualmente
@@ -114,5 +117,5 @@ Order: 1 || 2 -> 3 -> 4 -> 5
 | 1. Pipeline de Leads | 3 plans (2 waves) | 2/3 plans complete | In progress |
 | 2. Diseno Dashboard | 2 plans (2 waves) | 2/2 plans complete | 2026-03-12 |
 | 3. Dashboard Build | 5 plans (4 waves) | 5/5 plans complete | 2026-03-13 |
-| 4. Compliance Ley 21.719 | 3 plans (2 waves) | 0/3 plans complete | - |
+| 4. Compliance Ley 21.719 | 4 plans (3 waves) | 0/4 plans complete | - |
 | 5. Onboarding Fundadores | TBD | Not started | - |
