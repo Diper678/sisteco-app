@@ -1,14 +1,14 @@
 ---
-subject: "{company} + automatizacion B2B"
+subject: "una idea para {company}"
 ---
 
-{firstName}, te escribo porque vi tu perfil en LinkedIn y me llamo la atencion lo que estan haciendo en {company}.
+{firstName}, te escribo porque estuve mirando lo que hacen en {company} y me quedo dando vueltas una idea.
 
 {personalHook}
 
-En Sisteco automatizamos la prospeccion B2B para que tu equipo de ventas solo hable con los leads que realmente quieren comprar. {metric}.
+Nosotros en Sisteco nos dedicamos a {industryHook}. En simple: nos encargamos de toda la prospeccion para que tu equipo solo hable con gente que ya quiere comprar.
 
-{cta}?
+Si te tinca, te cuento como funciona en quince minutos. Sin compromiso.
 
 Felipe Martinez
 Sisteco — Santiago, Chile

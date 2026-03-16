@@ -1,1 +1,1 @@
-Hola {firstName}, vi que lideras {roleArea} en {company}. En Sisteco ayudamos a equipos de ventas B2B a {industryHook}. {question} — {firstName}, hablamos?
+{firstName}, vi lo que estan haciendo en {company} y me parecio interesante. Trabajo en automatizacion de ventas B2B y creo que podria servirles. Te cuento en dos minutos si te tinca.

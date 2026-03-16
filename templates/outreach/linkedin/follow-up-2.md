@@ -1,5 +1,5 @@
-{firstName}, se que el tiempo es limitado. Solo queria saber: {directQuestion}
+{firstName}, una pregunta nomas: {directQuestion}
 
-Si tiene sentido, {cta}. Si no, sin problema — quedo como contacto por si en algun momento te sirve.
+Si te pasa, te puedo mostrar como lo resolvemos en quince minutos. Si no, cero drama, quedo por aca por si algun dia te sirve.
 
 Felipe

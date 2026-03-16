@@ -1,44 +1,44 @@
 {
   "information technology": {
-    "hook_es": "automatizar el pipeline de ventas tech",
-    "pain_es": "ciclo de venta largo, muchos leads frios",
-    "metric": "5-7x mas conversiones vs stack DIY",
-    "question": "Cuantos de tus leads realmente responden?"
+    "hook_es": "que tu equipo de ventas deje de perder tiempo buscando leads y se enfoque en cerrar",
+    "pain_es": "en tech el ciclo de venta es largo y la mayoria de los leads nunca responden",
+    "metric": "puedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti",
+    "question": "de todos los leads que les llegan, cuantos realmente terminan respondiendo?"
   },
   "financial services": {
-    "hook_es": "compliance y ventas no son opuestos",
-    "pain_es": "regulacion frena adopcion tech",
-    "metric": "89% retencion omnicanal vs 33% monocanal",
-    "question": "Tu equipo esta respondiendo en menos de 5 minutos?"
+    "hook_es": "automatizar la prospeccion sin que compliance sea un problema",
+    "pain_es": "en finanzas la regulacion frena la adopcion de herramientas nuevas, pero eso no significa que tu equipo tenga que seguir prospectando a mano",
+    "metric": "las empresas que usan todos los canales retienen casi el noventa por ciento de sus clientes, contra un tercio de las que usan un solo canal",
+    "question": "cuando les llega un lead, tu equipo lo esta contactando en menos de cinco minutos?"
   },
   "insurance": {
-    "hook_es": "tus agentes deberian vender, no prospectar",
-    "pain_es": "agentes pierden tiempo en leads no calificados",
-    "metric": "78% de clientes compran del primer vendedor en responder",
-    "question": "Cuanto tiempo pasa entre que llega un lead y alguien lo contacta?"
+    "hook_es": "que tus agentes dejen de prospectar y se dediquen a lo que saben hacer: vender",
+    "pain_es": "los agentes pierden la mitad del dia en leads que no van a comprar",
+    "metric": "casi ocho de cada diez clientes le compran al primer vendedor que los contacta. Si tu equipo no esta llegando primero, esa venta se la lleva otro",
+    "question": "cuanto tiempo pasa desde que les llega un lead hasta que alguien lo contacta?"
   },
   "management consulting": {
-    "hook_es": "mas reuniones sin contratar un SDR",
-    "pain_es": "necesitan leads constantes pero no tienen SDR",
-    "metric": "21x mas conversiones respondiendo < 5 minutos",
-    "question": "Como estas generando pipeline hoy?"
+    "hook_es": "generar mas reuniones con prospectos calificados sin tener que contratar un equipo de prospeccion",
+    "pain_es": "las consultoras necesitan un flujo constante de leads pero no tienen un equipo dedicado a buscarlos",
+    "metric": "las empresas que responden en menos de cinco minutos convierten hasta veintiun veces mas. Asi de simple",
+    "question": "como estan generando su pipeline de prospectos hoy?"
   },
   "mining": {
-    "hook_es": "pipeline predecible para ciclos largos",
-    "pain_es": "ciclos largos, relaciones clave",
-    "metric": "391% ROI en automatizacion (Forrester/PolyAI)",
-    "question": "Tu equipo comercial tiene visibilidad del pipeline completo?"
+    "hook_es": "tener un pipeline comercial predecible aunque los ciclos de venta sean largos",
+    "pain_es": "en mineria los ciclos son largos y las relaciones son todo, pero eso no significa que la prospeccion tenga que ser manual",
+    "metric": "el retorno que ven las empresas que automatizan esto es de casi cuatro veces lo que invierten, segun Forrester",
+    "question": "tu equipo comercial tiene visibilidad clara de todo el pipeline o van caso a caso?"
   },
   "telecommunications": {
-    "hook_es": "escalar sin escalar el equipo",
-    "pain_es": "alta competencia, necesitan velocidad",
-    "metric": "5-7x mas conversiones vs stack DIY",
-    "question": "Cuanto cuesta cada lead que no contactas a tiempo?"
+    "hook_es": "escalar las ventas sin tener que escalar el equipo",
+    "pain_es": "en telecom la competencia es feroz y el que llega primero se lleva al cliente",
+    "metric": "puedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti",
+    "question": "cada lead que no contactas a tiempo, cuanto te esta costando?"
   },
   "_default": {
-    "hook_es": "automatizar la prospeccion B2B",
-    "pain_es": "prospeccion manual consume tiempo del equipo de ventas",
-    "metric": "5-7x mas conversiones vs stack DIY",
-    "question": "Tu equipo de ventas pasa mas tiempo prospectando o cerrando?"
+    "hook_es": "automatizar la parte de prospeccion para que tu equipo solo hable con gente que realmente quiere comprar",
+    "pain_es": "la prospeccion manual le come tiempo a la gente que deberia estar cerrando ventas",
+    "metric": "puedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti",
+    "question": "tu equipo de ventas pasa mas tiempo buscando prospectos o cerrando negocios?"
   }
 }

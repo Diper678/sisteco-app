@@ -1,11 +1,9 @@
 ---
-subject: "{firstName}, una pregunta"
+subject: "{firstName}, te hago una pregunta"
 ---
 
-{firstName}, te lo pregunto directo: {directQuestion}
+{firstName}, te la hago corta: {directQuestion}
 
-Si la respuesta es si, te muestro en 15 minutos como lo resolvemos. Si no, todo bien — no insisto mas.
-
-{cta}?
+Si es algo que les pasa, te muestro en quince minutos como lo estamos resolviendo. Si no, todo bien, no insisto mas.
 
 Felipe

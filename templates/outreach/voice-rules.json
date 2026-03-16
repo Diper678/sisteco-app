@@ -24,11 +24,18 @@
     "plataforma de vanguardia"
   ],
   "approved_metrics": [
-    "5-7x mas conversiones vs stack DIY",
-    "21x mas conversiones respondiendo < 5 minutos",
-    "78% de clientes compran del primer vendedor en responder",
-    "391% ROI en automatizacion (Forrester/PolyAI)",
-    "89% retencion omnicanal vs 33% monocanal"
+    "puedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti",
+    "las empresas que responden en menos de cinco minutos convierten hasta veintiun veces mas",
+    "casi ocho de cada diez clientes le compran al primer vendedor que los contacta",
+    "el retorno que ven las empresas que automatizan esto es de casi cuatro veces lo que invierten, segun Forrester",
+    "las empresas que usan todos los canales retienen casi el noventa por ciento de sus clientes, contra un tercio de las que usan un solo canal"
+  ],
+  "blacklist_formats": [
+    "5-7x", "21x", "78%", "391%", "89%", "33%",
+    "stack DIY", "stack do it yourself",
+    "ROI", "ROAS", "KPI",
+    "vs.", "vs ",
+    "cualquier formato con guiones, barras o x como multiplicador"
   ],
   "constraints": {
     "linkedin_connection_note_max_chars": 300,

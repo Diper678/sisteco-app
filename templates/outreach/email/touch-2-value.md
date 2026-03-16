@@ -1,13 +1,13 @@
 ---
-subject: "dato rapido sobre {industryName}"
+subject: "algo que vi sobre {industryName}"
 ---
 
-{firstName}, un dato que me parecio relevante para {company}:
+{firstName}, te comparto un dato que encontre y me parecio relevante para lo que hacen en {company}:
 
-{metric}
+{metric}.
 
-La mayoria de los equipos de ventas en {industryName} pierden tiempo en leads frios. {valueProp}.
+{pain} Pero no tiene por que ser asi.
 
-Si te interesa ver como funciona, {cta}.
+Si quieres ver como lo estamos resolviendo para empresas como la tuya, me dices y te muestro en quince minutos.
 
 Felipe

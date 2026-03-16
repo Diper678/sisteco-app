@@ -1,13 +1,13 @@
 ---
-subject: "{metricShort} en 30 dias"
+subject: "como lo estan haciendo otras empresas en Chile"
 ---
 
-{firstName}, corto y al punto:
+{firstName}, te lo pongo asi:
 
-Empresas B2B en Chile que automatizan su pipeline de ventas estan viendo {metric}. La diferencia: responder rapido y solo a los leads correctos.
+Hay empresas B2B en Chile que ya automatizaron su prospeccion y {metric}. La diferencia es simple: responden rapido y solo le dedican tiempo a los leads que realmente van a comprar.
 
-{industrySpecificInsight}
+{pain}. Pero cuando automatizas esa parte, tu equipo se libera para hacer lo que mejor sabe hacer: cerrar.
 
-15 minutos para mostrarte como? {cta}.
+Quince minutos para mostrarte como? Me dices un dia que te acomode.
 
 Felipe

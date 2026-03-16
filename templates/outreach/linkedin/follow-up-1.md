@@ -1,9 +1,9 @@
-{firstName}, gracias por conectar.
+{firstName}, gracias por aceptar.
 
-Te comparto un dato: {metric}.
+Te cuento rapido por que te escribi: {metric}.
 
-En Sisteco estamos ayudando a empresas {industryContext} a automatizar su prospeccion B2B — {valueProp}.
+Nosotros en Sisteco nos encargamos de toda la parte de prospeccion para que tu equipo solo tenga que hablar con gente que ya quiere comprar. {industryContext}.
 
-Si te interesa, te cuento mas en 15 min.
+Si te hace sentido, te muestro en quince minutos como funciona. Sin compromiso.
 
 Felipe

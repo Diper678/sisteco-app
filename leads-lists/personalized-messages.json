@@ -11,40 +11,40 @@
     "tier": 3,
     "messages": {
       "connection_note": {
-        "text": "Hola Benjamín, vi que lideras eficiencia en ventas B2B en Minsait. En Sisteco ayudamos a equipos de ventas B2B a automatizar el pipeline de ventas tech. Cuantos de tus leads realmente responden? — hablamos?",
+        "text": "Benjamín, vi lo que estan haciendo en Minsait y me parecio interesante. Trabajo en automatizacion de ventas B2B y creo que podria servirles. Te cuento en dos minutos si te tinca.",
         "tier": 3
       },
       "follow_up_1": {
-        "text": "Benjamín, gracias por conectar.\n\nTe comparto un dato: 5-7x mas conversiones vs stack DIY.\n\nEn Sisteco estamos ayudando a empresas en Information Technology & Services a automatizar su prospeccion B2B — mas cierres con menos esfuerzo manual.\n\nSi te interesa, te cuento mas en 15 min.\n\nFelipe",
+        "text": "Benjamín, gracias por aceptar.\n\nTe cuento rapido por que te escribi: puedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti.\n\nNosotros en Sisteco nos encargamos de toda la parte de prospeccion para que tu equipo solo tenga que hablar con gente que ya quiere comprar. en tech el ciclo de venta es largo y la mayoria de los leads nunca responden.\n\nSi te hace sentido, te muestro en quince minutos como funciona. Sin compromiso.\n\nFelipe",
         "tier": 3
       },
       "follow_up_2": {
-        "text": "Benjamín, se que el tiempo es limitado. Solo queria saber: Cuantos de tus leads realmente responden?\n\nSi tiene sentido, 15 minutos para mostrarte como funciona. Si no, sin problema — quedo como contacto por si en algun momento te sirve.\n\nFelipe",
+        "text": "Benjamín, una pregunta nomas: de todos los leads que les llegan, cuantos realmente terminan respondiendo?\n\nSi te pasa, te puedo mostrar como lo resolvemos en quince minutos. Si no, cero drama, quedo por aca por si algun dia te sirve.\n\nFelipe",
         "tier": 3
       },
       "email_touch_1": {
-        "subject": "Minsait + automatizacion B2B",
-        "text": "Benjamín, te escribo porque vi tu perfil en LinkedIn y me llamo la atencion lo que estan haciendo en Minsait.\n\nMe llamo la atencion tu rol como Manager en Minsait.\n\nEn Sisteco automatizamos la prospeccion B2B para que tu equipo de ventas solo hable con los leads que realmente quieren comprar. 5-7x mas conversiones vs stack DIY.\n\n15 minutos para mostrarte como funciona?\n\nFelipe Martinez\nSisteco — Santiago, Chile",
+        "subject": "una idea para Minsait",
+        "text": "Benjamín, te escribo porque estuve mirando lo que hacen en Minsait y me quedo dando vueltas una idea.\n\nVi tu rol como Manager en Minsait y me parecio interesante\n\nNosotros en Sisteco nos dedicamos a que tu equipo de ventas deje de perder tiempo buscando leads y se enfoque en cerrar. En simple: nos encargamos de toda la prospeccion para que tu equipo solo hable con gente que ya quiere comprar.\n\nSi te tinca, te cuento como funciona en quince minutos. Sin compromiso.\n\nFelipe Martinez\nSisteco — Santiago, Chile",
         "tier": 3
       },
       "email_touch_2": {
-        "subject": "dato rapido sobre Information Technology & Services",
-        "text": "Benjamín, un dato que me parecio relevante para Minsait:\n\n5-7x mas conversiones vs stack DIY\n\nLa mayoria de los equipos de ventas en Information Technology & Services pierden tiempo en leads frios. mas cierres con menos esfuerzo manual.\n\nSi te interesa ver como funciona, 15 minutos para mostrarte como funciona.\n\nFelipe",
+        "subject": "algo que vi sobre Information Technology & Services",
+        "text": "Benjamín, te comparto un dato que encontre y me parecio relevante para lo que hacen en Minsait:\n\npuedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti.\n\nen tech el ciclo de venta es largo y la mayoria de los leads nunca responden Pero no tiene por que ser asi.\n\nSi quieres ver como lo estamos resolviendo para empresas como la tuya, me dices y te muestro en quince minutos.\n\nFelipe",
         "tier": 3
       },
       "email_touch_3": {
-        "subject": "5-7x mas conversiones vs en 30 dias",
-        "text": "Benjamín, corto y al punto:\n\nEmpresas B2B en Chile que automatizan su pipeline de ventas estan viendo 5-7x mas conversiones vs stack DIY. La diferencia: responder rapido y solo a los leads correctos.\n\nciclo de venta largo, muchos leads frios.\n\n15 minutos para mostrarte como? 15 minutos para mostrarte como funciona.\n\nFelipe",
+        "subject": "como lo estan haciendo otras empresas en Chile",
+        "text": "Benjamín, te lo pongo asi:\n\nHay empresas B2B en Chile que ya automatizaron su prospeccion y puedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti. La diferencia es simple: responden rapido y solo le dedican tiempo a los leads que realmente van a comprar.\n\nen tech el ciclo de venta es largo y la mayoria de los leads nunca responden. Pero cuando automatizas esa parte, tu equipo se libera para hacer lo que mejor sabe hacer: cerrar.\n\nQuince minutos para mostrarte como? Me dices un dia que te acomode.\n\nFelipe",
         "tier": 3
       },
       "email_touch_4": {
-        "subject": "Benjamín, una pregunta",
-        "text": "Benjamín, te lo pregunto directo: Cuantos de tus leads realmente responden?\n\nSi la respuesta es si, te muestro en 15 minutos como lo resolvemos. Si no, todo bien — no insisto mas.\n\n15 minutos para mostrarte como funciona?\n\nFelipe",
+        "subject": "Benjamín, te hago una pregunta",
+        "text": "Benjamín, te la hago corta: de todos los leads que les llegan, cuantos realmente terminan respondiendo?\n\nSi es algo que les pasa, te muestro en quince minutos como lo estamos resolviendo. Si no, todo bien, no insisto mas.\n\nFelipe",
         "tier": 3
       },
       "email_touch_5": {
-        "subject": "ultima vez que escribo",
-        "text": "Benjamín, entiendo que no es el momento o que esto no te interesa. Sin drama.\n\nSolo queria dejarte el dato: 5-7x mas conversiones vs stack DIY. Si en algun momento quieres explorar como automatizar ventas B2B, estoy a un mensaje de distancia.\n\nExito con Minsait.\n\nFelipe",
+        "subject": "ultimo mensaje, Benjamín",
+        "text": "Benjamín, entiendo si no es el momento o si esto no les hace sentido. Cero drama.\n\nSolo te dejo el dato por si en algun momento les sirve: puedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti. En vez de intentar armarlo ustedes, contratanos a nosotros y listo.\n\nMucho exito con lo que estan haciendo en Minsait. Quedo por aca si algun dia quieres conversar.\n\nFelipe",
         "tier": 3
       }
     }
@@ -61,40 +61,40 @@
     "tier": 3,
     "messages": {
       "connection_note": {
-        "text": "Hola Bárbara, vi que lideras ROI y vision de largo plazo en AIJourney®. En Sisteco ayudamos a equipos de ventas B2B a automatizar la prospeccion B2B. Tu equipo de ventas pasa mas tiempo prospectando o cerrando? — hablamos?",
+        "text": "Bárbara, vi lo que estan haciendo en AIJourney® y me parecio interesante. Trabajo en automatizacion de ventas B2B y creo que podria servirles. Te cuento en dos minutos si te tinca.",
         "tier": 3
       },
       "follow_up_1": {
-        "text": "Bárbara, gracias por conectar.\n\nTe comparto un dato: 5-7x mas conversiones vs stack DIY.\n\nEn Sisteco estamos ayudando a empresas en Computer Software a automatizar su prospeccion B2B — resultado macro para la empresa.\n\nSi te interesa, te cuento mas en 15 min.\n\nFelipe",
+        "text": "Bárbara, gracias por aceptar.\n\nTe cuento rapido por que te escribi: puedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti.\n\nNosotros en Sisteco nos encargamos de toda la parte de prospeccion para que tu equipo solo tenga que hablar con gente que ya quiere comprar. la prospeccion manual le come tiempo a la gente que deberia estar cerrando ventas.\n\nSi te hace sentido, te muestro en quince minutos como funciona. Sin compromiso.\n\nFelipe",
         "tier": 3
       },
       "follow_up_2": {
-        "text": "Bárbara, se que el tiempo es limitado. Solo queria saber: Tu equipo de ventas pasa mas tiempo prospectando o cerrando?\n\nSi tiene sentido, 15 min para mostrarte los numeros. Si no, sin problema — quedo como contacto por si en algun momento te sirve.\n\nFelipe",
+        "text": "Bárbara, una pregunta nomas: tu equipo de ventas pasa mas tiempo buscando prospectos o cerrando negocios?\n\nSi te pasa, te puedo mostrar como lo resolvemos en quince minutos. Si no, cero drama, quedo por aca por si algun dia te sirve.\n\nFelipe",
         "tier": 3
       },
       "email_touch_1": {
-        "subject": "AIJourney® + automatizacion B2B",
-        "text": "Bárbara, te escribo porque vi tu perfil en LinkedIn y me llamo la atencion lo que estan haciendo en AIJourney®.\n\nMe llamo la atencion tu rol como CEO & Co-Founder en AIJourney®.\n\nEn Sisteco automatizamos la prospeccion B2B para que tu equipo de ventas solo hable con los leads que realmente quieren comprar. 5-7x mas conversiones vs stack DIY.\n\n15 min para mostrarte los numeros?\n\nFelipe Martinez\nSisteco — Santiago, Chile",
+        "subject": "una idea para AIJourney®",
+        "text": "Bárbara, te escribo porque estuve mirando lo que hacen en AIJourney® y me quedo dando vueltas una idea.\n\nVi tu rol como CEO & Co-Founder en AIJourney® y me parecio interesante\n\nNosotros en Sisteco nos dedicamos a automatizar la parte de prospeccion para que tu equipo solo hable con gente que realmente quiere comprar. En simple: nos encargamos de toda la prospeccion para que tu equipo solo hable con gente que ya quiere comprar.\n\nSi te tinca, te cuento como funciona en quince minutos. Sin compromiso.\n\nFelipe Martinez\nSisteco — Santiago, Chile",
         "tier": 3
       },
       "email_touch_2": {
-        "subject": "dato rapido sobre Computer Software",
-        "text": "Bárbara, un dato que me parecio relevante para AIJourney®:\n\n5-7x mas conversiones vs stack DIY\n\nLa mayoria de los equipos de ventas en Computer Software pierden tiempo en leads frios. resultado macro para la empresa.\n\nSi te interesa ver como funciona, 15 min para mostrarte los numeros.\n\nFelipe",
+        "subject": "algo que vi sobre Computer Software",
+        "text": "Bárbara, te comparto un dato que encontre y me parecio relevante para lo que hacen en AIJourney®:\n\npuedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti.\n\nla prospeccion manual le come tiempo a la gente que deberia estar cerrando ventas Pero no tiene por que ser asi.\n\nSi quieres ver como lo estamos resolviendo para empresas como la tuya, me dices y te muestro en quince minutos.\n\nFelipe",
         "tier": 3
       },
       "email_touch_3": {
-        "subject": "5-7x mas conversiones vs en 30 dias",
-        "text": "Bárbara, corto y al punto:\n\nEmpresas B2B en Chile que automatizan su pipeline de ventas estan viendo 5-7x mas conversiones vs stack DIY. La diferencia: responder rapido y solo a los leads correctos.\n\nprospeccion manual consume tiempo del equipo de ventas.\n\n15 minutos para mostrarte como? 15 min para mostrarte los numeros.\n\nFelipe",
+        "subject": "como lo estan haciendo otras empresas en Chile",
+        "text": "Bárbara, te lo pongo asi:\n\nHay empresas B2B en Chile que ya automatizaron su prospeccion y puedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti. La diferencia es simple: responden rapido y solo le dedican tiempo a los leads que realmente van a comprar.\n\nla prospeccion manual le come tiempo a la gente que deberia estar cerrando ventas. Pero cuando automatizas esa parte, tu equipo se libera para hacer lo que mejor sabe hacer: cerrar.\n\nQuince minutos para mostrarte como? Me dices un dia que te acomode.\n\nFelipe",
         "tier": 3
       },
       "email_touch_4": {
-        "subject": "Bárbara, una pregunta",
-        "text": "Bárbara, te lo pregunto directo: Tu equipo de ventas pasa mas tiempo prospectando o cerrando?\n\nSi la respuesta es si, te muestro en 15 minutos como lo resolvemos. Si no, todo bien — no insisto mas.\n\n15 min para mostrarte los numeros?\n\nFelipe",
+        "subject": "Bárbara, te hago una pregunta",
+        "text": "Bárbara, te la hago corta: tu equipo de ventas pasa mas tiempo buscando prospectos o cerrando negocios?\n\nSi es algo que les pasa, te muestro en quince minutos como lo estamos resolviendo. Si no, todo bien, no insisto mas.\n\nFelipe",
         "tier": 3
       },
       "email_touch_5": {
-        "subject": "ultima vez que escribo",
-        "text": "Bárbara, entiendo que no es el momento o que esto no te interesa. Sin drama.\n\nSolo queria dejarte el dato: 5-7x mas conversiones vs stack DIY. Si en algun momento quieres explorar como automatizar ventas B2B, estoy a un mensaje de distancia.\n\nExito con AIJourney®.\n\nFelipe",
+        "subject": "ultimo mensaje, Bárbara",
+        "text": "Bárbara, entiendo si no es el momento o si esto no les hace sentido. Cero drama.\n\nSolo te dejo el dato por si en algun momento les sirve: puedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti. En vez de intentar armarlo ustedes, contratanos a nosotros y listo.\n\nMucho exito con lo que estan haciendo en AIJourney®. Quedo por aca si algun dia quieres conversar.\n\nFelipe",
         "tier": 3
       }
     }
@@ -111,40 +111,40 @@
     "tier": 3,
     "messages": {
       "connection_note": {
-        "text": "Hola Erick, vi que lideras eficiencia en ventas B2B en Minsait. En Sisteco ayudamos a equipos de ventas B2B a automatizar el pipeline de ventas tech. Cuantos de tus leads realmente responden? — hablamos?",
+        "text": "Erick, vi lo que estan haciendo en Minsait y me parecio interesante. Trabajo en automatizacion de ventas B2B y creo que podria servirles. Te cuento en dos minutos si te tinca.",
         "tier": 3
       },
       "follow_up_1": {
-        "text": "Erick, gracias por conectar.\n\nTe comparto un dato: 5-7x mas conversiones vs stack DIY.\n\nEn Sisteco estamos ayudando a empresas en Information Technology & Services a automatizar su prospeccion B2B — mas cierres con menos esfuerzo manual.\n\nSi te interesa, te cuento mas en 15 min.\n\nFelipe",
+        "text": "Erick, gracias por aceptar.\n\nTe cuento rapido por que te escribi: puedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti.\n\nNosotros en Sisteco nos encargamos de toda la parte de prospeccion para que tu equipo solo tenga que hablar con gente que ya quiere comprar. en tech el ciclo de venta es largo y la mayoria de los leads nunca responden.\n\nSi te hace sentido, te muestro en quince minutos como funciona. Sin compromiso.\n\nFelipe",
         "tier": 3
       },
       "follow_up_2": {
-        "text": "Erick, se que el tiempo es limitado. Solo queria saber: Cuantos de tus leads realmente responden?\n\nSi tiene sentido, 15 minutos para mostrarte como funciona. Si no, sin problema — quedo como contacto por si en algun momento te sirve.\n\nFelipe",
+        "text": "Erick, una pregunta nomas: de todos los leads que les llegan, cuantos realmente terminan respondiendo?\n\nSi te pasa, te puedo mostrar como lo resolvemos en quince minutos. Si no, cero drama, quedo por aca por si algun dia te sirve.\n\nFelipe",
         "tier": 3
       },
       "email_touch_1": {
-        "subject": "Minsait + automatizacion B2B",
-        "text": "Erick, te escribo porque vi tu perfil en LinkedIn y me llamo la atencion lo que estan haciendo en Minsait.\n\nMe llamo la atencion tu rol como Gerente Senior de Sanidad Chile en Minsait.\n\nEn Sisteco automatizamos la prospeccion B2B para que tu equipo de ventas solo hable con los leads que realmente quieren comprar. 5-7x mas conversiones vs stack DIY.\n\n15 minutos para mostrarte como funciona?\n\nFelipe Martinez\nSisteco — Santiago, Chile",
+        "subject": "una idea para Minsait",
+        "text": "Erick, te escribo porque estuve mirando lo que hacen en Minsait y me quedo dando vueltas una idea.\n\nVi tu rol como Gerente Senior de Sanidad Chile en Minsait y me parecio interesante\n\nNosotros en Sisteco nos dedicamos a que tu equipo de ventas deje de perder tiempo buscando leads y se enfoque en cerrar. En simple: nos encargamos de toda la prospeccion para que tu equipo solo hable con gente que ya quiere comprar.\n\nSi te tinca, te cuento como funciona en quince minutos. Sin compromiso.\n\nFelipe Martinez\nSisteco — Santiago, Chile",
         "tier": 3
       },
       "email_touch_2": {
-        "subject": "dato rapido sobre Information Technology & Services",
-        "text": "Erick, un dato que me parecio relevante para Minsait:\n\n5-7x mas conversiones vs stack DIY\n\nLa mayoria de los equipos de ventas en Information Technology & Services pierden tiempo en leads frios. mas cierres con menos esfuerzo manual.\n\nSi te interesa ver como funciona, 15 minutos para mostrarte como funciona.\n\nFelipe",
+        "subject": "algo que vi sobre Information Technology & Services",
+        "text": "Erick, te comparto un dato que encontre y me parecio relevante para lo que hacen en Minsait:\n\npuedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti.\n\nen tech el ciclo de venta es largo y la mayoria de los leads nunca responden Pero no tiene por que ser asi.\n\nSi quieres ver como lo estamos resolviendo para empresas como la tuya, me dices y te muestro en quince minutos.\n\nFelipe",
         "tier": 3
       },
       "email_touch_3": {
-        "subject": "5-7x mas conversiones vs en 30 dias",
-        "text": "Erick, corto y al punto:\n\nEmpresas B2B en Chile que automatizan su pipeline de ventas estan viendo 5-7x mas conversiones vs stack DIY. La diferencia: responder rapido y solo a los leads correctos.\n\nciclo de venta largo, muchos leads frios.\n\n15 minutos para mostrarte como? 15 minutos para mostrarte como funciona.\n\nFelipe",
+        "subject": "como lo estan haciendo otras empresas en Chile",
+        "text": "Erick, te lo pongo asi:\n\nHay empresas B2B en Chile que ya automatizaron su prospeccion y puedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti. La diferencia es simple: responden rapido y solo le dedican tiempo a los leads que realmente van a comprar.\n\nen tech el ciclo de venta es largo y la mayoria de los leads nunca responden. Pero cuando automatizas esa parte, tu equipo se libera para hacer lo que mejor sabe hacer: cerrar.\n\nQuince minutos para mostrarte como? Me dices un dia que te acomode.\n\nFelipe",
         "tier": 3
       },
       "email_touch_4": {
-        "subject": "Erick, una pregunta",
-        "text": "Erick, te lo pregunto directo: Cuantos de tus leads realmente responden?\n\nSi la respuesta es si, te muestro en 15 minutos como lo resolvemos. Si no, todo bien — no insisto mas.\n\n15 minutos para mostrarte como funciona?\n\nFelipe",
+        "subject": "Erick, te hago una pregunta",
+        "text": "Erick, te la hago corta: de todos los leads que les llegan, cuantos realmente terminan respondiendo?\n\nSi es algo que les pasa, te muestro en quince minutos como lo estamos resolviendo. Si no, todo bien, no insisto mas.\n\nFelipe",
         "tier": 3
       },
       "email_touch_5": {
-        "subject": "ultima vez que escribo",
-        "text": "Erick, entiendo que no es el momento o que esto no te interesa. Sin drama.\n\nSolo queria dejarte el dato: 5-7x mas conversiones vs stack DIY. Si en algun momento quieres explorar como automatizar ventas B2B, estoy a un mensaje de distancia.\n\nExito con Minsait.\n\nFelipe",
+        "subject": "ultimo mensaje, Erick",
+        "text": "Erick, entiendo si no es el momento o si esto no les hace sentido. Cero drama.\n\nSolo te dejo el dato por si en algun momento les sirve: puedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti. En vez de intentar armarlo ustedes, contratanos a nosotros y listo.\n\nMucho exito con lo que estan haciendo en Minsait. Quedo por aca si algun dia quieres conversar.\n\nFelipe",
         "tier": 3
       }
     }
@@ -161,40 +161,40 @@
     "tier": 3,
     "messages": {
       "connection_note": {
-        "text": "Hola Juan Manuel, vi que lideras eficiencia en ventas B2B en Lider Bci. En Sisteco ayudamos a equipos de ventas B2B a compliance y ventas no son opuestos. Tu equipo esta respondiendo en menos de 5 minutos? — hablamos?",
+        "text": "Juan Manuel, vi lo que estan haciendo en Lider Bci y me parecio interesante. Trabajo en automatizacion de ventas B2B y creo que podria servirles. Te cuento en dos minutos si te tinca.",
         "tier": 3
       },
       "follow_up_1": {
-        "text": "Juan Manuel, gracias por conectar.\n\nTe comparto un dato: 89% retencion omnicanal vs 33% monocanal.\n\nEn Sisteco estamos ayudando a empresas en Financial Services a automatizar su prospeccion B2B — mas cierres con menos esfuerzo manual.\n\nSi te interesa, te cuento mas en 15 min.\n\nFelipe",
+        "text": "Juan Manuel, gracias por aceptar.\n\nTe cuento rapido por que te escribi: las empresas que usan todos los canales retienen casi el noventa por ciento de sus clientes, contra un tercio de las que usan un solo canal.\n\nNosotros en Sisteco nos encargamos de toda la parte de prospeccion para que tu equipo solo tenga que hablar con gente que ya quiere comprar. en finanzas la regulacion frena la adopcion de herramientas nuevas, pero eso no significa que tu equipo tenga que seguir prospectando a mano.\n\nSi te hace sentido, te muestro en quince minutos como funciona. Sin compromiso.\n\nFelipe",
         "tier": 3
       },
       "follow_up_2": {
-        "text": "Juan Manuel, se que el tiempo es limitado. Solo queria saber: Tu equipo esta respondiendo en menos de 5 minutos?\n\nSi tiene sentido, 15 minutos para mostrarte como funciona. Si no, sin problema — quedo como contacto por si en algun momento te sirve.\n\nFelipe",
+        "text": "Juan Manuel, una pregunta nomas: cuando les llega un lead, tu equipo lo esta contactando en menos de cinco minutos?\n\nSi te pasa, te puedo mostrar como lo resolvemos en quince minutos. Si no, cero drama, quedo por aca por si algun dia te sirve.\n\nFelipe",
         "tier": 3
       },
       "email_touch_1": {
-        "subject": "Lider Bci + automatizacion B2B",
-        "text": "Juan Manuel, te escribo porque vi tu perfil en LinkedIn y me llamo la atencion lo que estan haciendo en Lider Bci.\n\nMe llamo la atencion tu rol como Gerente de Arquitectura Cloud, Infraestructura y Servicios TI en Lider Bci.\n\nEn Sisteco automatizamos la prospeccion B2B para que tu equipo de ventas solo hable con los leads que realmente quieren comprar. 89% retencion omnicanal vs 33% monocanal.\n\n15 minutos para mostrarte como funciona?\n\nFelipe Martinez\nSisteco — Santiago, Chile",
+        "subject": "una idea para Lider Bci",
+        "text": "Juan Manuel, te escribo porque estuve mirando lo que hacen en Lider Bci y me quedo dando vueltas una idea.\n\nVi tu rol como Gerente de Arquitectura Cloud, Infraestructura y Servicios TI en Lider Bci y me parecio interesante\n\nNosotros en Sisteco nos dedicamos a automatizar la prospeccion sin que compliance sea un problema. En simple: nos encargamos de toda la prospeccion para que tu equipo solo hable con gente que ya quiere comprar.\n\nSi te tinca, te cuento como funciona en quince minutos. Sin compromiso.\n\nFelipe Martinez\nSisteco — Santiago, Chile",
         "tier": 3
       },
       "email_touch_2": {
-        "subject": "dato rapido sobre Financial Services",
-        "text": "Juan Manuel, un dato que me parecio relevante para Lider Bci:\n\n89% retencion omnicanal vs 33% monocanal\n\nLa mayoria de los equipos de ventas en Financial Services pierden tiempo en leads frios. mas cierres con menos esfuerzo manual.\n\nSi te interesa ver como funciona, 15 minutos para mostrarte como funciona.\n\nFelipe",
+        "subject": "algo que vi sobre Financial Services",
+        "text": "Juan Manuel, te comparto un dato que encontre y me parecio relevante para lo que hacen en Lider Bci:\n\nlas empresas que usan todos los canales retienen casi el noventa por ciento de sus clientes, contra un tercio de las que usan un solo canal.\n\nen finanzas la regulacion frena la adopcion de herramientas nuevas, pero eso no significa que tu equipo tenga que seguir prospectando a mano Pero no tiene por que ser asi.\n\nSi quieres ver como lo estamos resolviendo para empresas como la tuya, me dices y te muestro en quince minutos.\n\nFelipe",
         "tier": 3
       },
       "email_touch_3": {
-        "subject": "89% retencion omnicanal vs en 30 dias",
-        "text": "Juan Manuel, corto y al punto:\n\nEmpresas B2B en Chile que automatizan su pipeline de ventas estan viendo 89% retencion omnicanal vs 33% monocanal. La diferencia: responder rapido y solo a los leads correctos.\n\nregulacion frena adopcion tech.\n\n15 minutos para mostrarte como? 15 minutos para mostrarte como funciona.\n\nFelipe",
+        "subject": "como lo estan haciendo otras empresas en Chile",
+        "text": "Juan Manuel, te lo pongo asi:\n\nHay empresas B2B en Chile que ya automatizaron su prospeccion y las empresas que usan todos los canales retienen casi el noventa por ciento de sus clientes, contra un tercio de las que usan un solo canal. La diferencia es simple: responden rapido y solo le dedican tiempo a los leads que realmente van a comprar.\n\nen finanzas la regulacion frena la adopcion de herramientas nuevas, pero eso no significa que tu equipo tenga que seguir prospectando a mano. Pero cuando automatizas esa parte, tu equipo se libera para hacer lo que mejor sabe hacer: cerrar.\n\nQuince minutos para mostrarte como? Me dices un dia que te acomode.\n\nFelipe",
         "tier": 3
       },
       "email_touch_4": {
-        "subject": "Juan Manuel, una pregunta",
-        "text": "Juan Manuel, te lo pregunto directo: Tu equipo esta respondiendo en menos de 5 minutos?\n\nSi la respuesta es si, te muestro en 15 minutos como lo resolvemos. Si no, todo bien — no insisto mas.\n\n15 minutos para mostrarte como funciona?\n\nFelipe",
+        "subject": "Juan Manuel, te hago una pregunta",
+        "text": "Juan Manuel, te la hago corta: cuando les llega un lead, tu equipo lo esta contactando en menos de cinco minutos?\n\nSi es algo que les pasa, te muestro en quince minutos como lo estamos resolviendo. Si no, todo bien, no insisto mas.\n\nFelipe",
         "tier": 3
       },
       "email_touch_5": {
-        "subject": "ultima vez que escribo",
-        "text": "Juan Manuel, entiendo que no es el momento o que esto no te interesa. Sin drama.\n\nSolo queria dejarte el dato: 89% retencion omnicanal vs 33% monocanal. Si en algun momento quieres explorar como automatizar ventas B2B, estoy a un mensaje de distancia.\n\nExito con Lider Bci.\n\nFelipe",
+        "subject": "ultimo mensaje, Juan Manuel",
+        "text": "Juan Manuel, entiendo si no es el momento o si esto no les hace sentido. Cero drama.\n\nSolo te dejo el dato por si en algun momento les sirve: las empresas que usan todos los canales retienen casi el noventa por ciento de sus clientes, contra un tercio de las que usan un solo canal. En vez de intentar armarlo ustedes, contratanos a nosotros y listo.\n\nMucho exito con lo que estan haciendo en Lider Bci. Quedo por aca si algun dia quieres conversar.\n\nFelipe",
         "tier": 3
       }
     }
@@ -211,40 +211,40 @@
     "tier": 3,
     "messages": {
       "connection_note": {
-        "text": "Hola Karina, vi que lideras ROI y vision de largo plazo en TWGroup. En Sisteco ayudamos a equipos de ventas B2B a automatizar la prospeccion B2B. Tu equipo de ventas pasa mas tiempo prospectando o cerrando? — hablamos?",
+        "text": "Karina, vi lo que estan haciendo en TWGroup y me parecio interesante. Trabajo en automatizacion de ventas B2B y creo que podria servirles. Te cuento en dos minutos si te tinca.",
         "tier": 3
       },
       "follow_up_1": {
-        "text": "Karina, gracias por conectar.\n\nTe comparto un dato: 5-7x mas conversiones vs stack DIY.\n\nEn Sisteco estamos ayudando a empresas en Computer Software a automatizar su prospeccion B2B — resultado macro para la empresa.\n\nSi te interesa, te cuento mas en 15 min.\n\nFelipe",
+        "text": "Karina, gracias por aceptar.\n\nTe cuento rapido por que te escribi: puedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti.\n\nNosotros en Sisteco nos encargamos de toda la parte de prospeccion para que tu equipo solo tenga que hablar con gente que ya quiere comprar. la prospeccion manual le come tiempo a la gente que deberia estar cerrando ventas.\n\nSi te hace sentido, te muestro en quince minutos como funciona. Sin compromiso.\n\nFelipe",
         "tier": 3
       },
       "follow_up_2": {
-        "text": "Karina, se que el tiempo es limitado. Solo queria saber: Tu equipo de ventas pasa mas tiempo prospectando o cerrando?\n\nSi tiene sentido, 15 min para mostrarte los numeros. Si no, sin problema — quedo como contacto por si en algun momento te sirve.\n\nFelipe",
+        "text": "Karina, una pregunta nomas: tu equipo de ventas pasa mas tiempo buscando prospectos o cerrando negocios?\n\nSi te pasa, te puedo mostrar como lo resolvemos en quince minutos. Si no, cero drama, quedo por aca por si algun dia te sirve.\n\nFelipe",
         "tier": 3
       },
       "email_touch_1": {
-        "subject": "TWGroup + automatizacion B2B",
-        "text": "Karina, te escribo porque vi tu perfil en LinkedIn y me llamo la atencion lo que estan haciendo en TWGroup.\n\nMe llamo la atencion tu rol como Fundadora y Directora ejecutiva en TWGroup.\n\nEn Sisteco automatizamos la prospeccion B2B para que tu equipo de ventas solo hable con los leads que realmente quieren comprar. 5-7x mas conversiones vs stack DIY.\n\n15 min para mostrarte los numeros?\n\nFelipe Martinez\nSisteco — Santiago, Chile",
+        "subject": "una idea para TWGroup",
+        "text": "Karina, te escribo porque estuve mirando lo que hacen en TWGroup y me quedo dando vueltas una idea.\n\nVi tu rol como Fundadora y Directora ejecutiva en TWGroup y me parecio interesante\n\nNosotros en Sisteco nos dedicamos a automatizar la parte de prospeccion para que tu equipo solo hable con gente que realmente quiere comprar. En simple: nos encargamos de toda la prospeccion para que tu equipo solo hable con gente que ya quiere comprar.\n\nSi te tinca, te cuento como funciona en quince minutos. Sin compromiso.\n\nFelipe Martinez\nSisteco — Santiago, Chile",
         "tier": 3
       },
       "email_touch_2": {
-        "subject": "dato rapido sobre Computer Software",
-        "text": "Karina, un dato que me parecio relevante para TWGroup:\n\n5-7x mas conversiones vs stack DIY\n\nLa mayoria de los equipos de ventas en Computer Software pierden tiempo en leads frios. resultado macro para la empresa.\n\nSi te interesa ver como funciona, 15 min para mostrarte los numeros.\n\nFelipe",
+        "subject": "algo que vi sobre Computer Software",
+        "text": "Karina, te comparto un dato que encontre y me parecio relevante para lo que hacen en TWGroup:\n\npuedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti.\n\nla prospeccion manual le come tiempo a la gente que deberia estar cerrando ventas Pero no tiene por que ser asi.\n\nSi quieres ver como lo estamos resolviendo para empresas como la tuya, me dices y te muestro en quince minutos.\n\nFelipe",
         "tier": 3
       },
       "email_touch_3": {
-        "subject": "5-7x mas conversiones vs en 30 dias",
-        "text": "Karina, corto y al punto:\n\nEmpresas B2B en Chile que automatizan su pipeline de ventas estan viendo 5-7x mas conversiones vs stack DIY. La diferencia: responder rapido y solo a los leads correctos.\n\nprospeccion manual consume tiempo del equipo de ventas.\n\n15 minutos para mostrarte como? 15 min para mostrarte los numeros.\n\nFelipe",
+        "subject": "como lo estan haciendo otras empresas en Chile",
+        "text": "Karina, te lo pongo asi:\n\nHay empresas B2B en Chile que ya automatizaron su prospeccion y puedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti. La diferencia es simple: responden rapido y solo le dedican tiempo a los leads que realmente van a comprar.\n\nla prospeccion manual le come tiempo a la gente que deberia estar cerrando ventas. Pero cuando automatizas esa parte, tu equipo se libera para hacer lo que mejor sabe hacer: cerrar.\n\nQuince minutos para mostrarte como? Me dices un dia que te acomode.\n\nFelipe",
         "tier": 3
       },
       "email_touch_4": {
-        "subject": "Karina, una pregunta",
-        "text": "Karina, te lo pregunto directo: Tu equipo de ventas pasa mas tiempo prospectando o cerrando?\n\nSi la respuesta es si, te muestro en 15 minutos como lo resolvemos. Si no, todo bien — no insisto mas.\n\n15 min para mostrarte los numeros?\n\nFelipe",
+        "subject": "Karina, te hago una pregunta",
+        "text": "Karina, te la hago corta: tu equipo de ventas pasa mas tiempo buscando prospectos o cerrando negocios?\n\nSi es algo que les pasa, te muestro en quince minutos como lo estamos resolviendo. Si no, todo bien, no insisto mas.\n\nFelipe",
         "tier": 3
       },
       "email_touch_5": {
-        "subject": "ultima vez que escribo",
-        "text": "Karina, entiendo que no es el momento o que esto no te interesa. Sin drama.\n\nSolo queria dejarte el dato: 5-7x mas conversiones vs stack DIY. Si en algun momento quieres explorar como automatizar ventas B2B, estoy a un mensaje de distancia.\n\nExito con TWGroup.\n\nFelipe",
+        "subject": "ultimo mensaje, Karina",
+        "text": "Karina, entiendo si no es el momento o si esto no les hace sentido. Cero drama.\n\nSolo te dejo el dato por si en algun momento les sirve: puedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti. En vez de intentar armarlo ustedes, contratanos a nosotros y listo.\n\nMucho exito con lo que estan haciendo en TWGroup. Quedo por aca si algun dia quieres conversar.\n\nFelipe",
         "tier": 3
       }
     }
@@ -261,40 +261,40 @@
     "tier": 3,
     "messages": {
       "connection_note": {
-        "text": "Hola Luis, vi que lideras eficiencia en ventas B2B en OLX. En Sisteco ayudamos a equipos de ventas B2B a automatizar la prospeccion B2B. Tu equipo de ventas pasa mas tiempo prospectando o cerrando? — hablamos?",
+        "text": "Luis, vi lo que estan haciendo en OLX y me parecio interesante. Trabajo en automatizacion de ventas B2B y creo que podria servirles. Te cuento en dos minutos si te tinca.",
         "tier": 3
       },
       "follow_up_1": {
-        "text": "Luis, gracias por conectar.\n\nTe comparto un dato: 5-7x mas conversiones vs stack DIY.\n\nEn Sisteco estamos ayudando a empresas en Computer Software a automatizar su prospeccion B2B — mas cierres con menos esfuerzo manual.\n\nSi te interesa, te cuento mas en 15 min.\n\nFelipe",
+        "text": "Luis, gracias por aceptar.\n\nTe cuento rapido por que te escribi: puedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti.\n\nNosotros en Sisteco nos encargamos de toda la parte de prospeccion para que tu equipo solo tenga que hablar con gente que ya quiere comprar. la prospeccion manual le come tiempo a la gente que deberia estar cerrando ventas.\n\nSi te hace sentido, te muestro en quince minutos como funciona. Sin compromiso.\n\nFelipe",
         "tier": 3
       },
       "follow_up_2": {
-        "text": "Luis, se que el tiempo es limitado. Solo queria saber: Tu equipo de ventas pasa mas tiempo prospectando o cerrando?\n\nSi tiene sentido, 15 minutos para mostrarte como funciona. Si no, sin problema — quedo como contacto por si en algun momento te sirve.\n\nFelipe",
+        "text": "Luis, una pregunta nomas: tu equipo de ventas pasa mas tiempo buscando prospectos o cerrando negocios?\n\nSi te pasa, te puedo mostrar como lo resolvemos en quince minutos. Si no, cero drama, quedo por aca por si algun dia te sirve.\n\nFelipe",
         "tier": 3
       },
       "email_touch_1": {
-        "subject": "OLX + automatizacion B2B",
-        "text": "Luis, te escribo porque vi tu perfil en LinkedIn y me llamo la atencion lo que estan haciendo en OLX.\n\nMe llamo la atencion tu rol como Business IT Regional Operations Manager en OLX.\n\nEn Sisteco automatizamos la prospeccion B2B para que tu equipo de ventas solo hable con los leads que realmente quieren comprar. 5-7x mas conversiones vs stack DIY.\n\n15 minutos para mostrarte como funciona?\n\nFelipe Martinez\nSisteco — Santiago, Chile",
+        "subject": "una idea para OLX",
+        "text": "Luis, te escribo porque estuve mirando lo que hacen en OLX y me quedo dando vueltas una idea.\n\nVi tu rol como Business IT Regional Operations Manager en OLX y me parecio interesante\n\nNosotros en Sisteco nos dedicamos a automatizar la parte de prospeccion para que tu equipo solo hable con gente que realmente quiere comprar. En simple: nos encargamos de toda la prospeccion para que tu equipo solo hable con gente que ya quiere comprar.\n\nSi te tinca, te cuento como funciona en quince minutos. Sin compromiso.\n\nFelipe Martinez\nSisteco — Santiago, Chile",
         "tier": 3
       },
       "email_touch_2": {
-        "subject": "dato rapido sobre Computer Software",
-        "text": "Luis, un dato que me parecio relevante para OLX:\n\n5-7x mas conversiones vs stack DIY\n\nLa mayoria de los equipos de ventas en Computer Software pierden tiempo en leads frios. mas cierres con menos esfuerzo manual.\n\nSi te interesa ver como funciona, 15 minutos para mostrarte como funciona.\n\nFelipe",
+        "subject": "algo que vi sobre Computer Software",
+        "text": "Luis, te comparto un dato que encontre y me parecio relevante para lo que hacen en OLX:\n\npuedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti.\n\nla prospeccion manual le come tiempo a la gente que deberia estar cerrando ventas Pero no tiene por que ser asi.\n\nSi quieres ver como lo estamos resolviendo para empresas como la tuya, me dices y te muestro en quince minutos.\n\nFelipe",
         "tier": 3
       },
       "email_touch_3": {
-        "subject": "5-7x mas conversiones vs en 30 dias",
-        "text": "Luis, corto y al punto:\n\nEmpresas B2B en Chile que automatizan su pipeline de ventas estan viendo 5-7x mas conversiones vs stack DIY. La diferencia: responder rapido y solo a los leads correctos.\n\nprospeccion manual consume tiempo del equipo de ventas.\n\n15 minutos para mostrarte como? 15 minutos para mostrarte como funciona.\n\nFelipe",
+        "subject": "como lo estan haciendo otras empresas en Chile",
+        "text": "Luis, te lo pongo asi:\n\nHay empresas B2B en Chile que ya automatizaron su prospeccion y puedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti. La diferencia es simple: responden rapido y solo le dedican tiempo a los leads que realmente van a comprar.\n\nla prospeccion manual le come tiempo a la gente que deberia estar cerrando ventas. Pero cuando automatizas esa parte, tu equipo se libera para hacer lo que mejor sabe hacer: cerrar.\n\nQuince minutos para mostrarte como? Me dices un dia que te acomode.\n\nFelipe",
         "tier": 3
       },
       "email_touch_4": {
-        "subject": "Luis, una pregunta",
-        "text": "Luis, te lo pregunto directo: Tu equipo de ventas pasa mas tiempo prospectando o cerrando?\n\nSi la respuesta es si, te muestro en 15 minutos como lo resolvemos. Si no, todo bien — no insisto mas.\n\n15 minutos para mostrarte como funciona?\n\nFelipe",
+        "subject": "Luis, te hago una pregunta",
+        "text": "Luis, te la hago corta: tu equipo de ventas pasa mas tiempo buscando prospectos o cerrando negocios?\n\nSi es algo que les pasa, te muestro en quince minutos como lo estamos resolviendo. Si no, todo bien, no insisto mas.\n\nFelipe",
         "tier": 3
       },
       "email_touch_5": {
-        "subject": "ultima vez que escribo",
-        "text": "Luis, entiendo que no es el momento o que esto no te interesa. Sin drama.\n\nSolo queria dejarte el dato: 5-7x mas conversiones vs stack DIY. Si en algun momento quieres explorar como automatizar ventas B2B, estoy a un mensaje de distancia.\n\nExito con OLX.\n\nFelipe",
+        "subject": "ultimo mensaje, Luis",
+        "text": "Luis, entiendo si no es el momento o si esto no les hace sentido. Cero drama.\n\nSolo te dejo el dato por si en algun momento les sirve: puedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti. En vez de intentar armarlo ustedes, contratanos a nosotros y listo.\n\nMucho exito con lo que estan haciendo en OLX. Quedo por aca si algun dia quieres conversar.\n\nFelipe",
         "tier": 3
       }
     }
@@ -311,40 +311,40 @@
     "tier": 3,
     "messages": {
       "connection_note": {
-        "text": "Hola Gary, vi que lideras eficiencia en ventas B2B en VTEX. En Sisteco ayudamos a equipos de ventas B2B a automatizar la prospeccion B2B. Tu equipo de ventas pasa mas tiempo prospectando o cerrando? — hablamos?",
+        "text": "Gary, vi lo que estan haciendo en VTEX y me parecio interesante. Trabajo en automatizacion de ventas B2B y creo que podria servirles. Te cuento en dos minutos si te tinca.",
         "tier": 3
       },
       "follow_up_1": {
-        "text": "Gary, gracias por conectar.\n\nTe comparto un dato: 5-7x mas conversiones vs stack DIY.\n\nEn Sisteco estamos ayudando a empresas en Computer Software a automatizar su prospeccion B2B — mas cierres con menos esfuerzo manual.\n\nSi te interesa, te cuento mas en 15 min.\n\nFelipe",
+        "text": "Gary, gracias por aceptar.\n\nTe cuento rapido por que te escribi: puedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti.\n\nNosotros en Sisteco nos encargamos de toda la parte de prospeccion para que tu equipo solo tenga que hablar con gente que ya quiere comprar. la prospeccion manual le come tiempo a la gente que deberia estar cerrando ventas.\n\nSi te hace sentido, te muestro en quince minutos como funciona. Sin compromiso.\n\nFelipe",
         "tier": 3
       },
       "follow_up_2": {
-        "text": "Gary, se que el tiempo es limitado. Solo queria saber: Tu equipo de ventas pasa mas tiempo prospectando o cerrando?\n\nSi tiene sentido, 15 minutos para mostrarte como funciona. Si no, sin problema — quedo como contacto por si en algun momento te sirve.\n\nFelipe",
+        "text": "Gary, una pregunta nomas: tu equipo de ventas pasa mas tiempo buscando prospectos o cerrando negocios?\n\nSi te pasa, te puedo mostrar como lo resolvemos en quince minutos. Si no, cero drama, quedo por aca por si algun dia te sirve.\n\nFelipe",
         "tier": 3
       },
       "email_touch_1": {
-        "subject": "VTEX + automatizacion B2B",
-        "text": "Gary, te escribo porque vi tu perfil en LinkedIn y me llamo la atencion lo que estan haciendo en VTEX.\n\nMe llamo la atencion tu rol como VP of Sales en VTEX.\n\nEn Sisteco automatizamos la prospeccion B2B para que tu equipo de ventas solo hable con los leads que realmente quieren comprar. 5-7x mas conversiones vs stack DIY.\n\n15 minutos para mostrarte como funciona?\n\nFelipe Martinez\nSisteco — Santiago, Chile",
+        "subject": "una idea para VTEX",
+        "text": "Gary, te escribo porque estuve mirando lo que hacen en VTEX y me quedo dando vueltas una idea.\n\nVi tu rol como VP of Sales en VTEX y me parecio interesante\n\nNosotros en Sisteco nos dedicamos a automatizar la parte de prospeccion para que tu equipo solo hable con gente que realmente quiere comprar. En simple: nos encargamos de toda la prospeccion para que tu equipo solo hable con gente que ya quiere comprar.\n\nSi te tinca, te cuento como funciona en quince minutos. Sin compromiso.\n\nFelipe Martinez\nSisteco — Santiago, Chile",
         "tier": 3
       },
       "email_touch_2": {
-        "subject": "dato rapido sobre Computer Software",
-        "text": "Gary, un dato que me parecio relevante para VTEX:\n\n5-7x mas conversiones vs stack DIY\n\nLa mayoria de los equipos de ventas en Computer Software pierden tiempo en leads frios. mas cierres con menos esfuerzo manual.\n\nSi te interesa ver como funciona, 15 minutos para mostrarte como funciona.\n\nFelipe",
+        "subject": "algo que vi sobre Computer Software",
+        "text": "Gary, te comparto un dato que encontre y me parecio relevante para lo que hacen en VTEX:\n\npuedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti.\n\nla prospeccion manual le come tiempo a la gente que deberia estar cerrando ventas Pero no tiene por que ser asi.\n\nSi quieres ver como lo estamos resolviendo para empresas como la tuya, me dices y te muestro en quince minutos.\n\nFelipe",
         "tier": 3
       },
       "email_touch_3": {
-        "subject": "5-7x mas conversiones vs en 30 dias",
-        "text": "Gary, corto y al punto:\n\nEmpresas B2B en Chile que automatizan su pipeline de ventas estan viendo 5-7x mas conversiones vs stack DIY. La diferencia: responder rapido y solo a los leads correctos.\n\nprospeccion manual consume tiempo del equipo de ventas.\n\n15 minutos para mostrarte como? 15 minutos para mostrarte como funciona.\n\nFelipe",
+        "subject": "como lo estan haciendo otras empresas en Chile",
+        "text": "Gary, te lo pongo asi:\n\nHay empresas B2B en Chile que ya automatizaron su prospeccion y puedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti. La diferencia es simple: responden rapido y solo le dedican tiempo a los leads que realmente van a comprar.\n\nla prospeccion manual le come tiempo a la gente que deberia estar cerrando ventas. Pero cuando automatizas esa parte, tu equipo se libera para hacer lo que mejor sabe hacer: cerrar.\n\nQuince minutos para mostrarte como? Me dices un dia que te acomode.\n\nFelipe",
         "tier": 3
       },
       "email_touch_4": {
-        "subject": "Gary, una pregunta",
-        "text": "Gary, te lo pregunto directo: Tu equipo de ventas pasa mas tiempo prospectando o cerrando?\n\nSi la respuesta es si, te muestro en 15 minutos como lo resolvemos. Si no, todo bien — no insisto mas.\n\n15 minutos para mostrarte como funciona?\n\nFelipe",
+        "subject": "Gary, te hago una pregunta",
+        "text": "Gary, te la hago corta: tu equipo de ventas pasa mas tiempo buscando prospectos o cerrando negocios?\n\nSi es algo que les pasa, te muestro en quince minutos como lo estamos resolviendo. Si no, todo bien, no insisto mas.\n\nFelipe",
         "tier": 3
       },
       "email_touch_5": {
-        "subject": "ultima vez que escribo",
-        "text": "Gary, entiendo que no es el momento o que esto no te interesa. Sin drama.\n\nSolo queria dejarte el dato: 5-7x mas conversiones vs stack DIY. Si en algun momento quieres explorar como automatizar ventas B2B, estoy a un mensaje de distancia.\n\nExito con VTEX.\n\nFelipe",
+        "subject": "ultimo mensaje, Gary",
+        "text": "Gary, entiendo si no es el momento o si esto no les hace sentido. Cero drama.\n\nSolo te dejo el dato por si en algun momento les sirve: puedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti. En vez de intentar armarlo ustedes, contratanos a nosotros y listo.\n\nMucho exito con lo que estan haciendo en VTEX. Quedo por aca si algun dia quieres conversar.\n\nFelipe",
         "tier": 3
       }
     }
@@ -361,40 +361,40 @@
     "tier": 3,
     "messages": {
       "connection_note": {
-        "text": "Hola Fernando, vi que lideras ROI y vision de largo plazo en 2WIN. En Sisteco ayudamos a equipos de ventas B2B a mas reuniones sin contratar un SDR. Como estas generando pipeline hoy? — hablamos?",
+        "text": "Fernando, vi lo que estan haciendo en 2WIN y me parecio interesante. Trabajo en automatizacion de ventas B2B y creo que podria servirles. Te cuento en dos minutos si te tinca.",
         "tier": 3
       },
       "follow_up_1": {
-        "text": "Fernando, gracias por conectar.\n\nTe comparto un dato: 21x mas conversiones respondiendo < 5 minutos.\n\nEn Sisteco estamos ayudando a empresas en Management Consulting a automatizar su prospeccion B2B — resultado macro para la empresa.\n\nSi te interesa, te cuento mas en 15 min.\n\nFelipe",
+        "text": "Fernando, gracias por aceptar.\n\nTe cuento rapido por que te escribi: las empresas que responden en menos de cinco minutos convierten hasta veintiun veces mas. Asi de simple.\n\nNosotros en Sisteco nos encargamos de toda la parte de prospeccion para que tu equipo solo tenga que hablar con gente que ya quiere comprar. las consultoras necesitan un flujo constante de leads pero no tienen un equipo dedicado a buscarlos.\n\nSi te hace sentido, te muestro en quince minutos como funciona. Sin compromiso.\n\nFelipe",
         "tier": 3
       },
       "follow_up_2": {
-        "text": "Fernando, se que el tiempo es limitado. Solo queria saber: Como estas generando pipeline hoy?\n\nSi tiene sentido, 15 min para mostrarte los numeros. Si no, sin problema — quedo como contacto por si en algun momento te sirve.\n\nFelipe",
+        "text": "Fernando, una pregunta nomas: como estan generando su pipeline de prospectos hoy?\n\nSi te pasa, te puedo mostrar como lo resolvemos en quince minutos. Si no, cero drama, quedo por aca por si algun dia te sirve.\n\nFelipe",
         "tier": 3
       },
       "email_touch_1": {
-        "subject": "2WIN + automatizacion B2B",
-        "text": "Fernando, te escribo porque vi tu perfil en LinkedIn y me llamo la atencion lo que estan haciendo en 2WIN.\n\nMe llamo la atencion tu rol como CEO/ Executive Managing Director en 2WIN.\n\nEn Sisteco automatizamos la prospeccion B2B para que tu equipo de ventas solo hable con los leads que realmente quieren comprar. 21x mas conversiones respondiendo < 5 minutos.\n\n15 min para mostrarte los numeros?\n\nFelipe Martinez\nSisteco — Santiago, Chile",
+        "subject": "una idea para 2WIN",
+        "text": "Fernando, te escribo porque estuve mirando lo que hacen en 2WIN y me quedo dando vueltas una idea.\n\nVi tu rol como CEO/ Executive Managing Director en 2WIN y me parecio interesante\n\nNosotros en Sisteco nos dedicamos a generar mas reuniones con prospectos calificados sin tener que contratar un equipo de prospeccion. En simple: nos encargamos de toda la prospeccion para que tu equipo solo hable con gente que ya quiere comprar.\n\nSi te tinca, te cuento como funciona en quince minutos. Sin compromiso.\n\nFelipe Martinez\nSisteco — Santiago, Chile",
         "tier": 3
       },
       "email_touch_2": {
-        "subject": "dato rapido sobre Management Consulting",
-        "text": "Fernando, un dato que me parecio relevante para 2WIN:\n\n21x mas conversiones respondiendo < 5 minutos\n\nLa mayoria de los equipos de ventas en Management Consulting pierden tiempo en leads frios. resultado macro para la empresa.\n\nSi te interesa ver como funciona, 15 min para mostrarte los numeros.\n\nFelipe",
+        "subject": "algo que vi sobre Management Consulting",
+        "text": "Fernando, te comparto un dato que encontre y me parecio relevante para lo que hacen en 2WIN:\n\nlas empresas que responden en menos de cinco minutos convierten hasta veintiun veces mas. Asi de simple.\n\nlas consultoras necesitan un flujo constante de leads pero no tienen un equipo dedicado a buscarlos Pero no tiene por que ser asi.\n\nSi quieres ver como lo estamos resolviendo para empresas como la tuya, me dices y te muestro en quince minutos.\n\nFelipe",
         "tier": 3
       },
       "email_touch_3": {
-        "subject": "21x mas conversiones respondiendo en 30 dias",
-        "text": "Fernando, corto y al punto:\n\nEmpresas B2B en Chile que automatizan su pipeline de ventas estan viendo 21x mas conversiones respondiendo < 5 minutos. La diferencia: responder rapido y solo a los leads correctos.\n\nnecesitan leads constantes pero no tienen SDR.\n\n15 minutos para mostrarte como? 15 min para mostrarte los numeros.\n\nFelipe",
+        "subject": "como lo estan haciendo otras empresas en Chile",
+        "text": "Fernando, te lo pongo asi:\n\nHay empresas B2B en Chile que ya automatizaron su prospeccion y las empresas que responden en menos de cinco minutos convierten hasta veintiun veces mas. Asi de simple. La diferencia es simple: responden rapido y solo le dedican tiempo a los leads que realmente van a comprar.\n\nlas consultoras necesitan un flujo constante de leads pero no tienen un equipo dedicado a buscarlos. Pero cuando automatizas esa parte, tu equipo se libera para hacer lo que mejor sabe hacer: cerrar.\n\nQuince minutos para mostrarte como? Me dices un dia que te acomode.\n\nFelipe",
         "tier": 3
       },
       "email_touch_4": {
-        "subject": "Fernando, una pregunta",
-        "text": "Fernando, te lo pregunto directo: Como estas generando pipeline hoy?\n\nSi la respuesta es si, te muestro en 15 minutos como lo resolvemos. Si no, todo bien — no insisto mas.\n\n15 min para mostrarte los numeros?\n\nFelipe",
+        "subject": "Fernando, te hago una pregunta",
+        "text": "Fernando, te la hago corta: como estan generando su pipeline de prospectos hoy?\n\nSi es algo que les pasa, te muestro en quince minutos como lo estamos resolviendo. Si no, todo bien, no insisto mas.\n\nFelipe",
         "tier": 3
       },
       "email_touch_5": {
-        "subject": "ultima vez que escribo",
-        "text": "Fernando, entiendo que no es el momento o que esto no te interesa. Sin drama.\n\nSolo queria dejarte el dato: 21x mas conversiones respondiendo < 5 minutos. Si en algun momento quieres explorar como automatizar ventas B2B, estoy a un mensaje de distancia.\n\nExito con 2WIN.\n\nFelipe",
+        "subject": "ultimo mensaje, Fernando",
+        "text": "Fernando, entiendo si no es el momento o si esto no les hace sentido. Cero drama.\n\nSolo te dejo el dato por si en algun momento les sirve: las empresas que responden en menos de cinco minutos convierten hasta veintiun veces mas. Asi de simple. En vez de intentar armarlo ustedes, contratanos a nosotros y listo.\n\nMucho exito con lo que estan haciendo en 2WIN. Quedo por aca si algun dia quieres conversar.\n\nFelipe",
         "tier": 3
       }
     }
@@ -411,40 +411,40 @@
     "tier": 3,
     "messages": {
       "connection_note": {
-        "text": "Hola Gonzalo, vi que lideras eficiencia en ventas B2B en Emprende.cl. En Sisteco ayudamos a equipos de ventas B2B a mas reuniones sin contratar un SDR. Como estas generando pipeline hoy? — hablamos?",
+        "text": "Gonzalo, vi lo que estan haciendo en Emprende.cl y me parecio interesante. Trabajo en automatizacion de ventas B2B y creo que podria servirles. Te cuento en dos minutos si te tinca.",
         "tier": 3
       },
       "follow_up_1": {
-        "text": "Gonzalo, gracias por conectar.\n\nTe comparto un dato: 21x mas conversiones respondiendo < 5 minutos.\n\nEn Sisteco estamos ayudando a empresas en Management Consulting a automatizar su prospeccion B2B — mas cierres con menos esfuerzo manual.\n\nSi te interesa, te cuento mas en 15 min.\n\nFelipe",
+        "text": "Gonzalo, gracias por aceptar.\n\nTe cuento rapido por que te escribi: las empresas que responden en menos de cinco minutos convierten hasta veintiun veces mas. Asi de simple.\n\nNosotros en Sisteco nos encargamos de toda la parte de prospeccion para que tu equipo solo tenga que hablar con gente que ya quiere comprar. las consultoras necesitan un flujo constante de leads pero no tienen un equipo dedicado a buscarlos.\n\nSi te hace sentido, te muestro en quince minutos como funciona. Sin compromiso.\n\nFelipe",
         "tier": 3
       },
       "follow_up_2": {
-        "text": "Gonzalo, se que el tiempo es limitado. Solo queria saber: Como estas generando pipeline hoy?\n\nSi tiene sentido, 15 minutos para mostrarte como funciona. Si no, sin problema — quedo como contacto por si en algun momento te sirve.\n\nFelipe",
+        "text": "Gonzalo, una pregunta nomas: como estan generando su pipeline de prospectos hoy?\n\nSi te pasa, te puedo mostrar como lo resolvemos en quince minutos. Si no, cero drama, quedo por aca por si algun dia te sirve.\n\nFelipe",
         "tier": 3
       },
       "email_touch_1": {
-        "subject": "Emprende.cl + automatizacion B2B",
-        "text": "Gonzalo, te escribo porque vi tu perfil en LinkedIn y me llamo la atencion lo que estan haciendo en Emprende.cl.\n\nMe llamo la atencion tu rol como Jefe de proyectos TI en Emprende.cl.\n\nEn Sisteco automatizamos la prospeccion B2B para que tu equipo de ventas solo hable con los leads que realmente quieren comprar. 21x mas conversiones respondiendo < 5 minutos.\n\n15 minutos para mostrarte como funciona?\n\nFelipe Martinez\nSisteco — Santiago, Chile",
+        "subject": "una idea para Emprende.cl",
+        "text": "Gonzalo, te escribo porque estuve mirando lo que hacen en Emprende.cl y me quedo dando vueltas una idea.\n\nVi tu rol como Jefe de proyectos TI en Emprende.cl y me parecio interesante\n\nNosotros en Sisteco nos dedicamos a generar mas reuniones con prospectos calificados sin tener que contratar un equipo de prospeccion. En simple: nos encargamos de toda la prospeccion para que tu equipo solo hable con gente que ya quiere comprar.\n\nSi te tinca, te cuento como funciona en quince minutos. Sin compromiso.\n\nFelipe Martinez\nSisteco — Santiago, Chile",
         "tier": 3
       },
       "email_touch_2": {
-        "subject": "dato rapido sobre Management Consulting",
-        "text": "Gonzalo, un dato que me parecio relevante para Emprende.cl:\n\n21x mas conversiones respondiendo < 5 minutos\n\nLa mayoria de los equipos de ventas en Management Consulting pierden tiempo en leads frios. mas cierres con menos esfuerzo manual.\n\nSi te interesa ver como funciona, 15 minutos para mostrarte como funciona.\n\nFelipe",
+        "subject": "algo que vi sobre Management Consulting",
+        "text": "Gonzalo, te comparto un dato que encontre y me parecio relevante para lo que hacen en Emprende.cl:\n\nlas empresas que responden en menos de cinco minutos convierten hasta veintiun veces mas. Asi de simple.\n\nlas consultoras necesitan un flujo constante de leads pero no tienen un equipo dedicado a buscarlos Pero no tiene por que ser asi.\n\nSi quieres ver como lo estamos resolviendo para empresas como la tuya, me dices y te muestro en quince minutos.\n\nFelipe",
         "tier": 3
       },
       "email_touch_3": {
-        "subject": "21x mas conversiones respondiendo en 30 dias",
-        "text": "Gonzalo, corto y al punto:\n\nEmpresas B2B en Chile que automatizan su pipeline de ventas estan viendo 21x mas conversiones respondiendo < 5 minutos. La diferencia: responder rapido y solo a los leads correctos.\n\nnecesitan leads constantes pero no tienen SDR.\n\n15 minutos para mostrarte como? 15 minutos para mostrarte como funciona.\n\nFelipe",
+        "subject": "como lo estan haciendo otras empresas en Chile",
+        "text": "Gonzalo, te lo pongo asi:\n\nHay empresas B2B en Chile que ya automatizaron su prospeccion y las empresas que responden en menos de cinco minutos convierten hasta veintiun veces mas. Asi de simple. La diferencia es simple: responden rapido y solo le dedican tiempo a los leads que realmente van a comprar.\n\nlas consultoras necesitan un flujo constante de leads pero no tienen un equipo dedicado a buscarlos. Pero cuando automatizas esa parte, tu equipo se libera para hacer lo que mejor sabe hacer: cerrar.\n\nQuince minutos para mostrarte como? Me dices un dia que te acomode.\n\nFelipe",
         "tier": 3
       },
       "email_touch_4": {
-        "subject": "Gonzalo, una pregunta",
-        "text": "Gonzalo, te lo pregunto directo: Como estas generando pipeline hoy?\n\nSi la respuesta es si, te muestro en 15 minutos como lo resolvemos. Si no, todo bien — no insisto mas.\n\n15 minutos para mostrarte como funciona?\n\nFelipe",
+        "subject": "Gonzalo, te hago una pregunta",
+        "text": "Gonzalo, te la hago corta: como estan generando su pipeline de prospectos hoy?\n\nSi es algo que les pasa, te muestro en quince minutos como lo estamos resolviendo. Si no, todo bien, no insisto mas.\n\nFelipe",
         "tier": 3
       },
       "email_touch_5": {
-        "subject": "ultima vez que escribo",
-        "text": "Gonzalo, entiendo que no es el momento o que esto no te interesa. Sin drama.\n\nSolo queria dejarte el dato: 21x mas conversiones respondiendo < 5 minutos. Si en algun momento quieres explorar como automatizar ventas B2B, estoy a un mensaje de distancia.\n\nExito con Emprende.cl.\n\nFelipe",
+        "subject": "ultimo mensaje, Gonzalo",
+        "text": "Gonzalo, entiendo si no es el momento o si esto no les hace sentido. Cero drama.\n\nSolo te dejo el dato por si en algun momento les sirve: las empresas que responden en menos de cinco minutos convierten hasta veintiun veces mas. Asi de simple. En vez de intentar armarlo ustedes, contratanos a nosotros y listo.\n\nMucho exito con lo que estan haciendo en Emprende.cl. Quedo por aca si algun dia quieres conversar.\n\nFelipe",
         "tier": 3
       }
     }
@@ -461,40 +461,40 @@
     "tier": 3,
     "messages": {
       "connection_note": {
-        "text": "Hola Javier, vi que lideras stack, integraciones, data en Somax. En Sisteco ayudamos a equipos de ventas B2B a automatizar el pipeline de ventas tech. Cuantos de tus leads realmente responden? — hablamos?",
+        "text": "Javier, vi lo que estan haciendo en Somax y me parecio interesante. Trabajo en automatizacion de ventas B2B y creo que podria servirles. Te cuento en dos minutos si te tinca.",
         "tier": 3
       },
       "follow_up_1": {
-        "text": "Javier, gracias por conectar.\n\nTe comparto un dato: 5-7x mas conversiones vs stack DIY.\n\nEn Sisteco estamos ayudando a empresas en Information Technology & Services a automatizar su prospeccion B2B — integracion con tu stack actual sin rehacer nada.\n\nSi te interesa, te cuento mas en 15 min.\n\nFelipe",
+        "text": "Javier, gracias por aceptar.\n\nTe cuento rapido por que te escribi: puedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti.\n\nNosotros en Sisteco nos encargamos de toda la parte de prospeccion para que tu equipo solo tenga que hablar con gente que ya quiere comprar. en tech el ciclo de venta es largo y la mayoria de los leads nunca responden.\n\nSi te hace sentido, te muestro en quince minutos como funciona. Sin compromiso.\n\nFelipe",
         "tier": 3
       },
       "follow_up_2": {
-        "text": "Javier, se que el tiempo es limitado. Solo queria saber: Cuantos de tus leads realmente responden?\n\nSi tiene sentido, te muestro la arquitectura en 15 min. Si no, sin problema — quedo como contacto por si en algun momento te sirve.\n\nFelipe",
+        "text": "Javier, una pregunta nomas: de todos los leads que les llegan, cuantos realmente terminan respondiendo?\n\nSi te pasa, te puedo mostrar como lo resolvemos en quince minutos. Si no, cero drama, quedo por aca por si algun dia te sirve.\n\nFelipe",
         "tier": 3
       },
       "email_touch_1": {
-        "subject": "Somax + automatizacion B2B",
-        "text": "Javier, te escribo porque vi tu perfil en LinkedIn y me llamo la atencion lo que estan haciendo en Somax.\n\nMe llamo la atencion tu rol como CIO & CTO (co-founder) en Somax.\n\nEn Sisteco automatizamos la prospeccion B2B para que tu equipo de ventas solo hable con los leads que realmente quieren comprar. 5-7x mas conversiones vs stack DIY.\n\nte muestro la arquitectura en 15 min?\n\nFelipe Martinez\nSisteco — Santiago, Chile",
+        "subject": "una idea para Somax",
+        "text": "Javier, te escribo porque estuve mirando lo que hacen en Somax y me quedo dando vueltas una idea.\n\nVi tu rol como CIO & CTO (co-founder) en Somax y me parecio interesante\n\nNosotros en Sisteco nos dedicamos a que tu equipo de ventas deje de perder tiempo buscando leads y se enfoque en cerrar. En simple: nos encargamos de toda la prospeccion para que tu equipo solo hable con gente que ya quiere comprar.\n\nSi te tinca, te cuento como funciona en quince minutos. Sin compromiso.\n\nFelipe Martinez\nSisteco — Santiago, Chile",
         "tier": 3
       },
       "email_touch_2": {
-        "subject": "dato rapido sobre Information Technology & Services",
-        "text": "Javier, un dato que me parecio relevante para Somax:\n\n5-7x mas conversiones vs stack DIY\n\nLa mayoria de los equipos de ventas en Information Technology & Services pierden tiempo en leads frios. integracion con tu stack actual sin rehacer nada.\n\nSi te interesa ver como funciona, te muestro la arquitectura en 15 min.\n\nFelipe",
+        "subject": "algo que vi sobre Information Technology & Services",
+        "text": "Javier, te comparto un dato que encontre y me parecio relevante para lo que hacen en Somax:\n\npuedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti.\n\nen tech el ciclo de venta es largo y la mayoria de los leads nunca responden Pero no tiene por que ser asi.\n\nSi quieres ver como lo estamos resolviendo para empresas como la tuya, me dices y te muestro en quince minutos.\n\nFelipe",
         "tier": 3
       },
       "email_touch_3": {
-        "subject": "5-7x mas conversiones vs en 30 dias",
-        "text": "Javier, corto y al punto:\n\nEmpresas B2B en Chile que automatizan su pipeline de ventas estan viendo 5-7x mas conversiones vs stack DIY. La diferencia: responder rapido y solo a los leads correctos.\n\nciclo de venta largo, muchos leads frios.\n\n15 minutos para mostrarte como? te muestro la arquitectura en 15 min.\n\nFelipe",
+        "subject": "como lo estan haciendo otras empresas en Chile",
+        "text": "Javier, te lo pongo asi:\n\nHay empresas B2B en Chile que ya automatizaron su prospeccion y puedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti. La diferencia es simple: responden rapido y solo le dedican tiempo a los leads que realmente van a comprar.\n\nen tech el ciclo de venta es largo y la mayoria de los leads nunca responden. Pero cuando automatizas esa parte, tu equipo se libera para hacer lo que mejor sabe hacer: cerrar.\n\nQuince minutos para mostrarte como? Me dices un dia que te acomode.\n\nFelipe",
         "tier": 3
       },
       "email_touch_4": {
-        "subject": "Javier, una pregunta",
-        "text": "Javier, te lo pregunto directo: Cuantos de tus leads realmente responden?\n\nSi la respuesta es si, te muestro en 15 minutos como lo resolvemos. Si no, todo bien — no insisto mas.\n\nte muestro la arquitectura en 15 min?\n\nFelipe",
+        "subject": "Javier, te hago una pregunta",
+        "text": "Javier, te la hago corta: de todos los leads que les llegan, cuantos realmente terminan respondiendo?\n\nSi es algo que les pasa, te muestro en quince minutos como lo estamos resolviendo. Si no, todo bien, no insisto mas.\n\nFelipe",
         "tier": 3
       },
       "email_touch_5": {
-        "subject": "ultima vez que escribo",
-        "text": "Javier, entiendo que no es el momento o que esto no te interesa. Sin drama.\n\nSolo queria dejarte el dato: 5-7x mas conversiones vs stack DIY. Si en algun momento quieres explorar como automatizar ventas B2B, estoy a un mensaje de distancia.\n\nExito con Somax.\n\nFelipe",
+        "subject": "ultimo mensaje, Javier",
+        "text": "Javier, entiendo si no es el momento o si esto no les hace sentido. Cero drama.\n\nSolo te dejo el dato por si en algun momento les sirve: puedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti. En vez de intentar armarlo ustedes, contratanos a nosotros y listo.\n\nMucho exito con lo que estan haciendo en Somax. Quedo por aca si algun dia quieres conversar.\n\nFelipe",
         "tier": 3
       }
     }
@@ -511,40 +511,40 @@
     "tier": 3,
     "messages": {
       "connection_note": {
-        "text": "Hola Leonardo, vi que lideras stack, integraciones, data en HSBC. En Sisteco ayudamos a equipos de ventas B2B a compliance y ventas no son opuestos. Tu equipo esta respondiendo en menos de 5 minutos? — hablamos?",
+        "text": "Leonardo, vi lo que estan haciendo en HSBC y me parecio interesante. Trabajo en automatizacion de ventas B2B y creo que podria servirles. Te cuento en dos minutos si te tinca.",
         "tier": 3
       },
       "follow_up_1": {
-        "text": "Leonardo, gracias por conectar.\n\nTe comparto un dato: 89% retencion omnicanal vs 33% monocanal.\n\nEn Sisteco estamos ayudando a empresas en Financial Services a automatizar su prospeccion B2B — integracion con tu stack actual sin rehacer nada.\n\nSi te interesa, te cuento mas en 15 min.\n\nFelipe",
+        "text": "Leonardo, gracias por aceptar.\n\nTe cuento rapido por que te escribi: las empresas que usan todos los canales retienen casi el noventa por ciento de sus clientes, contra un tercio de las que usan un solo canal.\n\nNosotros en Sisteco nos encargamos de toda la parte de prospeccion para que tu equipo solo tenga que hablar con gente que ya quiere comprar. en finanzas la regulacion frena la adopcion de herramientas nuevas, pero eso no significa que tu equipo tenga que seguir prospectando a mano.\n\nSi te hace sentido, te muestro en quince minutos como funciona. Sin compromiso.\n\nFelipe",
         "tier": 3
       },
       "follow_up_2": {
-        "text": "Leonardo, se que el tiempo es limitado. Solo queria saber: Tu equipo esta respondiendo en menos de 5 minutos?\n\nSi tiene sentido, te muestro la arquitectura en 15 min. Si no, sin problema — quedo como contacto por si en algun momento te sirve.\n\nFelipe",
+        "text": "Leonardo, una pregunta nomas: cuando les llega un lead, tu equipo lo esta contactando en menos de cinco minutos?\n\nSi te pasa, te puedo mostrar como lo resolvemos en quince minutos. Si no, cero drama, quedo por aca por si algun dia te sirve.\n\nFelipe",
         "tier": 3
       },
       "email_touch_1": {
-        "subject": "HSBC + automatizacion B2B",
-        "text": "Leonardo, te escribo porque vi tu perfil en LinkedIn y me llamo la atencion lo que estan haciendo en HSBC.\n\nMe llamo la atencion tu rol como CIO en HSBC.\n\nEn Sisteco automatizamos la prospeccion B2B para que tu equipo de ventas solo hable con los leads que realmente quieren comprar. 89% retencion omnicanal vs 33% monocanal.\n\nte muestro la arquitectura en 15 min?\n\nFelipe Martinez\nSisteco — Santiago, Chile",
+        "subject": "una idea para HSBC",
+        "text": "Leonardo, te escribo porque estuve mirando lo que hacen en HSBC y me quedo dando vueltas una idea.\n\nVi tu rol como CIO en HSBC y me parecio interesante\n\nNosotros en Sisteco nos dedicamos a automatizar la prospeccion sin que compliance sea un problema. En simple: nos encargamos de toda la prospeccion para que tu equipo solo hable con gente que ya quiere comprar.\n\nSi te tinca, te cuento como funciona en quince minutos. Sin compromiso.\n\nFelipe Martinez\nSisteco — Santiago, Chile",
         "tier": 3
       },
       "email_touch_2": {
-        "subject": "dato rapido sobre Financial Services",
-        "text": "Leonardo, un dato que me parecio relevante para HSBC:\n\n89% retencion omnicanal vs 33% monocanal\n\nLa mayoria de los equipos de ventas en Financial Services pierden tiempo en leads frios. integracion con tu stack actual sin rehacer nada.\n\nSi te interesa ver como funciona, te muestro la arquitectura en 15 min.\n\nFelipe",
+        "subject": "algo que vi sobre Financial Services",
+        "text": "Leonardo, te comparto un dato que encontre y me parecio relevante para lo que hacen en HSBC:\n\nlas empresas que usan todos los canales retienen casi el noventa por ciento de sus clientes, contra un tercio de las que usan un solo canal.\n\nen finanzas la regulacion frena la adopcion de herramientas nuevas, pero eso no significa que tu equipo tenga que seguir prospectando a mano Pero no tiene por que ser asi.\n\nSi quieres ver como lo estamos resolviendo para empresas como la tuya, me dices y te muestro en quince minutos.\n\nFelipe",
         "tier": 3
       },
       "email_touch_3": {
-        "subject": "89% retencion omnicanal vs en 30 dias",
-        "text": "Leonardo, corto y al punto:\n\nEmpresas B2B en Chile que automatizan su pipeline de ventas estan viendo 89% retencion omnicanal vs 33% monocanal. La diferencia: responder rapido y solo a los leads correctos.\n\nregulacion frena adopcion tech.\n\n15 minutos para mostrarte como? te muestro la arquitectura en 15 min.\n\nFelipe",
+        "subject": "como lo estan haciendo otras empresas en Chile",
+        "text": "Leonardo, te lo pongo asi:\n\nHay empresas B2B en Chile que ya automatizaron su prospeccion y las empresas que usan todos los canales retienen casi el noventa por ciento de sus clientes, contra un tercio de las que usan un solo canal. La diferencia es simple: responden rapido y solo le dedican tiempo a los leads que realmente van a comprar.\n\nen finanzas la regulacion frena la adopcion de herramientas nuevas, pero eso no significa que tu equipo tenga que seguir prospectando a mano. Pero cuando automatizas esa parte, tu equipo se libera para hacer lo que mejor sabe hacer: cerrar.\n\nQuince minutos para mostrarte como? Me dices un dia que te acomode.\n\nFelipe",
         "tier": 3
       },
       "email_touch_4": {
-        "subject": "Leonardo, una pregunta",
-        "text": "Leonardo, te lo pregunto directo: Tu equipo esta respondiendo en menos de 5 minutos?\n\nSi la respuesta es si, te muestro en 15 minutos como lo resolvemos. Si no, todo bien — no insisto mas.\n\nte muestro la arquitectura en 15 min?\n\nFelipe",
+        "subject": "Leonardo, te hago una pregunta",
+        "text": "Leonardo, te la hago corta: cuando les llega un lead, tu equipo lo esta contactando en menos de cinco minutos?\n\nSi es algo que les pasa, te muestro en quince minutos como lo estamos resolviendo. Si no, todo bien, no insisto mas.\n\nFelipe",
         "tier": 3
       },
       "email_touch_5": {
-        "subject": "ultima vez que escribo",
-        "text": "Leonardo, entiendo que no es el momento o que esto no te interesa. Sin drama.\n\nSolo queria dejarte el dato: 89% retencion omnicanal vs 33% monocanal. Si en algun momento quieres explorar como automatizar ventas B2B, estoy a un mensaje de distancia.\n\nExito con HSBC.\n\nFelipe",
+        "subject": "ultimo mensaje, Leonardo",
+        "text": "Leonardo, entiendo si no es el momento o si esto no les hace sentido. Cero drama.\n\nSolo te dejo el dato por si en algun momento les sirve: las empresas que usan todos los canales retienen casi el noventa por ciento de sus clientes, contra un tercio de las que usan un solo canal. En vez de intentar armarlo ustedes, contratanos a nosotros y listo.\n\nMucho exito con lo que estan haciendo en HSBC. Quedo por aca si algun dia quieres conversar.\n\nFelipe",
         "tier": 3
       }
     }
@@ -561,40 +561,40 @@
     "tier": 3,
     "messages": {
       "connection_note": {
-        "text": "Hola Alejandro, vi que lideras ROI y vision de largo plazo en Banchile Inversiones. En Sisteco ayudamos a equipos de ventas B2B a compliance y ventas no son opuestos. Tu equipo esta respondiendo en menos de 5 minutos? — hablamos?",
+        "text": "Alejandro, vi lo que estan haciendo en Banchile Inversiones y me parecio interesante. Trabajo en automatizacion de ventas B2B y creo que podria servirles. Te cuento en dos minutos si te tinca.",
         "tier": 3
       },
       "follow_up_1": {
-        "text": "Alejandro, gracias por conectar.\n\nTe comparto un dato: 89% retencion omnicanal vs 33% monocanal.\n\nEn Sisteco estamos ayudando a empresas en Financial Services a automatizar su prospeccion B2B — resultado macro para la empresa.\n\nSi te interesa, te cuento mas en 15 min.\n\nFelipe",
+        "text": "Alejandro, gracias por aceptar.\n\nTe cuento rapido por que te escribi: las empresas que usan todos los canales retienen casi el noventa por ciento de sus clientes, contra un tercio de las que usan un solo canal.\n\nNosotros en Sisteco nos encargamos de toda la parte de prospeccion para que tu equipo solo tenga que hablar con gente que ya quiere comprar. en finanzas la regulacion frena la adopcion de herramientas nuevas, pero eso no significa que tu equipo tenga que seguir prospectando a mano.\n\nSi te hace sentido, te muestro en quince minutos como funciona. Sin compromiso.\n\nFelipe",
         "tier": 3
       },
       "follow_up_2": {
-        "text": "Alejandro, se que el tiempo es limitado. Solo queria saber: Tu equipo esta respondiendo en menos de 5 minutos?\n\nSi tiene sentido, 15 min para mostrarte los numeros. Si no, sin problema — quedo como contacto por si en algun momento te sirve.\n\nFelipe",
+        "text": "Alejandro, una pregunta nomas: cuando les llega un lead, tu equipo lo esta contactando en menos de cinco minutos?\n\nSi te pasa, te puedo mostrar como lo resolvemos en quince minutos. Si no, cero drama, quedo por aca por si algun dia te sirve.\n\nFelipe",
         "tier": 3
       },
       "email_touch_1": {
-        "subject": "Banchile Inversiones + automatizacion B2B",
-        "text": "Alejandro, te escribo porque vi tu perfil en LinkedIn y me llamo la atencion lo que estan haciendo en Banchile Inversiones.\n\nMe llamo la atencion tu rol como Product Owner SR en Banchile Inversiones.\n\nEn Sisteco automatizamos la prospeccion B2B para que tu equipo de ventas solo hable con los leads que realmente quieren comprar. 89% retencion omnicanal vs 33% monocanal.\n\n15 min para mostrarte los numeros?\n\nFelipe Martinez\nSisteco — Santiago, Chile",
+        "subject": "una idea para Banchile Inversiones",
+        "text": "Alejandro, te escribo porque estuve mirando lo que hacen en Banchile Inversiones y me quedo dando vueltas una idea.\n\nVi tu rol como Product Owner SR en Banchile Inversiones y me parecio interesante\n\nNosotros en Sisteco nos dedicamos a automatizar la prospeccion sin que compliance sea un problema. En simple: nos encargamos de toda la prospeccion para que tu equipo solo hable con gente que ya quiere comprar.\n\nSi te tinca, te cuento como funciona en quince minutos. Sin compromiso.\n\nFelipe Martinez\nSisteco — Santiago, Chile",
         "tier": 3
       },
       "email_touch_2": {
-        "subject": "dato rapido sobre Financial Services",
-        "text": "Alejandro, un dato que me parecio relevante para Banchile Inversiones:\n\n89% retencion omnicanal vs 33% monocanal\n\nLa mayoria de los equipos de ventas en Financial Services pierden tiempo en leads frios. resultado macro para la empresa.\n\nSi te interesa ver como funciona, 15 min para mostrarte los numeros.\n\nFelipe",
+        "subject": "algo que vi sobre Financial Services",
+        "text": "Alejandro, te comparto un dato que encontre y me parecio relevante para lo que hacen en Banchile Inversiones:\n\nlas empresas que usan todos los canales retienen casi el noventa por ciento de sus clientes, contra un tercio de las que usan un solo canal.\n\nen finanzas la regulacion frena la adopcion de herramientas nuevas, pero eso no significa que tu equipo tenga que seguir prospectando a mano Pero no tiene por que ser asi.\n\nSi quieres ver como lo estamos resolviendo para empresas como la tuya, me dices y te muestro en quince minutos.\n\nFelipe",
         "tier": 3
       },
       "email_touch_3": {
-        "subject": "89% retencion omnicanal vs en 30 dias",
-        "text": "Alejandro, corto y al punto:\n\nEmpresas B2B en Chile que automatizan su pipeline de ventas estan viendo 89% retencion omnicanal vs 33% monocanal. La diferencia: responder rapido y solo a los leads correctos.\n\nregulacion frena adopcion tech.\n\n15 minutos para mostrarte como? 15 min para mostrarte los numeros.\n\nFelipe",
+        "subject": "como lo estan haciendo otras empresas en Chile",
+        "text": "Alejandro, te lo pongo asi:\n\nHay empresas B2B en Chile que ya automatizaron su prospeccion y las empresas que usan todos los canales retienen casi el noventa por ciento de sus clientes, contra un tercio de las que usan un solo canal. La diferencia es simple: responden rapido y solo le dedican tiempo a los leads que realmente van a comprar.\n\nen finanzas la regulacion frena la adopcion de herramientas nuevas, pero eso no significa que tu equipo tenga que seguir prospectando a mano. Pero cuando automatizas esa parte, tu equipo se libera para hacer lo que mejor sabe hacer: cerrar.\n\nQuince minutos para mostrarte como? Me dices un dia que te acomode.\n\nFelipe",
         "tier": 3
       },
       "email_touch_4": {
-        "subject": "Alejandro, una pregunta",
-        "text": "Alejandro, te lo pregunto directo: Tu equipo esta respondiendo en menos de 5 minutos?\n\nSi la respuesta es si, te muestro en 15 minutos como lo resolvemos. Si no, todo bien — no insisto mas.\n\n15 min para mostrarte los numeros?\n\nFelipe",
+        "subject": "Alejandro, te hago una pregunta",
+        "text": "Alejandro, te la hago corta: cuando les llega un lead, tu equipo lo esta contactando en menos de cinco minutos?\n\nSi es algo que les pasa, te muestro en quince minutos como lo estamos resolviendo. Si no, todo bien, no insisto mas.\n\nFelipe",
         "tier": 3
       },
       "email_touch_5": {
-        "subject": "ultima vez que escribo",
-        "text": "Alejandro, entiendo que no es el momento o que esto no te interesa. Sin drama.\n\nSolo queria dejarte el dato: 89% retencion omnicanal vs 33% monocanal. Si en algun momento quieres explorar como automatizar ventas B2B, estoy a un mensaje de distancia.\n\nExito con Banchile Inversiones.\n\nFelipe",
+        "subject": "ultimo mensaje, Alejandro",
+        "text": "Alejandro, entiendo si no es el momento o si esto no les hace sentido. Cero drama.\n\nSolo te dejo el dato por si en algun momento les sirve: las empresas que usan todos los canales retienen casi el noventa por ciento de sus clientes, contra un tercio de las que usan un solo canal. En vez de intentar armarlo ustedes, contratanos a nosotros y listo.\n\nMucho exito con lo que estan haciendo en Banchile Inversiones. Quedo por aca si algun dia quieres conversar.\n\nFelipe",
         "tier": 3
       }
     }
@@ -611,40 +611,40 @@
     "tier": 3,
     "messages": {
       "connection_note": {
-        "text": "Hola Francisco, vi que lideras ROI y vision de largo plazo en CreditSat. En Sisteco ayudamos a equipos de ventas B2B a automatizar la prospeccion B2B. Tu equipo de ventas pasa mas tiempo prospectando o cerrando? — hablamos?",
+        "text": "Francisco, vi lo que estan haciendo en CreditSat y me parecio interesante. Trabajo en automatizacion de ventas B2B y creo que podria servirles. Te cuento en dos minutos si te tinca.",
         "tier": 3
       },
       "follow_up_1": {
-        "text": "Francisco, gracias por conectar.\n\nTe comparto un dato: 5-7x mas conversiones vs stack DIY.\n\nEn Sisteco estamos ayudando a empresas en Computer Software a automatizar su prospeccion B2B — resultado macro para la empresa.\n\nSi te interesa, te cuento mas en 15 min.\n\nFelipe",
+        "text": "Francisco, gracias por aceptar.\n\nTe cuento rapido por que te escribi: puedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti.\n\nNosotros en Sisteco nos encargamos de toda la parte de prospeccion para que tu equipo solo tenga que hablar con gente que ya quiere comprar. la prospeccion manual le come tiempo a la gente que deberia estar cerrando ventas.\n\nSi te hace sentido, te muestro en quince minutos como funciona. Sin compromiso.\n\nFelipe",
         "tier": 3
       },
       "follow_up_2": {
-        "text": "Francisco, se que el tiempo es limitado. Solo queria saber: Tu equipo de ventas pasa mas tiempo prospectando o cerrando?\n\nSi tiene sentido, 15 min para mostrarte los numeros. Si no, sin problema — quedo como contacto por si en algun momento te sirve.\n\nFelipe",
+        "text": "Francisco, una pregunta nomas: tu equipo de ventas pasa mas tiempo buscando prospectos o cerrando negocios?\n\nSi te pasa, te puedo mostrar como lo resolvemos en quince minutos. Si no, cero drama, quedo por aca por si algun dia te sirve.\n\nFelipe",
         "tier": 3
       },
       "email_touch_1": {
-        "subject": "CreditSat + automatizacion B2B",
-        "text": "Francisco, te escribo porque vi tu perfil en LinkedIn y me llamo la atencion lo que estan haciendo en CreditSat.\n\nMe llamo la atencion tu rol como Gerente General Corporativo (CEO - Chief Executive Officer) en CreditSat.\n\nEn Sisteco automatizamos la prospeccion B2B para que tu equipo de ventas solo hable con los leads que realmente quieren comprar. 5-7x mas conversiones vs stack DIY.\n\n15 min para mostrarte los numeros?\n\nFelipe Martinez\nSisteco — Santiago, Chile",
+        "subject": "una idea para CreditSat",
+        "text": "Francisco, te escribo porque estuve mirando lo que hacen en CreditSat y me quedo dando vueltas una idea.\n\nVi tu rol como Gerente General Corporativo (CEO - Chief Executive Officer) en CreditSat y me parecio interesante\n\nNosotros en Sisteco nos dedicamos a automatizar la parte de prospeccion para que tu equipo solo hable con gente que realmente quiere comprar. En simple: nos encargamos de toda la prospeccion para que tu equipo solo hable con gente que ya quiere comprar.\n\nSi te tinca, te cuento como funciona en quince minutos. Sin compromiso.\n\nFelipe Martinez\nSisteco — Santiago, Chile",
         "tier": 3
       },
       "email_touch_2": {
-        "subject": "dato rapido sobre Computer Software",
-        "text": "Francisco, un dato que me parecio relevante para CreditSat:\n\n5-7x mas conversiones vs stack DIY\n\nLa mayoria de los equipos de ventas en Computer Software pierden tiempo en leads frios. resultado macro para la empresa.\n\nSi te interesa ver como funciona, 15 min para mostrarte los numeros.\n\nFelipe",
+        "subject": "algo que vi sobre Computer Software",
+        "text": "Francisco, te comparto un dato que encontre y me parecio relevante para lo que hacen en CreditSat:\n\npuedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti.\n\nla prospeccion manual le come tiempo a la gente que deberia estar cerrando ventas Pero no tiene por que ser asi.\n\nSi quieres ver como lo estamos resolviendo para empresas como la tuya, me dices y te muestro en quince minutos.\n\nFelipe",
         "tier": 3
       },
       "email_touch_3": {
-        "subject": "5-7x mas conversiones vs en 30 dias",
-        "text": "Francisco, corto y al punto:\n\nEmpresas B2B en Chile que automatizan su pipeline de ventas estan viendo 5-7x mas conversiones vs stack DIY. La diferencia: responder rapido y solo a los leads correctos.\n\nprospeccion manual consume tiempo del equipo de ventas.\n\n15 minutos para mostrarte como? 15 min para mostrarte los numeros.\n\nFelipe",
+        "subject": "como lo estan haciendo otras empresas en Chile",
+        "text": "Francisco, te lo pongo asi:\n\nHay empresas B2B en Chile que ya automatizaron su prospeccion y puedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti. La diferencia es simple: responden rapido y solo le dedican tiempo a los leads que realmente van a comprar.\n\nla prospeccion manual le come tiempo a la gente que deberia estar cerrando ventas. Pero cuando automatizas esa parte, tu equipo se libera para hacer lo que mejor sabe hacer: cerrar.\n\nQuince minutos para mostrarte como? Me dices un dia que te acomode.\n\nFelipe",
         "tier": 3
       },
       "email_touch_4": {
-        "subject": "Francisco, una pregunta",
-        "text": "Francisco, te lo pregunto directo: Tu equipo de ventas pasa mas tiempo prospectando o cerrando?\n\nSi la respuesta es si, te muestro en 15 minutos como lo resolvemos. Si no, todo bien — no insisto mas.\n\n15 min para mostrarte los numeros?\n\nFelipe",
+        "subject": "Francisco, te hago una pregunta",
+        "text": "Francisco, te la hago corta: tu equipo de ventas pasa mas tiempo buscando prospectos o cerrando negocios?\n\nSi es algo que les pasa, te muestro en quince minutos como lo estamos resolviendo. Si no, todo bien, no insisto mas.\n\nFelipe",
         "tier": 3
       },
       "email_touch_5": {
-        "subject": "ultima vez que escribo",
-        "text": "Francisco, entiendo que no es el momento o que esto no te interesa. Sin drama.\n\nSolo queria dejarte el dato: 5-7x mas conversiones vs stack DIY. Si en algun momento quieres explorar como automatizar ventas B2B, estoy a un mensaje de distancia.\n\nExito con CreditSat.\n\nFelipe",
+        "subject": "ultimo mensaje, Francisco",
+        "text": "Francisco, entiendo si no es el momento o si esto no les hace sentido. Cero drama.\n\nSolo te dejo el dato por si en algun momento les sirve: puedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti. En vez de intentar armarlo ustedes, contratanos a nosotros y listo.\n\nMucho exito con lo que estan haciendo en CreditSat. Quedo por aca si algun dia quieres conversar.\n\nFelipe",
         "tier": 3
       }
     }
@@ -661,40 +661,40 @@
     "tier": 3,
     "messages": {
       "connection_note": {
-        "text": "Hola Guillermo, vi que lideras expansion y nuevos mercados en IAparaempresas. En Sisteco ayudamos a equipos de ventas B2B a automatizar la prospeccion B2B. Tu equipo de ventas pasa mas tiempo prospectando o cerrando? — hablamos?",
+        "text": "Guillermo, vi lo que estan haciendo en IAparaempresas y me parecio interesante. Trabajo en automatizacion de ventas B2B y creo que podria servirles. Te cuento en dos minutos si te tinca.",
         "tier": 3
       },
       "follow_up_1": {
-        "text": "Guillermo, gracias por conectar.\n\nTe comparto un dato: 5-7x mas conversiones vs stack DIY.\n\nEn Sisteco estamos ayudando a empresas en Computer Software a automatizar su prospeccion B2B — pipeline predecible sin esfuerzo manual.\n\nSi te interesa, te cuento mas en 15 min.\n\nFelipe",
+        "text": "Guillermo, gracias por aceptar.\n\nTe cuento rapido por que te escribi: puedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti.\n\nNosotros en Sisteco nos encargamos de toda la parte de prospeccion para que tu equipo solo tenga que hablar con gente que ya quiere comprar. la prospeccion manual le come tiempo a la gente que deberia estar cerrando ventas.\n\nSi te hace sentido, te muestro en quince minutos como funciona. Sin compromiso.\n\nFelipe",
         "tier": 3
       },
       "follow_up_2": {
-        "text": "Guillermo, se que el tiempo es limitado. Solo queria saber: Tu equipo de ventas pasa mas tiempo prospectando o cerrando?\n\nSi tiene sentido, automatiza la prospeccion y enfocate en cerrar. Si no, sin problema — quedo como contacto por si en algun momento te sirve.\n\nFelipe",
+        "text": "Guillermo, una pregunta nomas: tu equipo de ventas pasa mas tiempo buscando prospectos o cerrando negocios?\n\nSi te pasa, te puedo mostrar como lo resolvemos en quince minutos. Si no, cero drama, quedo por aca por si algun dia te sirve.\n\nFelipe",
         "tier": 3
       },
       "email_touch_1": {
-        "subject": "IAparaempresas + automatizacion B2B",
-        "text": "Guillermo, te escribo porque vi tu perfil en LinkedIn y me llamo la atencion lo que estan haciendo en IAparaempresas.\n\nMe llamo la atencion tu rol como Capacitador y Consultor de Productividad con Inteligencia Artificial en IAparaempresas.\n\nEn Sisteco automatizamos la prospeccion B2B para que tu equipo de ventas solo hable con los leads que realmente quieren comprar. 5-7x mas conversiones vs stack DIY.\n\nautomatiza la prospeccion y enfocate en cerrar?\n\nFelipe Martinez\nSisteco — Santiago, Chile",
+        "subject": "una idea para IAparaempresas",
+        "text": "Guillermo, te escribo porque estuve mirando lo que hacen en IAparaempresas y me quedo dando vueltas una idea.\n\nVi tu rol como Capacitador y Consultor de Productividad con Inteligencia Artificial en IAparaempresas y me parecio interesante\n\nNosotros en Sisteco nos dedicamos a automatizar la parte de prospeccion para que tu equipo solo hable con gente que realmente quiere comprar. En simple: nos encargamos de toda la prospeccion para que tu equipo solo hable con gente que ya quiere comprar.\n\nSi te tinca, te cuento como funciona en quince minutos. Sin compromiso.\n\nFelipe Martinez\nSisteco — Santiago, Chile",
         "tier": 3
       },
       "email_touch_2": {
-        "subject": "dato rapido sobre Computer Software",
-        "text": "Guillermo, un dato que me parecio relevante para IAparaempresas:\n\n5-7x mas conversiones vs stack DIY\n\nLa mayoria de los equipos de ventas en Computer Software pierden tiempo en leads frios. pipeline predecible sin esfuerzo manual.\n\nSi te interesa ver como funciona, automatiza la prospeccion y enfocate en cerrar.\n\nFelipe",
+        "subject": "algo que vi sobre Computer Software",
+        "text": "Guillermo, te comparto un dato que encontre y me parecio relevante para lo que hacen en IAparaempresas:\n\npuedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti.\n\nla prospeccion manual le come tiempo a la gente que deberia estar cerrando ventas Pero no tiene por que ser asi.\n\nSi quieres ver como lo estamos resolviendo para empresas como la tuya, me dices y te muestro en quince minutos.\n\nFelipe",
         "tier": 3
       },
       "email_touch_3": {
-        "subject": "5-7x mas conversiones vs en 30 dias",
-        "text": "Guillermo, corto y al punto:\n\nEmpresas B2B en Chile que automatizan su pipeline de ventas estan viendo 5-7x mas conversiones vs stack DIY. La diferencia: responder rapido y solo a los leads correctos.\n\nprospeccion manual consume tiempo del equipo de ventas.\n\n15 minutos para mostrarte como? automatiza la prospeccion y enfocate en cerrar.\n\nFelipe",
+        "subject": "como lo estan haciendo otras empresas en Chile",
+        "text": "Guillermo, te lo pongo asi:\n\nHay empresas B2B en Chile que ya automatizaron su prospeccion y puedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti. La diferencia es simple: responden rapido y solo le dedican tiempo a los leads que realmente van a comprar.\n\nla prospeccion manual le come tiempo a la gente que deberia estar cerrando ventas. Pero cuando automatizas esa parte, tu equipo se libera para hacer lo que mejor sabe hacer: cerrar.\n\nQuince minutos para mostrarte como? Me dices un dia que te acomode.\n\nFelipe",
         "tier": 3
       },
       "email_touch_4": {
-        "subject": "Guillermo, una pregunta",
-        "text": "Guillermo, te lo pregunto directo: Tu equipo de ventas pasa mas tiempo prospectando o cerrando?\n\nSi la respuesta es si, te muestro en 15 minutos como lo resolvemos. Si no, todo bien — no insisto mas.\n\nautomatiza la prospeccion y enfocate en cerrar?\n\nFelipe",
+        "subject": "Guillermo, te hago una pregunta",
+        "text": "Guillermo, te la hago corta: tu equipo de ventas pasa mas tiempo buscando prospectos o cerrando negocios?\n\nSi es algo que les pasa, te muestro en quince minutos como lo estamos resolviendo. Si no, todo bien, no insisto mas.\n\nFelipe",
         "tier": 3
       },
       "email_touch_5": {
-        "subject": "ultima vez que escribo",
-        "text": "Guillermo, entiendo que no es el momento o que esto no te interesa. Sin drama.\n\nSolo queria dejarte el dato: 5-7x mas conversiones vs stack DIY. Si en algun momento quieres explorar como automatizar ventas B2B, estoy a un mensaje de distancia.\n\nExito con IAparaempresas.\n\nFelipe",
+        "subject": "ultimo mensaje, Guillermo",
+        "text": "Guillermo, entiendo si no es el momento o si esto no les hace sentido. Cero drama.\n\nSolo te dejo el dato por si en algun momento les sirve: puedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti. En vez de intentar armarlo ustedes, contratanos a nosotros y listo.\n\nMucho exito con lo que estan haciendo en IAparaempresas. Quedo por aca si algun dia quieres conversar.\n\nFelipe",
         "tier": 3
       }
     }
@@ -711,40 +711,40 @@
     "tier": 3,
     "messages": {
       "connection_note": {
-        "text": "Hola Ernesto, vi que lideras eficiencia en ventas B2B en licklider. En Sisteco ayudamos a equipos de ventas B2B a automatizar la prospeccion B2B. Tu equipo de ventas pasa mas tiempo prospectando o cerrando? — hablamos?",
+        "text": "Ernesto, vi lo que estan haciendo en licklider y me parecio interesante. Trabajo en automatizacion de ventas B2B y creo que podria servirles. Te cuento en dos minutos si te tinca.",
         "tier": 3
       },
       "follow_up_1": {
-        "text": "Ernesto, gracias por conectar.\n\nTe comparto un dato: 5-7x mas conversiones vs stack DIY.\n\nEn Sisteco estamos ayudando a empresas en Computer Software a automatizar su prospeccion B2B — mas cierres con menos esfuerzo manual.\n\nSi te interesa, te cuento mas en 15 min.\n\nFelipe",
+        "text": "Ernesto, gracias por aceptar.\n\nTe cuento rapido por que te escribi: puedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti.\n\nNosotros en Sisteco nos encargamos de toda la parte de prospeccion para que tu equipo solo tenga que hablar con gente que ya quiere comprar. la prospeccion manual le come tiempo a la gente que deberia estar cerrando ventas.\n\nSi te hace sentido, te muestro en quince minutos como funciona. Sin compromiso.\n\nFelipe",
         "tier": 3
       },
       "follow_up_2": {
-        "text": "Ernesto, se que el tiempo es limitado. Solo queria saber: Tu equipo de ventas pasa mas tiempo prospectando o cerrando?\n\nSi tiene sentido, 15 minutos para mostrarte como funciona. Si no, sin problema — quedo como contacto por si en algun momento te sirve.\n\nFelipe",
+        "text": "Ernesto, una pregunta nomas: tu equipo de ventas pasa mas tiempo buscando prospectos o cerrando negocios?\n\nSi te pasa, te puedo mostrar como lo resolvemos en quince minutos. Si no, cero drama, quedo por aca por si algun dia te sirve.\n\nFelipe",
         "tier": 3
       },
       "email_touch_1": {
-        "subject": "licklider + automatizacion B2B",
-        "text": "Ernesto, te escribo porque vi tu perfil en LinkedIn y me llamo la atencion lo que estan haciendo en licklider.\n\nMe llamo la atencion tu rol como Director de ingeniería / Engineering Manager en licklider.\n\nEn Sisteco automatizamos la prospeccion B2B para que tu equipo de ventas solo hable con los leads que realmente quieren comprar. 5-7x mas conversiones vs stack DIY.\n\n15 minutos para mostrarte como funciona?\n\nFelipe Martinez\nSisteco — Santiago, Chile",
+        "subject": "una idea para licklider",
+        "text": "Ernesto, te escribo porque estuve mirando lo que hacen en licklider y me quedo dando vueltas una idea.\n\nVi tu rol como Director de ingeniería / Engineering Manager en licklider y me parecio interesante\n\nNosotros en Sisteco nos dedicamos a automatizar la parte de prospeccion para que tu equipo solo hable con gente que realmente quiere comprar. En simple: nos encargamos de toda la prospeccion para que tu equipo solo hable con gente que ya quiere comprar.\n\nSi te tinca, te cuento como funciona en quince minutos. Sin compromiso.\n\nFelipe Martinez\nSisteco — Santiago, Chile",
         "tier": 3
       },
       "email_touch_2": {
-        "subject": "dato rapido sobre Computer Software",
-        "text": "Ernesto, un dato que me parecio relevante para licklider:\n\n5-7x mas conversiones vs stack DIY\n\nLa mayoria de los equipos de ventas en Computer Software pierden tiempo en leads frios. mas cierres con menos esfuerzo manual.\n\nSi te interesa ver como funciona, 15 minutos para mostrarte como funciona.\n\nFelipe",
+        "subject": "algo que vi sobre Computer Software",
+        "text": "Ernesto, te comparto un dato que encontre y me parecio relevante para lo que hacen en licklider:\n\npuedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti.\n\nla prospeccion manual le come tiempo a la gente que deberia estar cerrando ventas Pero no tiene por que ser asi.\n\nSi quieres ver como lo estamos resolviendo para empresas como la tuya, me dices y te muestro en quince minutos.\n\nFelipe",
         "tier": 3
       },
       "email_touch_3": {
-        "subject": "5-7x mas conversiones vs en 30 dias",
-        "text": "Ernesto, corto y al punto:\n\nEmpresas B2B en Chile que automatizan su pipeline de ventas estan viendo 5-7x mas conversiones vs stack DIY. La diferencia: responder rapido y solo a los leads correctos.\n\nprospeccion manual consume tiempo del equipo de ventas.\n\n15 minutos para mostrarte como? 15 minutos para mostrarte como funciona.\n\nFelipe",
+        "subject": "como lo estan haciendo otras empresas en Chile",
+        "text": "Ernesto, te lo pongo asi:\n\nHay empresas B2B en Chile que ya automatizaron su prospeccion y puedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti. La diferencia es simple: responden rapido y solo le dedican tiempo a los leads que realmente van a comprar.\n\nla prospeccion manual le come tiempo a la gente que deberia estar cerrando ventas. Pero cuando automatizas esa parte, tu equipo se libera para hacer lo que mejor sabe hacer: cerrar.\n\nQuince minutos para mostrarte como? Me dices un dia que te acomode.\n\nFelipe",
         "tier": 3
       },
       "email_touch_4": {
-        "subject": "Ernesto, una pregunta",
-        "text": "Ernesto, te lo pregunto directo: Tu equipo de ventas pasa mas tiempo prospectando o cerrando?\n\nSi la respuesta es si, te muestro en 15 minutos como lo resolvemos. Si no, todo bien — no insisto mas.\n\n15 minutos para mostrarte como funciona?\n\nFelipe",
+        "subject": "Ernesto, te hago una pregunta",
+        "text": "Ernesto, te la hago corta: tu equipo de ventas pasa mas tiempo buscando prospectos o cerrando negocios?\n\nSi es algo que les pasa, te muestro en quince minutos como lo estamos resolviendo. Si no, todo bien, no insisto mas.\n\nFelipe",
         "tier": 3
       },
       "email_touch_5": {
-        "subject": "ultima vez que escribo",
-        "text": "Ernesto, entiendo que no es el momento o que esto no te interesa. Sin drama.\n\nSolo queria dejarte el dato: 5-7x mas conversiones vs stack DIY. Si en algun momento quieres explorar como automatizar ventas B2B, estoy a un mensaje de distancia.\n\nExito con licklider.\n\nFelipe",
+        "subject": "ultimo mensaje, Ernesto",
+        "text": "Ernesto, entiendo si no es el momento o si esto no les hace sentido. Cero drama.\n\nSolo te dejo el dato por si en algun momento les sirve: puedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti. En vez de intentar armarlo ustedes, contratanos a nosotros y listo.\n\nMucho exito con lo que estan haciendo en licklider. Quedo por aca si algun dia quieres conversar.\n\nFelipe",
         "tier": 3
       }
     }
@@ -761,40 +761,40 @@
     "tier": 3,
     "messages": {
       "connection_note": {
-        "text": "Hola Agustín, vi que lideras stack, integraciones, data en QWANTEC. En Sisteco ayudamos a equipos de ventas B2B a automatizar la prospeccion B2B. Tu equipo de ventas pasa mas tiempo prospectando o cerrando? — hablamos?",
+        "text": "Agustín, vi lo que estan haciendo en QWANTEC y me parecio interesante. Trabajo en automatizacion de ventas B2B y creo que podria servirles. Te cuento en dos minutos si te tinca.",
         "tier": 3
       },
       "follow_up_1": {
-        "text": "Agustín, gracias por conectar.\n\nTe comparto un dato: 5-7x mas conversiones vs stack DIY.\n\nEn Sisteco estamos ayudando a empresas en Computer Software a automatizar su prospeccion B2B — integracion con tu stack actual sin rehacer nada.\n\nSi te interesa, te cuento mas en 15 min.\n\nFelipe",
+        "text": "Agustín, gracias por aceptar.\n\nTe cuento rapido por que te escribi: puedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti.\n\nNosotros en Sisteco nos encargamos de toda la parte de prospeccion para que tu equipo solo tenga que hablar con gente que ya quiere comprar. la prospeccion manual le come tiempo a la gente que deberia estar cerrando ventas.\n\nSi te hace sentido, te muestro en quince minutos como funciona. Sin compromiso.\n\nFelipe",
         "tier": 3
       },
       "follow_up_2": {
-        "text": "Agustín, se que el tiempo es limitado. Solo queria saber: Tu equipo de ventas pasa mas tiempo prospectando o cerrando?\n\nSi tiene sentido, te muestro la arquitectura en 15 min. Si no, sin problema — quedo como contacto por si en algun momento te sirve.\n\nFelipe",
+        "text": "Agustín, una pregunta nomas: tu equipo de ventas pasa mas tiempo buscando prospectos o cerrando negocios?\n\nSi te pasa, te puedo mostrar como lo resolvemos en quince minutos. Si no, cero drama, quedo por aca por si algun dia te sirve.\n\nFelipe",
         "tier": 3
       },
       "email_touch_1": {
-        "subject": "QWANTEC + automatizacion B2B",
-        "text": "Agustín, te escribo porque vi tu perfil en LinkedIn y me llamo la atencion lo que estan haciendo en QWANTEC.\n\nMe llamo la atencion tu rol como Chief Technology and Product Officer en QWANTEC.\n\nEn Sisteco automatizamos la prospeccion B2B para que tu equipo de ventas solo hable con los leads que realmente quieren comprar. 5-7x mas conversiones vs stack DIY.\n\nte muestro la arquitectura en 15 min?\n\nFelipe Martinez\nSisteco — Santiago, Chile",
+        "subject": "una idea para QWANTEC",
+        "text": "Agustín, te escribo porque estuve mirando lo que hacen en QWANTEC y me quedo dando vueltas una idea.\n\nVi tu rol como Chief Technology and Product Officer en QWANTEC y me parecio interesante\n\nNosotros en Sisteco nos dedicamos a automatizar la parte de prospeccion para que tu equipo solo hable con gente que realmente quiere comprar. En simple: nos encargamos de toda la prospeccion para que tu equipo solo hable con gente que ya quiere comprar.\n\nSi te tinca, te cuento como funciona en quince minutos. Sin compromiso.\n\nFelipe Martinez\nSisteco — Santiago, Chile",
         "tier": 3
       },
       "email_touch_2": {
-        "subject": "dato rapido sobre Computer Software",
-        "text": "Agustín, un dato que me parecio relevante para QWANTEC:\n\n5-7x mas conversiones vs stack DIY\n\nLa mayoria de los equipos de ventas en Computer Software pierden tiempo en leads frios. integracion con tu stack actual sin rehacer nada.\n\nSi te interesa ver como funciona, te muestro la arquitectura en 15 min.\n\nFelipe",
+        "subject": "algo que vi sobre Computer Software",
+        "text": "Agustín, te comparto un dato que encontre y me parecio relevante para lo que hacen en QWANTEC:\n\npuedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti.\n\nla prospeccion manual le come tiempo a la gente que deberia estar cerrando ventas Pero no tiene por que ser asi.\n\nSi quieres ver como lo estamos resolviendo para empresas como la tuya, me dices y te muestro en quince minutos.\n\nFelipe",
         "tier": 3
       },
       "email_touch_3": {
-        "subject": "5-7x mas conversiones vs en 30 dias",
-        "text": "Agustín, corto y al punto:\n\nEmpresas B2B en Chile que automatizan su pipeline de ventas estan viendo 5-7x mas conversiones vs stack DIY. La diferencia: responder rapido y solo a los leads correctos.\n\nprospeccion manual consume tiempo del equipo de ventas.\n\n15 minutos para mostrarte como? te muestro la arquitectura en 15 min.\n\nFelipe",
+        "subject": "como lo estan haciendo otras empresas en Chile",
+        "text": "Agustín, te lo pongo asi:\n\nHay empresas B2B en Chile que ya automatizaron su prospeccion y puedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti. La diferencia es simple: responden rapido y solo le dedican tiempo a los leads que realmente van a comprar.\n\nla prospeccion manual le come tiempo a la gente que deberia estar cerrando ventas. Pero cuando automatizas esa parte, tu equipo se libera para hacer lo que mejor sabe hacer: cerrar.\n\nQuince minutos para mostrarte como? Me dices un dia que te acomode.\n\nFelipe",
         "tier": 3
       },
       "email_touch_4": {
-        "subject": "Agustín, una pregunta",
-        "text": "Agustín, te lo pregunto directo: Tu equipo de ventas pasa mas tiempo prospectando o cerrando?\n\nSi la respuesta es si, te muestro en 15 minutos como lo resolvemos. Si no, todo bien — no insisto mas.\n\nte muestro la arquitectura en 15 min?\n\nFelipe",
+        "subject": "Agustín, te hago una pregunta",
+        "text": "Agustín, te la hago corta: tu equipo de ventas pasa mas tiempo buscando prospectos o cerrando negocios?\n\nSi es algo que les pasa, te muestro en quince minutos como lo estamos resolviendo. Si no, todo bien, no insisto mas.\n\nFelipe",
         "tier": 3
       },
       "email_touch_5": {
-        "subject": "ultima vez que escribo",
-        "text": "Agustín, entiendo que no es el momento o que esto no te interesa. Sin drama.\n\nSolo queria dejarte el dato: 5-7x mas conversiones vs stack DIY. Si en algun momento quieres explorar como automatizar ventas B2B, estoy a un mensaje de distancia.\n\nExito con QWANTEC.\n\nFelipe",
+        "subject": "ultimo mensaje, Agustín",
+        "text": "Agustín, entiendo si no es el momento o si esto no les hace sentido. Cero drama.\n\nSolo te dejo el dato por si en algun momento les sirve: puedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti. En vez de intentar armarlo ustedes, contratanos a nosotros y listo.\n\nMucho exito con lo que estan haciendo en QWANTEC. Quedo por aca si algun dia quieres conversar.\n\nFelipe",
         "tier": 3
       }
     }
@@ -811,40 +811,40 @@
     "tier": 3,
     "messages": {
       "connection_note": {
-        "text": "Hola Pablo, vi que lideras eficiencia en ventas B2B en InterSystems. En Sisteco ayudamos a equipos de ventas B2B a automatizar la prospeccion B2B. Tu equipo de ventas pasa mas tiempo prospectando o cerrando? — hablamos?",
+        "text": "Pablo, vi lo que estan haciendo en InterSystems y me parecio interesante. Trabajo en automatizacion de ventas B2B y creo que podria servirles. Te cuento en dos minutos si te tinca.",
         "tier": 3
       },
       "follow_up_1": {
-        "text": "Pablo, gracias por conectar.\n\nTe comparto un dato: 5-7x mas conversiones vs stack DIY.\n\nEn Sisteco estamos ayudando a empresas en Computer Software a automatizar su prospeccion B2B — mas cierres con menos esfuerzo manual.\n\nSi te interesa, te cuento mas en 15 min.\n\nFelipe",
+        "text": "Pablo, gracias por aceptar.\n\nTe cuento rapido por que te escribi: puedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti.\n\nNosotros en Sisteco nos encargamos de toda la parte de prospeccion para que tu equipo solo tenga que hablar con gente que ya quiere comprar. la prospeccion manual le come tiempo a la gente que deberia estar cerrando ventas.\n\nSi te hace sentido, te muestro en quince minutos como funciona. Sin compromiso.\n\nFelipe",
         "tier": 3
       },
       "follow_up_2": {
-        "text": "Pablo, se que el tiempo es limitado. Solo queria saber: Tu equipo de ventas pasa mas tiempo prospectando o cerrando?\n\nSi tiene sentido, 15 minutos para mostrarte como funciona. Si no, sin problema — quedo como contacto por si en algun momento te sirve.\n\nFelipe",
+        "text": "Pablo, una pregunta nomas: tu equipo de ventas pasa mas tiempo buscando prospectos o cerrando negocios?\n\nSi te pasa, te puedo mostrar como lo resolvemos en quince minutos. Si no, cero drama, quedo por aca por si algun dia te sirve.\n\nFelipe",
         "tier": 3
       },
       "email_touch_1": {
-        "subject": "InterSystems + automatizacion B2B",
-        "text": "Pablo, te escribo porque vi tu perfil en LinkedIn y me llamo la atencion lo que estan haciendo en InterSystems.\n\nMe llamo la atencion tu rol como Gerente de Proyectos en InterSystems.\n\nEn Sisteco automatizamos la prospeccion B2B para que tu equipo de ventas solo hable con los leads que realmente quieren comprar. 5-7x mas conversiones vs stack DIY.\n\n15 minutos para mostrarte como funciona?\n\nFelipe Martinez\nSisteco — Santiago, Chile",
+        "subject": "una idea para InterSystems",
+        "text": "Pablo, te escribo porque estuve mirando lo que hacen en InterSystems y me quedo dando vueltas una idea.\n\nVi tu rol como Gerente de Proyectos en InterSystems y me parecio interesante\n\nNosotros en Sisteco nos dedicamos a automatizar la parte de prospeccion para que tu equipo solo hable con gente que realmente quiere comprar. En simple: nos encargamos de toda la prospeccion para que tu equipo solo hable con gente que ya quiere comprar.\n\nSi te tinca, te cuento como funciona en quince minutos. Sin compromiso.\n\nFelipe Martinez\nSisteco — Santiago, Chile",
         "tier": 3
       },
       "email_touch_2": {
-        "subject": "dato rapido sobre Computer Software",
-        "text": "Pablo, un dato que me parecio relevante para InterSystems:\n\n5-7x mas conversiones vs stack DIY\n\nLa mayoria de los equipos de ventas en Computer Software pierden tiempo en leads frios. mas cierres con menos esfuerzo manual.\n\nSi te interesa ver como funciona, 15 minutos para mostrarte como funciona.\n\nFelipe",
+        "subject": "algo que vi sobre Computer Software",
+        "text": "Pablo, te comparto un dato que encontre y me parecio relevante para lo que hacen en InterSystems:\n\npuedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti.\n\nla prospeccion manual le come tiempo a la gente que deberia estar cerrando ventas Pero no tiene por que ser asi.\n\nSi quieres ver como lo estamos resolviendo para empresas como la tuya, me dices y te muestro en quince minutos.\n\nFelipe",
         "tier": 3
       },
       "email_touch_3": {
-        "subject": "5-7x mas conversiones vs en 30 dias",
-        "text": "Pablo, corto y al punto:\n\nEmpresas B2B en Chile que automatizan su pipeline de ventas estan viendo 5-7x mas conversiones vs stack DIY. La diferencia: responder rapido y solo a los leads correctos.\n\nprospeccion manual consume tiempo del equipo de ventas.\n\n15 minutos para mostrarte como? 15 minutos para mostrarte como funciona.\n\nFelipe",
+        "subject": "como lo estan haciendo otras empresas en Chile",
+        "text": "Pablo, te lo pongo asi:\n\nHay empresas B2B en Chile que ya automatizaron su prospeccion y puedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti. La diferencia es simple: responden rapido y solo le dedican tiempo a los leads que realmente van a comprar.\n\nla prospeccion manual le come tiempo a la gente que deberia estar cerrando ventas. Pero cuando automatizas esa parte, tu equipo se libera para hacer lo que mejor sabe hacer: cerrar.\n\nQuince minutos para mostrarte como? Me dices un dia que te acomode.\n\nFelipe",
         "tier": 3
       },
       "email_touch_4": {
-        "subject": "Pablo, una pregunta",
-        "text": "Pablo, te lo pregunto directo: Tu equipo de ventas pasa mas tiempo prospectando o cerrando?\n\nSi la respuesta es si, te muestro en 15 minutos como lo resolvemos. Si no, todo bien — no insisto mas.\n\n15 minutos para mostrarte como funciona?\n\nFelipe",
+        "subject": "Pablo, te hago una pregunta",
+        "text": "Pablo, te la hago corta: tu equipo de ventas pasa mas tiempo buscando prospectos o cerrando negocios?\n\nSi es algo que les pasa, te muestro en quince minutos como lo estamos resolviendo. Si no, todo bien, no insisto mas.\n\nFelipe",
         "tier": 3
       },
       "email_touch_5": {
-        "subject": "ultima vez que escribo",
-        "text": "Pablo, entiendo que no es el momento o que esto no te interesa. Sin drama.\n\nSolo queria dejarte el dato: 5-7x mas conversiones vs stack DIY. Si en algun momento quieres explorar como automatizar ventas B2B, estoy a un mensaje de distancia.\n\nExito con InterSystems.\n\nFelipe",
+        "subject": "ultimo mensaje, Pablo",
+        "text": "Pablo, entiendo si no es el momento o si esto no les hace sentido. Cero drama.\n\nSolo te dejo el dato por si en algun momento les sirve: puedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti. En vez de intentar armarlo ustedes, contratanos a nosotros y listo.\n\nMucho exito con lo que estan haciendo en InterSystems. Quedo por aca si algun dia quieres conversar.\n\nFelipe",
         "tier": 3
       }
     }
@@ -861,40 +861,40 @@
     "tier": 3,
     "messages": {
       "connection_note": {
-        "text": "Hola Sergio, vi que lideras eficiencia en ventas B2B en Empresas AquaChile. En Sisteco ayudamos a equipos de ventas B2B a automatizar la prospeccion B2B. Tu equipo de ventas pasa mas tiempo prospectando o cerrando? — hablamos?",
+        "text": "Sergio, vi lo que estan haciendo en Empresas AquaChile y me parecio interesante. Trabajo en automatizacion de ventas B2B y creo que podria servirles. Te cuento en dos minutos si te tinca.",
         "tier": 3
       },
       "follow_up_1": {
-        "text": "Sergio, gracias por conectar.\n\nTe comparto un dato: 5-7x mas conversiones vs stack DIY.\n\nEn Sisteco estamos ayudando a empresas en Food Production a automatizar su prospeccion B2B — mas cierres con menos esfuerzo manual.\n\nSi te interesa, te cuento mas en 15 min.\n\nFelipe",
+        "text": "Sergio, gracias por aceptar.\n\nTe cuento rapido por que te escribi: puedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti.\n\nNosotros en Sisteco nos encargamos de toda la parte de prospeccion para que tu equipo solo tenga que hablar con gente que ya quiere comprar. la prospeccion manual le come tiempo a la gente que deberia estar cerrando ventas.\n\nSi te hace sentido, te muestro en quince minutos como funciona. Sin compromiso.\n\nFelipe",
         "tier": 3
       },
       "follow_up_2": {
-        "text": "Sergio, se que el tiempo es limitado. Solo queria saber: Tu equipo de ventas pasa mas tiempo prospectando o cerrando?\n\nSi tiene sentido, 15 minutos para mostrarte como funciona. Si no, sin problema — quedo como contacto por si en algun momento te sirve.\n\nFelipe",
+        "text": "Sergio, una pregunta nomas: tu equipo de ventas pasa mas tiempo buscando prospectos o cerrando negocios?\n\nSi te pasa, te puedo mostrar como lo resolvemos en quince minutos. Si no, cero drama, quedo por aca por si algun dia te sirve.\n\nFelipe",
         "tier": 3
       },
       "email_touch_1": {
-        "subject": "Empresas AquaChile + automatizacion B2B",
-        "text": "Sergio, te escribo porque vi tu perfil en LinkedIn y me llamo la atencion lo que estan haciendo en Empresas AquaChile.\n\nMe llamo la atencion tu rol como Jefe de Innovación y Transformación Digital  en Empresas AquaChile.\n\nEn Sisteco automatizamos la prospeccion B2B para que tu equipo de ventas solo hable con los leads que realmente quieren comprar. 5-7x mas conversiones vs stack DIY.\n\n15 minutos para mostrarte como funciona?\n\nFelipe Martinez\nSisteco — Santiago, Chile",
+        "subject": "una idea para Empresas AquaChile",
+        "text": "Sergio, te escribo porque estuve mirando lo que hacen en Empresas AquaChile y me quedo dando vueltas una idea.\n\nVi tu rol como Jefe de Innovación y Transformación Digital  en Empresas AquaChile y me parecio interesante\n\nNosotros en Sisteco nos dedicamos a automatizar la parte de prospeccion para que tu equipo solo hable con gente que realmente quiere comprar. En simple: nos encargamos de toda la prospeccion para que tu equipo solo hable con gente que ya quiere comprar.\n\nSi te tinca, te cuento como funciona en quince minutos. Sin compromiso.\n\nFelipe Martinez\nSisteco — Santiago, Chile",
         "tier": 3
       },
       "email_touch_2": {
-        "subject": "dato rapido sobre Food Production",
-        "text": "Sergio, un dato que me parecio relevante para Empresas AquaChile:\n\n5-7x mas conversiones vs stack DIY\n\nLa mayoria de los equipos de ventas en Food Production pierden tiempo en leads frios. mas cierres con menos esfuerzo manual.\n\nSi te interesa ver como funciona, 15 minutos para mostrarte como funciona.\n\nFelipe",
+        "subject": "algo que vi sobre Food Production",
+        "text": "Sergio, te comparto un dato que encontre y me parecio relevante para lo que hacen en Empresas AquaChile:\n\npuedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti.\n\nla prospeccion manual le come tiempo a la gente que deberia estar cerrando ventas Pero no tiene por que ser asi.\n\nSi quieres ver como lo estamos resolviendo para empresas como la tuya, me dices y te muestro en quince minutos.\n\nFelipe",
         "tier": 3
       },
       "email_touch_3": {
-        "subject": "5-7x mas conversiones vs en 30 dias",
-        "text": "Sergio, corto y al punto:\n\nEmpresas B2B en Chile que automatizan su pipeline de ventas estan viendo 5-7x mas conversiones vs stack DIY. La diferencia: responder rapido y solo a los leads correctos.\n\nprospeccion manual consume tiempo del equipo de ventas.\n\n15 minutos para mostrarte como? 15 minutos para mostrarte como funciona.\n\nFelipe",
+        "subject": "como lo estan haciendo otras empresas en Chile",
+        "text": "Sergio, te lo pongo asi:\n\nHay empresas B2B en Chile que ya automatizaron su prospeccion y puedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti. La diferencia es simple: responden rapido y solo le dedican tiempo a los leads que realmente van a comprar.\n\nla prospeccion manual le come tiempo a la gente que deberia estar cerrando ventas. Pero cuando automatizas esa parte, tu equipo se libera para hacer lo que mejor sabe hacer: cerrar.\n\nQuince minutos para mostrarte como? Me dices un dia que te acomode.\n\nFelipe",
         "tier": 3
       },
       "email_touch_4": {
-        "subject": "Sergio, una pregunta",
-        "text": "Sergio, te lo pregunto directo: Tu equipo de ventas pasa mas tiempo prospectando o cerrando?\n\nSi la respuesta es si, te muestro en 15 minutos como lo resolvemos. Si no, todo bien — no insisto mas.\n\n15 minutos para mostrarte como funciona?\n\nFelipe",
+        "subject": "Sergio, te hago una pregunta",
+        "text": "Sergio, te la hago corta: tu equipo de ventas pasa mas tiempo buscando prospectos o cerrando negocios?\n\nSi es algo que les pasa, te muestro en quince minutos como lo estamos resolviendo. Si no, todo bien, no insisto mas.\n\nFelipe",
         "tier": 3
       },
       "email_touch_5": {
-        "subject": "ultima vez que escribo",
-        "text": "Sergio, entiendo que no es el momento o que esto no te interesa. Sin drama.\n\nSolo queria dejarte el dato: 5-7x mas conversiones vs stack DIY. Si en algun momento quieres explorar como automatizar ventas B2B, estoy a un mensaje de distancia.\n\nExito con Empresas AquaChile.\n\nFelipe",
+        "subject": "ultimo mensaje, Sergio",
+        "text": "Sergio, entiendo si no es el momento o si esto no les hace sentido. Cero drama.\n\nSolo te dejo el dato por si en algun momento les sirve: puedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti. En vez de intentar armarlo ustedes, contratanos a nosotros y listo.\n\nMucho exito con lo que estan haciendo en Empresas AquaChile. Quedo por aca si algun dia quieres conversar.\n\nFelipe",
         "tier": 3
       }
     }
@@ -911,40 +911,40 @@
     "tier": 3,
     "messages": {
       "connection_note": {
-        "text": "Hola Ricardo, vi que lideras eficiencia en ventas B2B en IDIEM. En Sisteco ayudamos a equipos de ventas B2B a automatizar la prospeccion B2B. Tu equipo de ventas pasa mas tiempo prospectando o cerrando? — hablamos?",
+        "text": "Ricardo, vi lo que estan haciendo en IDIEM y me parecio interesante. Trabajo en automatizacion de ventas B2B y creo que podria servirles. Te cuento en dos minutos si te tinca.",
         "tier": 3
       },
       "follow_up_1": {
-        "text": "Ricardo, gracias por conectar.\n\nTe comparto un dato: 5-7x mas conversiones vs stack DIY.\n\nEn Sisteco estamos ayudando a empresas en Construction a automatizar su prospeccion B2B — mas cierres con menos esfuerzo manual.\n\nSi te interesa, te cuento mas en 15 min.\n\nFelipe",
+        "text": "Ricardo, gracias por aceptar.\n\nTe cuento rapido por que te escribi: puedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti.\n\nNosotros en Sisteco nos encargamos de toda la parte de prospeccion para que tu equipo solo tenga que hablar con gente que ya quiere comprar. la prospeccion manual le come tiempo a la gente que deberia estar cerrando ventas.\n\nSi te hace sentido, te muestro en quince minutos como funciona. Sin compromiso.\n\nFelipe",
         "tier": 3
       },
       "follow_up_2": {
-        "text": "Ricardo, se que el tiempo es limitado. Solo queria saber: Tu equipo de ventas pasa mas tiempo prospectando o cerrando?\n\nSi tiene sentido, 15 minutos para mostrarte como funciona. Si no, sin problema — quedo como contacto por si en algun momento te sirve.\n\nFelipe",
+        "text": "Ricardo, una pregunta nomas: tu equipo de ventas pasa mas tiempo buscando prospectos o cerrando negocios?\n\nSi te pasa, te puedo mostrar como lo resolvemos en quince minutos. Si no, cero drama, quedo por aca por si algun dia te sirve.\n\nFelipe",
         "tier": 3
       },
       "email_touch_1": {
-        "subject": "IDIEM + automatizacion B2B",
-        "text": "Ricardo, te escribo porque vi tu perfil en LinkedIn y me llamo la atencion lo que estan haciendo en IDIEM.\n\nMe llamo la atencion tu rol como Gerente de Desarrollo | Estrategia, Transformación y Gobierno de Iniciativas en IDIEM.\n\nEn Sisteco automatizamos la prospeccion B2B para que tu equipo de ventas solo hable con los leads que realmente quieren comprar. 5-7x mas conversiones vs stack DIY.\n\n15 minutos para mostrarte como funciona?\n\nFelipe Martinez\nSisteco — Santiago, Chile",
+        "subject": "una idea para IDIEM",
+        "text": "Ricardo, te escribo porque estuve mirando lo que hacen en IDIEM y me quedo dando vueltas una idea.\n\nVi tu rol como Gerente de Desarrollo | Estrategia, Transformación y Gobierno de Iniciativas en IDIEM y me parecio interesante\n\nNosotros en Sisteco nos dedicamos a automatizar la parte de prospeccion para que tu equipo solo hable con gente que realmente quiere comprar. En simple: nos encargamos de toda la prospeccion para que tu equipo solo hable con gente que ya quiere comprar.\n\nSi te tinca, te cuento como funciona en quince minutos. Sin compromiso.\n\nFelipe Martinez\nSisteco — Santiago, Chile",
         "tier": 3
       },
       "email_touch_2": {
-        "subject": "dato rapido sobre Construction",
-        "text": "Ricardo, un dato que me parecio relevante para IDIEM:\n\n5-7x mas conversiones vs stack DIY\n\nLa mayoria de los equipos de ventas en Construction pierden tiempo en leads frios. mas cierres con menos esfuerzo manual.\n\nSi te interesa ver como funciona, 15 minutos para mostrarte como funciona.\n\nFelipe",
+        "subject": "algo que vi sobre Construction",
+        "text": "Ricardo, te comparto un dato que encontre y me parecio relevante para lo que hacen en IDIEM:\n\npuedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti.\n\nla prospeccion manual le come tiempo a la gente que deberia estar cerrando ventas Pero no tiene por que ser asi.\n\nSi quieres ver como lo estamos resolviendo para empresas como la tuya, me dices y te muestro en quince minutos.\n\nFelipe",
         "tier": 3
       },
       "email_touch_3": {
-        "subject": "5-7x mas conversiones vs en 30 dias",
-        "text": "Ricardo, corto y al punto:\n\nEmpresas B2B en Chile que automatizan su pipeline de ventas estan viendo 5-7x mas conversiones vs stack DIY. La diferencia: responder rapido y solo a los leads correctos.\n\nprospeccion manual consume tiempo del equipo de ventas.\n\n15 minutos para mostrarte como? 15 minutos para mostrarte como funciona.\n\nFelipe",
+        "subject": "como lo estan haciendo otras empresas en Chile",
+        "text": "Ricardo, te lo pongo asi:\n\nHay empresas B2B en Chile que ya automatizaron su prospeccion y puedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti. La diferencia es simple: responden rapido y solo le dedican tiempo a los leads que realmente van a comprar.\n\nla prospeccion manual le come tiempo a la gente que deberia estar cerrando ventas. Pero cuando automatizas esa parte, tu equipo se libera para hacer lo que mejor sabe hacer: cerrar.\n\nQuince minutos para mostrarte como? Me dices un dia que te acomode.\n\nFelipe",
         "tier": 3
       },
       "email_touch_4": {
-        "subject": "Ricardo, una pregunta",
-        "text": "Ricardo, te lo pregunto directo: Tu equipo de ventas pasa mas tiempo prospectando o cerrando?\n\nSi la respuesta es si, te muestro en 15 minutos como lo resolvemos. Si no, todo bien — no insisto mas.\n\n15 minutos para mostrarte como funciona?\n\nFelipe",
+        "subject": "Ricardo, te hago una pregunta",
+        "text": "Ricardo, te la hago corta: tu equipo de ventas pasa mas tiempo buscando prospectos o cerrando negocios?\n\nSi es algo que les pasa, te muestro en quince minutos como lo estamos resolviendo. Si no, todo bien, no insisto mas.\n\nFelipe",
         "tier": 3
       },
       "email_touch_5": {
-        "subject": "ultima vez que escribo",
-        "text": "Ricardo, entiendo que no es el momento o que esto no te interesa. Sin drama.\n\nSolo queria dejarte el dato: 5-7x mas conversiones vs stack DIY. Si en algun momento quieres explorar como automatizar ventas B2B, estoy a un mensaje de distancia.\n\nExito con IDIEM.\n\nFelipe",
+        "subject": "ultimo mensaje, Ricardo",
+        "text": "Ricardo, entiendo si no es el momento o si esto no les hace sentido. Cero drama.\n\nSolo te dejo el dato por si en algun momento les sirve: puedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti. En vez de intentar armarlo ustedes, contratanos a nosotros y listo.\n\nMucho exito con lo que estan haciendo en IDIEM. Quedo por aca si algun dia quieres conversar.\n\nFelipe",
         "tier": 3
       }
     }
@@ -961,40 +961,40 @@
     "tier": 3,
     "messages": {
       "connection_note": {
-        "text": "Hola Marianny, vi que lideras eficiencia en ventas B2B en Walmart Chile. En Sisteco ayudamos a equipos de ventas B2B a automatizar la prospeccion B2B. Tu equipo de ventas pasa mas tiempo prospectando o cerrando? — hablamos?",
+        "text": "Marianny, vi lo que estan haciendo en Walmart Chile y me parecio interesante. Trabajo en automatizacion de ventas B2B y creo que podria servirles. Te cuento en dos minutos si te tinca.",
         "tier": 3
       },
       "follow_up_1": {
-        "text": "Marianny, gracias por conectar.\n\nTe comparto un dato: 5-7x mas conversiones vs stack DIY.\n\nEn Sisteco estamos ayudando a empresas en Retail a automatizar su prospeccion B2B — mas cierres con menos esfuerzo manual.\n\nSi te interesa, te cuento mas en 15 min.\n\nFelipe",
+        "text": "Marianny, gracias por aceptar.\n\nTe cuento rapido por que te escribi: puedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti.\n\nNosotros en Sisteco nos encargamos de toda la parte de prospeccion para que tu equipo solo tenga que hablar con gente que ya quiere comprar. la prospeccion manual le come tiempo a la gente que deberia estar cerrando ventas.\n\nSi te hace sentido, te muestro en quince minutos como funciona. Sin compromiso.\n\nFelipe",
         "tier": 3
       },
       "follow_up_2": {
-        "text": "Marianny, se que el tiempo es limitado. Solo queria saber: Tu equipo de ventas pasa mas tiempo prospectando o cerrando?\n\nSi tiene sentido, 15 minutos para mostrarte como funciona. Si no, sin problema — quedo como contacto por si en algun momento te sirve.\n\nFelipe",
+        "text": "Marianny, una pregunta nomas: tu equipo de ventas pasa mas tiempo buscando prospectos o cerrando negocios?\n\nSi te pasa, te puedo mostrar como lo resolvemos en quince minutos. Si no, cero drama, quedo por aca por si algun dia te sirve.\n\nFelipe",
         "tier": 3
       },
       "email_touch_1": {
-        "subject": "Walmart Chile + automatizacion B2B",
-        "text": "Marianny, te escribo porque vi tu perfil en LinkedIn y me llamo la atencion lo que estan haciendo en Walmart Chile.\n\nMe llamo la atencion tu rol como Lider de Eficiencia Operacional en Walmart Chile.\n\nEn Sisteco automatizamos la prospeccion B2B para que tu equipo de ventas solo hable con los leads que realmente quieren comprar. 5-7x mas conversiones vs stack DIY.\n\n15 minutos para mostrarte como funciona?\n\nFelipe Martinez\nSisteco — Santiago, Chile",
+        "subject": "una idea para Walmart Chile",
+        "text": "Marianny, te escribo porque estuve mirando lo que hacen en Walmart Chile y me quedo dando vueltas una idea.\n\nVi tu rol como Lider de Eficiencia Operacional en Walmart Chile y me parecio interesante\n\nNosotros en Sisteco nos dedicamos a automatizar la parte de prospeccion para que tu equipo solo hable con gente que realmente quiere comprar. En simple: nos encargamos de toda la prospeccion para que tu equipo solo hable con gente que ya quiere comprar.\n\nSi te tinca, te cuento como funciona en quince minutos. Sin compromiso.\n\nFelipe Martinez\nSisteco — Santiago, Chile",
         "tier": 3
       },
       "email_touch_2": {
-        "subject": "dato rapido sobre Retail",
-        "text": "Marianny, un dato que me parecio relevante para Walmart Chile:\n\n5-7x mas conversiones vs stack DIY\n\nLa mayoria de los equipos de ventas en Retail pierden tiempo en leads frios. mas cierres con menos esfuerzo manual.\n\nSi te interesa ver como funciona, 15 minutos para mostrarte como funciona.\n\nFelipe",
+        "subject": "algo que vi sobre Retail",
+        "text": "Marianny, te comparto un dato que encontre y me parecio relevante para lo que hacen en Walmart Chile:\n\npuedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti.\n\nla prospeccion manual le come tiempo a la gente que deberia estar cerrando ventas Pero no tiene por que ser asi.\n\nSi quieres ver como lo estamos resolviendo para empresas como la tuya, me dices y te muestro en quince minutos.\n\nFelipe",
         "tier": 3
       },
       "email_touch_3": {
-        "subject": "5-7x mas conversiones vs en 30 dias",
-        "text": "Marianny, corto y al punto:\n\nEmpresas B2B en Chile que automatizan su pipeline de ventas estan viendo 5-7x mas conversiones vs stack DIY. La diferencia: responder rapido y solo a los leads correctos.\n\nprospeccion manual consume tiempo del equipo de ventas.\n\n15 minutos para mostrarte como? 15 minutos para mostrarte como funciona.\n\nFelipe",
+        "subject": "como lo estan haciendo otras empresas en Chile",
+        "text": "Marianny, te lo pongo asi:\n\nHay empresas B2B en Chile que ya automatizaron su prospeccion y puedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti. La diferencia es simple: responden rapido y solo le dedican tiempo a los leads que realmente van a comprar.\n\nla prospeccion manual le come tiempo a la gente que deberia estar cerrando ventas. Pero cuando automatizas esa parte, tu equipo se libera para hacer lo que mejor sabe hacer: cerrar.\n\nQuince minutos para mostrarte como? Me dices un dia que te acomode.\n\nFelipe",
         "tier": 3
       },
       "email_touch_4": {
-        "subject": "Marianny, una pregunta",
-        "text": "Marianny, te lo pregunto directo: Tu equipo de ventas pasa mas tiempo prospectando o cerrando?\n\nSi la respuesta es si, te muestro en 15 minutos como lo resolvemos. Si no, todo bien — no insisto mas.\n\n15 minutos para mostrarte como funciona?\n\nFelipe",
+        "subject": "Marianny, te hago una pregunta",
+        "text": "Marianny, te la hago corta: tu equipo de ventas pasa mas tiempo buscando prospectos o cerrando negocios?\n\nSi es algo que les pasa, te muestro en quince minutos como lo estamos resolviendo. Si no, todo bien, no insisto mas.\n\nFelipe",
         "tier": 3
       },
       "email_touch_5": {
-        "subject": "ultima vez que escribo",
-        "text": "Marianny, entiendo que no es el momento o que esto no te interesa. Sin drama.\n\nSolo queria dejarte el dato: 5-7x mas conversiones vs stack DIY. Si en algun momento quieres explorar como automatizar ventas B2B, estoy a un mensaje de distancia.\n\nExito con Walmart Chile.\n\nFelipe",
+        "subject": "ultimo mensaje, Marianny",
+        "text": "Marianny, entiendo si no es el momento o si esto no les hace sentido. Cero drama.\n\nSolo te dejo el dato por si en algun momento les sirve: puedes hacer hasta cinco a siete veces mas conversiones que si intentaras armarlo tu mismo o le pagaras a alguien para hacerlo por ti. En vez de intentar armarlo ustedes, contratanos a nosotros y listo.\n\nMucho exito con lo que estan haciendo en Walmart Chile. Quedo por aca si algun dia quieres conversar.\n\nFelipe",
         "tier": 3
       }
     }
