@@ -1,7 +1,7 @@
 {
   "version": 1,
   "created": "2026-03-16T22:02:25.996Z",
-  "updated": "2026-03-16T22:02:25.996Z",
+  "updated": "2026-03-16T22:05:36.961Z",
   "leads": {
     "https://linkedin.com/in/angel-ramirezh": {
       "leadId": "https://linkedin.com/in/angel-ramirezh",
@@ -779,10 +779,10 @@
       "channel": "DUAL",
       "sequence": "linkedin-first-email-fallback",
       "reason": "",
-      "status": "ROUTED",
+      "status": "ACTIVE",
       "linkedin": {
         "url": "https://linkedin.com/in/lino-tejeda-m-sc-innovation-phd-s-intelligent-industries-4b98998",
-        "connectionStatus": "NOT_SENT",
+        "connectionStatus": "PENDING",
         "connectionDate": null,
         "msg1Sent": false,
         "msg1Date": null,
@@ -799,7 +799,13 @@
         "bounced": false
       },
       "routedAt": "2026-03-16T22:02:25.998Z",
-      "notes": ""
+      "notes": "",
+      "_preparedMessages": {
+        "connectionNote": "Hola Lino,\nSoy Felipe de Sisteco. Vi tu perfil y esa combinación",
+        "followUp1": "¡Hola Lino! Qué bueno conectar.\n\nVi tu perfil en Sourcing y me tinc",
+        "followUp2": "Lino, sé que tu tiempo vale oro. Viendo tu perfil en Sourcing, me",
+        "preparedAt": "2026-03-16T22:05:06.816Z"
+      }
     },
     "https://linkedin.com/in/csantiba": {
       "leadId": "https://linkedin.com/in/csantiba",
@@ -3743,10 +3749,10 @@
       "channel": "DUAL",
       "sequence": "linkedin-first-email-fallback",
       "reason": "",
-      "status": "ROUTED",
+      "status": "ACTIVE",
       "linkedin": {
         "url": "https://linkedin.com/in/eduardo-palacios-ca%C3%B1as-34462a1ab",
-        "connectionStatus": "NOT_SENT",
+        "connectionStatus": "PENDING",
         "connectionDate": null,
         "msg1Sent": false,
         "msg1Date": null,
@@ -3763,7 +3769,13 @@
         "bounced": false
       },
       "routedAt": "2026-03-16T22:02:26.000Z",
-      "notes": ""
+      "notes": "",
+      "_preparedMessages": {
+        "connectionNote": "\" or \"te escribo para,\" more natural is just diving in.\n    *",
+        "followUp1": "Eduardo, gracias por aceptar la conexión.\n\nVi tu perfil y tu experiencia en Estrategia",
+        "followUp2": "Eduardo, sé que andas con el tiempo justo. Quería ir al grano",
+        "preparedAt": "2026-03-16T22:05:16.579Z"
+      }
     },
     "https://linkedin.com/in/sergio-sepulveda-cerda": {
       "leadId": "https://linkedin.com/in/sergio-sepulveda-cerda",
@@ -5757,10 +5769,10 @@
       "channel": "DUAL",
       "sequence": "linkedin-first-email-fallback",
       "reason": "",
-      "status": "ROUTED",
+      "status": "ACTIVE",
       "linkedin": {
         "url": "https://linkedin.com/in/dharmandaroglu",
-        "connectionStatus": "NOT_SENT",
+        "connectionStatus": "PENDING",
         "connectionDate": null,
         "msg1Sent": false,
         "msg1Date": null,
@@ -5777,7 +5789,13 @@
         "bounced": false
       },
       "routedAt": "2026-03-16T22:02:26.001Z",
-      "notes": ""
+      "notes": "",
+      "_preparedMessages": {
+        "connectionNote": "Hola Deniz,\nVi que en ASICOM estás full con la estrategia AI y la transformación digital para",
+        "followUp1": "Deniz, un gusto que hayamos conectado.\n\nVi tu perfil, sobre todo tu",
+        "followUp2": "Deniz,\n\nVi tu perfil en ASICOM y tu foco en crecimiento de ingresos con",
+        "preparedAt": "2026-03-16T22:05:26.088Z"
+      }
     },
     "https://linkedin.com/in/maria-teresa-macaya-88a6508b": {
       "leadId": "https://linkedin.com/in/maria-teresa-macaya-88a6508b",

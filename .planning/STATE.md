@@ -3,11 +3,27 @@ gsd_state_version: 1.0
 milestone: v2.0
 milestone_name: milestone
 status: executing
+stopped_at: Completed 04-03-PLAN.md — retention crons + privacy footer + smoke test script
+last_updated: "2026-03-16T22:05:48.813Z"
+last_activity: 2026-03-15 — Phase 4 discuss-phase completado — 4 areas, 16 decisiones, adaptado a workflows-first
+progress:
+  total_phases: 5
+  completed_phases: 3
+  total_plans: 14
+  completed_plans: 13
+  percent: 79
+---
+
+---
+gsd_state_version: 1.0
+milestone: v2.0
+milestone_name: milestone
+status: executing
 stopped_at: Completed Phase 03 Plan 05 — Phase 3 Dashboard Build COMPLETE (user verified and approved)
 last_updated: "2026-03-13T01:39:18.329Z"
 last_activity: 2026-03-13 — Phase 3 Plan 05 completado — mobile CSS + FAB + ICP wizard 4 pasos + pipeline activation + aprobado por usuario
 progress:
-  total_phases: 5
+  [████████░░] 79%
   completed_phases: 3
   total_plans: 10
   completed_plans: 10
@@ -38,14 +54,14 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-09)
 
 **Core value:** Inteligencia de leads B2B chilena que ningun competidor internacional puede replicar.
-**Current focus:** Phase 3 (Dashboard Build) — COMPLETADA. Phase 4 (Compliance Ley 21.719) es siguiente.
+**Current focus:** Phase 4 (Compliance Ley 21.719) — CONTEXT.md completado, listo para planificar.
 
 ## Current Position
 
-Phase: 3 of 5 (Dashboard Build) — COMPLETADA
-Plan: 5 of 5 completado (03-05 — Mobile responsive + ICP wizard + pipeline activation + verificacion)
-Status: Phase 3 complete. Phase 4 (Compliance Basico Ley 21.719) ready to begin.
-Last activity: 2026-03-13 — Phase 3 Plan 05 completado — mobile CSS + FAB + ICP wizard 4 pasos + pipeline activation + aprobado por usuario
+Phase: 4 of 5 (Compliance Basico Ley 21.719) — CONTEXT.md completado
+Plan: 0 of ? (pendiente planificacion)
+Status: Discuss-phase complete. 16 decisiones tomadas adaptadas a pivote workflows-first. Listo para plan-phase.
+Last activity: 2026-03-15 — Phase 4 discuss-phase completado — 4 areas, 16 decisiones, adaptado a workflows-first
 
 Progress: [██████░░░░] 60%
 
@@ -100,6 +116,8 @@ Trabajo completado que se reutiliza directamente:
 - [Phase 03-05]: VP dual mode: runtime check via getTeamMembers — solo VP sees leads directly
 - [Phase 03-05]: Temporal comparison uses leads discoveredAt field for period bucketing — no separate stats table needed
 - [Phase 03-05]: n8n webhook non-fatal in dev — _activarPipeline shows success regardless; no N8N_WEBHOOK_URL still completes gracefully
+- [Phase 04]: Retention scan uses by_fechaExpiracion index then filters complianceStatus in handler — Convex no soporta condicion compuesta en un solo indice
+- [Phase 04]: Daily retention crons at 03:00 UTC (scan) and 04:00 UTC (hard-delete) — ventana nocturna Chile, minimal interference con usuarios activos
 
 ### Blockers/Concerns
 
@@ -110,6 +128,6 @@ Trabajo completado que se reutiliza directamente:
 
 ## Session Continuity
 
-Last session: 2026-03-13T01:30:00Z
-Stopped at: Completed Phase 03 Plan 05 — Phase 3 Dashboard Build COMPLETE (user verified and approved)
+Last session: 2026-03-16T22:05:06.519Z
+Stopped at: Completed 04-03-PLAN.md — retention crons + privacy footer + smoke test script
 Resume file: None

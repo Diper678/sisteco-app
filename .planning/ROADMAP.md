@@ -79,7 +79,7 @@ Plans:
 **Goal**: Cumplir los requisitos minimos de la Ley 21.719 para operar legalmente con datos B2B
 **Depends on**: Phase 1 (hay datos que proteger), Phase 3 (dashboard donde mostrar avisos)
 **Requirements**: COMP-01, COMP-02, COMP-03, COMP-04, COMP-05
-**Plans:** 4 plans
+**Plans:** 3/4 plans executed
 
 Plans:
 - [ ] 04-01-PLAN.md — Schema compliance fields + legal documents (RAT, DPA, privacy policy, EIPD, balancing test)
@@ -117,5 +117,5 @@ Order: 1 || 2 -> 3 -> 4 -> 5
 | 1. Pipeline de Leads | 3 plans (2 waves) | 2/3 plans complete | In progress |
 | 2. Diseno Dashboard | 2 plans (2 waves) | 2/2 plans complete | 2026-03-12 |
 | 3. Dashboard Build | 5 plans (4 waves) | 5/5 plans complete | 2026-03-13 |
-| 4. Compliance Ley 21.719 | 4 plans (3 waves) | 0/4 plans complete | - |
+| 4. Compliance Ley 21.719 | 3/4 | In Progress|  |
 | 5. Onboarding Fundadores | TBD | Not started | - |
