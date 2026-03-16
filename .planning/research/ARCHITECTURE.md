@@ -8,15 +8,15 @@
 
 ### Overview: "Shared Brain, Independent Limbs"
 
-SAAN follows a **shared-state multi-agent** pattern where Convex is the central nervous system (shared memory, task queues, message bus) and n8n workflows are the agents' limbs (autonomous execution units). The Telegram bot is the CEO's nerve ending into the system.
+SAAN follows a **shared-state multi-agent** pattern where Convex is the central nervous system (shared memory, task queues, message bus) and n8n workflows are the agents' limbs (autonomous execution units). The Discord bot is the CEO's nerve ending into the system.
 
 ```
                           +------------------+
-                          |   CEO (Telegram)  |
+                          |   CEO (Discord)  |
                           +--------+---------+
                                    |
                           +--------v---------+
-                          | Telegram Bot      |
+                          | Discord Bot      |
                           | (n8n workflow)    |
                           +--------+---------+
                                    |
@@ -52,12 +52,12 @@ SAAN follows a **shared-state multi-agent** pattern where Convex is the central 
 
 | Component | Responsibility | Communicates With | Protocol |
 |-----------|---------------|-------------------|----------|
-| **Convex DB** | State, memory, tasks, messages, health metrics | All agents, Dashboard, Telegram bot | HTTP Actions (`*.convex.site`) |
-| **Orchestrator** (n8n) | Route events, dispatch alerts, create human tasks | Convex, Telegram, all agents | Webhook receiver + HTTP |
-| **Monitor Agent** (n8n) | Heartbeat checks, daily reports, purge expired data | Convex (write health), Telegram (alerts) | Cron-triggered + HTTP |
+| **Convex DB** | State, memory, tasks, messages, health metrics | All agents, Dashboard, Discord bot | HTTP Actions (`*.convex.site`) |
+| **Orchestrator** (n8n) | Route events, dispatch alerts, create human tasks | Convex, Discord, all agents | Webhook receiver + HTTP |
+| **Monitor Agent** (n8n) | Heartbeat checks, daily reports, purge expired data | Convex (write health), Discord (alerts) | Cron-triggered + HTTP |
 | **Leads Agent** (n8n) | Prospect search, enrichment, scoring | Convex (write leads data), Firecrawl, ScrapingBee, PhantomBuster, Gemini | Webhook-triggered + Cron |
 | **Finance Agent** (n8n) | Subscription tracking, MRR/churn/LTV calculation | Convex (read/write finance data), dLocal/Reveniu APIs | Cron-triggered |
-| **Telegram Bot** (n8n) | Receive CEO commands, send alerts, approve tasks | Convex (read tasks, write approvals), Orchestrator | Telegram Webhook trigger |
+| **Discord Bot** (n8n) | Receive CEO commands, send alerts, approve tasks | Convex (read tasks, write approvals), Orchestrator | Discord Webhook trigger |
 | **Dashboard** (HTML) | Visual CEO interface, task approval | Convex (read-only queries + approve mutations) | Convex JS client (CDN) |
 
 ## Data Flow
@@ -120,7 +120,7 @@ Leads Agent                    Convex                      Finance Agent
 ### 3. Human-in-the-Loop Escalation Flow
 
 ```
-Any Agent                 Convex               Telegram Bot        CEO
+Any Agent                 Convex               Discord Bot        CEO
     |                       |                       |                |
     |-- createTask -------->|                       |                |
     |   toAgent: "human"    | agentTasks            |                |
@@ -173,15 +173,15 @@ Include insights in task context (e.g., Gemini scoring prompt includes past insi
 
 **This is NOT AGI.** It is structured prompt enrichment using historical context. Keep expectations realistic.
 
-### 5. Telegram Bot Data Flow
+### 5. Discord Bot Data Flow
 
 ```
-                    Telegram API
+                    Discord API
                          |
             (webhook to Railway n8n URL)
                          |
               +----------v-----------+
-              | n8n: Telegram Trigger |
+              | n8n: Discord Trigger |
               | (single workflow)     |
               +----------+-----------+
                          |
@@ -202,10 +202,10 @@ Include insights in task context (e.g., Gemini scoring prompt includes past insi
           |              |              |
           +------+-------+------+
                  |
-          Send Telegram reply
+          Send Discord reply
 ```
 
-**Critical constraint:** Telegram allows only ONE webhook URL per bot. All bot logic lives in a SINGLE n8n workflow with a Switch node routing commands. Do NOT create separate workflows per command.
+**Critical constraint:** Discord allows only ONE webhook URL per bot. All bot logic lives in a SINGLE n8n workflow with a Switch node routing commands. Do NOT create separate workflows per command.
 
 ## Convex HTTP Actions Layer (New Component)
 
@@ -280,14 +280,14 @@ All n8n workflows call this URL instead of the incorrect `/api/mutation` path.
 | Workflow | Trigger | Nodes | Purpose |
 |----------|---------|-------|---------|
 | `saan-monitor-heartbeat` | Cron */5 * * * * | 8-10 | Ping services, record latency, alert on failure |
-| `saan-monitor-daily-report` | Cron 0 8 * * * | 6-8 | Aggregate 24h metrics, send Telegram summary |
+| `saan-monitor-daily-report` | Cron 0 8 * * * | 6-8 | Aggregate 24h metrics, send Discord summary |
 | `saan-monitor-housekeeping` | Cron 0 3 * * * | 4-5 | Purge expired messages, old health metrics |
 
 **Heartbeat workflow detail:**
 ```
 Cron 5min → Report active → HTTP Ping [vercel, convex, n8n, resend...] (parallel)
   → For each: Record health metric in Convex
-  → If any DOWN: Send Telegram alert + Create critical task
+  → If any DOWN: Send Discord alert + Create critical task
   → Report idle
 ```
 
@@ -314,18 +314,18 @@ Webhook (lead data) → Report active → Query recent insights from memory
 | Workflow | Trigger | Nodes | Purpose |
 |----------|---------|-------|---------|
 | `saan-finance-daily-metrics` | Cron 0 7 * * * | 8-10 | Calculate MRR, churn, LTV |
-| `saan-finance-weekly-report` | Cron 0 9 * * 1 | 6-8 | Weekly financial summary via Telegram |
+| `saan-finance-weekly-report` | Cron 0 9 * * 1 | 6-8 | Weekly financial summary via Discord |
 | `saan-finance-subscription-check` | Cron 0 */6 * * * | 6-8 | Check payment status, flag failed charges |
 
-### Telegram Bot (1 workflow)
+### Discord Bot (1 workflow)
 
 | Workflow | Trigger | Nodes | Purpose |
 |----------|---------|-------|---------|
-| `saan-telegram-bot` | Telegram Trigger | 15-20 | All CEO commands, task approval, status queries |
+| `saan-discord-bot` | Discord Webhook | 15-20 | All CEO commands, task approval, status queries |
 
 **Bot command routing:**
 ```
-Telegram Trigger → Switch (message.text) →
+Discord Trigger → Switch (message.text) →
   /status  → Query all agent states → Format table → Reply
   /health  → Query health snapshot → Format → Reply
   /leads   → Query recent leads scored → Format top 5 → Reply
@@ -340,13 +340,13 @@ Telegram Trigger → Switch (message.text) →
 
 The build order is driven by dependencies. Each component builds on the previous one.
 
-### Phase 2A: Convex HTTP Layer + Telegram Bot Foundation
-**Must come first** because all agents depend on the HTTP Actions layer, and Telegram is needed for alerts.
+### Phase 2A: Convex HTTP Layer + Discord Bot Foundation
+**Must come first** because all agents depend on the HTTP Actions layer, and Discord is needed for alerts.
 
 1. Create `convex/http.ts` with all REST endpoints
-2. Create Telegram bot via @BotFather
-3. Build `saan-telegram-bot` n8n workflow with /help, /status, /tasks, /approve
-4. Test: Send /status from Telegram, get response
+2. Crear webhook en canal Discord para notificaciones
+3. Build `saan-discord-bot` n8n workflow with /help, /status, /tasks, /approve
+4. Test: Send /status from Discord, get response
 
 **Dependencies:** None (builds on Fase 1 foundation)
 
@@ -355,10 +355,10 @@ The build order is driven by dependencies. Each component builds on the previous
 
 1. Build `saan-monitor-heartbeat` workflow
 2. Build `saan-monitor-housekeeping` workflow
-3. Build `saan-monitor-daily-report` workflow (sends via Telegram)
+3. Build `saan-monitor-daily-report` workflow (sends via Discord)
 4. Test: Let it run 24h, verify health data in Convex, verify daily report arrives
 
-**Dependencies:** Phase 2A (HTTP layer, Telegram bot for alerts)
+**Dependencies:** Phase 2A (HTTP layer, Discord bot for alerts)
 
 ### Phase 2C: Leads Agent
 **Can start after Monitor is stable.**
@@ -377,7 +377,7 @@ The build order is driven by dependencies. Each component builds on the previous
 1. Build `saan-finance-daily-metrics` workflow
 2. Build `saan-finance-weekly-report` workflow
 3. Build `saan-finance-subscription-check` workflow
-4. Test: Verify MRR calculation, weekly report via Telegram
+4. Test: Verify MRR calculation, weekly report via Discord
 
 **Dependencies:** Phase 2A (HTTP layer), Phase 2B (monitoring)
 
@@ -386,7 +386,7 @@ The build order is driven by dependencies. Each component builds on the previous
 
 1. Update dashboard to show lead scores, finance metrics
 2. Implement learning loop pattern across all agents
-3. Add Telegram inline keyboard buttons for task approval
+3. Add Discord inline keyboard buttons for task approval
 
 **Dependencies:** All previous phases
 
@@ -420,9 +420,9 @@ All tasks created with `expiresAt`. Default: 7 days for human tasks, 24 hours fo
 
 Learning loop queries last 50 memories maximum. Gemini processes and returns 1-3 insights. This prevents context window overflow and keeps costs predictable (~$0.01 per reflection call).
 
-### Pattern 5: Single Telegram Workflow
+### Pattern 5: Single Discord Workflow
 
-All Telegram interaction goes through ONE workflow. Use a Switch node to route commands. Never create separate workflows per command (Telegram allows only one webhook URL per bot).
+All Discord interaction goes through ONE workflow. Use a Switch node to route commands. Never create separate workflows per command (Discord allows only one webhook URL per bot).
 
 ## Anti-Patterns to Avoid
 
@@ -457,7 +457,7 @@ All Telegram interaction goes through ONE workflow. Use a Switch node to route c
 |---------|-------------|---------------|----------------|
 | Convex reads | Free tier sufficient | Still fine (reactive queries) | Paid plan needed |
 | n8n executions | ~200/day across all agents | ~2000/day, still within Railway limits | Need dedicated VPS or n8n Cloud |
-| Telegram messages | ~20/day | One bot per client or command namespacing | Dedicated bots per client |
+| Discord messages | ~20/day | One bot per client or command namespacing | Dedicated bots per client |
 | Gemini API calls | ~10/day for scoring | ~100/day, ~$3/month | ~1000/day, ~$30/month |
 | Health check storage | 7-day retention, ~1000 rows | Same pattern, per-tenant schema | Need sharding strategy |
 
@@ -469,7 +469,7 @@ All Telegram interaction goes through ONE workflow. Use a Switch node to route c
 - [n8n AI Agent Orchestration Frameworks](https://blog.n8n.io/ai-agent-orchestration-frameworks/) - Framework comparison
 - [Convex HTTP Actions Documentation](https://docs.convex.dev/functions/http-actions) - Official docs on external service integration
 - [Convex ConvexHttpClient](https://docs.convex.dev/api/classes/browser.ConvexHttpClient) - HTTP client for external calls
-- [n8n Telegram Integration](https://n8n.io/integrations/webhook/and/telegram/) - Webhook setup patterns
+- [n8n Discord Integration](https://n8n.io/integrations/webhook/and/discord/) - Webhook setup patterns
 - [Railway n8n Webhook Template](https://station.railway.com/templates/n8n-w-webhook-processors-76e9cf8c) - HTTPS webhook configuration
 - [n8n Community: Workflow + Agent Patterns 2025](https://community.n8n.io/t/when-workflows-meet-agents-emerging-patterns-for-hybrid-automation-in-2025/157805) - Hybrid automation patterns
 - Existing SAAN codebase: `SAAN/convex/schema.ts`, `agents.ts`, `agentMessages.ts`, `intelligence.ts`, `skills.ts`

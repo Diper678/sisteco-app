@@ -1,6 +1,6 @@
 # Feature Landscape
 
-**Domain:** Autonomous Agent Network for B2B SaaS Operations (Monitor, Leads, Finance Agents + Telegram Bot + Agent Learning)
+**Domain:** Autonomous Agent Network for B2B SaaS Operations (Monitor, Leads, Finance Agents + Discord Bot + Agent Learning)
 **Researched:** 2026-03-05
 
 ---
@@ -13,7 +13,7 @@
 |---------|--------------|------------|-------|
 | Service heartbeat checks (HTTP) | Without this the agent has no purpose. Must ping Vercel, Convex, n8n, Resend endpoints every 5 min | Low | Use n8n Schedule Trigger + HTTP Request nodes. n8n exposes `/healthz` and `/healthz/readiness` natively |
 | Status recording to Convex | Health data must persist for trend analysis. Write to `systemHealth` table | Low | Already have the table and `recordHealthMetric` mutation |
-| Instant critical alerts via Telegram | Downtime costs revenue. CEO must know within seconds when a service is unreachable | Low | Telegram Bot API `sendMessage` from n8n. Simple HTTP POST |
+| Instant critical alerts via Discord | Downtime costs revenue. CEO must know within seconds when a service is unreachable | Low | Discord Bot API `sendMessage` from n8n. Simple HTTP POST |
 | Daily summary report (8 AM Chile) | CEO needs a pulse check without asking. Uptime %, incidents, anomalies in last 24h | Medium | n8n Cron at 8:00 America/Santiago, aggregate from `systemHealth` |
 | Agent state tracking | Each agent must report its own health via `agentsState`. Monitor Agent checks for stale `lastRun` values | Low | Query `agentsState`, flag any agent not updated in >2x its expected interval |
 | Error escalation with context | Alert must include: which service, what failed, since when, how many consecutive failures | Low | Build structured message with service name, HTTP status, timestamp, failure streak |
@@ -33,8 +33,8 @@
 | Anti-Feature | Why Avoid | What to Do Instead |
 |--------------|-----------|-------------------|
 | Full APM/distributed tracing | Overkill for 6 services and ~$65/mo infra. Adds complexity without proportional value | Simple HTTP health checks + latency recording is sufficient |
-| Custom metrics dashboard (Grafana/Prometheus) | Existing Convex-powered dashboard + Telegram reports cover the need. Grafana adds another service to maintain | Use the CEO dashboard already scaffolded in Phase 1 |
-| SMS/voice call alerts | Telegram is always-on for the CEO. Adding Twilio/SMS adds cost and complexity | Telegram with persistent notifications covers urgency |
+| Custom metrics dashboard (Grafana/Prometheus) | Existing Convex-powered dashboard + Discord reports cover the need. Grafana adds another service to maintain | Use the CEO dashboard already scaffolded in Phase 1 |
+| SMS/voice call alerts | Discord is always-on for the CEO. Adding Twilio/SMS adds cost and complexity | Discord with persistent notifications covers urgency |
 
 ---
 
@@ -82,7 +82,7 @@
 | MRR calculation | Most fundamental SaaS metric. Sum of all active monthly subscription values | Medium | Pull from payment provider (dLocal Go or Reveniu API). Need a `subscriptions` or `financialMetrics` table |
 | Churn rate tracking | Must know monthly customer churn (customers lost / total customers at period start) | Medium | Compare active subscriptions month-over-month. Revenue churn AND logo churn |
 | LTV calculation | LTV = ARPU / monthly churn rate. Essential for knowing if acquisition costs are sustainable | Low | Derived metric from MRR and churn. Calculate and store weekly |
-| Weekly financial report via Telegram | CEO needs financial pulse without logging into dashboards | Medium | n8n Cron weekly (Monday 9 AM). Format: MRR, new customers, churned, net revenue change |
+| Weekly financial report via Discord | CEO needs financial pulse without logging into dashboards | Medium | n8n Cron weekly (Monday 9 AM). Format: MRR, new customers, churned, net revenue change |
 | Subscription status monitoring | Know which subscriptions are active, trial, past-due, cancelled | Medium | Poll payment provider API. Alert on past-due (potential churn) |
 | Infrastructure cost tracking | At $65/mo, every dollar matters. Track actual spend vs budget | Low | Manual config initially (known fixed costs). Alert if any service cost spikes |
 
@@ -107,38 +107,38 @@
 
 ---
 
-## 4. Telegram Bot
+## 4. Discord Bot
 
 ### Table Stakes
 
 | Feature | Why Expected | Complexity | Notes |
 |---------|--------------|------------|-------|
-| Receive critical alerts | Primary alert channel for CEO. Must receive Monitor, Leads, Finance alerts with clear formatting | Low | Telegram Bot API via n8n. Use Markdown formatting for readability |
-| `/status` command | CEO asks "how's everything?" and gets instant system status summary | Medium | n8n webhook triggered by Telegram command. Query `agentsState` for all agents |
+| Receive critical alerts | Primary alert channel for CEO. Must receive Monitor, Leads, Finance alerts with clear formatting | Low | Discord Bot API via n8n. Use Markdown formatting for readability |
+| `/status` command | CEO asks "how's everything?" and gets instant system status summary | Medium | n8n webhook triggered by Discord command. Query `agentsState` for all agents |
 | `/leads` command | Show today's new leads, top HOT leads, pipeline summary | Medium | Query leads table, format top 5 with scores and company names |
 | `/finance` command | Quick MRR, new revenue, churn summary on demand | Medium | Query financial metrics, return formatted summary |
 | `/help` command | List available commands. Without this, CEO forgets what's possible | Low | Static response listing all commands |
-| Message formatting (Markdown) | Alerts must be scannable on mobile. Headers, bold, emojis for status indicators | Low | Telegram supports MarkdownV2. Use checkmarks, warning signs, red circles for status |
+| Message formatting (Markdown) | Alerts must be scannable on mobile. Headers, bold, emojis for status indicators | Low | Discord supports MarkdownV2. Use checkmarks, warning signs, red circles for status |
 | Error handling in bot | If a command fails, respond gracefully instead of silently failing | Low | Try/catch in n8n workflows. Return "Something went wrong, checking..." message |
 
 ### Differentiators
 
 | Feature | Value Proposition | Complexity | Notes |
 |---------|-------------------|------------|-------|
-| `/approve [task-id]` command | CEO approves human-in-the-loop tasks directly from Telegram without opening dashboard | Medium | Update `agentTasks` status from "pending" to "approved". Trigger downstream workflow |
+| `/approve [task-id]` command | CEO approves human-in-the-loop tasks directly from Discord without opening dashboard | Medium | Update `agentTasks` status from "pending" to "approved". Trigger downstream workflow |
 | `/pause [agent]` and `/resume [agent]` | Emergency agent control from mobile. Stop a misbehaving agent instantly | Medium | Update `agentsState` status. Agents check their status before executing |
 | Conversational context | Bot remembers last topic. "Tell me more" expands the last alert or report | High | Store conversation state in Convex. Use Gemini to interpret follow-up questions |
 | Daily digest preferences | CEO configures what's in the morning report: "skip leads, double on finance" | Medium | Store preferences in Convex. Apply filters to report generation |
-| Inline buttons for actions | Instead of typing commands, tap buttons: [Approve] [Reject] [Details] | Medium | Telegram InlineKeyboardMarkup. Better UX than typing commands |
+| Inline buttons for actions | Instead of typing commands, tap buttons: [Approve] [Reject] [Details] | Medium | Discord InlineKeyboardMarkup. Better UX than typing commands |
 
 ### Anti-Features
 
 | Anti-Feature | Why Avoid | What to Do Instead |
 |--------------|-----------|-------------------|
-| Multi-user bot | Only the CEO uses this. Adding user management, permissions, roles adds complexity | Hardcode CEO's Telegram chat_id. Reject messages from other users |
+| Multi-user bot | Only the CEO uses this. Adding user management, permissions, roles adds complexity | Hardcode CEO's Discord chat_id. Reject messages from other users |
 | Natural language processing for all commands | Gemini API calls for every message = cost and latency. Most commands are simple | Use slash commands for standard operations. Reserve NLP for `/ask [question]` only |
 | File uploads/downloads via bot | Edge case. Reports are better viewed in dashboard or email | Send formatted text summaries. Link to dashboard for detailed views |
-| Bot-initiated conversations | Telegram bots cannot initiate conversations with users who haven't started a chat first. Anti-pattern to try to work around this | CEO sends `/start` once. All subsequent communication is responses or alerts |
+| Bot-initiated conversations | Discord bots cannot initiate conversations with users who haven't started a chat first. Anti-pattern to try to work around this | CEO sends `/start` once. All subsequent communication is responses or alerts |
 
 ---
 
@@ -169,7 +169,7 @@
 | Anti-Feature | Why Avoid | What to Do Instead |
 |--------------|-----------|-------------------|
 | Vector database for memory retrieval | Overkill at current scale. Convex indexes on `agentId + memoryType + tags` are sufficient for <10K memories | Use Convex native queries with indexes. Revisit vector search at 100K+ memories |
-| Autonomous behavior modification | Agents changing their own logic without human review is dangerous. One bad learning corrupts operations | Agents propose changes as insights. CEO reviews and approves via Telegram/dashboard |
+| Autonomous behavior modification | Agents changing their own logic without human review is dangerous. One bad learning corrupts operations | Agents propose changes as insights. CEO reviews and approves via Discord/dashboard |
 | Full reinforcement learning loop | Requires massive data volumes and careful reward function design. Premature at this stage | Use simple heuristic adjustments: if X fails 3 times, try Y instead. Log as decision memory |
 | Inter-agent negotiation protocols | Agent-to-agent commerce/negotiation is Phase 8 (2028+). Building infrastructure now wastes effort | Use simple task queue (`agentTasks`) for inter-agent coordination. No negotiation, just requests |
 
@@ -178,7 +178,7 @@
 ## Feature Dependencies
 
 ```
-Telegram Bot Setup ─────────────────┐
+Discord Bot Setup ─────────────────┐
                                     ├──> Monitor Agent Alerts
 Monitor Agent (heartbeat) ──────────┘
          │
@@ -204,12 +204,12 @@ Agent Learning ──> depends on ALL agents writing to agentMemory consistently
          │
          └──> Cross-agent insights ──> depends on agentMessages bus being actively used
 
-Telegram Bot (commands) ──> depends on each agent's data being queryable
+Discord Bot (commands) ──> depends on each agent's data being queryable
 ```
 
 ### Critical Path
 
-1. **Telegram Bot creation** (BotFather) - unblocks ALL alerts
+1. **Discord Bot creation** (BotFather) - unblocks ALL alerts
 2. **Monitor Agent heartbeats** - unblocks daily reports and establishes health baseline
 3. **Schema additions** (leads table, financial metrics table) - unblocks Leads and Finance agents
 4. **Leads Agent discovery + enrichment** - unblocks scoring
@@ -220,11 +220,11 @@ Telegram Bot (commands) ──> depends on each agent's data being queryable
 
 ## MVP Recommendation
 
-### Build First (Phase 2 - Monitor + Telegram)
+### Build First (Phase 2 - Monitor + Discord)
 
-1. **Telegram Bot setup** (BotFather, webhook, n8n integration) - everything depends on this
+1. **Discord Bot setup** (BotFather, webhook, n8n integration) - everything depends on this
 2. **Monitor Agent heartbeat** (5-min HTTP checks to all services) - immediate value, CEO knows system status
-3. **Monitor Agent daily report** (8 AM summary via Telegram) - daily peace of mind
+3. **Monitor Agent daily report** (8 AM summary via Discord) - daily peace of mind
 4. **`/status` command** - CEO can check on demand
 5. **Episodic memory logging** for Monitor Agent - start accumulating data from day one
 
@@ -236,14 +236,14 @@ Telegram Bot (commands) ──> depends on each agent's data being queryable
 4. **Leads Agent scoring** (Gemini 100-point model)
 5. **Finance Agent subscription monitoring** (payment provider integration)
 6. **Finance Agent MRR/churn/LTV** calculation
-7. **`/leads` and `/finance` Telegram commands**
+7. **`/leads` and `/finance` Discord commands**
 8. **`/approve` command** for human-in-the-loop tasks
 
 ### Defer
 
 - **Behavioral intent signals** for leads: Requires email sequences (Phase 4 - Sales Agent)
 - **Revenue forecasting**: Requires 3+ months of financial data
-- **Conversational Telegram context**: Nice-to-have, not essential for operations
+- **Conversational Discord context**: Nice-to-have, not essential for operations
 - **Semantic memory consolidation**: Requires sufficient episodic data (30+ days of agent operation)
 - **Auto-recovery actions**: High risk, build trust in monitoring first
 
@@ -253,7 +253,7 @@ Telegram Bot (commands) ──> depends on each agent's data being queryable
 
 - [n8n Monitoring Docs](https://docs.n8n.io/hosting/logging-monitoring/monitoring/) - n8n health endpoints
 - [n8n Community - Heartbeat Monitoring](https://community.n8n.io/t/cron-job-monitoring-aka-heartbeat-monitoring/19930)
-- [Telegram Bot Features](https://core.telegram.org/bots/features) - official Telegram bot capabilities
+- [Discord Webhooks](https://discord.com/developers/docs/resources/webhook) - official Discord webhook capabilities
 - [B2B Lead Scoring Criteria - TechBusinessOnline](https://techbusinessonline.com/b2b-lead-scoring-criteria-examples/) - scoring model best practices
 - [Gartner - Lead Scoring Intent Signals](https://www.gartner.com/en/digital-markets/insights/lead-scoring-intent-signals)
 - [SaaS Financial Metrics - GoLimelight](https://www.golimelight.com/blog/saas-financial-metrics) - key SaaS metrics

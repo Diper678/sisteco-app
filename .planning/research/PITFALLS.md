@@ -1,6 +1,6 @@
 # Domain Pitfalls: SAAN Multi-Agent System
 
-**Domain:** Autonomous agent network (n8n + Convex + Telegram + Gemini + scraping tools)
+**Domain:** Autonomous agent network (n8n + Convex + Discord + Gemini + scraping tools)
 **Researched:** 2026-03-05
 **Confidence:** HIGH (verified against official docs and multiple community sources)
 
@@ -109,21 +109,21 @@ Mistakes that cause outages, data loss, or runaway costs.
 
 ---
 
-### Pitfall 6: Telegram Bot Alert Fatigue and Rate Limits
+### Pitfall 6: Discord Webhook Alert Fatigue and Rate Limits
 
-**What goes wrong:** Monitor Agent sends alerts for every minor issue. CEO gets 50 Telegram messages per day. Important alerts get buried in noise. Additionally, Telegram's rate limits are per-bot: sendMessage, editMessage, and sendChatAction all share the same 30/second global counter.
+**What goes wrong:** Monitor Agent sends alerts for every minor issue. CEO gets 50 Discord messages per day. Important alerts get buried in noise. Additionally, Discord webhook rate limits are 30 requests per 60 seconds per webhook URL.
 
-**Why it happens:** Engineers set alert thresholds too low ("alert if response time > 200ms"). Every agent wants to report status. If rate limited (429), Telegram enforces a 900-second IP ban (15 minutes of silence during a real outage).
+**Why it happens:** Engineers set alert thresholds too low ("alert if response time > 200ms"). Every agent wants to report status. If rate limited (429), Discord enforces a cooldown period.
 
-**Consequences:** CEO ignores Telegram notifications entirely (alert fatigue). Critical alerts missed.
+**Consequences:** CEO ignores Discord notifications entirely (alert fatigue). Critical alerts missed.
 
 **Prevention:**
-- Three severity levels: CRITICAL (instant Telegram), WARNING (daily digest), INFO (dashboard only)
-- Only CRITICAL alerts go to Telegram: system down, payment failed, human approval needed
+- Three severity levels: CRITICAL (instant Discord webhook), WARNING (daily digest), INFO (dashboard only)
+- Only CRITICAL alerts go to Discord: system down, payment failed, human approval needed
 - Aggregate warnings into a single daily digest message (8 AM report)
-- Implement message queue: never send more than 1 Telegram message per 3 seconds
+- Implement message queue: never send more than 1 Discord webhook message per 3 seconds
 - Alert deduplication: same alert type suppressed for 30 minutes after first occurrence
-- Single bot token for all agents, with a centralized send queue
+- Single webhook URL for all agents, with a centralized send queue
 
 **Detection:** Count messages sent per hour. If > 10/hour outside of scheduled reports, alert thresholds need tuning.
 
@@ -131,19 +131,19 @@ Mistakes that cause outages, data loss, or runaway costs.
 
 ---
 
-### Pitfall 7: Multiple Telegram Workflows Breaking Webhook
+### Pitfall 7: Multiple Discord Webhook URLs Causing Confusion
 
-**What goes wrong:** Creating separate n8n workflows for each Telegram command (/status, /leads, /mrr). Only the LAST activated workflow receives messages.
+**What goes wrong:** Creating separate Discord webhooks for each notification type, leading to scattered alerts across channels.
 
-**Why it happens:** Telegram bots support only ONE webhook URL at a time. Each n8n Telegram Trigger node registers its own webhook, overwriting the previous one.
+**Why it happens:** Easy to create many webhooks, but makes it hard to track which channel has which alerts.
 
-**Consequences:** Most commands silently stop working. CEO thinks the bot is broken.
+**Consequences:** Alerts arrive in wrong channels. CEO misses important notifications.
 
-**Prevention:** ONE n8n workflow with a single Telegram Trigger node + a Switch node to route commands. All command logic inside that one workflow. No exceptions.
+**Prevention:** ONE Discord webhook URL for all critical alerts, configured in a single n8n workflow with routing logic. Use embeds with different colors to distinguish alert types.
 
-**Detection:** If you have more than one workflow with a Telegram Trigger node for the same bot token, you have this bug.
+**Detection:** If you have more than one DISCORD_WEBHOOK_URL in your n8n variables, consolidate.
 
-**Phase:** Phase 2 (Telegram Bot setup).
+**Phase:** Phase 2 (Discord webhook setup).
 
 ---
 
@@ -287,13 +287,13 @@ Issues that cause incorrect data or degraded functionality but not outages.
 
 ---
 
-### Pitfall 17: Telegram MarkdownV2 Formatting Errors
+### Pitfall 17: Discord Embed Formatting Issues
 
-**What goes wrong:** MarkdownV2 requires escaping special characters (`.`, `-`, `(`, `)`). Unescaped characters cause messages to fail silently.
+**What goes wrong:** Discord embeds have field limits (title: 256 chars, description: 4096 chars, fields: 25 max). Messages exceeding limits are silently dropped.
 
-**Prevention:** Use `parse_mode: "HTML"` instead. HTML is more forgiving. Or escape all special chars with `\`.
+**Prevention:** Keep embed descriptions under 4000 chars. Use `content` field for simple text alerts. Test with long data before going live.
 
-**Phase:** Phase 2 (all Telegram messages).
+**Phase:** Phase 2 (all Discord webhook messages).
 
 ---
 
@@ -316,9 +316,9 @@ Issues that cause incorrect data or degraded functionality but not outages.
 
 | Phase | Likely Pitfall | Mitigation |
 |-------|---------------|------------|
-| Phase 2: Monitor Agent | Alert fatigue drowning CEO in noise (Pitfall 6) | Define severity taxonomy first. Only CRITICAL goes to Telegram |
+| Phase 2: Monitor Agent | Alert fatigue drowning CEO in noise (Pitfall 6) | Define severity taxonomy first. Only CRITICAL goes to Discord |
 | Phase 2: Monitor Agent | n8n crash goes undetected (Pitfall 4) | Heartbeat must be external to n8n (Convex scheduled function pings n8n) |
-| Phase 2: Telegram Bot | Multiple workflows break webhook (Pitfall 7) | ONE workflow, Switch node for routing. No exceptions |
+| Phase 2: Discord Webhook | Multiple webhooks cause confusion (Pitfall 7) | ONE webhook URL, routing logic in workflow. No exceptions |
 | Phase 2: Dashboard | Convex bandwidth burn from reactive queries (Pitfall 5) | Query by specific ID, never full table scans |
 | Phase 3: Leads Agent | Deprecated Gemini SDK (Pitfall 2) | Use @google/genai, NOT @google/generative-ai |
 | Phase 3: Leads Agent | Gemini 2.0 Flash retiring (Pitfall 3) | Use gemini-2.5-flash-lite from the start |
@@ -337,8 +337,8 @@ Issues that cause incorrect data or degraded functionality but not outages.
 - [Convex Limits (official)](https://docs.convex.dev/production/state/limits) -- HIGH confidence
 - [Convex Rate Limiting](https://stack.convex.dev/rate-limiting) -- HIGH confidence
 - [Convex Queries That Scale](https://stack.convex.dev/queries-that-scale) -- HIGH confidence
-- [Telegram Bot API FAQ (official)](https://core.telegram.org/bots/faq) -- HIGH confidence
-- [Telegram Rate Limits (grammY docs)](https://grammy.dev/advanced/flood) -- MEDIUM confidence
+- [Discord Webhooks (official)](https://discord.com/developers/docs/resources/webhook) -- HIGH confidence
+- [Discord Rate Limits (official)](https://discord.com/developers/docs/topics/rate-limits) -- HIGH confidence
 - [Gemini API Rate Limits (official)](https://ai.google.dev/gemini-api/docs/rate-limits) -- HIGH confidence
 - [Gemini API Pricing / Deprecation](https://ai.google.dev/gemini-api/docs/pricing) -- HIGH confidence
 - [Legacy Gemini SDK Deprecation](https://github.com/google-gemini/deprecated-generative-ai-js) -- HIGH confidence

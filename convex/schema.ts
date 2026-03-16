@@ -97,6 +97,34 @@ export default defineSchema({
     // ── Timestamps ────────────────────────────────────────────────────────────
     discoveredAt: v.number(),
     lastUpdatedAt: v.number(),
+
+    // ── Compliance Ley 21.719 ─────────────────────────────────────────────────
+    baseLegal: v.optional(v.union(
+      v.literal("interes_legitimo"),
+      v.literal("consentimiento"),
+      v.literal("contrato")
+    )),
+    fuenteDatos: v.optional(v.union(
+      v.literal("linkedin_search"),
+      v.literal("sitio_web"),
+      v.literal("formulario"),
+      v.literal("referido"),
+      v.literal("sii_publico")
+    )),
+    fechaExpiracion: v.optional(v.number()),
+    testPonderacionRef: v.optional(v.string()),
+    complianceStatus: v.optional(v.union(
+      v.literal("activo"),
+      v.literal("expirado"),
+      v.literal("opt_out"),
+      v.literal("eliminado"),
+      v.literal("anonimizado")
+    )),
+    optOutAt: v.optional(v.number()),
+    optOutMotivo: v.optional(v.string()),
+    softDeletedAt: v.optional(v.number()),
+    hardDeleteScheduledAt: v.optional(v.number()),
+    ultimaInteraccion: v.optional(v.number()),
   })
     // Indices multi-tenant (SIEMPRE filtrar por orgId primero)
     .index("by_orgId", ["orgId"])
@@ -111,7 +139,62 @@ export default defineSchema({
     .index("by_score", ["score"])
     .index("by_discovered", ["discoveredAt"])
     .index("by_source", ["source"])
-    .index("by_next_followup", ["nextFollowUpAt"]),
+    .index("by_next_followup", ["nextFollowUpAt"])
+    // Indices compliance
+    .index("by_complianceStatus", ["complianceStatus"])
+    .index("by_fechaExpiracion", ["fechaExpiracion"]),
+
+  // ── Opt-out global blacklist (persiste tras hard-delete) ───────────────────
+  // Tabla global — no por tenant. Previene re-importacion de leads que hicieron opt-out.
+  optOutBlacklist: defineTable({
+    email: v.string(),
+    emailHash: v.string(),         // SHA-256 hash para lookup sin exponer PII
+    optOutAt: v.number(),
+    motivo: v.optional(v.string()),
+    source: v.union(
+      v.literal("email_link"),
+      v.literal("formulario_web"),
+      v.literal("arco_solicitud"),
+      v.literal("manual")
+    ),
+    tenantsNotified: v.optional(v.array(v.string())), // orgIds notificados
+  })
+    .index("by_emailHash", ["emailHash"])
+    .index("by_email", ["email"]),
+
+  // ── Solicitudes ARCO-POL (Acceso, Rectificacion, Cancelacion, Oposicion) ───
+  // Registro de solicitudes de derechos del titular. SLA: 15 dias habiles.
+  arcoRequests: defineTable({
+    email: v.string(),
+    nombre: v.optional(v.string()),
+    tipoSolicitud: v.union(
+      v.literal("acceso"),
+      v.literal("rectificacion"),
+      v.literal("supresion"),
+      v.literal("oposicion"),
+      v.literal("portabilidad"),
+      v.literal("limitacion")
+    ),
+    estado: v.union(
+      v.literal("recibida"),
+      v.literal("verificando"),
+      v.literal("verificada"),
+      v.literal("en_proceso"),
+      v.literal("completada"),
+      v.literal("rechazada")
+    ),
+    detalles: v.optional(v.string()),
+    verificationToken: v.optional(v.string()),
+    verifiedAt: v.optional(v.number()),
+    tenantsAfectados: v.optional(v.array(v.string())), // orgIds con este lead
+    respuesta: v.optional(v.string()),
+    completadaAt: v.optional(v.number()),
+    fechaLimite: v.number(),      // SLA: 15 dias habiles desde creacion
+    createdAt: v.number(),
+  })
+    .index("by_email", ["email"])
+    .index("by_estado", ["estado"])
+    .index("by_token", ["verificationToken"]),
 
   // ── Usuarios y roles (multi-tenant) ───────────────────────────────────────
   users: defineTable({

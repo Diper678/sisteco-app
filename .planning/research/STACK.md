@@ -26,20 +26,18 @@
 
 **Modelo a NO usar:** Gemini 2.0 Flash (`gemini-2.0-flash`). Se retira junio 2026. No tiene sentido construir sobre el.
 
-### Telegram Bot
+### Discord Webhook
 
 | Technology | Version | Purpose | Why | Confidence |
 |------------|---------|---------|-----|------------|
-| grammy | ^1.41.1 | Framework Telegram bot para alertas CEO y comandos | Mejor TypeScript que Telegraf. Menor curva de aprendizaje. Middleware pattern limpio. Mejor documentacion. Activamente mantenido (update hace 2 dias). Funciona bien en serverless (Vercel). | HIGH |
+| Discord Webhook API | latest | Notificaciones y alertas al CEO via canal Discord | Simple HTTP POST, sin bot token necesario, embeds con rich formatting, gratis sin limites significativos. | HIGH |
 
-**Alternativa descartada:** Telegraf v4. Tipos TypeScript complejos y confusos. grammY fue creado especificamente para resolver los problemas de DX de Telegraf.
+**Alternativa descartada:** Discord Bot (discord.js). Requiere servidor dedicado corriendo 24/7 para el bot, overkill para notificaciones unidireccionales.
 
-**Alternativa descartada:** node-telegram-bot-api. Demasiado bajo nivel, sin middleware, sin plugins, sin TypeScript nativo.
-
-**Patron de despliegue del bot:**
-- Opcion A (recomendada): n8n Telegram Trigger node para recibir mensajes del CEO + n8n Telegram node para enviar alertas. No requiere servidor dedicado para el bot.
-- Opcion B (si se necesita interactividad compleja): grammY en Vercel Serverless Function con webhook. Mas trabajo pero permite conversaciones con estado.
-- **Empezar con Opcion A.** Solo migrar a B si los comandos del CEO necesitan flujos conversacionales complejos.
+**Patron de despliegue:**
+- Opcion A (recomendada): n8n HTTP Request node hace POST al Discord webhook URL para enviar alertas. No requiere servidor dedicado.
+- Opcion B (si se necesita interactividad): Discord Bot con slash commands en Vercel Serverless Function. Mas trabajo pero permite comandos interactivos.
+- **Empezar con Opcion A.** Solo migrar a B si se necesitan comandos interactivos del CEO.
 
 ### Lead Enrichment
 
@@ -95,8 +93,8 @@ No se necesita libreria de metricas -- son calculos aritmeticos simples en un Co
 2. HTTP Request en paralelo a: sisteco.cl, Convex deployment URL, n8n health endpoint, Resend API status
 3. Para cada servicio: medir latencia (ms), verificar status code
 4. Escribir resultados en Convex `systemHealth` via HTTP Request (POST a mutation)
-5. Si algun servicio falla: enviar alerta Telegram inmediata via Telegram node
-6. Cron diario 8 AM Chile (12:00 UTC): generar reporte consolidado con Gemini, enviar via Telegram
+5. Si algun servicio falla: enviar alerta Discord inmediata via Discord node
+6. Cron diario 8 AM Chile (12:00 UTC): generar reporte consolidado con Gemini, enviar via Discord
 
 ### Convex Patterns (n8n -> Convex Communication)
 
@@ -116,8 +114,8 @@ No se necesita libreria de metricas -- son calculos aritmeticos simples en un Co
 |------|---------|---------------|
 | Schedule Trigger | Heartbeats, crons periodicos | Every 5 min (monitor), hourly (finance), daily 12:00 UTC (reports) |
 | Webhook | Recibir webhooks de Reveniu/dLocal Go | POST endpoint, validar firma en Code node |
-| Telegram Trigger | Recibir comandos del CEO | Bot token via @BotFather, webhook mode |
-| Telegram | Enviar alertas y reportes | sendMessage, sendDocument (para reportes) |
+| Webhook | Recibir eventos de Discord (si se implementa bot) | Discord Interactions endpoint |
+| HTTP Request | Enviar alertas y reportes via Discord webhook | POST con JSON body (content + embeds) |
 | HTTP Request | Llamar Convex API, health checks, APIs externas | POST con JSON body, headers Content-Type: application/json |
 | Code | Logica de negocio, calculos, transformaciones | JavaScript. Calculos MRR/churn/LTV, formateo de reportes |
 | IF | Branching condicional | Decidir si alertar (si latencia > threshold), routing por tipo de evento |
@@ -133,7 +131,7 @@ No se necesita libreria de metricas -- son calculos aritmeticos simples en un Co
 | zod | ^3.23.x | Validacion de schemas para structured output de Gemini | Definir schema de scoring output, validar payloads | HIGH |
 
 **Librerias a NO instalar en Convex:**
-- `grammy` -- El bot de Telegram se maneja via n8n, no desde Convex
+- `discord.js` -- Las notificaciones de Discord se manejan via webhook desde n8n, no desde Convex
 - `scrapingbee` -- Las llamadas de scraping van desde n8n, no desde Convex actions (los actions tienen timeout de 10s por defecto)
 - `axios` -- Convex actions tienen `fetch` nativo, no se necesita axios
 - `moment`/`dayjs` -- Usar `Date` nativo o `Intl.DateTimeFormat` para timezone Chile
@@ -144,7 +142,7 @@ No se necesita libreria de metricas -- son calculos aritmeticos simples en un Co
 
 | Category | Recommended | Alternative | Why Not |
 |----------|-------------|-------------|---------|
-| Telegram bot | n8n Telegram nodes | grammY en Vercel | Agrega complejidad innecesaria. n8n ya tiene nodos nativos de Telegram. Solo usar grammY si se necesitan conversaciones con estado. |
+| Discord notifications | n8n HTTP Request (webhook) | Discord Bot (discord.js) | Agrega complejidad innecesaria. Webhook es suficiente para alertas unidireccionales. Solo usar bot si se necesitan comandos interactivos. |
 | AI scoring | Gemini 2.5 Flash Lite | Claude Haiku | Mas caro por token. Gemini tiene structured output nativo con JSON Schema. Gemini es la decision ya tomada en el proyecto. |
 | AI scoring | Gemini 2.5 Flash Lite | Gemini 2.0 Flash | Se retira junio 2026. No construir sobre tecnologia con fecha de muerte. |
 | Lead scraping | Firecrawl MCP | Puppeteer self-hosted | Requiere servidor dedicado, mantenimiento, proxy rotation manual. Firecrawl hace todo esto como servicio. |
@@ -160,8 +158,7 @@ No se necesita libreria de metricas -- son calculos aritmeticos simples en un Co
 ```
 SAAN_CONVEX_URL=https://<deployment>.convex.cloud
 SAAN_CONVEX_DEPLOY_KEY=<deploy-key-for-admin-calls>
-TELEGRAM_BOT_TOKEN=<from-@BotFather>
-TELEGRAM_CHAT_ID=<CEO-chat-id>
+DISCORD_WEBHOOK_URL=<from-discord-channel-webhook-settings>
 GEMINI_API_KEY=<from-ai.google.dev>
 REVENIU_SECRET_KEY=<from-reveniu-dashboard>
 FIRECRAWL_API_KEY=<from-firecrawl.dev>
@@ -173,14 +170,13 @@ SCRAPINGBEE_API_KEY=<from-scrapingbee.com>
 GEMINI_API_KEY=<same-key-for-convex-actions>
 ```
 
-### Telegram Bot Setup
+### Discord Webhook Setup
 ```bash
-# 1. Hablar con @BotFather en Telegram
-# 2. /newbot -> nombre: "SAAN CEO Bot" -> username: saan_sisteco_bot
-# 3. Copiar el token
-# 4. Enviar un mensaje al bot desde la cuenta del CEO
-# 5. Obtener chat_id: GET https://api.telegram.org/bot<TOKEN>/getUpdates
-# 6. Configurar en n8n: TELEGRAM_BOT_TOKEN y TELEGRAM_CHAT_ID
+# 1. Abrir Discord -> ir al canal deseado para alertas
+# 2. Editar Canal -> Integraciones -> Webhooks
+# 3. Crear nuevo webhook -> nombrar "Sisteco Alerts"
+# 4. Copiar la URL del webhook
+# 5. Configurar en n8n: DISCORD_WEBHOOK_URL
 ```
 
 ---
@@ -195,18 +191,18 @@ npm install @google/genai zod
 
 ### n8n (no requiere instalacion de paquetes)
 n8n ya incluye todos los nodos necesarios:
-- Telegram, Telegram Trigger (built-in)
+- Discord, Discord Trigger (built-in)
 - HTTP Request (built-in)
 - Schedule Trigger (built-in)
 - Webhook (built-in)
 - Code (built-in, ejecuta JavaScript)
 
-### Telegram Bot (solo configuracion)
+### Discord Webhook (solo configuracion)
 ```bash
 # No hay codigo que instalar. Se configura via:
-# 1. @BotFather en Telegram
-# 2. n8n credential: Telegram API con bot token
-# 3. n8n Telegram Trigger node con webhook
+# 1. Crear webhook en canal Discord
+# 2. Copiar URL del webhook
+# 3. Configurar DISCORD_WEBHOOK_URL en n8n variables
 ```
 
 ---
@@ -220,7 +216,7 @@ n8n ya incluye todos los nodos necesarios:
 | Gemini API | < $1 | 2.5 Flash Lite a $0.10/1M input. Con 1000 scoring calls/mes ~ $0.01 |
 | Firecrawl | $0 | Free tier: 500 credits/mes. Suficiente para 500 scrapes |
 | ScrapingBee | $0 | Free tier: 1000 credits. Suficiente como fallback |
-| Telegram Bot API | $0 | Gratuito siempre |
+| Discord Bot API | $0 | Gratuito siempre |
 | Vercel | $0 - $20 | Ya en uso. Dashboard CEO cabe en free tier |
 | **Total adicional** | **< $1/mes** | Todo cabe en free tiers excepto infra existente |
 
@@ -232,9 +228,9 @@ n8n ya incluye todos los nodos necesarios:
 - [Legacy SDK deprecated](https://github.com/google-gemini/deprecated-generative-ai-js) -- Soporte termina 30 Nov 2025
 - [Gemini API Pricing](https://ai.google.dev/gemini-api/docs/pricing) -- 2.0 Flash se retira junio 2026, usar 2.5 Flash Lite
 - [Gemini Structured Output](https://ai.google.dev/gemini-api/docs/structured-output) -- JSON Schema nativo, compatible con Zod
-- [grammY](https://grammy.dev/) -- v1.41.1, mejor TypeScript que Telegraf
-- [grammY vs otros frameworks](https://grammy.dev/resources/comparison) -- Comparacion oficial
-- [n8n Telegram node docs](https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.telegram/) -- Configuracion nativa
+- [Discord Webhook Guide](https://discord.com/developers/docs/resources/webhook) -- Guia oficial de webhooks
+- [Discord Embed Visualizer](https://discohook.org/) -- Herramienta para previsualizar embeds
+- [Discord Webhooks docs](https://discord.com/developers/docs/resources/webhook) -- Configuracion nativa
 - [n8n HTTP Request node](https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.httprequest/) -- Para Convex API calls
 - [Convex HTTP Actions](https://docs.convex.dev/functions/http-actions) -- Patrones de integracion externa
 - [Convex ConvexHttpClient](https://docs.convex.dev/api/classes/browser.ConvexHttpClient) -- Para apps Node.js standalone

@@ -6,19 +6,19 @@
 
 ## Executive Summary
 
-SAAN's Phase 1 foundation (Convex schema, mutations, dashboard skeleton, n8n orchestrator) is solid and ready for agents to be built on top. The core infrastructure decisions (Convex for reactive state, n8n for orchestration, Telegram for CEO communication) are well-suited for this domain and within the $65/month budget constraint.
+SAAN's Phase 1 foundation (Convex schema, mutations, dashboard skeleton, n8n orchestrator) is solid and ready for agents to be built on top. The core infrastructure decisions (Convex for reactive state, n8n for orchestration, Discord for CEO communication) are well-suited for this domain and within the $65/month budget constraint.
 
 The most critical discovery in this research is a set of technology landmines that must be addressed before building. Google's `@google/generative-ai` SDK is deprecated (support ended Nov 2025) and must be replaced with `@google/genai`. Gemini 2.0 Flash models are being retired June 1, 2026 -- all scoring should use `gemini-2.5-flash-lite` from day one to avoid a forced migration in 3 months. The existing n8n orchestrator uses an incorrect Convex API path (`/api/mutation`) that needs to be replaced with proper HTTP Actions in `convex/http.ts`.
 
-The agent system can be built entirely with existing free-tier services plus the already-budgeted infrastructure. Gemini 2.5 Flash Lite costs < $0.05/month for 100 leads/day scoring. Telegram Bot API is free. Firecrawl free tier covers 200 leads/month. The total additional cost for Phases 2-3 is under $1/month beyond existing infrastructure.
+The agent system can be built entirely with existing free-tier services plus the already-budgeted infrastructure. Gemini 2.5 Flash Lite costs < $0.05/month for 100 leads/day scoring. Discord Webhook API is free. Firecrawl free tier covers 200 leads/month. The total additional cost for Phases 2-3 is under $1/month beyond existing infrastructure.
 
-The biggest operational risks are agent runaway loops (infinite task creation crashing n8n), Convex bandwidth exhaustion from reactive dashboard queries, and Telegram alert fatigue. All three have documented prevention strategies outlined in PITFALLS.md.
+The biggest operational risks are agent runaway loops (infinite task creation crashing n8n), Convex bandwidth exhaustion from reactive dashboard queries, and Discord alert fatigue. All three have documented prevention strategies outlined in PITFALLS.md.
 
 ## Key Findings
 
-**Stack:** Use `@google/genai` v1.43+ with `gemini-2.5-flash-lite` model, n8n native Telegram nodes (not grammY), Convex HTTP Actions for n8n-Convex communication, Firecrawl for lead scraping, Reveniu webhooks for financial data.
+**Stack:** Use `@google/genai` v1.43+ with `gemini-2.5-flash-lite` model, n8n HTTP Request nodes for Discord webhooks, Convex HTTP Actions for n8n-Convex communication, Firecrawl for lead scraping, Reveniu webhooks for financial data.
 
-**Architecture:** "Shared Brain, Independent Limbs" -- Convex as central nervous system, n8n workflows as independent agent executors, ONE Telegram workflow with Switch routing for all commands.
+**Architecture:** "Shared Brain, Independent Limbs" -- Convex as central nervous system, n8n workflows as independent agent executors, ONE Discord notification workflow for all alert types.
 
 **Critical pitfall:** The deprecated Gemini SDK and retiring 2.0 Flash model must be avoided. Building on either creates a forced migration within months.
 
@@ -26,10 +26,10 @@ The biggest operational risks are agent runaway loops (infinite task creation cr
 
 Based on research, suggested phase structure:
 
-1. **Phase 2A: Convex HTTP Layer + Telegram Bot Foundation** (~2-3 days)
-   - Addresses: HTTP Actions gateway, Telegram bot creation, basic commands (/help, /status)
-   - Avoids: Incorrect Convex API pattern pitfall, multiple Telegram workflow pitfall
-   - Rationale: Every agent depends on both the HTTP layer and Telegram for alerts. Must come first.
+1. **Phase 2A: Convex HTTP Layer + Discord Webhook Foundation** (~2-3 days)
+   - Addresses: HTTP Actions gateway, Discord webhook setup, basic notification channels
+   - Avoids: Incorrect Convex API pattern pitfall, multiple notification workflow pitfall
+   - Rationale: Every agent depends on both the HTTP layer and Discord for alerts. Must come first.
 
 2. **Phase 2B: Monitor Agent** (~2-3 days)
    - Addresses: Service heartbeats, critical alerts, daily report, health metric recording
@@ -53,7 +53,7 @@ Based on research, suggested phase structure:
 
 **Phase ordering rationale:**
 - HTTP layer is a hard dependency for all agents (they call Convex via HTTP from n8n)
-- Telegram bot is a hard dependency for all alerts (every agent sends critical alerts)
+- Discord webhook is a hard dependency for all alerts (every agent sends critical alerts)
 - Monitor Agent validates the infrastructure and catches errors during development of other agents
 - Leads and Finance agents are independent and can be built in parallel
 - Learning system needs data from all agents, so it comes last
@@ -70,7 +70,7 @@ Based on research, suggested phase structure:
 | Stack | HIGH | All technologies verified against official docs. SDK deprecation confirmed. Model retirement dates confirmed. |
 | Features | HIGH | Based on existing requirements in PROJECT.md plus standard SaaS patterns. Table stakes are clear. |
 | Architecture | HIGH | Convex HTTP Actions and n8n patterns verified against official documentation. Anti-patterns documented from community sources. |
-| Pitfalls | HIGH | Multiple sources confirm each pitfall. Gemini deprecation from official Google repos. n8n memory issues from Railway community. Telegram limits from official API docs. |
+| Pitfalls | HIGH | Multiple sources confirm each pitfall. Gemini deprecation from official Google repos. n8n memory issues from Railway community. Discord webhook limits from official API docs. |
 
 ## Gaps to Address
 
