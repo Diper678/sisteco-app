@@ -132,5 +132,5 @@ Trabajo completado que se reutiliza directamente:
 ## Session Continuity
 
 Last session: 2026-03-16T22:06:38.417Z
-Stopped at: Completed 04-02 compliance opt-out endpoints (optOut.ts + compliance.ts + http.ts)
+Stopped at: Completed 04-03-PLAN.md — retention crons + privacy footer + smoke test script
 Resume file: None
