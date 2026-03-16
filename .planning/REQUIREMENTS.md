@@ -39,11 +39,11 @@
 
 ### Compliance Ley 21.719 (Transversal)
 
-- [ ] **COMP-01**: Aviso de privacidad en dashboard y comunicaciones
+- [x] **COMP-01**: Aviso de privacidad en dashboard y comunicaciones
 - [ ] **COMP-02**: Registro de bases de datos ante futura Agencia de Proteccion de Datos
 - [ ] **COMP-03**: Mecanismo de opt-out/eliminacion de datos para leads
 - [ ] **COMP-04**: Logging de consentimiento y base legal por lead
-- [ ] **COMP-05**: Politica de retencion de datos (auto-purga configurable)
+- [x] **COMP-05**: Politica de retencion de datos (auto-purga configurable)
 
 ### Infraestructura Base (Reutilizada de SAAN)
 

@@ -3,8 +3,8 @@ gsd_state_version: 1.0
 milestone: v2.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 04-03-PLAN.md — retention crons + privacy footer + smoke test script
-last_updated: "2026-03-16T22:05:48.813Z"
+stopped_at: Completed 04-02 compliance opt-out endpoints (optOut.ts + compliance.ts + http.ts)
+last_updated: "2026-03-16T22:06:38.424Z"
 last_activity: 2026-03-15 — Phase 4 discuss-phase completado — 4 areas, 16 decisiones, adaptado a workflows-first
 progress:
   total_phases: 5
@@ -118,6 +118,9 @@ Trabajo completado que se reutiliza directamente:
 - [Phase 03-05]: n8n webhook non-fatal in dev — _activarPipeline shows success regardless; no N8N_WEBHOOK_URL still completes gracefully
 - [Phase 04]: Retention scan uses by_fechaExpiracion index then filters complianceStatus in handler — Convex no soporta condicion compuesta en un solo indice
 - [Phase 04]: Daily retention crons at 03:00 UTC (scan) and 04:00 UTC (hard-delete) — ventana nocturna Chile, minimal interference con usuarios activos
+- [Phase 04-compliance-21719]: emailHash stores email directly in mutations (V8 runtime lacks crypto.subtle)
+- [Phase 04-compliance-21719]: verifyArcoRequest returns email explicitly — enables opt-out chain without extra query
+- [Phase 04-compliance-21719]: POST /unsubscribe returns 200 even on error — RFC 8058 clients expect silent success
 
 ### Blockers/Concerns
 
@@ -128,6 +131,6 @@ Trabajo completado que se reutiliza directamente:
 
 ## Session Continuity
 
-Last session: 2026-03-16T22:05:06.519Z
-Stopped at: Completed 04-03-PLAN.md — retention crons + privacy footer + smoke test script
+Last session: 2026-03-16T22:06:38.417Z
+Stopped at: Completed 04-02 compliance opt-out endpoints (optOut.ts + compliance.ts + http.ts)
 Resume file: None
