@@ -1,0 +1,44 @@
+{
+  "ceo": {
+    "match": "\\b(ceo|presidente|fundador|founder|owner|co-founder|gerente general|general manager)\\b",
+    "angle_es": "ROI y vision de largo plazo",
+    "cta_es": "15 min para mostrarte los numeros",
+    "value_es": "resultado macro para la empresa"
+  },
+  "cto": {
+    "match": "\\b(cto|director (de )?tecnologia|chief technology|vp (of )?engineering|gerente (de )?ti|head of (tech|engineering))\\b",
+    "angle_es": "stack, integraciones, data",
+    "cta_es": "te muestro la arquitectura en 15 min",
+    "value_es": "integracion con tu stack actual sin rehacer nada"
+  },
+  "sales_director": {
+    "match": "\\b(director comercial|vp (of )?sales|chief revenue|cro|head of sales|director (de )?ventas)\\b",
+    "angle_es": "pipeline, conversion, velocidad",
+    "cta_es": "tengo data de conversion que te va a interesar",
+    "value_es": "leads calificados que tu equipo solo tiene que cerrar"
+  },
+  "sales_manager": {
+    "match": "\\b(gerente (de )?ventas|sales manager|jefe (de )?ventas|subgerente (de )?ventas)\\b",
+    "angle_es": "operaciones, eficiencia, leads calificados",
+    "cta_es": "tu equipo solo habla con los que quieren comprar",
+    "value_es": "automatizar la prospeccion para que vendas mas"
+  },
+  "bizdev": {
+    "match": "\\b(business development|desarrollo (de )?negocios|growth|expansion)\\b",
+    "angle_es": "expansion y nuevos mercados",
+    "cta_es": "automatiza la prospeccion y enfocate en cerrar",
+    "value_es": "pipeline predecible sin esfuerzo manual"
+  },
+  "digital_transformation": {
+    "match": "\\b(transformacion digital|digital transformation|innovacion|innovation|digitalizacion)\\b",
+    "angle_es": "IA aplicada a ventas B2B",
+    "cta_es": "te muestro como la IA ya esta cambiando ventas B2B en Chile",
+    "value_es": "automatizacion inteligente del proceso comercial"
+  },
+  "_default": {
+    "match": ".*",
+    "angle_es": "eficiencia en ventas B2B",
+    "cta_es": "15 minutos para mostrarte como funciona",
+    "value_es": "mas cierres con menos esfuerzo manual"
+  }
+}
