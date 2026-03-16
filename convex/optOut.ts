@@ -14,6 +14,7 @@
 
 import { v } from "convex/values";
 import { internalMutation, internalQuery } from "./_generated/server";
+import { internal } from "./_generated/api";
 
 // ── QUERIES ───────────────────────────────────────────────────────────────────
 
@@ -235,6 +236,32 @@ export const executeGlobalOptOut = internalMutation({
           },
         ],
       });
+    }
+
+    // ── Paso 4: Propagar opt-out al Sheet de cada tenant (async, non-blocking) ─
+    // IMPORTANTE: originalEmail = el parametro `email` recibido, antes de la anonimizacion.
+    // Las patches en el loop reemplazan el campo `email` del lead, no la variable local.
+    // Usamos `email` directamente — es el valor original sin modificar.
+    if (tenantsAfectados.length > 0) {
+      // Propagar eliminacion de fila en Google Sheets
+      await ctx.scheduler.runAfter(
+        0,
+        internal.sheetsPropagation.propagateOptOutToSheets,
+        {
+          email: email,          // email original (no anonimizado)
+          tenantsAfectados,
+        }
+      );
+      // Notificar tenants via Discord para limpieza de CRM
+      await ctx.scheduler.runAfter(
+        0,
+        internal.sheetsPropagation.notifyTenantsOfDeletion,
+        {
+          email: email,
+          tenantsAfectados,
+          reason: "opt_out",
+        }
+      );
     }
 
     return {

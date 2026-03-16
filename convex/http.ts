@@ -348,6 +348,63 @@ const PRIVACIDAD_HTML = `<!DOCTYPE html>
 </body>
 </html>`;
 
+// Pagina de confirmacion exitosa para solicitudes ARCO-POL (no supresion)
+const DERECHOS_CONFIRM_SUCCESS_HTML = `<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solicitud Verificada — Sisteco</title>
+  <style>${SHARED_STYLES}</style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">Sisteco</div>
+    <div class="accent-bar"></div>
+    <h1>Solicitud verificada</h1>
+    <div class="success">
+      <strong>Tu solicitud de derechos ha sido verificada.</strong><br>
+      Nuestro equipo la procesara dentro de 15 dias habiles, conforme a la Ley 21.719.
+    </div>
+    <p style="margin-top: 20px;">
+      Si tienes preguntas adicionales, escribe a <a href="mailto:contacto@sisteco.cl">contacto@sisteco.cl</a>.
+    </p>
+    <div class="footer">
+      Sisteco — Plataforma B2B | contacto@sisteco.cl<br>
+      Protegido bajo Ley 21.719 de Proteccion de Datos Personales
+    </div>
+  </div>
+</body>
+</html>`;
+
+// Pagina de error para token invalido/expirado en solicitudes ARCO-POL
+const DERECHOS_CONFIRM_ERROR_HTML = `<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Error — Sisteco</title>
+  <style>${SHARED_STYLES}</style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">Sisteco</div>
+    <div class="accent-bar"></div>
+    <h1>Enlace invalido</h1>
+    <div class="error">
+      <strong>Token invalido o expirado.</strong><br>
+      El enlace de confirmacion ha expirado o ya fue utilizado. Por favor, inicia el proceso nuevamente.
+    </div>
+    <p style="margin-top: 20px;">
+      <a href="/derechos" style="color: #111111; font-weight: 600;">Volver al formulario de derechos</a>
+    </p>
+    <div class="footer">
+      Sisteco — Plataforma B2B | contacto@sisteco.cl
+    </div>
+  </div>
+</body>
+</html>`;
+
 // ── Route: OPTIONS preflight CORS ─────────────────────────────────────────────
 
 // Preflight para /opt-out
@@ -365,6 +422,18 @@ http.route({
 // Preflight para /derechos
 http.route({
   path: "/derechos",
+  method: "OPTIONS",
+  handler: httpAction(async (_ctx, _request) => {
+    return new Response(null, {
+      status: 204,
+      headers: corsHeaders(),
+    });
+  }),
+});
+
+// Preflight para /derechos/confirm
+http.route({
+  path: "/derechos/confirm",
   method: "OPTIONS",
   handler: httpAction(async (_ctx, _request) => {
     return new Response(null, {
@@ -634,7 +703,70 @@ http.route({
   }),
 });
 
-// ── Route 6: GET /privacidad — Politica de privacidad HTML ───────────────────
+// ── Route 6: GET /derechos/confirm — Verificar token ARCO-POL y disparar triage ──
+// Flujo: verificar token → si supresion ejecutar opt-out → si otro tipo disparar webhook n8n
+// Responde HTML para mostrar confirmacion al titular de datos.
+
+http.route({
+  path: "/derechos/confirm",
+  method: "GET",
+  handler: httpAction(async (ctx, request) => {
+    const url = new URL(request.url);
+    const token = url.searchParams.get("token");
+
+    if (!token) {
+      return new Response(DERECHOS_CONFIRM_ERROR_HTML, {
+        status: 400,
+        headers: { "Content-Type": "text/html; charset=utf-8" },
+      });
+    }
+
+    try {
+      // Verificar token y obtener datos de la solicitud
+      const result = await ctx.runMutation(
+        internal.compliance.verifyArcoRequest,
+        { token }
+      );
+
+      if (!result.verified) {
+        return new Response(DERECHOS_CONFIRM_ERROR_HTML, {
+          status: 400,
+          headers: { "Content-Type": "text/html; charset=utf-8" },
+        });
+      }
+
+      // Si es supresion: ejecutar opt-out global (incluye propagacion a Sheets via scheduler)
+      if (result.tipo === "supresion" && result.email) {
+        await ctx.runMutation(internal.optOut.executeGlobalOptOut, {
+          email: result.email,
+          motivo: "Solicitud ARCO supresion verificada",
+        });
+      } else if (result.email) {
+        // Si es acceso, rectificacion, oposicion, portabilidad, limitacion:
+        // Disparar webhook n8n para triage humano (SLA 15 dias habiles)
+        await ctx.runAction(internal.sheetsPropagation.triggerArcoPolWebhook, {
+          requestId: result.requestId as string,
+          email: result.email,
+          tipo: result.tipo as string,
+          tenantsAfectados: [],
+        });
+      }
+
+      return new Response(DERECHOS_CONFIRM_SUCCESS_HTML, {
+        status: 200,
+        headers: { "Content-Type": "text/html; charset=utf-8" },
+      });
+    } catch (err) {
+      console.error("GET /derechos/confirm error:", err);
+      return new Response(DERECHOS_CONFIRM_ERROR_HTML, {
+        status: 500,
+        headers: { "Content-Type": "text/html; charset=utf-8" },
+      });
+    }
+  }),
+});
+
+// ── Route 7: GET /privacidad — Politica de privacidad HTML ───────────────────
 
 http.route({
   path: "/privacidad",
