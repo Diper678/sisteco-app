@@ -1,0 +1,25 @@
+{
+  "sheetId": null,
+  "sheetUrl": null,
+  "totalLeads": 0,
+  "processedCount": 0,
+  "foundEmails": {
+    "https://linkedin.com/in/pelayo-za%c3%b1artu-lewin-84277a15a": "pelayo.zanartu@emasa.cl",
+    "https://linkedin.com/in/miguel-moya-40465b236": "miguel@amilab.cl",
+    "https://linkedin.com/in/patricio-fern%c3%a1ndez-nova-189747134": "patricio.fernandez@foodpst.com",
+    "https://linkedin.com/in/felipe-marfil-rodr%c3%adguez-a8b22022": "felipe@yourgoal.cl",
+    "https://linkedin.com/in/sebastianeterovic": "seterovic@lucasdiesel.cl",
+    "https://linkedin.com/in/juan-pablo-castro-anabal%c3%b3n-094a125b": "jcastro@kovacs.cl",
+    "https://linkedin.com/in/flor-mu%c3%b1oz-56a2683b": "flor.munoz@dsm-firmenich.com"
+  },
+  "notFound": [
+    "https://linkedin.com/in/rodrigo-calderon-6373b327a",
+    "https://linkedin.com/in/gonzalo-a-gonzalez-oquendo-a64b353b",
+    "https://linkedin.com/in/oscar-barahona-c-7410b231",
+    "https://linkedin.com/in/nelgisarenasg%c3%b3mez"
+  ],
+  "lastLaunchAt": null,
+  "lastCollectAt": "2026-03-16T12:50:10.574Z",
+  "batchSize": 50,
+  "runs": []
+}

@@ -1,0 +1,2976 @@
+{
+  "Achs": {
+    "domain": "achs.cl",
+    "method": "mx-check",
+    "mx": "0 achs-cl.mail.protection.outlook.com."
+  },
+  "ZeroQ": {
+    "domain": "zeroq.cl",
+    "method": "mx-check",
+    "mx": "1 aspmx.l.google.com."
+  },
+  "Dentameet-PacienteFácil": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "CCU": {
+    "domain": "ccu.cl",
+    "method": "mx-check",
+    "mx": "1 ccu2.in.tmes.trendmicro.com."
+  },
+  "Gasvalpo": {
+    "domain": "gasvalpo.cl",
+    "method": "mx-check",
+    "mx": "5 ALT2.ASPMX.L.GOOGLE.COM."
+  },
+  "Mallplaza": {
+    "domain": "mallplaza.cl",
+    "method": "mx-check",
+    "mx": "0 mallplaza-cl.mail.protection.outlook.com."
+  },
+  "mutual de seguros de chile": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "4minds Consulting": {
+    "domain": "4mindsconsulting.cl",
+    "method": "mx-check",
+    "mx": "50 alt4.aspmx.l.google.com."
+  },
+  "BICE VIDA": {
+    "domain": "bicevida.cl",
+    "method": "mx-check",
+    "mx": "0 bicevida-cl.mail.protection.outlook.com."
+  },
+  "Chilquinta Energía S.A.": {
+    "domain": "chilquinta.cl",
+    "method": "mx-check",
+    "mx": "0 chilquinta-cl.mail.protection.outlook.com."
+  },
+  "Summit Agro Chile": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Telhome Chile": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Asimov Consultores®️": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Universidad de Valparaíso": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Minsait": {
+    "domain": "minsait.com",
+    "method": "mx-check",
+    "mx": "10 mx2.hc277-96.eu.iphmx.com."
+  },
+  "Empresas AquaChile": {
+    "domain": "empresasaquachile.cl",
+    "method": "mx-check",
+    "mx": "10 mail.empresasaquachile.cl."
+  },
+  "WOM Chile": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Ranco Cherries": {
+    "domain": "rancocherries.cl",
+    "method": "mx-check",
+    "mx": "10 rancocherries-cl.mail.protection.outlook.com."
+  },
+  "Pontificia Universidad Católica de Valparaíso": {
+    "domain": "pucv.cl",
+    "method": "mx-check",
+    "mx": "10 ALT4.ASPMX.L.GOOGLE.COM."
+  },
+  "Universidad San Sebastián": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Drang": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Garces Fruit": {
+    "domain": "garcesfruit.com",
+    "method": "mx-check",
+    "mx": "0 garcesfruit-com.mail.protection.outlook.com."
+  },
+  "Universidad Adolfo Ibáñez": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Pontificia Universidad Católica de Chile": {
+    "domain": "ucatolica.com",
+    "method": "mx-check",
+    "mx": "0 ."
+  },
+  "Freelance": {
+    "domain": "freelance.com",
+    "method": "mx-check",
+    "mx": "0 freelance-com.mail.protection.outlook.com."
+  },
+  "Falabella": {
+    "domain": "falabella.cl",
+    "method": "mx-check",
+    "mx": "0 falabella-cl.mail.protection.outlook.com."
+  },
+  "Vyax spa": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "GMK Chile": {
+    "domain": "gmkchile.cl",
+    "method": "mx-check",
+    "mx": "0 mail.gmkchile.cl."
+  },
+  "Papa John's Chile": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Dirección de Educación Pública": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Sierra Gorda SCM": {
+    "domain": "sierragordascm.com",
+    "method": "mx-check",
+    "mx": "1 smtp.google.com."
+  },
+  "Agrosuper": {
+    "domain": "agrosuper.cl",
+    "method": "mx-check",
+    "mx": "0 agrosuper-cl.mail.protection.outlook.com."
+  },
+  "MetroMuv": {
+    "domain": "metromuv.cl",
+    "method": "mx-check",
+    "mx": "0 metromuv-cl.mail.protection.outlook.com."
+  },
+  "Clínica Sanatorio Alemán": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Laboratorio Chile | Teva": {
+    "domain": "laboratoriochile.cl",
+    "method": "mx-check",
+    "mx": "10 mx02.tevapharm.com."
+  },
+  "AEROSAN Airport Services S.A.": {
+    "domain": "aerosangroup.com",
+    "method": "mx-check",
+    "mx": "0 aerosangroup-com.mail.protection.outlook.com."
+  },
+  "Universidad de Chile": {
+    "domain": "uchile.cl",
+    "method": "mx-check",
+    "mx": "5 ALT2.ASPMX.L.GOOGLE.COM."
+  },
+  "CODELCO – Corporación Nacional del Cobre de Chile": {
+    "domain": "codelco.cl",
+    "method": "mx-check",
+    "mx": "10 mxb-00391601.gslb.pphosted.com."
+  },
+  "Impulso GTH": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "FarmaLoop": {
+    "domain": "farmaloop.cl",
+    "method": "mx-check",
+    "mx": "0 farmaloop-cl.mail.protection.outlook.com."
+  },
+  "Autofact": {
+    "domain": "autofact.cl",
+    "method": "mx-check",
+    "mx": "10 usb-smtp-inbound-1.mimecast.com."
+  },
+  "Bruno Fritsch": {
+    "domain": "brunofritsch.cl",
+    "method": "mx-check",
+    "mx": "0 brunofritsch-cl.mail.protection.outlook.com."
+  },
+  "Aster Aceleradora": {
+    "domain": "asteraceleradora.com",
+    "method": "mx-check",
+    "mx": "5 alt1.aspmx.l.google.com."
+  },
+  "Primus": {
+    "domain": "primusai.com",
+    "method": "mx-check",
+    "mx": "0 mail.primusai.com."
+  },
+  "Gestiona Consultores": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Itaú Chile": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Mutual de Seguridad": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Clinica Alemana de Santiago": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Transvip Chile": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Uber": {
+    "domain": "ubercom.com",
+    "method": "mx-check",
+    "mx": "0 smtp.secureserver.net."
+  },
+  "Seguros Falabella": {
+    "domain": "segurosfalabella.cl",
+    "method": "mx-check",
+    "mx": "10 mail1.falabella.cl."
+  },
+  "Caja La Araucana": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Rastreosat by Redd": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Duoc UC": {
+    "domain": "duocuc.cl",
+    "method": "mx-check",
+    "mx": "5 alt2.aspmx.l.google.com."
+  },
+  "Securitas Chile": {
+    "domain": "securitaschile.cl",
+    "method": "mx-check",
+    "mx": "5 mail.securitaschile.com."
+  },
+  "Profesional independiente": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Universidad Católica Silva Henríquez (UCSH)": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "BECO BANCO ESTADO SERVICIOS DE COBRANZA": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Santo Tomás": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Apply Digital": {
+    "domain": "applydigital.com",
+    "method": "mx-check",
+    "mx": "5 alt2.aspmx.l.google.com."
+  },
+  "Rent Invest": {
+    "domain": "rent-invest.cl",
+    "method": "mx-check",
+    "mx": "20 mx20.antispam.mailspamprotection.com."
+  },
+  "Universidad Andres Bello": {
+    "domain": "universidadandresbello.com",
+    "method": "mx-check",
+    "mx": "10 mail.computer.com."
+  },
+  "Principal Financial Group": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Instituto de Salud Pública": {
+    "domain": "institutodesaludpublica.com",
+    "method": "mx-check",
+    "mx": "0 mail.institutodesaludpublica.com."
+  },
+  "ProntoPaga": {
+    "domain": "prontopaga.com",
+    "method": "mx-check",
+    "mx": "10 mxb.global.inbound.cf-emailsecurity.net."
+  },
+  "SC Johnson": {
+    "domain": "scjohnson.com",
+    "method": "mx-check",
+    "mx": "10 mxa-004d9501.gslb.pphosted.com."
+  },
+  "Universidad de Las Américas (CL)": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Creaeducativa": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Grupo AV": {
+    "domain": "grupoav.cl",
+    "method": "mx-check",
+    "mx": "5 alt1.aspmx.l.google.com."
+  },
+  "Hospital Clínico Dra. Eloísa Díaz I. La Florida": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Mutual Asesorías": {
+    "domain": "mutualasesorias.cl",
+    "method": "mx-check",
+    "mx": "0 mutualasesorias-cl.mail.protection.outlook.com."
+  },
+  "KaDi Cowork": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Interclínica": {
+    "domain": "redinterclinica.cl",
+    "method": "mx-check",
+    "mx": "5 alt2.aspmx.l.google.com."
+  },
+  "Sourcing": {
+    "domain": "sourcing.cl.com",
+    "method": "mx-check",
+    "mx": "10 mxicorpa.craigslist.org."
+  },
+  "Fondo Esperanza": {
+    "domain": "fondoesperanza.cl",
+    "method": "mx-check",
+    "mx": "5 alt2.aspmx.l.google.com."
+  },
+  "Relque": {
+    "domain": "relque.com",
+    "method": "mx-check",
+    "mx": "10 alt3.aspmx.l.google.com."
+  },
+  "Universidad de Artes, Ciencias y Comunicación": {
+    "domain": "universidaduniacc.cl",
+    "method": "mx-check",
+    "mx": "5 mail.universidaduniacc.cl."
+  },
+  "Derco": {
+    "domain": "derco.cl",
+    "method": "mx-check",
+    "mx": "3 mx08-00031601.pphosted.com."
+  },
+  "BordeSur SpA": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Geofrut": {
+    "domain": "geofrut.cl",
+    "method": "mx-check",
+    "mx": "0 geofrut-cl.mail.protection.outlook.com."
+  },
+  "LATAM Airlines": {
+    "domain": "latamairlines.co",
+    "method": "mx-check",
+    "mx": "10 eforward2.registrar-servers.com."
+  },
+  "Traverso": {
+    "domain": "traverso.cl",
+    "method": "mx-check",
+    "mx": "0 traverso-cl.mail.protection.outlook.com."
+  },
+  "Johnson & Johnson": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Vidrios Dellorto": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Alifrut S.A.": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Universidad de Santiago de Chile": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Fundación Soymás": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Groupe Loyal": {
+    "domain": "groupeloyal.cl",
+    "method": "mx-check",
+    "mx": "0 mail.groupeloyal.cl."
+  },
+  "Transyañez - Logística y distribución": {
+    "domain": "transportesyanez.cl",
+    "method": "mx-check",
+    "mx": "0 mail.transportesyanez.cl."
+  },
+  "Guttemberg Archivos, Cultura y Modernización": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Bupa Chile": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Colgram S.A.": {
+    "domain": "colgramsa.com",
+    "method": "mx-check",
+    "mx": "1 smtp.google.com."
+  },
+  "Empresas Virutex Ilko": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Adobe": {
+    "domain": "adobe.com",
+    "method": "mx-check",
+    "mx": "2 adobe.mail.protection.outlook.com."
+  },
+  "AIJourney®": {
+    "domain": "aijourney.cl",
+    "method": "mx-check",
+    "mx": "5 alt1.aspmx.l.google.com."
+  },
+  "CTEC | Centro Tecnológico para la Innovación en la Construcción": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Fundación País Digital": {
+    "domain": "paisdigital.com",
+    "method": "mx-check",
+    "mx": "25 smtp2.mail.ascio.com."
+  },
+  "Universidad Tecnica Federico Santa Maria": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Chubb": {
+    "domain": "chubb.com",
+    "method": "mx-check",
+    "mx": "10 mx0b-002a5f01.pphosted.com."
+  },
+  "Transición Laboral en People & Partners": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Unnio Seguros Generales": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Dr.MKT": {
+    "domain": "drmktdigital.cl",
+    "method": "mx-check",
+    "mx": "0 drmktdigital.cl."
+  },
+  "Agencia de Aduanas Macowan": {
+    "domain": "macowan.cl",
+    "method": "mx-check",
+    "mx": "1 aspmx.l.google.com."
+  },
+  "ARAUCO": {
+    "domain": "arauco.cl",
+    "method": "mx-check",
+    "mx": "0 arauco-cl.mail.protection.outlook.com."
+  },
+  "Habita Grupo Inmobiliario": {
+    "domain": "habitainmobiliaria.cl",
+    "method": "mx-check",
+    "mx": "5 ALT4.ASPMX.L.GOOGLE.COM."
+  },
+  "Analytics Day DCS Universidad de Chile": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "OTIC del Comercio Servicios y Turismo de Chile.": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Abbott": {
+    "domain": "abbott.com",
+    "method": "mx-check",
+    "mx": "10 mxb-00033b02.gslb.pphosted.com."
+  },
+  "BHP": {
+    "domain": "bhp.com",
+    "method": "mx-check",
+    "mx": "0 mxb-00242401.gslb.pphosted.com."
+  },
+  "IDIEM": {
+    "domain": "idiem.cl",
+    "method": "mx-check",
+    "mx": "10 aspmx3.googlemail.com."
+  },
+  "Distribuidora  Viña  del  Mar  S.A": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "zyxwave": {
+    "domain": "zyxwave.com",
+    "method": "mx-check",
+    "mx": "0 zyxwave.com."
+  },
+  "Ultramar": {
+    "domain": "grupoultramar.com",
+    "method": "mx-check",
+    "mx": "0 grupoultramar.com."
+  },
+  "Zona Franca de Iquique S.A. (ZOFRI S.A.)": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Bagrou": {
+    "domain": "bagrou.com",
+    "method": "mx-check",
+    "mx": "10 alt3.aspmx.l.google.com."
+  },
+  "Grupo Almacruz": {
+    "domain": "almacruz.cl",
+    "method": "mx-check",
+    "mx": "10 aspmx.l.google.com."
+  },
+  "CIC": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "GRUPO CINTAC": {
+    "domain": "grupocintac.com",
+    "method": "mx-check",
+    "mx": "0 grupocintac-com.mail.protection.outlook.com."
+  },
+  "Previred": {
+    "domain": "previred.com",
+    "method": "mx-check",
+    "mx": "0 previred-com.mail.protection.outlook.com."
+  },
+  "Masisa": {
+    "domain": "masisa.cl",
+    "method": "mx-check",
+    "mx": "5 masisa-com-2.fortimailcloud.com."
+  },
+  "TS Group SpA": {
+    "domain": "tsgroup.cl",
+    "method": "mx-check",
+    "mx": "10 alt4.aspmx.l.google.com."
+  },
+  "Watt's": {
+    "domain": "watts.cl",
+    "method": "mx-check",
+    "mx": "0 watts-cl.mail.protection.outlook.com."
+  },
+  "NTT DATA Europe & Latam": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Macronline Software": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "ASICOM": {
+    "domain": "asicom.cl",
+    "method": "mx-check",
+    "mx": "0 vainatec-mx1.titanhq.com."
+  },
+  "Imagine Consulting": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Reutter S.A.": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Latam Trade Capital": {
+    "domain": "latamtradecapital.cl",
+    "method": "mx-check",
+    "mx": "0 latamtradecapital-com.mail.protection.outlook.com."
+  },
+  "Grupo Kaufmann": {
+    "domain": "grupokaufmann.com",
+    "method": "mx-check",
+    "mx": "0 grupokaufmann.in.tmes.trendmicro.com."
+  },
+  "Universidad Central (CL)": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Amisoft": {
+    "domain": "amisoft.cl",
+    "method": "mx-check",
+    "mx": "5 alt2.aspmx.l.google.com."
+  },
+  "Best Place to Live® Store": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Independent": {
+    "domain": "independent.com",
+    "method": "mx-check",
+    "mx": "1 aspmx.l.google.com."
+  },
+  "AVOS Tech | Chile": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Isapre Colmena": {
+    "domain": "isaprecolmena.cl",
+    "method": "mx-check",
+    "mx": "5 alt2.aspmx.l.google.com."
+  },
+  "Hiway": {
+    "domain": "hiwayconsulting.com",
+    "method": "mx-check",
+    "mx": "10 mxavas.forpsi.com."
+  },
+  "Mercado Mayorista Lo Valledor": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Fundación Susana Torrealba": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "FAYA Limitada": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "C&R Consulting SpA": {
+    "domain": "crconsulting.cl",
+    "method": "mx-check",
+    "mx": "0 crconsulting.cl."
+  },
+  "Melon S.A.": {
+    "domain": "melonsa.com",
+    "method": "mx-check",
+    "mx": "10 alt4.aspmx.l.google.com."
+  },
+  "Constructora San Sebastián": {
+    "domain": "constructorasansebastian.cl",
+    "method": "mx-check",
+    "mx": "0 mail.constructorasansebastian.cl."
+  },
+  "Hunter TI": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Grupo Digital Bank": {
+    "domain": "digitalbanktd.com",
+    "method": "mx-check",
+    "mx": "0 digitalbanktd-com.mail.protection.outlook.com."
+  },
+  "Indumotora": {
+    "domain": "indumotora.cl",
+    "method": "mx-check",
+    "mx": "0 indumotora-cl.mail.protection.outlook.com."
+  },
+  "Cencosud S.A.": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Comisión para el Mercado Financiero (CMF)": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Universidad del Desarrollo": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Sendu Multicourier": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Coopeuch": {
+    "domain": "coopeuch.cl",
+    "method": "mx-check",
+    "mx": "0 coopeuch-cl.mail.protection.outlook.com."
+  },
+  "Metaproject S.A": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Lureye Chile": {
+    "domain": "lureyechile.cl",
+    "method": "mx-check",
+    "mx": "0 lureyechile.cl."
+  },
+  "Banco Falabella Chile": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Empresas Demaria S.A.": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Talana": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Essbio": {
+    "domain": "essbio.cl",
+    "method": "mx-check",
+    "mx": "90 essbio-cl.mail.protection.outlook.com."
+  },
+  "Tanner": {
+    "domain": "tanner.cl",
+    "method": "mx-check",
+    "mx": "0 tanner-cl.mail.protection.outlook.com."
+  },
+  "OTIC - Cámara Chilena de la Construcción": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "H2D": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Ocean Analytics": {
+    "domain": "oceananalytics.cl",
+    "method": "mx-check",
+    "mx": "0 oceananalytics-cl.mail.protection.outlook.com."
+  },
+  "Hospitalia Productos Medicos SPA": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Golden Omega": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Constructora Gardilcic": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Walmart Chile": {
+    "domain": "walmartchile.cl",
+    "method": "mx-check",
+    "mx": "10 postman.walmartchile.cl."
+  },
+  "Salinas y Fabres, Salfa": {
+    "domain": "salfachile.cl",
+    "method": "mx-check",
+    "mx": "10 mx10.antispam.mailspamprotection.com."
+  },
+  "Tessi": {
+    "domain": "tessi.cl",
+    "method": "mx-check",
+    "mx": "0 tessi-cl.mail.protection.outlook.com."
+  },
+  "Academia Nacional de Estudios Políticos y Estratégicos": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Radio Pauta": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Metrogas Chile": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Sotta Recovery": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Consilium People Consultores": {
+    "domain": "consiliumpeopleconsultores.cl",
+    "method": "mx-check",
+    "mx": "0 consiliumpeopleconsultores.cl."
+  },
+  "AIEP": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Colegio El Carmen Teresiano La Reina": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "UDD Ventures": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Softys": {
+    "domain": "softysla.com",
+    "method": "mx-check",
+    "mx": "0 mxb-00aa8301.gslb.pphosted.com."
+  },
+  "Zona de Talentos": {
+    "domain": "zonadetalentos.cl",
+    "method": "mx-check",
+    "mx": "10 mail.zonadetalentos.cl."
+  },
+  "Pfizer": {
+    "domain": "pfizer.com",
+    "method": "mx-check",
+    "mx": "10 mxb-00013f02.gslb.pphosted.com."
+  },
+  "El Alto": {
+    "domain": "elalto.cl",
+    "method": "mx-check",
+    "mx": "0 elalto-cl.mail.protection.outlook.com."
+  },
+  "OCIDES Foundation": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Careyou": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Tepsac S.A": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Project Management Institute (PMI)": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "MetLife Chile": {
+    "domain": "metlifechile.cl",
+    "method": "mx-check",
+    "mx": "10 sm5.metlifechile.cl."
+  },
+  "SONDA": {
+    "domain": "sonda.com",
+    "method": "mx-check",
+    "mx": "10 sonda-com.mail.protection.outlook.com."
+  },
+  "Engel & Völkers Chile": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Achs Seguro Laboral": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Parque Arauco": {
+    "domain": "parquearauco.cl",
+    "method": "mx-check",
+    "mx": "10 inbound-smtp.us-east-1.amazonaws.com."
+  },
+  "Wabtec Corporation": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "CMPC": {
+    "domain": "somoscmpc.cl",
+    "method": "mx-check",
+    "mx": "5 alt1.aspmx.l.google.com."
+  },
+  "Natura": {
+    "domain": "natura.cl",
+    "method": "mx-check",
+    "mx": "10 inbound-smtp.us-east-1.amazonaws.com."
+  },
+  "Remax Start": {
+    "domain": "remax-start.cl",
+    "method": "mx-check",
+    "mx": "0 remax-start.cl."
+  },
+  "Instituto Profesional IACC": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Congreso Nacional de Chile": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Lider Bci": {
+    "domain": "liderbci.cl",
+    "method": "mx-check",
+    "mx": "1 smtp.google.com."
+  },
+  "TecnoRed S.A": {
+    "domain": "tecnoredsa.com",
+    "method": "mx-check",
+    "mx": "10 mx.serviciodecorreo.es."
+  },
+  "Galilea S.A.": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "SMU S.A. (Unimarc, M10, Alvi, y Super10)": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "DRYER": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "BancoEstado": {
+    "domain": "bancoestado.cl",
+    "method": "mx-check",
+    "mx": "10 mx1.hc4951-2.iphmx.com."
+  },
+  "ISI Dublin - English Language School": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Chileatiende": {
+    "domain": "chileatiende.cl",
+    "method": "mx-check",
+    "mx": "10 mxb-00791801.gslb.pphosted.com."
+  },
+  "VOENS": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "IT Hunter": {
+    "domain": "ithunter.cl",
+    "method": "mx-check",
+    "mx": "1 mail.ithunter.cl."
+  },
+  "ENGIE Chile": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "The Blue Commerce Consulting": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Genesys": {
+    "domain": "genesys.cl",
+    "method": "mx-check",
+    "mx": "0 genesys-cl.mail.protection.outlook.com."
+  },
+  "IDEAL S.A.": {
+    "domain": "idealsa.com",
+    "method": "mx-check",
+    "mx": "90 idealsa-com.mail.protection.outlook.com."
+  },
+  "TWGroup": {
+    "domain": "twgroup.cl",
+    "method": "mx-check",
+    "mx": "1 aspmx.l.google.com."
+  },
+  "Asesorias Tecnologicas Especializadas": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "E-lixir": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "GrupoTusMaquinas.com": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "FAM Minerals & Mining": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Laboratorio de Gobierno": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Fetén Consulting": {
+    "domain": "fetenconsulting.cl",
+    "method": "mx-check",
+    "mx": "0 fetenconsulting.cl."
+  },
+  "Acertare": {
+    "domain": "acertare.com",
+    "method": "mx-check",
+    "mx": "0 acertare-com.mail.protection.outlook.com."
+  },
+  "Cámara Chilena de la Construcción": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Veeam Software": {
+    "domain": "veeamsoftware.com",
+    "method": "mx-check",
+    "mx": "10 smtp1.byte.nl."
+  },
+  "DIMER SA": {
+    "domain": "dimer-sa.com",
+    "method": "mx-check",
+    "mx": "0 _dc-mx.1e9623dbd962.dimer-sa.com."
+  },
+  "Abenis Consultores": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Grupo Falabella": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "ESVAL S.A.": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Spm Administración y Asesorías SpA": {
+    "domain": "spmadministracion.cl",
+    "method": "mx-check",
+    "mx": "10 alt4.aspmx.l.google.com."
+  },
+  "Isapre Esencial": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Viña Viu Manent": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "TINET S.A.": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Agricultural and Livestock Service of Chile (SAG)": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Clínica Universidad de los Andes": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Fundación Educacional Docere": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Profesional Independiente": {
+    "domain": "tytconsultores.cl",
+    "method": "mx-check",
+    "mx": "0 mail.tytconsultores.cl."
+  },
+  "Molymet": {
+    "domain": "molymet.cl",
+    "method": "mx-check",
+    "mx": "0 molymet-cl.mail.protection.outlook.com."
+  },
+  "inmobiliaria y constructora nueva pacifico sur limitada": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "INACAP": {
+    "domain": "inacap.cl",
+    "method": "mx-check",
+    "mx": "0 inacap-cl.mail.protection.outlook.com."
+  },
+  "Geely Motor Chile": {
+    "domain": "geelychile.cl",
+    "method": "mx-check",
+    "mx": "0 geelychile-cl.mail.protection.outlook.com."
+  },
+  "ENGIE Perú": {
+    "domain": "engieperu.com",
+    "method": "mx-check",
+    "mx": "0 ."
+  },
+  "Escuela de Negocios UAI": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Vorwerk - Chile": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Desafío Latam": {
+    "domain": "desafiolatam.cl",
+    "method": "mx-check",
+    "mx": "5 alt2.aspmx.l.google.com."
+  },
+  "Logicalis": {
+    "domain": "logicalis.com",
+    "method": "mx-check",
+    "mx": "0 logicalis-com.mail.protection.outlook.com."
+  },
+  "PHD Ingeniería y Construcción": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Equans Chile": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "COLUN": {
+    "domain": "colun.cl",
+    "method": "mx-check",
+    "mx": "10 smtp.google.com."
+  },
+  "Coca-Cola Andina": {
+    "domain": "cocacolaandina.com",
+    "method": "mx-check",
+    "mx": "10 inbound-smtp.us-east-1.amazonaws.com."
+  },
+  "Corporación Municipal de Desarrollo Social de Pudahuel": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Laboratorio de Innovación Pública": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "OLX": {
+    "domain": "olxgroup.com",
+    "method": "mx-check",
+    "mx": "10 alt4.aspmx.l.google.com."
+  },
+  "PlanOK Latam": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Maxservice ": {
+    "domain": "maxservice.cl",
+    "method": "mx-check",
+    "mx": "0 mail.maxservice.cl."
+  },
+  "Consultor independiente": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "VTEX": {
+    "domain": "vtex.com",
+    "method": "mx-check",
+    "mx": "10 alt4.aspmx.l.google.com."
+  },
+  "NotCo": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Constructora e Inmobiliaria Cerro Bayo": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Soprole": {
+    "domain": "soprole.cl",
+    "method": "mx-check",
+    "mx": "0 soprole-cl.mail.eo.outlook.com."
+  },
+  "2WIN": {
+    "domain": "2win.cl",
+    "method": "mx-check",
+    "mx": "1 aspmx.l.google.com."
+  },
+  "Ricoh Latin America Inc": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Netline": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Amazon Web Services (AWS)": {
+    "domain": "amazonwebservices.cl",
+    "method": "mx-check",
+    "mx": "0 amazonwebservices.cl."
+  },
+  "Workmate": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Lean Institute Chile": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Transforma360°": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "MILA Connect Chile": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Gobierno Regional de Valparaíso": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "TD Chile | Digital Business": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Gama Mobility": {
+    "domain": "gamamobility.cl",
+    "method": "mx-check",
+    "mx": "0 gamamobility-cl.mail.protection.outlook.com."
+  },
+  "Atenea Group SpA": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "servicio de salud vina del mar quillota": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Travel Security S.A.": {
+    "domain": "travelsecurity.cl",
+    "method": "mx-check",
+    "mx": "5 smtp1.security.cl."
+  },
+  "Bata Chile": {
+    "domain": "batachile.com",
+    "method": "mx-check",
+    "mx": "1 smtp.google.com."
+  },
+  "B. Braun Group": {
+    "domain": "bbraungroup.com",
+    "method": "mx-check",
+    "mx": "10 mxa-00163d02.gslb.pphosted.com."
+  },
+  "AFP HABITAT": {
+    "domain": "afphabitat.cl",
+    "method": "mx-check",
+    "mx": "0 afphabitat-cl.mail.protection.outlook.com."
+  },
+  "SPGO Business Intelligence": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "RightCom": {
+    "domain": "rightcom.cl",
+    "method": "mx-check",
+    "mx": "2 alt2.aspmx.l.google.com."
+  },
+  "ENAP": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "S3 Groups": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Municipalidad de Arica": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Lifestyle and Wellness": {
+    "domain": "lifestyleandwellness.cl",
+    "method": "mx-check",
+    "mx": "1 aspmx.l.google.com."
+  },
+  "Universidad Andrés Bello": {
+    "domain": "universidadandresbello.com",
+    "method": "mx-check",
+    "mx": "10 mail.computer.com."
+  },
+  "Ministerio de Desarrollo Social de Chile": {
+    "domain": "ministeriodedesarrollosocial.cl",
+    "method": "mx-check",
+    "mx": "10 mail.ministeriodedesarrollosocial.cl."
+  },
+  "Infracommerce": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Inmobiliaria Imagina Chile": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Headhunter Digital": {
+    "domain": "headhunterdigital.com",
+    "method": "mx-check",
+    "mx": "10 mx-02.mail-forwarder.io."
+  },
+  "Telefónica": {
+    "domain": "telefonica.cl",
+    "method": "mx-check",
+    "mx": "10 smtp.telefonica.cl."
+  },
+  "GPR Constructora & Inmobiliaria": {
+    "domain": "gprinmobiliaria.cl",
+    "method": "mx-check",
+    "mx": "10 mail.ingesoft.net."
+  },
+  "astara": {
+    "domain": "astara.com",
+    "method": "mx-check",
+    "mx": "0 astara-com.mail.protection.outlook.com."
+  },
+  "Matanzilla": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "TDX Transformación Digital": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "NEURONIA": {
+    "domain": "neuronia.cl",
+    "method": "mx-check",
+    "mx": "10 ALT4.ASPMX.L.GOOGLE.COM."
+  },
+  "Bupa Seguros": {
+    "domain": "seguros-bupa.cl",
+    "method": "mx-check",
+    "mx": "10 mail.seguros-bupa.cl."
+  },
+  "Virgin Mobile Latam": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Servicio Local de Educación Pública Petorca (SLEP Petorca)": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "U-Payments Company S.A": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Principado de Asturias": {
+    "domain": "principadodeasturias.com",
+    "method": "mx-check",
+    "mx": "10 mail.principadodeasturias.com."
+  },
+  "Entel": {
+    "domain": "entel.cl",
+    "method": "mx-check",
+    "mx": "0 entel-cl.mail.protection.outlook.com."
+  },
+  "Banco de Chile": {
+    "domain": "banco-de-chile.com",
+    "method": "mx-check",
+    "mx": "10 park-mx.above.com."
+  },
+  "PMG Chile": {
+    "domain": "pmgchile.com",
+    "method": "mx-check",
+    "mx": "0 pmgchile-com.mail.eo.outlook.com."
+  },
+  "Freelancer": {
+    "domain": "freelancer.cl",
+    "method": "mx-check",
+    "mx": "20 alt1.aspmx.l.google.com."
+  },
+  "Starco|Demarco": {
+    "domain": "starcodemarco.cl",
+    "method": "mx-check",
+    "mx": "0 starcodemarco-cl.mail.protection.outlook.com."
+  },
+  "Intellegere Data Driven Mining Solutions": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Empresa de los Ferrocarriles del Estado - Grupo EFE": {
+    "domain": "efetrenesdechile.cl",
+    "method": "mx-check",
+    "mx": "0 efetrenesdechile-cl.mail.protection.outlook.com."
+  },
+  "Freelance (Self employed)": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "CBpay": {
+    "domain": "cbpay.co",
+    "method": "mx-check",
+    "mx": "url.gname.net."
+  },
+  "IA-Solutions": {
+    "domain": "iasoluts.com",
+    "method": "mx-check",
+    "mx": "0 iasoluts-com.mail.protection.outlook.com."
+  },
+  "Key One": {
+    "domain": "keyoneconsulting.com",
+    "method": "mx-check",
+    "mx": "10 eforward2.registrar-servers.com."
+  },
+  "Generadora Metropolitana": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Nike": {
+    "domain": "nike.com",
+    "method": "mx-check",
+    "mx": "10 mxb-001b6002.gslb.pphosted.com."
+  },
+  "Newrest": {
+    "domain": "newrest.com",
+    "method": "mx-check",
+    "mx": "10 newrest-com.mail.protection.outlook.com."
+  },
+  "Bci Seguros": {
+    "domain": "bciseguros.cl",
+    "method": "mx-check",
+    "mx": "10 bciseguros-cl-1.fortimailcloud.com."
+  },
+  "DinamIA Labs": {
+    "domain": "dinamialabs.com",
+    "method": "mx-check",
+    "mx": "1 aspmx.l.google.com."
+  },
+  "Huawei": {
+    "domain": "huawei.com",
+    "method": "mx-check",
+    "mx": "30 mx9.his.huawei.com."
+  },
+  "Apiux Tech": {
+    "domain": "api-ux.com",
+    "method": "mx-check",
+    "mx": "5 alt2.aspmx.l.google.com."
+  },
+  "Kodea NGO": {
+    "domain": "kodea.com",
+    "method": "mx-check",
+    "mx": "0 ."
+  },
+  "Enel Group": {
+    "domain": "enelgroup.com",
+    "method": "mx-check",
+    "mx": "1 aspmx.l.google.com."
+  },
+  "IT SOLUTION SPA": {
+    "domain": "itsolutionspa.com",
+    "method": "mx-check",
+    "mx": "0 itsolutionspa-com.mail.protection.outlook.com."
+  },
+  "Cristalchile": {
+    "domain": "cristalchile.cl",
+    "method": "mx-check",
+    "mx": "0 cristalchile-cl.mail.protection.outlook.com."
+  },
+  "Mastercard": {
+    "domain": "mastercard.cl",
+    "method": "mx-check",
+    "mx": "10 mail.global.frontbridge.com."
+  },
+  "CANNON HOME": {
+    "domain": "cannonhome.cl",
+    "method": "mx-check",
+    "mx": "0 cannonhome-cl.mail.protection.outlook.com."
+  },
+  "Comercializadora e Inversiones DOB": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Penta Financiero S.A.": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Municipalidad de Las Condes": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Enaex": {
+    "domain": "enaex.cl",
+    "method": "mx-check",
+    "mx": "5 enaex-cl.mail.eo.outlook.com."
+  },
+  "Superintendencia de Electricidad y Combustibles": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "JetSMART Airlines": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "RIGroup Consulting": {
+    "domain": "rigroupconsulting.cl",
+    "method": "mx-check",
+    "mx": "10 mx2.hostinger.com."
+  },
+  "ITSolutions S.A.": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Syncore": {
+    "domain": "syncore.cl",
+    "method": "mx-check",
+    "mx": "0 syncore-cl.mail.protection.outlook.com."
+  },
+  "NTT DATA, Inc.": {
+    "domain": "ntt-data-inc.com",
+    "method": "mx-check",
+    "mx": "0 smtp.secureserver.net."
+  },
+  "Molino Victoria | Industria: Alimentación | Molinería | Producción Industrial": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Oracle": {
+    "domain": "oracle.com",
+    "method": "mx-check",
+    "mx": "20 mxa-00069f01.gslb.pphosted.com."
+  },
+  "Capital Express": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "E-Iturrieta Automatizacion y Eficiencia Energetica ": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Enel Chile": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Logistica y Soluciones": {
+    "domain": "logisticaysoluciones.cl",
+    "method": "mx-check",
+    "mx": "0 logisticaysoluciones.cl."
+  },
+  "C&E Servicios Spa": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Universidad Bernardo O'Higgins": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Animal Care - ACWS": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Data Tech": {
+    "domain": "datatech.cl",
+    "method": "mx-check",
+    "mx": "5 ALT2.ASPMX.L.GOOGLE.com."
+  },
+  "Socovesa Santiago": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Puerto Chile": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Putitin Chile": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "RedSalud CCHC": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "EL VOLCAN CHILE": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Digital Bank": {
+    "domain": "digitalbank.cl",
+    "method": "mx-check",
+    "mx": "0 _dc-mx.06c1b2079317.digitalbank.cl."
+  },
+  "Autopista Vespucio Norte": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Kampium": {
+    "domain": "kampium.cl",
+    "method": "mx-check",
+    "mx": "5 alt2.aspmx.l.google.com."
+  },
+  "SURA Investments": {
+    "domain": "surainvestments.com",
+    "method": "mx-check",
+    "mx": "0 surainvestments-com.mail.protection.outlook.com."
+  },
+  "KPMG Chile": {
+    "domain": "kpmgchile.cl",
+    "method": "mx-check",
+    "mx": "4 mxa-00120b03.gslb.pphosted.com."
+  },
+  "Optima Consulting": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "DevExtreme": {
+    "domain": "devextreme.cl",
+    "method": "mx-check",
+    "mx": "5 alt1.aspmx.l.google.com."
+  },
+  "Grupo Antofagasta Minerals": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Ultracción": {
+    "domain": "ultraccion.cl",
+    "method": "mx-check",
+    "mx": "10 alt4.aspmx.l.google.com."
+  },
+  "MACHBANK": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Asociación Nacional Automotriz de Chile (ANAC A.G)": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Banco Ripley Chile": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Weir Minerals": {
+    "domain": "weirminerals.cl",
+    "method": "mx-check",
+    "mx": "10 weirminerals-cl.mail.protection.outlook.com."
+  },
+  "Superintendencia de Pensiones": {
+    "domain": "superintendenciadepensiones.cl",
+    "method": "mx-check",
+    "mx": "40 mnx.spensiones.cl."
+  },
+  "Wyndham Pettra Hoteles": {
+    "domain": "wyndhampettra.cl",
+    "method": "mx-check",
+    "mx": "10 mx2.hostinger.com."
+  },
+  "Metro de Santiago S.A.": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Toku": {
+    "domain": "trytoku.com",
+    "method": "mx-check",
+    "mx": "1 aspmx.l.google.com."
+  },
+  "Zenta Group": {
+    "domain": "zentagroup.com",
+    "method": "mx-check",
+    "mx": "20 alt2.aspmx.l.google.com."
+  },
+  "Luvisoft Spa": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Gauss Control": {
+    "domain": "gausscontrol.com",
+    "method": "mx-check",
+    "mx": "10 aspmx.l.google.com."
+  },
+  "Consultoría tecnológica": {
+    "domain": "consultoriatecnologica.com",
+    "method": "mx-check",
+    "mx": "0 consultoriatecnologica.com."
+  },
+  "ASTEC": {
+    "domain": "astec.cl",
+    "method": "mx-check",
+    "mx": "0 astec.cl."
+  },
+  "Maquila de envases y servicios logísticos M3 ltda.": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Resiter": {
+    "domain": "resiter.cl",
+    "method": "mx-check",
+    "mx": "0 resiter-cl.mail.protection.outlook.com."
+  },
+  "Compás AgroSistemas": {
+    "domain": "compasagrosistemas.cl",
+    "method": "mx-check",
+    "mx": "1 smtp.google.com."
+  },
+  "MetLife": {
+    "domain": "metlife.cl",
+    "method": "mx-check",
+    "mx": "100 mx1.hc1983-11.iphmx.com."
+  },
+  "Tata Consultancy Services": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "St. Andrews Mussels": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Centro de Innovación Tecnológica de la Armada": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Oh my coockie": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Nestlé": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Ingram Micro Chile": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "E2E": {
+    "domain": "e2echile.com",
+    "method": "mx-check",
+    "mx": "5 alt2.aspmx.l.google.com."
+  },
+  "Grupo Saesa": {
+    "domain": "saesa.cl",
+    "method": "mx-check",
+    "mx": "0 saesa-cl.mail.protection.outlook.com."
+  },
+  "Catena Ingeniería y Servicios": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Defontana Chile": {
+    "domain": "defontanachile.com",
+    "method": "mx-check",
+    "mx": "1 smtp.google.com."
+  },
+  "Arcos Dorados": {
+    "domain": "arcosdorados.com",
+    "method": "mx-check",
+    "mx": "0 arcosdorados-com.mail.protection.outlook.com."
+  },
+  "Capitalizarme": {
+    "domain": "capitalizarme.com",
+    "method": "mx-check",
+    "mx": "5 alt2.aspmx.l.google.com."
+  },
+  "TG Go": {
+    "domain": "tggo.com",
+    "method": "mx-check",
+    "mx": "5 mail.h-email.net."
+  },
+  "Emprende.cl": {
+    "domain": "emprendecl.com",
+    "method": "mx-check",
+    "mx": "30 mx30.antispam.mailspamprotection.com."
+  },
+  "Vela Sustainability Technologies": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Banco Bci": {
+    "domain": "bci.cl",
+    "method": "mx-check",
+    "mx": "10 alt4.aspmx.l.google.com."
+  },
+  "D.G.A.C. (Dirección General de Aeronáutica Civil) Chile": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "SoapBomberos.cl": {
+    "domain": "soapbomberos.cl",
+    "method": "mx-check",
+    "mx": "0 smtp.google.com."
+  },
+  "Universidad de Concepción": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Tottus": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Cebra 🦓": {
+    "domain": "cebra.cl",
+    "method": "mx-check",
+    "mx": "10 alt3.aspmx.l.google.com."
+  },
+  "StrategicPartner SpA": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Consorcio": {
+    "domain": "consorcio.cl",
+    "method": "mx-check",
+    "mx": "0 consorcio-cl.mail.protection.outlook.com."
+  },
+  "Penta Vida": {
+    "domain": "pentavida.cl",
+    "method": "mx-check",
+    "mx": "40 pentavida-cl.mail.protection.outlook.com."
+  },
+  "Echeverría Izquierdo S.A": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "GeoVictoria": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Microsystem S.A.": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Kaufmann Chile": {
+    "domain": "kaufmann.cl",
+    "method": "mx-check",
+    "mx": "10 mxb.mailgun.org."
+  },
+  "Conosur Corredores de Seguros y Reaseguros": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "ICB Food Service": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "PorProfesParaProfes®": {
+    "domain": "porprofesparaprofes.com",
+    "method": "mx-check",
+    "mx": "5 alt1.aspmx.l.google.com."
+  },
+  "Anglo American": {
+    "domain": "angloamerican.cl",
+    "method": "mx-check",
+    "mx": "0 mail.angloamerican.cl."
+  },
+  "GNL Quintero": {
+    "domain": "gnlquintero.cl",
+    "method": "mx-check",
+    "mx": "1 gnlquintero-cl.mail.protection.outlook.com."
+  },
+  "P&V Consultores": {
+    "domain": "pvconsultores.com",
+    "method": "mx-check",
+    "mx": "1 pvconsultores.com."
+  },
+  "HF Servicios y Asesorías": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Cleo Consulting Group": {
+    "domain": "cleoconsultinggroup.com",
+    "method": "mx-check",
+    "mx": "0 cleoconsultinggroup-com.mail.protection.outlook.com."
+  },
+  "GeForce NOW powered by Digevo": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Anagra S.A.": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Turistik": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Somax": {
+    "domain": "somax.cl",
+    "method": "mx-check",
+    "mx": "10 alt3.aspmx.l.google.com."
+  },
+  "INROPLAS CHILE": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Digitech Solutions S.A": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "FirmaVirtual": {
+    "domain": "firmavirtual.cl",
+    "method": "mx-check",
+    "mx": "0 mail.firmavirtual.cl."
+  },
+  "Treck S.A.": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Smartycar": {
+    "domain": "smartycar.cl",
+    "method": "mx-check",
+    "mx": "0 smartycar-cl.mail.protection.outlook.com."
+  },
+  "FOSIS": {
+    "domain": "fosis.cl",
+    "method": "mx-check",
+    "mx": "5 fosis-gob-cl.mail.protection.outlook.com."
+  },
+  "Transportes San Gabriel Ltda": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Rentokil initial Chile": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Santander": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Ecert": {
+    "domain": "ecertchile.cl",
+    "method": "mx-check",
+    "mx": "10 ms91909799.msv1.invalid."
+  },
+  "CFT Estatal Región de Valparaíso": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "SalfaCorp": {
+    "domain": "salfacorp.cl",
+    "method": "mx-check",
+    "mx": "10 alt4.aspmx.l.google.com."
+  },
+  "SQM Litio": {
+    "domain": "sqmlitio.com",
+    "method": "mx-check",
+    "mx": "0 sqmlitio-com.mail.protection.outlook.com."
+  },
+  "Peluquerias Integrales S A": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "BancoEstado Microempresas": {
+    "domain": "bancoestadomicroempresas.cl",
+    "method": "mx-check",
+    "mx": "5 mfilter.bancoestadomicroempresas.cl."
+  },
+  "Komatsu Chile": {
+    "domain": "komatsu-chile.cl",
+    "method": "mx-check",
+    "mx": "10 alt3.aspmx.l.google.com."
+  },
+  "ISDIN": {
+    "domain": "isdin.cl",
+    "method": "mx-check",
+    "mx": "10 mail.isdin.cl."
+  },
+  "Imagemaker": {
+    "domain": "imagemaker.cl",
+    "method": "mx-check",
+    "mx": "5 alt21.aspmx.l.google.com."
+  },
+  "Collahuasi": {
+    "domain": "collahuasi.cl",
+    "method": "mx-check",
+    "mx": "1 mxa-00571201.gslb.pphosted.com."
+  },
+  "Complejo Hospitalario San José": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Clínica Las Condes": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Hospital Dr. Guillermo Grant Benavente": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "ATN - Sociedad de Directores Audiovisuales, Guionistas y Dramaturgos": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "AFC Chile": {
+    "domain": "afcchile.cl",
+    "method": "mx-check",
+    "mx": "10 afc-cl.mail.protection.outlook.com."
+  },
+  "I. Municipalidad de Valparaíso": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Clínica INDISA": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Americar": {
+    "domain": "americargroup.com",
+    "method": "mx-check",
+    "mx": "0 americargroup-com.mail.protection.outlook.com."
+  },
+  "Rocketcar": {
+    "domain": "rocketcar.com",
+    "method": "mx-check",
+    "mx": "10 mail.computer.com."
+  },
+  "Inmobiliaria Costanera Pacífico": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Primus Capital Chile": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "BBR SpA": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Epysa Implementos Chile": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "HSBC": {
+    "domain": "hsbc.com",
+    "method": "mx-check",
+    "mx": "10 mxa-00299f02.gslb.pphosted.com."
+  },
+  "Augure": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "ARDUUM - Consultoría en Transformación Digital y Gestión Tecnológica": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Facultad de Comunicaciones Universidad del Desarrollo": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Wildnet Group": {
+    "domain": "wildnetgroup.cl",
+    "method": "mx-check",
+    "mx": "1 aspmx.l.google.com."
+  },
+  "Addval": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Golead": {
+    "domain": "golead.cl",
+    "method": "mx-check",
+    "mx": "5 alt1.aspmx.l.google.com."
+  },
+  "Digital Education Council": {
+    "domain": "digitaleducationcouncil.com",
+    "method": "mx-check",
+    "mx": "5 alt2.aspmx.l.google.com."
+  },
+  "bCoord": {
+    "domain": "bcoord.cl",
+    "method": "mx-check",
+    "mx": "10 alt3.aspmx.l.google.com."
+  },
+  "Ministerio de Economía, Fomento y Turismo": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "BCTEC - Engineering and Technology": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Schneider Electric": {
+    "domain": "schneider-electric.com",
+    "method": "mx-check",
+    "mx": "10 de-smtp-inbound-2.mimecast.com."
+  },
+  "BC Tecnología": {
+    "domain": "bctecnologia.com",
+    "method": "mx-check",
+    "mx": "0 bctecnologia-com.mail.protection.outlook.com."
+  },
+  "Pharmagroup S.A.": {
+    "domain": "pharmagroupsa.com",
+    "method": "mx-check",
+    "mx": "10 mx2246220.spe.ucebox.co.za."
+  },
+  "Optimiza Soluciones": {
+    "domain": "optimizasoluciones.cl",
+    "method": "mx-check",
+    "mx": "0 optimizasoluciones-cl.mail.protection.outlook.com."
+  },
+  "Ministerio de Agricultura - Chile": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Colegio Santa Cruz Chicureo": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "SQM Industrial S.A.": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "hiberus": {
+    "domain": "hiberus.com",
+    "method": "mx-check",
+    "mx": "10 mxb-00952b01.gslb.pphosted.com."
+  },
+  "ORSAN Seguros": {
+    "domain": "orsanseguros.cl",
+    "method": "mx-check",
+    "mx": "30 aspmx5.googlemail.com."
+  },
+  "Ripley Chile": {
+    "domain": "ripley.cl",
+    "method": "mx-check",
+    "mx": "10 ripley.in.tmes.trendmicro.com."
+  },
+  "Tattersall": {
+    "domain": "tattersall.cl",
+    "method": "mx-check",
+    "mx": "5 tattersall-cl.mail.protection.outlook.com."
+  },
+  "CASTAÑO": {
+    "domain": "castano.cl",
+    "method": "mx-check",
+    "mx": "10 castano-cl.mail.protection.outlook.com."
+  },
+  "Comaco Grúas": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Corporación Municipal de La Florida": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Greenti | Commerce Solutions": {
+    "domain": "greenti.cl",
+    "method": "mx-check",
+    "mx": "10 aspmx2.googlemail.com."
+  },
+  "Ucampus, Facultad de Ingeniería, Universidad de Chile.": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "CGE S.A.": {
+    "domain": "grupocge.cl",
+    "method": "mx-check",
+    "mx": "0 grupocge-cl.mail.protection.outlook.com."
+  },
+  "Reale Seguros": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Patagonia Elevate SpA": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Smart Suites": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Gtd Chile": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Zurich Santander Insurance America": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Pluxee Chile": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Advisor": {
+    "domain": "advisor.cl",
+    "method": "mx-check",
+    "mx": "5 alt2.aspmx.l.google.com."
+  },
+  "COPEC S.A.": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Tiza Consulting": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "SKY Airline": {
+    "domain": "skyairline.com",
+    "method": "mx-check",
+    "mx": "0 skyairline-com.mail.protection.outlook.com."
+  },
+  "AFP PlanVital": {
+    "domain": "afpplanvital.cl",
+    "method": "mx-check",
+    "mx": "10 mail.afpplanvital.cl."
+  },
+  "Telefónica Tech": {
+    "domain": "telefonicatech.net",
+    "method": "mx-check",
+    "mx": "10 eu-smtp-inbound-1.mimecast.com."
+  },
+  "Financoop": {
+    "domain": "financoop.cl",
+    "method": "mx-check",
+    "mx": "0 financoop-cl.mail.protection.outlook.com."
+  },
+  "Marley Coffee Chile": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "uPlanner": {
+    "domain": "uplanner.com",
+    "method": "mx-check",
+    "mx": "1 smtp.google.com."
+  },
+  "Independent Consultant": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Hitachi Energy": {
+    "domain": "hitachienergy.com",
+    "method": "mx-check",
+    "mx": "10 hitachienergy-com.mail.protection.outlook.com."
+  },
+  "Camanchaca SA": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "CleverIT Group": {
+    "domain": "cleveritgroup.com",
+    "method": "mx-check",
+    "mx": "0 cleveritgroup-com.mail.protection.outlook.com."
+  },
+  "bildit.cl": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Compañía Pisquera de Chile - CCU": {
+    "domain": "cpch.cl",
+    "method": "mx-check",
+    "mx": "1 ccu2.in.tmes.trendmicro.com."
+  },
+  "DHL Express": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "PwC Chile": {
+    "domain": "pwcchile.com",
+    "method": "mx-check",
+    "mx": "0 smtp.secureserver.net."
+  },
+  "Coordinador Eléctrico Nacional": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Consultor": {
+    "domain": "consultor.cl",
+    "method": "mx-check",
+    "mx": "0 consultor.cl."
+  },
+  "InterWins Motorola": {
+    "domain": "interwins.cl",
+    "method": "mx-check",
+    "mx": "10 interwins-cl.mail.protection.outlook.com."
+  },
+  "Banchile Inversiones": {
+    "domain": "banchile.cl",
+    "method": "mx-check",
+    "mx": "10 mxa-0001a101.gslb.pphosted.com."
+  },
+  "Independiente ": {
+    "domain": "independiente.cl",
+    "method": "mx-check",
+    "mx": "1 aspmx.l.google.com."
+  },
+  "Kouzee": {
+    "domain": "kouzee.com",
+    "method": "mx-check",
+    "mx": "5 alt2.aspmx.l.google.com."
+  },
+  "Empresas DBS": {
+    "domain": "empresasdbs.com",
+    "method": "mx-check",
+    "mx": "5 empresasdbs-com.mail.protection.outlook.com."
+  },
+  "Quelen Fruit": {
+    "domain": "quelenfruit.com",
+    "method": "mx-check",
+    "mx": "0 quelenfruit-com.mail.protection.outlook.com."
+  },
+  "Blum Coffee": {
+    "domain": "blumcoffee.cl",
+    "method": "mx-check",
+    "mx": "1 aspmx.l.google.com."
+  },
+  "Banco BICE": {
+    "domain": "bancobice.cl",
+    "method": "mx-check",
+    "mx": "10 _dc-mx.606b19ad9051.bancobice.cl."
+  },
+  "HumanNet": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "EBR TECH": {
+    "domain": "ebrtech.com",
+    "method": "mx-check",
+    "mx": "10 mx001.netsol.xion.oxcs.net."
+  },
+  "Empresas Agrotop": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Integra Chile": {
+    "domain": "integrachile.com",
+    "method": "mx-check",
+    "mx": "0 integrachile-com.mail.protection.outlook.com."
+  },
+  "Empresas Banmédica": {
+    "domain": "empresasbanmedica.cl",
+    "method": "mx-check",
+    "mx": "5 alt1.aspmx.l.google.com."
+  },
+  "Fiscalía Nacional Económica": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "CreditSat": {
+    "domain": "creditsat.com",
+    "method": "mx-check",
+    "mx": "0 mx1.mailchannels.net."
+  },
+  "Grupo Schutz S.A.": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Blend Consulting": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Comisión Nacional de Acreditación": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Tenpo": {
+    "domain": "tenpo.cl",
+    "method": "mx-check",
+    "mx": "5 alt1.aspmx.l.google.com."
+  },
+  "Holo": {
+    "domain": "holo-xr.com",
+    "method": "mx-check",
+    "mx": "5 smtpin.rzone.de."
+  },
+  "MTS": {
+    "domain": "mts.cl",
+    "method": "mx-check",
+    "mx": "10 mts-cl.mail.protection.outlook.com."
+  },
+  "Bupa UK": {
+    "domain": "bupauk.org",
+    "method": "mx-check",
+    "mx": "10 alt4.aspmx.l.google.com."
+  },
+  "Servicio Público": {
+    "domain": "serviciopublico.net",
+    "method": "mx-check",
+    "mx": "10 mxb.mailgun.org."
+  },
+  "Noventiq": {
+    "domain": "noventiq.com",
+    "method": "mx-check",
+    "mx": "0 noventiq-com.mail.protection.outlook.com."
+  },
+  "Mincore Services": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Cafetería Rincón Verde": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "InterSystems": {
+    "domain": "intersystems.cl",
+    "method": "mx-check",
+    "mx": "10 mx.sns.cl."
+  },
+  "Fundación Invica": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Viña Casa Silva": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Banco Falabella": {
+    "domain": "bancofalabella.cl",
+    "method": "mx-check",
+    "mx": "0 bancofalabella-cl.mail.protection.outlook.com."
+  },
+  "Agencia Growth 360": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "GrupoExpro": {
+    "domain": "grupoexpro.cl",
+    "method": "mx-check",
+    "mx": "0 grupoexpro-cl.mail.protection.outlook.com."
+  },
+  "Red Alma Mater Studiorum": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "4 Senses": {
+    "domain": "4senses.cl",
+    "method": "mx-check",
+    "mx": "1 aspmx.l.google.com."
+  },
+  "Empresas Carozzi S.A.": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "ChileCompra": {
+    "domain": "chilecompra.cl",
+    "method": "mx-check",
+    "mx": "0 chilecompra-cl.mail.protection.outlook.com."
+  },
+  "Floid": {
+    "domain": "floid.cl",
+    "method": "mx-check",
+    "mx": "1 aspmx.l.google.com."
+  },
+  "CORFO | Chilean Economic Development Agency": {
+    "domain": "corfo.cl",
+    "method": "mx-check",
+    "mx": "5 corfo-cl.mail.protection.outlook.com."
+  },
+  "Santander Chile": {
+    "domain": "santanderchile.com",
+    "method": "mx-check",
+    "mx": "1 smtp.google.com."
+  },
+  "Grupo Puerto": {
+    "domain": "grupopuerto.cl",
+    "method": "mx-check",
+    "mx": "1 SMTP.GOOGLE.COM."
+  },
+  "Comercial GE2": {
+    "domain": "ge2.cl",
+    "method": "mx-check",
+    "mx": "10 alt3.aspmx.l.google.com."
+  },
+  "Baker Tilly Chile Auditores Consultores": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Abitech Latam": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "G&N Brands": {
+    "domain": "gnbrands.com",
+    "method": "mx-check",
+    "mx": "0 gnbrands-com.mail.protection.outlook.com."
+  },
+  "Techdigital.cl": {
+    "domain": "techdigital.cl.com",
+    "method": "mx-check",
+    "mx": "10 mxicorpa.craigslist.org."
+  },
+  "KPaz": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Buk": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "ChilePay": {
+    "domain": "chilepay.com",
+    "method": "mx-check",
+    "mx": "0 ."
+  },
+  "Bci Pagos": {
+    "domain": "bcipagos.cl",
+    "method": "mx-check",
+    "mx": "5 mxa-00174201.gslb.pphosted.com."
+  },
+  "JRI Ingeniería SA": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Bata Group": {
+    "domain": "bata.cl",
+    "method": "mx-check",
+    "mx": "20 smtp.bata.cl."
+  },
+  "Cintac": {
+    "domain": "cintac.cl",
+    "method": "mx-check",
+    "mx": "0 cintac-cl.mail.protection.outlook.com."
+  },
+  "Hogar de Cristo": {
+    "domain": "hogardecristo.cl",
+    "method": "mx-check",
+    "mx": "0 hogardecristo-cl.mail.protection.outlook.com."
+  },
+  "Corporación Tamsec": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "MAWDY": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Neewz.ai": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "FundPay": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Universidad Diego Portales": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "AI World Congress": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "VRONDIS": {
+    "domain": "vrondis.cl",
+    "method": "mx-check",
+    "mx": "0 mail.vrondis.cl."
+  },
+  "CONKORD": {
+    "domain": "conkord.com",
+    "method": "mx-check",
+    "mx": "0 conkord-com.mail.protection.outlook.com."
+  },
+  "IAparaempresas": {
+    "domain": "iaparaempresas.cl",
+    "method": "mx-check",
+    "mx": "10 alt3.aspmx.l.google.com."
+  },
+  "OTEC Mejorando Capacitación": {
+    "domain": "mejorando.com",
+    "method": "mx-check",
+    "mx": "10 park-mx.above.com."
+  },
+  "ECLAC": {
+    "domain": "eclac.org",
+    "method": "mx-check",
+    "mx": "10 eclac-org.mail.protection.outlook.com."
+  },
+  "AK8": {
+    "domain": "ak8.net",
+    "method": "mx-check",
+    "mx": "10 mxbiz2.qq.com."
+  },
+  "Farmacias del Dr. Simi Chile": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Red Apis": {
+    "domain": "redapis.cl",
+    "method": "mx-check",
+    "mx": "5 aspmx5.googlemail.com."
+  },
+  "V.P.V Inteligencia de Negocio": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "GMPOWER": {
+    "domain": "gmpower.cl",
+    "method": "mx-check",
+    "mx": "0 gmpower.cl."
+  },
+  "Global Catalog": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Panorama Lumon": {
+    "domain": "www.panoramachile.cl.com",
+    "method": "mx-check",
+    "mx": "10 mxicorpa.craigslist.org."
+  },
+  "IMAGEN": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "nuam": {
+    "domain": "nuam.com",
+    "method": "mx-check",
+    "mx": "5 nuam-com.mail.protection.outlook.com."
+  },
+  "Vida Security": {
+    "domain": "vidasecurity.cl",
+    "method": "mx-check",
+    "mx": "5 smtp2.security.cl."
+  },
+  "Trebol": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "MultiAceros Chile": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "HEREDIA ^ SANTANA": {
+    "domain": "heredia-santana.com",
+    "method": "mx-check",
+    "mx": "0 herediasantana-com01i.mail.protection.outlook.com."
+  },
+  "Multicajas SA": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Subsecretaría de Relaciones Económicas Internacionales Chile": {
+    "domain": "subrei.cl",
+    "method": "mx-check",
+    "mx": "10 subrei-cl.mail.protection.outlook.com."
+  },
+  "HDI Seguros Chile": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "DDC - David Del Curto": {
+    "domain": "daviddelcurto.cl",
+    "method": "mx-check",
+    "mx": "1 SMTP.GOOGLE.COM."
+  },
+  "La Casa de Juana": {
+    "domain": "lacasadejuana.cl",
+    "method": "mx-check",
+    "mx": "10 alt3.aspmx.l.google.com."
+  },
+  "Lundin Mining Corporation": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Saba Chile": {
+    "domain": "sabachile.cl",
+    "method": "mx-check",
+    "mx": "saba.cl."
+  },
+  "Ipyme": {
+    "domain": "ipyme.cl",
+    "method": "mx-check",
+    "mx": "10 alt4.aspmx.l.google.com."
+  },
+  "Lucas Diesel": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Grupo CAP": {
+    "domain": "capsa.cl",
+    "method": "mx-check",
+    "mx": "0 mail.capsa.cl."
+  },
+  "Intercarry Logística Limitada": {
+    "domain": "intercarry.cl",
+    "method": "mx-check",
+    "mx": "10 mx1.difarma.cl."
+  },
+  "Lipigas": {
+    "domain": "empresaslipigas.cl",
+    "method": "mx-check",
+    "mx": "10 correo.lipigas.cl."
+  },
+  "Fundación Movilízate": {
+    "domain": "fundacionmovilizate.cl",
+    "method": "mx-check",
+    "mx": "0 mail.fundacionmovilizate.cl."
+  },
+  "Management Solutions": {
+    "domain": "managementsolutions.com",
+    "method": "mx-check",
+    "mx": "20 managementsolutions-com.mail.protection.outlook.com."
+  },
+  "Aurys Consulting": {
+    "domain": "aurysconsulting.cl",
+    "method": "mx-check",
+    "mx": "0 aurysconsulting-cl.mail.protection.outlook.com."
+  },
+  "Vector TD": {
+    "domain": "vectortd.cl",
+    "method": "mx-check",
+    "mx": "10 alt4.aspmx.l.google.com."
+  },
+  "INZAI S.A.": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Metso": {
+    "domain": "metso.cl",
+    "method": "mx-check",
+    "mx": "10 custmx.cscdns.net."
+  },
+  "Mitsui Auto Finance Chile Ltda.": {
+    "domain": "mitsuiautofinance.com",
+    "method": "mx-check",
+    "mx": "10 mail.mitsuiautofinance.com."
+  },
+  "AGUNSA": {
+    "domain": "agunsa.cl",
+    "method": "mx-check",
+    "mx": "0 agunsa-cl.mail.protection.outlook.com."
+  },
+  "Centinela Consultoría": {
+    "domain": "centinelaconsultoria.cl",
+    "method": "mx-check",
+    "mx": "1 aspmx.l.google.com."
+  },
+  "INCAE Business School": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "3IT": {
+    "domain": "3it.cl",
+    "method": "mx-check",
+    "mx": "0 3it-cl.mail.protection.outlook.com."
+  },
+  "Envision": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "MIND - The Marketing Intelligence Company": {
+    "domain": "somosmind.cl",
+    "method": "mx-check",
+    "mx": "10 ALT4.ASPMX.L.GOOGLE.COM."
+  },
+  "ACL": {
+    "domain": "acltecnologia.com",
+    "method": "mx-check",
+    "mx": "10 eforward2.registrar-servers.com."
+  },
+  "DRS Ingeniería y Gestión": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Universidad de Santiago": {
+    "domain": "universidaddesantiago.cl",
+    "method": "mx-check",
+    "mx": "0 universidaddesantiago-cl.mail.protection.outlook.com."
+  },
+  "Espacio Urbano": {
+    "domain": "espaciourbano.cl",
+    "method": "mx-check",
+    "mx": "0 espaciourbano-cl.mail.protection.outlook.com."
+  },
+  "AFP Capital": {
+    "domain": "afpcapital.cl",
+    "method": "mx-check",
+    "mx": "0 afpcapital-cl.mail.protection.outlook.com."
+  },
+  "Industrial Analytics": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Adecco": {
+    "domain": "adecco.cl",
+    "method": "mx-check",
+    "mx": "0 adecco-cl.mail.protection.outlook.com."
+  },
+  "Conectatech Consultora": {
+    "domain": "conectatechconsultora.cl",
+    "method": "mx-check",
+    "mx": "0 conectatechconsultora-cl.mail.protection.outlook.com."
+  },
+  "Marsol": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "SACP ": {
+    "domain": "sacp.com",
+    "method": "mx-check",
+    "mx": "0 sacp-com.mail.protection.outlook.com."
+  },
+  "SERVICIO ROBOT": {
+    "domain": "serviciorobot.com",
+    "method": "mx-check",
+    "mx": "1 smtp.google.com."
+  },
+  "licklider": {
+    "domain": "licklider.cl",
+    "method": "mx-check",
+    "mx": "25 licklider.cl."
+  },
+  "Estudio Tala": {
+    "domain": "estudiotala.com",
+    "method": "mx-check",
+    "mx": "5 alt2.aspmx.l.google.com."
+  },
+  "Boarder Logistics": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Sant Ambrogio": {
+    "domain": "santambrogio.cl",
+    "method": "mx-check",
+    "mx": "10 alt4.aspmx.l.google.com."
+  },
+  "SmartLEX": {
+    "domain": "smartlex.cl",
+    "method": "mx-check",
+    "mx": "0 smartlex.cl."
+  },
+  "Hazlo con Maestría": {
+    "domain": "hazloconmaestria.cl",
+    "method": "mx-check",
+    "mx": "10 alt4.aspmx.l.google.com."
+  },
+  "CGS (Computer Generated Solutions)": {
+    "domain": "computergeneratedsolutions.com",
+    "method": "mx-check",
+    "mx": "0 ."
+  },
+  "Sociedad Contractual Minera Carola": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "ECOS CHILE": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Instituto de Tecnología para la Innovación en Salud y Bienestar": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "ARGA IT": {
+    "domain": "argait.cl",
+    "method": "mx-check",
+    "mx": "0 mail.argait.cl."
+  },
+  "Integramedica S.A.": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Mercans": {
+    "domain": "mercans.com",
+    "method": "mx-check",
+    "mx": "10 alt4.aspmx.l.google.com."
+  },
+  "Bureau Veritas": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Vantaz Group": {
+    "domain": "vantaz.com",
+    "method": "mx-check",
+    "mx": "1 vantaz-com.mail.protection.outlook.com."
+  },
+  "OneMarketer": {
+    "domain": "onemarketer.cl",
+    "method": "mx-check",
+    "mx": "10 alt1.aspmx.l.google.com."
+  },
+  "Webdox Legal": {
+    "domain": "webdox.cl",
+    "method": "mx-check",
+    "mx": "5 alt2.aspmx.l.google.com."
+  },
+  "BIT Consultores": {
+    "domain": "bitconsultores.com",
+    "method": "mx-check",
+    "mx": "10 mail.nominalia.com."
+  },
+  "Le Grand Chic S.A.": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "SCT Security": {
+    "domain": "sctsecurity.cl",
+    "method": "mx-check",
+    "mx": "0 sctsecurity.cl."
+  },
+  "Glemflow": {
+    "domain": "glemflow.com",
+    "method": "mx-check",
+    "mx": "0 glemflow-com.mail.protection.outlook.com."
+  },
+  "Coagra S.A.": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Consultoría en Transformación Digital": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Karcal.cl": {
+    "domain": "karcal.cl.com",
+    "method": "mx-check",
+    "mx": "10 mxicorpa.craigslist.org."
+  },
+  "Great Profile Spa": {
+    "domain": "greatprofile.cl",
+    "method": "mx-check",
+    "mx": "1 ASPMX.L.google.com."
+  },
+  "Xraptor SPA": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Setteny Consulting SpA": {
+    "domain": "settenyconsultingspa.com",
+    "method": "mx-check",
+    "mx": "0 settenyconsultingspa-com.mail.protection.outlook.com."
+  },
+  "Archivo Nacional de Chile": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Artam Solutions Group": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "VLD Gestiones SpA": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Empresas Jordan Chile S.A.": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "abc S.A.": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Entel Digital": {
+    "domain": "enteldigital.cl",
+    "method": "mx-check",
+    "mx": "10 alt4.aspmx.l.google.com."
+  },
+  "Corrupac": {
+    "domain": "corrupac.cl",
+    "method": "mx-check",
+    "mx": "5 alt1.aspmx.l.google.com."
+  },
+  "SoftwarePro Chile": {
+    "domain": "softwarepro.cl",
+    "method": "mx-check",
+    "mx": "0 softwarepro-cl.mail.protection.outlook.com."
+  },
+  "POSITION GPS": {
+    "domain": "positiongps.cl",
+    "method": "mx-check",
+    "mx": "0 mail.positiongps.cl."
+  },
+  "Misiva": {
+    "domain": "misiva.cl",
+    "method": "mx-check",
+    "mx": "0 mail.misiva.cl."
+  },
+  "PROMOSMART": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "National Cultural Heritage Service  (Ministry of Cultures, Arts and Heritage) ": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Cerámicas Cordillera": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Charles Taylor": {
+    "domain": "charlestaylor.cl",
+    "method": "mx-check",
+    "mx": "10 mx19-1.mycloudmailbox.com."
+  },
+  "Agencia de Calidad de la Educación": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "QWANTEC": {
+    "domain": "qwantec.com",
+    "method": "mx-check",
+    "mx": "10 alt3.aspmx.l.google.com."
+  },
+  "Cibergestión": {
+    "domain": "cibergestion.cl",
+    "method": "mx-check",
+    "mx": "10 alt4.aspmx.l.google.com."
+  },
+  "Transsa Consultores Inmobiliarios": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Esmax": {
+    "domain": "esmax.cl",
+    "method": "mx-check",
+    "mx": "10 mxa-003dea02.gslb.pphosted.com."
+  },
+  "Australia Post": {
+    "domain": "australiapost.com",
+    "method": "mx-check",
+    "mx": "10 custmx.cscdns.net."
+  },
+  "Amorketing | Marketing Digital": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "_FERREBOX": {
+    "domain": "ferrebox.cl",
+    "method": "mx-check",
+    "mx": "1 ASPMX.L.GOOGLE.com."
+  },
+  "Sodimac": {
+    "domain": null,
+    "method": "not-found"
+  },
+  "Consultoría Operaciones |  Proyectos |  Transformación Digital": {
+    "domain": null,
+    "method": "not-found"
+  }
+}
