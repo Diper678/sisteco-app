@@ -1,0 +1,472 @@
+[
+  {
+    "leadId": "https://linkedin.com/in/javiera-fuentes-munoz",
+    "fullName": "Javiera Fuentes Muñoz",
+    "company": "Achs",
+    "industry": "Insurance",
+    "tier": 3,
+    "messages": {
+      "connection_note": {
+        "text": "Hola Javiera, vi que lideras eficiencia en ventas B2B en Achs. En Sisteco ayudamos a equipos de ventas B2B a tus agentes deberian vender, no prospectar. Cuanto tiempo pasa entre que llega un lead y alguien lo contacta? — Javiera, hablamos?",
+        "tier": 3,
+        "validation": {
+          "valid": true,
+          "issues": []
+        },
+        "messageType": "connection_note",
+        "leadName": "Javiera Fuentes Muñoz"
+      },
+      "follow_up_1": {
+        "text": "Javiera, gracias por conectar.\n\nTe comparto un dato: 78% de clientes compran del primer vendedor en responder.\n\nEn Sisteco estamos ayudando a empresas en Insurance a automatizar su prospeccion B2B — mas cierres con menos esfuerzo manual.\n\nSi te interesa, te cuento mas en 15 min.\n\nFelipe",
+        "tier": 3,
+        "validation": {
+          "valid": true,
+          "issues": []
+        },
+        "messageType": "follow_up_1",
+        "leadName": "Javiera Fuentes Muñoz"
+      },
+      "follow_up_2": {
+        "text": "Javiera, se que el tiempo es limitado. Solo queria saber: tu equipo de ventas pierde tiempo prospectando en vez de cerrando?\n\nSi tiene sentido, 15 minutos para mostrarte como funciona. Si no, sin problema — quedo como contacto por si en algun momento te sirve.\n\nFelipe",
+        "tier": 3,
+        "validation": {
+          "valid": true,
+          "issues": []
+        },
+        "messageType": "follow_up_2",
+        "leadName": "Javiera Fuentes Muñoz"
+      },
+      "email_touch_1": {
+        "subject": "Achs + automatizacion B2B",
+        "text": "Javiera, te escribo porque vi tu perfil en LinkedIn y me llamo la atencion lo que estan haciendo en Achs.\n\nMe llamo la atencion tu rol como Agile Facilitator en Achs.\n\nEn Sisteco automatizamos la prospeccion B2B para que tu equipo de ventas solo hable con los leads que realmente quieren comprar. 78% de clientes compran del primer vendedor en responder.\n\n15 minutos para mostrarte como funciona?\n\nFelipe Martinez\nSisteco — Santiago, Chile",
+        "tier": 3,
+        "validation": {
+          "valid": true,
+          "issues": []
+        },
+        "messageType": "email_touch_1",
+        "leadName": "Javiera Fuentes Muñoz"
+      },
+      "email_touch_2": {
+        "subject": "dato rapido sobre Insurance",
+        "text": "Javiera, un dato que me parecio relevante para Achs:\n\n78% de clientes compran del primer vendedor en responder\n\nLa mayoria de los equipos de ventas en Insurance pierden tiempo en leads frios. mas cierres con menos esfuerzo manual.\n\nSi te interesa ver como funciona, 15 minutos para mostrarte como funciona.\n\nFelipe",
+        "tier": 3,
+        "validation": {
+          "valid": true,
+          "issues": []
+        },
+        "messageType": "email_touch_2",
+        "leadName": "Javiera Fuentes Muñoz"
+      },
+      "email_touch_3": {
+        "subject": "78% de clientes compran en 30 dias",
+        "text": "Javiera, corto y al punto:\n\nEmpresas B2B en Chile que automatizan su pipeline de ventas estan viendo 78% de clientes compran del primer vendedor en responder. La diferencia: responder rapido y solo a los leads correctos.\n\nagentes pierden tiempo en leads no calificados\n\n15 minutos para mostrarte como? 15 minutos para mostrarte como funciona.\n\nFelipe",
+        "tier": 3,
+        "validation": {
+          "valid": true,
+          "issues": []
+        },
+        "messageType": "email_touch_3",
+        "leadName": "Javiera Fuentes Muñoz"
+      },
+      "email_touch_4": {
+        "subject": "Javiera, una pregunta",
+        "text": "Javiera, te lo pregunto directo: tu equipo de ventas pierde tiempo prospectando en vez de cerrando?\n\nSi la respuesta es si, te muestro en 15 minutos como lo resolvemos. Si no, todo bien — no insisto mas.\n\n15 minutos para mostrarte como funciona?\n\nFelipe",
+        "tier": 3,
+        "validation": {
+          "valid": true,
+          "issues": []
+        },
+        "messageType": "email_touch_4",
+        "leadName": "Javiera Fuentes Muñoz"
+      },
+      "email_touch_5": {
+        "subject": "ultima vez que escribo",
+        "text": "Javiera, entiendo que no es el momento o que esto no te interesa. Sin drama.\n\nSolo queria dejarte el dato: 78% de clientes compran del primer vendedor en responder. Si en algun momento quieres explorar como automatizar ventas B2B, estoy a un mensaje de distancia.\n\nExito con Achs.\n\nFelipe",
+        "tier": 3,
+        "validation": {
+          "valid": true,
+          "issues": []
+        },
+        "messageType": "email_touch_5",
+        "leadName": "Javiera Fuentes Muñoz"
+      }
+    }
+  },
+  {
+    "leadId": "https://linkedin.com/in/gonzalope%C3%B1ababarovich",
+    "fullName": "Gonzalo Peña Babarovich",
+    "company": "ZeroQ",
+    "industry": "Information Technology & Services",
+    "tier": 3,
+    "messages": {
+      "connection_note": {
+        "text": "Hola Gonzalo, vi que lideras eficiencia en ventas B2B en ZeroQ. En Sisteco ayudamos a equipos de ventas B2B a automatizar el pipeline de ventas tech. Cuantos de tus leads realmente responden? — Gonzalo, hablamos?",
+        "tier": 3,
+        "validation": {
+          "valid": true,
+          "issues": []
+        },
+        "messageType": "connection_note",
+        "leadName": "Gonzalo Peña Babarovich"
+      },
+      "follow_up_1": {
+        "text": "Gonzalo, gracias por conectar.\n\nTe comparto un dato: 5-7x mas conversiones vs stack DIY.\n\nEn Sisteco estamos ayudando a empresas en Information Technology & Services a automatizar su prospeccion B2B — mas cierres con menos esfuerzo manual.\n\nSi te interesa, te cuento mas en 15 min.\n\nFelipe",
+        "tier": 3,
+        "validation": {
+          "valid": true,
+          "issues": []
+        },
+        "messageType": "follow_up_1",
+        "leadName": "Gonzalo Peña Babarovich"
+      },
+      "follow_up_2": {
+        "text": "Gonzalo, se que el tiempo es limitado. Solo queria saber: tu equipo de ventas pierde tiempo prospectando en vez de cerrando?\n\nSi tiene sentido, 15 minutos para mostrarte como funciona. Si no, sin problema — quedo como contacto por si en algun momento te sirve.\n\nFelipe",
+        "tier": 3,
+        "validation": {
+          "valid": true,
+          "issues": []
+        },
+        "messageType": "follow_up_2",
+        "leadName": "Gonzalo Peña Babarovich"
+      },
+      "email_touch_1": {
+        "subject": "ZeroQ + automatizacion B2B",
+        "text": "Gonzalo, te escribo porque vi tu perfil en LinkedIn y me llamo la atencion lo que estan haciendo en ZeroQ.\n\nMe llamo la atencion tu rol como Ingeniero de Transformación Digital en ZeroQ.\n\nEn Sisteco automatizamos la prospeccion B2B para que tu equipo de ventas solo hable con los leads que realmente quieren comprar. 5-7x mas conversiones vs stack DIY.\n\n15 minutos para mostrarte como funciona?\n\nFelipe Martinez\nSisteco — Santiago, Chile",
+        "tier": 3,
+        "validation": {
+          "valid": true,
+          "issues": []
+        },
+        "messageType": "email_touch_1",
+        "leadName": "Gonzalo Peña Babarovich"
+      },
+      "email_touch_2": {
+        "subject": "dato rapido sobre Information Technology & Services",
+        "text": "Gonzalo, un dato que me parecio relevante para ZeroQ:\n\n5-7x mas conversiones vs stack DIY\n\nLa mayoria de los equipos de ventas en Information Technology & Services pierden tiempo en leads frios. mas cierres con menos esfuerzo manual.\n\nSi te interesa ver como funciona, 15 minutos para mostrarte como funciona.\n\nFelipe",
+        "tier": 3,
+        "validation": {
+          "valid": true,
+          "issues": []
+        },
+        "messageType": "email_touch_2",
+        "leadName": "Gonzalo Peña Babarovich"
+      },
+      "email_touch_3": {
+        "subject": "5-7x mas conversiones vs en 30 dias",
+        "text": "Gonzalo, corto y al punto:\n\nEmpresas B2B en Chile que automatizan su pipeline de ventas estan viendo 5-7x mas conversiones vs stack DIY. La diferencia: responder rapido y solo a los leads correctos.\n\nciclo de venta largo, muchos leads frios\n\n15 minutos para mostrarte como? 15 minutos para mostrarte como funciona.\n\nFelipe",
+        "tier": 3,
+        "validation": {
+          "valid": true,
+          "issues": []
+        },
+        "messageType": "email_touch_3",
+        "leadName": "Gonzalo Peña Babarovich"
+      },
+      "email_touch_4": {
+        "subject": "Gonzalo, una pregunta",
+        "text": "Gonzalo, te lo pregunto directo: tu equipo de ventas pierde tiempo prospectando en vez de cerrando?\n\nSi la respuesta es si, te muestro en 15 minutos como lo resolvemos. Si no, todo bien — no insisto mas.\n\n15 minutos para mostrarte como funciona?\n\nFelipe",
+        "tier": 3,
+        "validation": {
+          "valid": true,
+          "issues": []
+        },
+        "messageType": "email_touch_4",
+        "leadName": "Gonzalo Peña Babarovich"
+      },
+      "email_touch_5": {
+        "subject": "ultima vez que escribo",
+        "text": "Gonzalo, entiendo que no es el momento o que esto no te interesa. Sin drama.\n\nSolo queria dejarte el dato: 5-7x mas conversiones vs stack DIY. Si en algun momento quieres explorar como automatizar ventas B2B, estoy a un mensaje de distancia.\n\nExito con ZeroQ.\n\nFelipe",
+        "tier": 3,
+        "validation": {
+          "valid": true,
+          "issues": []
+        },
+        "messageType": "email_touch_5",
+        "leadName": "Gonzalo Peña Babarovich"
+      }
+    }
+  },
+  {
+    "leadId": "https://linkedin.com/in/rodrigo-hidalgo-jim%C3%A9nez-3022bb209",
+    "fullName": "Rodrigo Hidalgo Jiménez",
+    "company": "Dentameet-PacienteFácil",
+    "industry": "Government Administration",
+    "tier": 3,
+    "messages": {
+      "connection_note": {
+        "text": "Hola Rodrigo, vi que lideras expansion y nuevos mercados en Dentameet-PacienteFácil. En Sisteco ayudamos a equipos de ventas B2B a automatizar la prospeccion B2B. Tu equipo de ventas pasa mas tiempo prospectando o cerrando? — Rodrigo, hablamos?",
+        "tier": 3,
+        "validation": {
+          "valid": true,
+          "issues": []
+        },
+        "messageType": "connection_note",
+        "leadName": "Rodrigo Hidalgo Jiménez"
+      },
+      "follow_up_1": {
+        "text": "Rodrigo, gracias por conectar.\n\nTe comparto un dato: 5-7x mas conversiones vs stack DIY.\n\nEn Sisteco estamos ayudando a empresas en Government Administration a automatizar su prospeccion B2B — pipeline predecible sin esfuerzo manual.\n\nSi te interesa, te cuento mas en 15 min.\n\nFelipe",
+        "tier": 3,
+        "validation": {
+          "valid": true,
+          "issues": []
+        },
+        "messageType": "follow_up_1",
+        "leadName": "Rodrigo Hidalgo Jiménez"
+      },
+      "follow_up_2": {
+        "text": "Rodrigo, se que el tiempo es limitado. Solo queria saber: tu equipo de ventas pierde tiempo prospectando en vez de cerrando?\n\nSi tiene sentido, automatiza la prospeccion y enfocate en cerrar. Si no, sin problema — quedo como contacto por si en algun momento te sirve.\n\nFelipe",
+        "tier": 3,
+        "validation": {
+          "valid": true,
+          "issues": []
+        },
+        "messageType": "follow_up_2",
+        "leadName": "Rodrigo Hidalgo Jiménez"
+      },
+      "email_touch_1": {
+        "subject": "Dentameet-PacienteFácil + automatizacion B2B",
+        "text": "Rodrigo, te escribo porque vi tu perfil en LinkedIn y me llamo la atencion lo que estan haciendo en Dentameet-PacienteFácil.\n\nMe llamo la atencion tu rol como Co-founder y CEO en Dentameet-PacienteFácil.\n\nEn Sisteco automatizamos la prospeccion B2B para que tu equipo de ventas solo hable con los leads que realmente quieren comprar. 5-7x mas conversiones vs stack DIY.\n\nautomatiza la prospeccion y enfocate en cerrar?\n\nFelipe Martinez\nSisteco — Santiago, Chile",
+        "tier": 3,
+        "validation": {
+          "valid": true,
+          "issues": []
+        },
+        "messageType": "email_touch_1",
+        "leadName": "Rodrigo Hidalgo Jiménez"
+      },
+      "email_touch_2": {
+        "subject": "dato rapido sobre Government Administration",
+        "text": "Rodrigo, un dato que me parecio relevante para Dentameet-PacienteFácil:\n\n5-7x mas conversiones vs stack DIY\n\nLa mayoria de los equipos de ventas en Government Administration pierden tiempo en leads frios. pipeline predecible sin esfuerzo manual.\n\nSi te interesa ver como funciona, automatiza la prospeccion y enfocate en cerrar.\n\nFelipe",
+        "tier": 3,
+        "validation": {
+          "valid": true,
+          "issues": []
+        },
+        "messageType": "email_touch_2",
+        "leadName": "Rodrigo Hidalgo Jiménez"
+      },
+      "email_touch_3": {
+        "subject": "5-7x mas conversiones vs en 30 dias",
+        "text": "Rodrigo, corto y al punto:\n\nEmpresas B2B en Chile que automatizan su pipeline de ventas estan viendo 5-7x mas conversiones vs stack DIY. La diferencia: responder rapido y solo a los leads correctos.\n\nprospeccion manual consume tiempo del equipo de ventas\n\n15 minutos para mostrarte como? automatiza la prospeccion y enfocate en cerrar.\n\nFelipe",
+        "tier": 3,
+        "validation": {
+          "valid": true,
+          "issues": []
+        },
+        "messageType": "email_touch_3",
+        "leadName": "Rodrigo Hidalgo Jiménez"
+      },
+      "email_touch_4": {
+        "subject": "Rodrigo, una pregunta",
+        "text": "Rodrigo, te lo pregunto directo: tu equipo de ventas pierde tiempo prospectando en vez de cerrando?\n\nSi la respuesta es si, te muestro en 15 minutos como lo resolvemos. Si no, todo bien — no insisto mas.\n\nautomatiza la prospeccion y enfocate en cerrar?\n\nFelipe",
+        "tier": 3,
+        "validation": {
+          "valid": true,
+          "issues": []
+        },
+        "messageType": "email_touch_4",
+        "leadName": "Rodrigo Hidalgo Jiménez"
+      },
+      "email_touch_5": {
+        "subject": "ultima vez que escribo",
+        "text": "Rodrigo, entiendo que no es el momento o que esto no te interesa. Sin drama.\n\nSolo queria dejarte el dato: 5-7x mas conversiones vs stack DIY. Si en algun momento quieres explorar como automatizar ventas B2B, estoy a un mensaje de distancia.\n\nExito con Dentameet-PacienteFácil.\n\nFelipe",
+        "tier": 3,
+        "validation": {
+          "valid": true,
+          "issues": []
+        },
+        "messageType": "email_touch_5",
+        "leadName": "Rodrigo Hidalgo Jiménez"
+      }
+    }
+  },
+  {
+    "leadId": "https://linkedin.com/in/max-albert-alman",
+    "fullName": "Max Albert Alman",
+    "company": "CCU",
+    "industry": "Food & Beverages",
+    "tier": 3,
+    "messages": {
+      "connection_note": {
+        "text": "Hola Max, vi que lideras IA aplicada a ventas B2B en CCU. En Sisteco ayudamos a equipos de ventas B2B a automatizar la prospeccion B2B. Tu equipo de ventas pasa mas tiempo prospectando o cerrando? — Max, hablamos?",
+        "tier": 3,
+        "validation": {
+          "valid": true,
+          "issues": []
+        },
+        "messageType": "connection_note",
+        "leadName": "Max Albert"
+      },
+      "follow_up_1": {
+        "text": "Max, gracias por conectar.\n\nTe comparto un dato: 5-7x mas conversiones vs stack DIY.\n\nEn Sisteco estamos ayudando a empresas en Food & Beverages a automatizar su prospeccion B2B — automatizacion inteligente del proceso comercial.\n\nSi te interesa, te cuento mas en 15 min.\n\nFelipe",
+        "tier": 3,
+        "validation": {
+          "valid": true,
+          "issues": []
+        },
+        "messageType": "follow_up_1",
+        "leadName": "Max Albert"
+      },
+      "follow_up_2": {
+        "text": "Max, se que el tiempo es limitado. Solo queria saber: tu equipo de ventas pierde tiempo prospectando en vez de cerrando?\n\nSi tiene sentido, te muestro como la IA ya esta cambiando ventas B2B en Chile. Si no, sin problema — quedo como contacto por si en algun momento te sirve.\n\nFelipe",
+        "tier": 3,
+        "validation": {
+          "valid": true,
+          "issues": []
+        },
+        "messageType": "follow_up_2",
+        "leadName": "Max Albert"
+      },
+      "email_touch_1": {
+        "subject": "CCU + automatizacion B2B",
+        "text": "Max, te escribo porque vi tu perfil en LinkedIn y me llamo la atencion lo que estan haciendo en CCU.\n\nMe llamo la atencion tu rol como Project Lead en CCU.\n\nEn Sisteco automatizamos la prospeccion B2B para que tu equipo de ventas solo hable con los leads que realmente quieren comprar. 5-7x mas conversiones vs stack DIY.\n\nte muestro como la IA ya esta cambiando ventas B2B en Chile?\n\nFelipe Martinez\nSisteco — Santiago, Chile",
+        "tier": 3,
+        "validation": {
+          "valid": true,
+          "issues": []
+        },
+        "messageType": "email_touch_1",
+        "leadName": "Max Albert"
+      },
+      "email_touch_2": {
+        "subject": "dato rapido sobre Food & Beverages",
+        "text": "Max, un dato que me parecio relevante para CCU:\n\n5-7x mas conversiones vs stack DIY\n\nLa mayoria de los equipos de ventas en Food & Beverages pierden tiempo en leads frios. automatizacion inteligente del proceso comercial.\n\nSi te interesa ver como funciona, te muestro como la IA ya esta cambiando ventas B2B en Chile.\n\nFelipe",
+        "tier": 3,
+        "validation": {
+          "valid": true,
+          "issues": []
+        },
+        "messageType": "email_touch_2",
+        "leadName": "Max Albert"
+      },
+      "email_touch_3": {
+        "subject": "5-7x mas conversiones vs en 30 dias",
+        "text": "Max, corto y al punto:\n\nEmpresas B2B en Chile que automatizan su pipeline de ventas estan viendo 5-7x mas conversiones vs stack DIY. La diferencia: responder rapido y solo a los leads correctos.\n\nprospeccion manual consume tiempo del equipo de ventas\n\n15 minutos para mostrarte como? te muestro como la IA ya esta cambiando ventas B2B en Chile.\n\nFelipe",
+        "tier": 3,
+        "validation": {
+          "valid": true,
+          "issues": []
+        },
+        "messageType": "email_touch_3",
+        "leadName": "Max Albert"
+      },
+      "email_touch_4": {
+        "subject": "Max, una pregunta",
+        "text": "Max, te lo pregunto directo: tu equipo de ventas pierde tiempo prospectando en vez de cerrando?\n\nSi la respuesta es si, te muestro en 15 minutos como lo resolvemos. Si no, todo bien — no insisto mas.\n\nte muestro como la IA ya esta cambiando ventas B2B en Chile?\n\nFelipe",
+        "tier": 3,
+        "validation": {
+          "valid": true,
+          "issues": []
+        },
+        "messageType": "email_touch_4",
+        "leadName": "Max Albert"
+      },
+      "email_touch_5": {
+        "subject": "ultima vez que escribo",
+        "text": "Max, entiendo que no es el momento o que esto no te interesa. Sin drama.\n\nSolo queria dejarte el dato: 5-7x mas conversiones vs stack DIY. Si en algun momento quieres explorar como automatizar ventas B2B, estoy a un mensaje de distancia.\n\nExito con CCU.\n\nFelipe",
+        "tier": 3,
+        "validation": {
+          "valid": true,
+          "issues": []
+        },
+        "messageType": "email_touch_5",
+        "leadName": "Max Albert"
+      }
+    }
+  },
+  {
+    "leadId": "https://linkedin.com/in/angel-ramirezh",
+    "fullName": "Angel Ramirez Herrera",
+    "company": "Gasvalpo",
+    "industry": "Oil & Energy",
+    "tier": 3,
+    "messages": {
+      "connection_note": {
+        "text": "Hola Angel, vi que lideras eficiencia en ventas B2B en Gasvalpo. En Sisteco ayudamos a equipos de ventas B2B a automatizar la prospeccion B2B. Tu equipo de ventas pasa mas tiempo prospectando o cerrando? — Angel, hablamos?",
+        "tier": 3,
+        "validation": {
+          "valid": true,
+          "issues": []
+        },
+        "messageType": "connection_note",
+        "leadName": "Angel Ramirez Herrera"
+      },
+      "follow_up_1": {
+        "text": "Angel, gracias por conectar.\n\nTe comparto un dato: 5-7x mas conversiones vs stack DIY.\n\nEn Sisteco estamos ayudando a empresas en Oil & Energy a automatizar su prospeccion B2B — mas cierres con menos esfuerzo manual.\n\nSi te interesa, te cuento mas en 15 min.\n\nFelipe",
+        "tier": 3,
+        "validation": {
+          "valid": true,
+          "issues": []
+        },
+        "messageType": "follow_up_1",
+        "leadName": "Angel Ramirez Herrera"
+      },
+      "follow_up_2": {
+        "text": "Angel, se que el tiempo es limitado. Solo queria saber: tu equipo de ventas pierde tiempo prospectando en vez de cerrando?\n\nSi tiene sentido, 15 minutos para mostrarte como funciona. Si no, sin problema — quedo como contacto por si en algun momento te sirve.\n\nFelipe",
+        "tier": 3,
+        "validation": {
+          "valid": true,
+          "issues": []
+        },
+        "messageType": "follow_up_2",
+        "leadName": "Angel Ramirez Herrera"
+      },
+      "email_touch_1": {
+        "subject": "Gasvalpo + automatizacion B2B",
+        "text": "Angel, te escribo porque vi tu perfil en LinkedIn y me llamo la atencion lo que estan haciendo en Gasvalpo.\n\nMe llamo la atencion tu rol como Ingeniero de Planificación y Control en Gasvalpo.\n\nEn Sisteco automatizamos la prospeccion B2B para que tu equipo de ventas solo hable con los leads que realmente quieren comprar. 5-7x mas conversiones vs stack DIY.\n\n15 minutos para mostrarte como funciona?\n\nFelipe Martinez\nSisteco — Santiago, Chile",
+        "tier": 3,
+        "validation": {
+          "valid": true,
+          "issues": []
+        },
+        "messageType": "email_touch_1",
+        "leadName": "Angel Ramirez Herrera"
+      },
+      "email_touch_2": {
+        "subject": "dato rapido sobre Oil & Energy",
+        "text": "Angel, un dato que me parecio relevante para Gasvalpo:\n\n5-7x mas conversiones vs stack DIY\n\nLa mayoria de los equipos de ventas en Oil & Energy pierden tiempo en leads frios. mas cierres con menos esfuerzo manual.\n\nSi te interesa ver como funciona, 15 minutos para mostrarte como funciona.\n\nFelipe",
+        "tier": 3,
+        "validation": {
+          "valid": true,
+          "issues": []
+        },
+        "messageType": "email_touch_2",
+        "leadName": "Angel Ramirez Herrera"
+      },
+      "email_touch_3": {
+        "subject": "5-7x mas conversiones vs en 30 dias",
+        "text": "Angel, corto y al punto:\n\nEmpresas B2B en Chile que automatizan su pipeline de ventas estan viendo 5-7x mas conversiones vs stack DIY. La diferencia: responder rapido y solo a los leads correctos.\n\nprospeccion manual consume tiempo del equipo de ventas\n\n15 minutos para mostrarte como? 15 minutos para mostrarte como funciona.\n\nFelipe",
+        "tier": 3,
+        "validation": {
+          "valid": true,
+          "issues": []
+        },
+        "messageType": "email_touch_3",
+        "leadName": "Angel Ramirez Herrera"
+      },
+      "email_touch_4": {
+        "subject": "Angel, una pregunta",
+        "text": "Angel, te lo pregunto directo: tu equipo de ventas pierde tiempo prospectando en vez de cerrando?\n\nSi la respuesta es si, te muestro en 15 minutos como lo resolvemos. Si no, todo bien — no insisto mas.\n\n15 minutos para mostrarte como funciona?\n\nFelipe",
+        "tier": 3,
+        "validation": {
+          "valid": true,
+          "issues": []
+        },
+        "messageType": "email_touch_4",
+        "leadName": "Angel Ramirez Herrera"
+      },
+      "email_touch_5": {
+        "subject": "ultima vez que escribo",
+        "text": "Angel, entiendo que no es el momento o que esto no te interesa. Sin drama.\n\nSolo queria dejarte el dato: 5-7x mas conversiones vs stack DIY. Si en algun momento quieres explorar como automatizar ventas B2B, estoy a un mensaje de distancia.\n\nExito con Gasvalpo.\n\nFelipe",
+        "tier": 3,
+        "validation": {
+          "valid": true,
+          "issues": []
+        },
+        "messageType": "email_touch_5",
+        "leadName": "Angel Ramirez Herrera"
+      }
+    }
+  }
+]
