@@ -2,7 +2,6 @@
 
 > Generado: 2026-03-16
 > Total: 20 leads, priorizados por ICP score
-> Tier 3 (templates) — para Tier 1/2 con IA, configurar ANTHROPIC_API_KEY o GEMINI_API_KEY
 
 ---
 
@@ -16,26 +15,53 @@
 ### Email 1: Intro (Day 0)
 **Subject:** Minsait + automatizacion B2B
 
-Benjamín, te escribo porque, viendo tu perfil en LinkedIn, me llamó la atención
+Benjamín, te escribo porque vi tu perfil en LinkedIn y me llamo la atencion lo que estan haciendo en Minsait.
+
+Me llamo la atencion tu rol como Manager en Minsait.
+
+En Sisteco automatizamos la prospeccion B2B para que tu equipo de ventas solo hable con los leads que realmente quieren comprar. 5-7x mas conversiones vs stack DIY.
+
+15 minutos para mostrarte como funciona?
+
+Felipe Martinez
+Sisteco — Santiago, Chile
 
 ### Email 2: Value (Day 3)
 **Subject:** dato rapido sobre Information Technology & Services
 
-Benjamín,
+Benjamín, un dato que me parecio relevante para Minsait:
 
-Vi que eres Manager en Minsait y pensé en un punto clave
+5-7x mas conversiones vs stack DIY
+
+La mayoria de los equipos de ventas en Information Technology & Services pierden tiempo en leads frios. mas cierres con menos esfuerzo manual.
+
+Si te interesa ver como funciona, 15 minutos para mostrarte como funciona.
+
+Felipe
 
 ### Email 3: Case Study (Day 7)
 **Subject:** 5-7x mas conversiones vs en 30 dias
 
-Benjamín, directo al grano:
+Benjamín, corto y al punto:
 
-En Sisteco vemos que empresas B2B en Chile
+Empresas B2B en Chile que automatizan su pipeline de ventas estan viendo 5-7x mas conversiones vs stack DIY. La diferencia: responder rapido y solo a los leads correctos.
+
+ciclo de venta largo, muchos leads frios.
+
+15 minutos para mostrarte como? 15 minutos para mostrarte como funciona.
+
+Felipe
 
 ### Email 4: Direct Ask (Day 12)
 **Subject:** Benjamín, una pregunta
 
-Benjamín, al grano: ¿tu equipo de ventas en Minsait está gast
+Benjamín, te lo pregunto directo: Cuantos de tus leads realmente responden?
+
+Si la respuesta es si, te muestro en 15 minutos como lo resolvemos. Si no, todo bien — no insisto mas.
+
+15 minutos para mostrarte como funciona?
+
+Felipe
 
 ### Email 5: Breakup (Day 18)
 **Subject:** ultima vez que escribo
@@ -48,18 +74,26 @@ Exito con Minsait.
 
 Felipe
 
-### LinkedIn Connection Note (300 chars)
-Hola Benjamín, soy Felipe de Sisteco. Vi que en Minsait estás lider
+### LinkedIn Connection Note (max 300 chars)
+Hola Benjamín, vi que lideras eficiencia en ventas B2B en Minsait. En Sisteco ayudamos a equipos de ventas B2B a automatizar el pipeline de ventas tech. Cuantos de tus leads realmente responden? — hablamos?
 
-### LinkedIn Follow-up 1
-Qué tal Benjamín, gracias por conectar.
+### LinkedIn Follow-up 1 (Value)
+Benjamín, gracias por conectar.
 
-Vi que estás en Minsait, en
+Te comparto un dato: 5-7x mas conversiones vs stack DIY.
 
-### LinkedIn Follow-up 2
-Benjamín,
+En Sisteco estamos ayudando a empresas en Information Technology & Services a automatizar su prospeccion B2B — mas cierres con menos esfuerzo manual.
 
-Una pregunta rápida: ¿tu equipo de ventas en Minsait está
+Si te interesa, te cuento mas en 15 min.
+
+Felipe
+
+### LinkedIn Follow-up 2 (CTA)
+Benjamín, se que el tiempo es limitado. Solo queria saber: Cuantos de tus leads realmente responden?
+
+Si tiene sentido, 15 minutos para mostrarte como funciona. Si no, sin problema — quedo como contacto por si en algun momento te sirve.
+
+Felipe
 
 ---
 
@@ -104,7 +138,7 @@ Bárbara, corto y al punto:
 
 Empresas B2B en Chile que automatizan su pipeline de ventas estan viendo 5-7x mas conversiones vs stack DIY. La diferencia: responder rapido y solo a los leads correctos.
 
-prospeccion manual consume tiempo del equipo de ventas
+prospeccion manual consume tiempo del equipo de ventas.
 
 15 minutos para mostrarte como? 15 min para mostrarte los numeros.
 
@@ -113,7 +147,7 @@ Felipe
 ### Email 4: Direct Ask (Day 12)
 **Subject:** Bárbara, una pregunta
 
-Bárbara, te lo pregunto directo: tu equipo de ventas pierde tiempo prospectando en vez de cerrando?
+Bárbara, te lo pregunto directo: Tu equipo de ventas pasa mas tiempo prospectando o cerrando?
 
 Si la respuesta es si, te muestro en 15 minutos como lo resolvemos. Si no, todo bien — no insisto mas.
 
@@ -132,10 +166,10 @@ Exito con AIJourney®.
 
 Felipe
 
-### LinkedIn Connection Note (300 chars)
-Hola Bárbara, vi que lideras ROI y vision de largo plazo en AIJourney®. En Sisteco ayudamos a equipos de ventas B2B a automatizar la prospeccion B2B. Tu equipo de ventas pasa mas tiempo prospectando o cerrando? — Bárbara, hablamos?
+### LinkedIn Connection Note (max 300 chars)
+Hola Bárbara, vi que lideras ROI y vision de largo plazo en AIJourney®. En Sisteco ayudamos a equipos de ventas B2B a automatizar la prospeccion B2B. Tu equipo de ventas pasa mas tiempo prospectando o cerrando? — hablamos?
 
-### LinkedIn Follow-up 1
+### LinkedIn Follow-up 1 (Value)
 Bárbara, gracias por conectar.
 
 Te comparto un dato: 5-7x mas conversiones vs stack DIY.
@@ -146,8 +180,8 @@ Si te interesa, te cuento mas en 15 min.
 
 Felipe
 
-### LinkedIn Follow-up 2
-Bárbara, se que el tiempo es limitado. Solo queria saber: tu equipo de ventas pierde tiempo prospectando en vez de cerrando?
+### LinkedIn Follow-up 2 (CTA)
+Bárbara, se que el tiempo es limitado. Solo queria saber: Tu equipo de ventas pasa mas tiempo prospectando o cerrando?
 
 Si tiene sentido, 15 min para mostrarte los numeros. Si no, sin problema — quedo como contacto por si en algun momento te sirve.
 
@@ -196,7 +230,7 @@ Erick, corto y al punto:
 
 Empresas B2B en Chile que automatizan su pipeline de ventas estan viendo 5-7x mas conversiones vs stack DIY. La diferencia: responder rapido y solo a los leads correctos.
 
-ciclo de venta largo, muchos leads frios
+ciclo de venta largo, muchos leads frios.
 
 15 minutos para mostrarte como? 15 minutos para mostrarte como funciona.
 
@@ -205,7 +239,7 @@ Felipe
 ### Email 4: Direct Ask (Day 12)
 **Subject:** Erick, una pregunta
 
-Erick, te lo pregunto directo: tu equipo de ventas pierde tiempo prospectando en vez de cerrando?
+Erick, te lo pregunto directo: Cuantos de tus leads realmente responden?
 
 Si la respuesta es si, te muestro en 15 minutos como lo resolvemos. Si no, todo bien — no insisto mas.
 
@@ -224,10 +258,10 @@ Exito con Minsait.
 
 Felipe
 
-### LinkedIn Connection Note (300 chars)
-Hola Erick, vi que lideras eficiencia en ventas B2B en Minsait. En Sisteco ayudamos a equipos de ventas B2B a automatizar el pipeline de ventas tech. Cuantos de tus leads realmente responden? — Erick, hablamos?
+### LinkedIn Connection Note (max 300 chars)
+Hola Erick, vi que lideras eficiencia en ventas B2B en Minsait. En Sisteco ayudamos a equipos de ventas B2B a automatizar el pipeline de ventas tech. Cuantos de tus leads realmente responden? — hablamos?
 
-### LinkedIn Follow-up 1
+### LinkedIn Follow-up 1 (Value)
 Erick, gracias por conectar.
 
 Te comparto un dato: 5-7x mas conversiones vs stack DIY.
@@ -238,8 +272,8 @@ Si te interesa, te cuento mas en 15 min.
 
 Felipe
 
-### LinkedIn Follow-up 2
-Erick, se que el tiempo es limitado. Solo queria saber: tu equipo de ventas pierde tiempo prospectando en vez de cerrando?
+### LinkedIn Follow-up 2 (CTA)
+Erick, se que el tiempo es limitado. Solo queria saber: Cuantos de tus leads realmente responden?
 
 Si tiene sentido, 15 minutos para mostrarte como funciona. Si no, sin problema — quedo como contacto por si en algun momento te sirve.
 
@@ -288,7 +322,7 @@ Juan Manuel, corto y al punto:
 
 Empresas B2B en Chile que automatizan su pipeline de ventas estan viendo 89% retencion omnicanal vs 33% monocanal. La diferencia: responder rapido y solo a los leads correctos.
 
-regulacion frena adopcion tech
+regulacion frena adopcion tech.
 
 15 minutos para mostrarte como? 15 minutos para mostrarte como funciona.
 
@@ -297,7 +331,7 @@ Felipe
 ### Email 4: Direct Ask (Day 12)
 **Subject:** Juan Manuel, una pregunta
 
-Juan Manuel, te lo pregunto directo: tu equipo de ventas pierde tiempo prospectando en vez de cerrando?
+Juan Manuel, te lo pregunto directo: Tu equipo esta respondiendo en menos de 5 minutos?
 
 Si la respuesta es si, te muestro en 15 minutos como lo resolvemos. Si no, todo bien — no insisto mas.
 
@@ -316,10 +350,10 @@ Exito con Lider Bci.
 
 Felipe
 
-### LinkedIn Connection Note (300 chars)
-Hola Juan Manuel, vi que lideras eficiencia en ventas B2B en Lider Bci. En Sisteco ayudamos a equipos de ventas B2B a compliance y ventas no son opuestos. Tu equipo esta respondiendo en menos de 5 minutos? — Juan Manuel, hablamos?
+### LinkedIn Connection Note (max 300 chars)
+Hola Juan Manuel, vi que lideras eficiencia en ventas B2B en Lider Bci. En Sisteco ayudamos a equipos de ventas B2B a compliance y ventas no son opuestos. Tu equipo esta respondiendo en menos de 5 minutos? — hablamos?
 
-### LinkedIn Follow-up 1
+### LinkedIn Follow-up 1 (Value)
 Juan Manuel, gracias por conectar.
 
 Te comparto un dato: 89% retencion omnicanal vs 33% monocanal.
@@ -330,8 +364,8 @@ Si te interesa, te cuento mas en 15 min.
 
 Felipe
 
-### LinkedIn Follow-up 2
-Juan Manuel, se que el tiempo es limitado. Solo queria saber: tu equipo de ventas pierde tiempo prospectando en vez de cerrando?
+### LinkedIn Follow-up 2 (CTA)
+Juan Manuel, se que el tiempo es limitado. Solo queria saber: Tu equipo esta respondiendo en menos de 5 minutos?
 
 Si tiene sentido, 15 minutos para mostrarte como funciona. Si no, sin problema — quedo como contacto por si en algun momento te sirve.
 
@@ -380,7 +414,7 @@ Karina, corto y al punto:
 
 Empresas B2B en Chile que automatizan su pipeline de ventas estan viendo 5-7x mas conversiones vs stack DIY. La diferencia: responder rapido y solo a los leads correctos.
 
-prospeccion manual consume tiempo del equipo de ventas
+prospeccion manual consume tiempo del equipo de ventas.
 
 15 minutos para mostrarte como? 15 min para mostrarte los numeros.
 
@@ -389,7 +423,7 @@ Felipe
 ### Email 4: Direct Ask (Day 12)
 **Subject:** Karina, una pregunta
 
-Karina, te lo pregunto directo: tu equipo de ventas pierde tiempo prospectando en vez de cerrando?
+Karina, te lo pregunto directo: Tu equipo de ventas pasa mas tiempo prospectando o cerrando?
 
 Si la respuesta es si, te muestro en 15 minutos como lo resolvemos. Si no, todo bien — no insisto mas.
 
@@ -408,10 +442,10 @@ Exito con TWGroup.
 
 Felipe
 
-### LinkedIn Connection Note (300 chars)
-Hola Karina, vi que lideras ROI y vision de largo plazo en TWGroup. En Sisteco ayudamos a equipos de ventas B2B a automatizar la prospeccion B2B. Tu equipo de ventas pasa mas tiempo prospectando o cerrando? — Karina, hablamos?
+### LinkedIn Connection Note (max 300 chars)
+Hola Karina, vi que lideras ROI y vision de largo plazo en TWGroup. En Sisteco ayudamos a equipos de ventas B2B a automatizar la prospeccion B2B. Tu equipo de ventas pasa mas tiempo prospectando o cerrando? — hablamos?
 
-### LinkedIn Follow-up 1
+### LinkedIn Follow-up 1 (Value)
 Karina, gracias por conectar.
 
 Te comparto un dato: 5-7x mas conversiones vs stack DIY.
@@ -422,8 +456,8 @@ Si te interesa, te cuento mas en 15 min.
 
 Felipe
 
-### LinkedIn Follow-up 2
-Karina, se que el tiempo es limitado. Solo queria saber: tu equipo de ventas pierde tiempo prospectando en vez de cerrando?
+### LinkedIn Follow-up 2 (CTA)
+Karina, se que el tiempo es limitado. Solo queria saber: Tu equipo de ventas pasa mas tiempo prospectando o cerrando?
 
 Si tiene sentido, 15 min para mostrarte los numeros. Si no, sin problema — quedo como contacto por si en algun momento te sirve.
 
@@ -472,7 +506,7 @@ Luis, corto y al punto:
 
 Empresas B2B en Chile que automatizan su pipeline de ventas estan viendo 5-7x mas conversiones vs stack DIY. La diferencia: responder rapido y solo a los leads correctos.
 
-prospeccion manual consume tiempo del equipo de ventas
+prospeccion manual consume tiempo del equipo de ventas.
 
 15 minutos para mostrarte como? 15 minutos para mostrarte como funciona.
 
@@ -481,7 +515,7 @@ Felipe
 ### Email 4: Direct Ask (Day 12)
 **Subject:** Luis, una pregunta
 
-Luis, te lo pregunto directo: tu equipo de ventas pierde tiempo prospectando en vez de cerrando?
+Luis, te lo pregunto directo: Tu equipo de ventas pasa mas tiempo prospectando o cerrando?
 
 Si la respuesta es si, te muestro en 15 minutos como lo resolvemos. Si no, todo bien — no insisto mas.
 
@@ -500,10 +534,10 @@ Exito con OLX.
 
 Felipe
 
-### LinkedIn Connection Note (300 chars)
-Hola Luis, vi que lideras eficiencia en ventas B2B en OLX. En Sisteco ayudamos a equipos de ventas B2B a automatizar la prospeccion B2B. Tu equipo de ventas pasa mas tiempo prospectando o cerrando? — Luis, hablamos?
+### LinkedIn Connection Note (max 300 chars)
+Hola Luis, vi que lideras eficiencia en ventas B2B en OLX. En Sisteco ayudamos a equipos de ventas B2B a automatizar la prospeccion B2B. Tu equipo de ventas pasa mas tiempo prospectando o cerrando? — hablamos?
 
-### LinkedIn Follow-up 1
+### LinkedIn Follow-up 1 (Value)
 Luis, gracias por conectar.
 
 Te comparto un dato: 5-7x mas conversiones vs stack DIY.
@@ -514,8 +548,8 @@ Si te interesa, te cuento mas en 15 min.
 
 Felipe
 
-### LinkedIn Follow-up 2
-Luis, se que el tiempo es limitado. Solo queria saber: tu equipo de ventas pierde tiempo prospectando en vez de cerrando?
+### LinkedIn Follow-up 2 (CTA)
+Luis, se que el tiempo es limitado. Solo queria saber: Tu equipo de ventas pasa mas tiempo prospectando o cerrando?
 
 Si tiene sentido, 15 minutos para mostrarte como funciona. Si no, sin problema — quedo como contacto por si en algun momento te sirve.
 
@@ -564,7 +598,7 @@ Gary, corto y al punto:
 
 Empresas B2B en Chile que automatizan su pipeline de ventas estan viendo 5-7x mas conversiones vs stack DIY. La diferencia: responder rapido y solo a los leads correctos.
 
-prospeccion manual consume tiempo del equipo de ventas
+prospeccion manual consume tiempo del equipo de ventas.
 
 15 minutos para mostrarte como? 15 minutos para mostrarte como funciona.
 
@@ -573,7 +607,7 @@ Felipe
 ### Email 4: Direct Ask (Day 12)
 **Subject:** Gary, una pregunta
 
-Gary, te lo pregunto directo: tu equipo de ventas pierde tiempo prospectando en vez de cerrando?
+Gary, te lo pregunto directo: Tu equipo de ventas pasa mas tiempo prospectando o cerrando?
 
 Si la respuesta es si, te muestro en 15 minutos como lo resolvemos. Si no, todo bien — no insisto mas.
 
@@ -592,10 +626,10 @@ Exito con VTEX.
 
 Felipe
 
-### LinkedIn Connection Note (300 chars)
-Hola Gary, vi que lideras eficiencia en ventas B2B en VTEX. En Sisteco ayudamos a equipos de ventas B2B a automatizar la prospeccion B2B. Tu equipo de ventas pasa mas tiempo prospectando o cerrando? — Gary, hablamos?
+### LinkedIn Connection Note (max 300 chars)
+Hola Gary, vi que lideras eficiencia en ventas B2B en VTEX. En Sisteco ayudamos a equipos de ventas B2B a automatizar la prospeccion B2B. Tu equipo de ventas pasa mas tiempo prospectando o cerrando? — hablamos?
 
-### LinkedIn Follow-up 1
+### LinkedIn Follow-up 1 (Value)
 Gary, gracias por conectar.
 
 Te comparto un dato: 5-7x mas conversiones vs stack DIY.
@@ -606,8 +640,8 @@ Si te interesa, te cuento mas en 15 min.
 
 Felipe
 
-### LinkedIn Follow-up 2
-Gary, se que el tiempo es limitado. Solo queria saber: tu equipo de ventas pierde tiempo prospectando en vez de cerrando?
+### LinkedIn Follow-up 2 (CTA)
+Gary, se que el tiempo es limitado. Solo queria saber: Tu equipo de ventas pasa mas tiempo prospectando o cerrando?
 
 Si tiene sentido, 15 minutos para mostrarte como funciona. Si no, sin problema — quedo como contacto por si en algun momento te sirve.
 
@@ -656,7 +690,7 @@ Fernando, corto y al punto:
 
 Empresas B2B en Chile que automatizan su pipeline de ventas estan viendo 21x mas conversiones respondiendo < 5 minutos. La diferencia: responder rapido y solo a los leads correctos.
 
-necesitan leads constantes pero no tienen SDR
+necesitan leads constantes pero no tienen SDR.
 
 15 minutos para mostrarte como? 15 min para mostrarte los numeros.
 
@@ -665,7 +699,7 @@ Felipe
 ### Email 4: Direct Ask (Day 12)
 **Subject:** Fernando, una pregunta
 
-Fernando, te lo pregunto directo: tu equipo de ventas pierde tiempo prospectando en vez de cerrando?
+Fernando, te lo pregunto directo: Como estas generando pipeline hoy?
 
 Si la respuesta es si, te muestro en 15 minutos como lo resolvemos. Si no, todo bien — no insisto mas.
 
@@ -684,10 +718,10 @@ Exito con 2WIN.
 
 Felipe
 
-### LinkedIn Connection Note (300 chars)
-Hola Fernando, vi que lideras ROI y vision de largo plazo en 2WIN. En Sisteco ayudamos a equipos de ventas B2B a mas reuniones sin contratar un SDR. Como estas generando pipeline hoy? — Fernando, hablamos?
+### LinkedIn Connection Note (max 300 chars)
+Hola Fernando, vi que lideras ROI y vision de largo plazo en 2WIN. En Sisteco ayudamos a equipos de ventas B2B a mas reuniones sin contratar un SDR. Como estas generando pipeline hoy? — hablamos?
 
-### LinkedIn Follow-up 1
+### LinkedIn Follow-up 1 (Value)
 Fernando, gracias por conectar.
 
 Te comparto un dato: 21x mas conversiones respondiendo < 5 minutos.
@@ -698,8 +732,8 @@ Si te interesa, te cuento mas en 15 min.
 
 Felipe
 
-### LinkedIn Follow-up 2
-Fernando, se que el tiempo es limitado. Solo queria saber: tu equipo de ventas pierde tiempo prospectando en vez de cerrando?
+### LinkedIn Follow-up 2 (CTA)
+Fernando, se que el tiempo es limitado. Solo queria saber: Como estas generando pipeline hoy?
 
 Si tiene sentido, 15 min para mostrarte los numeros. Si no, sin problema — quedo como contacto por si en algun momento te sirve.
 
@@ -748,7 +782,7 @@ Gonzalo, corto y al punto:
 
 Empresas B2B en Chile que automatizan su pipeline de ventas estan viendo 21x mas conversiones respondiendo < 5 minutos. La diferencia: responder rapido y solo a los leads correctos.
 
-necesitan leads constantes pero no tienen SDR
+necesitan leads constantes pero no tienen SDR.
 
 15 minutos para mostrarte como? 15 minutos para mostrarte como funciona.
 
@@ -757,7 +791,7 @@ Felipe
 ### Email 4: Direct Ask (Day 12)
 **Subject:** Gonzalo, una pregunta
 
-Gonzalo, te lo pregunto directo: tu equipo de ventas pierde tiempo prospectando en vez de cerrando?
+Gonzalo, te lo pregunto directo: Como estas generando pipeline hoy?
 
 Si la respuesta es si, te muestro en 15 minutos como lo resolvemos. Si no, todo bien — no insisto mas.
 
@@ -776,10 +810,10 @@ Exito con Emprende.cl.
 
 Felipe
 
-### LinkedIn Connection Note (300 chars)
-Hola Gonzalo, vi que lideras eficiencia en ventas B2B en Emprende.cl. En Sisteco ayudamos a equipos de ventas B2B a mas reuniones sin contratar un SDR. Como estas generando pipeline hoy? — Gonzalo, hablamos?
+### LinkedIn Connection Note (max 300 chars)
+Hola Gonzalo, vi que lideras eficiencia en ventas B2B en Emprende.cl. En Sisteco ayudamos a equipos de ventas B2B a mas reuniones sin contratar un SDR. Como estas generando pipeline hoy? — hablamos?
 
-### LinkedIn Follow-up 1
+### LinkedIn Follow-up 1 (Value)
 Gonzalo, gracias por conectar.
 
 Te comparto un dato: 21x mas conversiones respondiendo < 5 minutos.
@@ -790,8 +824,8 @@ Si te interesa, te cuento mas en 15 min.
 
 Felipe
 
-### LinkedIn Follow-up 2
-Gonzalo, se que el tiempo es limitado. Solo queria saber: tu equipo de ventas pierde tiempo prospectando en vez de cerrando?
+### LinkedIn Follow-up 2 (CTA)
+Gonzalo, se que el tiempo es limitado. Solo queria saber: Como estas generando pipeline hoy?
 
 Si tiene sentido, 15 minutos para mostrarte como funciona. Si no, sin problema — quedo como contacto por si en algun momento te sirve.
 
@@ -840,7 +874,7 @@ Javier, corto y al punto:
 
 Empresas B2B en Chile que automatizan su pipeline de ventas estan viendo 5-7x mas conversiones vs stack DIY. La diferencia: responder rapido y solo a los leads correctos.
 
-ciclo de venta largo, muchos leads frios
+ciclo de venta largo, muchos leads frios.
 
 15 minutos para mostrarte como? te muestro la arquitectura en 15 min.
 
@@ -849,7 +883,7 @@ Felipe
 ### Email 4: Direct Ask (Day 12)
 **Subject:** Javier, una pregunta
 
-Javier, te lo pregunto directo: tu equipo de ventas pierde tiempo prospectando en vez de cerrando?
+Javier, te lo pregunto directo: Cuantos de tus leads realmente responden?
 
 Si la respuesta es si, te muestro en 15 minutos como lo resolvemos. Si no, todo bien — no insisto mas.
 
@@ -868,10 +902,10 @@ Exito con Somax.
 
 Felipe
 
-### LinkedIn Connection Note (300 chars)
-Hola Javier, vi que lideras stack, integraciones, data en Somax. En Sisteco ayudamos a equipos de ventas B2B a automatizar el pipeline de ventas tech. Cuantos de tus leads realmente responden? — Javier, hablamos?
+### LinkedIn Connection Note (max 300 chars)
+Hola Javier, vi que lideras stack, integraciones, data en Somax. En Sisteco ayudamos a equipos de ventas B2B a automatizar el pipeline de ventas tech. Cuantos de tus leads realmente responden? — hablamos?
 
-### LinkedIn Follow-up 1
+### LinkedIn Follow-up 1 (Value)
 Javier, gracias por conectar.
 
 Te comparto un dato: 5-7x mas conversiones vs stack DIY.
@@ -882,8 +916,8 @@ Si te interesa, te cuento mas en 15 min.
 
 Felipe
 
-### LinkedIn Follow-up 2
-Javier, se que el tiempo es limitado. Solo queria saber: tu equipo de ventas pierde tiempo prospectando en vez de cerrando?
+### LinkedIn Follow-up 2 (CTA)
+Javier, se que el tiempo es limitado. Solo queria saber: Cuantos de tus leads realmente responden?
 
 Si tiene sentido, te muestro la arquitectura en 15 min. Si no, sin problema — quedo como contacto por si en algun momento te sirve.
 
@@ -932,7 +966,7 @@ Leonardo, corto y al punto:
 
 Empresas B2B en Chile que automatizan su pipeline de ventas estan viendo 89% retencion omnicanal vs 33% monocanal. La diferencia: responder rapido y solo a los leads correctos.
 
-regulacion frena adopcion tech
+regulacion frena adopcion tech.
 
 15 minutos para mostrarte como? te muestro la arquitectura en 15 min.
 
@@ -941,7 +975,7 @@ Felipe
 ### Email 4: Direct Ask (Day 12)
 **Subject:** Leonardo, una pregunta
 
-Leonardo, te lo pregunto directo: tu equipo de ventas pierde tiempo prospectando en vez de cerrando?
+Leonardo, te lo pregunto directo: Tu equipo esta respondiendo en menos de 5 minutos?
 
 Si la respuesta es si, te muestro en 15 minutos como lo resolvemos. Si no, todo bien — no insisto mas.
 
@@ -960,10 +994,10 @@ Exito con HSBC.
 
 Felipe
 
-### LinkedIn Connection Note (300 chars)
-Hola Leonardo, vi que lideras stack, integraciones, data en HSBC. En Sisteco ayudamos a equipos de ventas B2B a compliance y ventas no son opuestos. Tu equipo esta respondiendo en menos de 5 minutos? — Leonardo, hablamos?
+### LinkedIn Connection Note (max 300 chars)
+Hola Leonardo, vi que lideras stack, integraciones, data en HSBC. En Sisteco ayudamos a equipos de ventas B2B a compliance y ventas no son opuestos. Tu equipo esta respondiendo en menos de 5 minutos? — hablamos?
 
-### LinkedIn Follow-up 1
+### LinkedIn Follow-up 1 (Value)
 Leonardo, gracias por conectar.
 
 Te comparto un dato: 89% retencion omnicanal vs 33% monocanal.
@@ -974,8 +1008,8 @@ Si te interesa, te cuento mas en 15 min.
 
 Felipe
 
-### LinkedIn Follow-up 2
-Leonardo, se que el tiempo es limitado. Solo queria saber: tu equipo de ventas pierde tiempo prospectando en vez de cerrando?
+### LinkedIn Follow-up 2 (CTA)
+Leonardo, se que el tiempo es limitado. Solo queria saber: Tu equipo esta respondiendo en menos de 5 minutos?
 
 Si tiene sentido, te muestro la arquitectura en 15 min. Si no, sin problema — quedo como contacto por si en algun momento te sirve.
 
@@ -1024,7 +1058,7 @@ Alejandro, corto y al punto:
 
 Empresas B2B en Chile que automatizan su pipeline de ventas estan viendo 89% retencion omnicanal vs 33% monocanal. La diferencia: responder rapido y solo a los leads correctos.
 
-regulacion frena adopcion tech
+regulacion frena adopcion tech.
 
 15 minutos para mostrarte como? 15 min para mostrarte los numeros.
 
@@ -1033,7 +1067,7 @@ Felipe
 ### Email 4: Direct Ask (Day 12)
 **Subject:** Alejandro, una pregunta
 
-Alejandro, te lo pregunto directo: tu equipo de ventas pierde tiempo prospectando en vez de cerrando?
+Alejandro, te lo pregunto directo: Tu equipo esta respondiendo en menos de 5 minutos?
 
 Si la respuesta es si, te muestro en 15 minutos como lo resolvemos. Si no, todo bien — no insisto mas.
 
@@ -1052,10 +1086,10 @@ Exito con Banchile Inversiones.
 
 Felipe
 
-### LinkedIn Connection Note (300 chars)
-Hola Alejandro, vi que lideras ROI y vision de largo plazo en Banchile Inversiones. En Sisteco ayudamos a equipos de ventas B2B a compliance y ventas no son opuestos. Tu equipo esta respondiendo en menos de 5 minutos? — Alejandro, hablamos?
+### LinkedIn Connection Note (max 300 chars)
+Hola Alejandro, vi que lideras ROI y vision de largo plazo en Banchile Inversiones. En Sisteco ayudamos a equipos de ventas B2B a compliance y ventas no son opuestos. Tu equipo esta respondiendo en menos de 5 minutos? — hablamos?
 
-### LinkedIn Follow-up 1
+### LinkedIn Follow-up 1 (Value)
 Alejandro, gracias por conectar.
 
 Te comparto un dato: 89% retencion omnicanal vs 33% monocanal.
@@ -1066,8 +1100,8 @@ Si te interesa, te cuento mas en 15 min.
 
 Felipe
 
-### LinkedIn Follow-up 2
-Alejandro, se que el tiempo es limitado. Solo queria saber: tu equipo de ventas pierde tiempo prospectando en vez de cerrando?
+### LinkedIn Follow-up 2 (CTA)
+Alejandro, se que el tiempo es limitado. Solo queria saber: Tu equipo esta respondiendo en menos de 5 minutos?
 
 Si tiene sentido, 15 min para mostrarte los numeros. Si no, sin problema — quedo como contacto por si en algun momento te sirve.
 
@@ -1116,7 +1150,7 @@ Francisco, corto y al punto:
 
 Empresas B2B en Chile que automatizan su pipeline de ventas estan viendo 5-7x mas conversiones vs stack DIY. La diferencia: responder rapido y solo a los leads correctos.
 
-prospeccion manual consume tiempo del equipo de ventas
+prospeccion manual consume tiempo del equipo de ventas.
 
 15 minutos para mostrarte como? 15 min para mostrarte los numeros.
 
@@ -1125,7 +1159,7 @@ Felipe
 ### Email 4: Direct Ask (Day 12)
 **Subject:** Francisco, una pregunta
 
-Francisco, te lo pregunto directo: tu equipo de ventas pierde tiempo prospectando en vez de cerrando?
+Francisco, te lo pregunto directo: Tu equipo de ventas pasa mas tiempo prospectando o cerrando?
 
 Si la respuesta es si, te muestro en 15 minutos como lo resolvemos. Si no, todo bien — no insisto mas.
 
@@ -1144,10 +1178,10 @@ Exito con CreditSat.
 
 Felipe
 
-### LinkedIn Connection Note (300 chars)
-Hola Francisco, vi que lideras ROI y vision de largo plazo en CreditSat. En Sisteco ayudamos a equipos de ventas B2B a automatizar la prospeccion B2B. Tu equipo de ventas pasa mas tiempo prospectando o cerrando? — Francisco, hablamos?
+### LinkedIn Connection Note (max 300 chars)
+Hola Francisco, vi que lideras ROI y vision de largo plazo en CreditSat. En Sisteco ayudamos a equipos de ventas B2B a automatizar la prospeccion B2B. Tu equipo de ventas pasa mas tiempo prospectando o cerrando? — hablamos?
 
-### LinkedIn Follow-up 1
+### LinkedIn Follow-up 1 (Value)
 Francisco, gracias por conectar.
 
 Te comparto un dato: 5-7x mas conversiones vs stack DIY.
@@ -1158,8 +1192,8 @@ Si te interesa, te cuento mas en 15 min.
 
 Felipe
 
-### LinkedIn Follow-up 2
-Francisco, se que el tiempo es limitado. Solo queria saber: tu equipo de ventas pierde tiempo prospectando en vez de cerrando?
+### LinkedIn Follow-up 2 (CTA)
+Francisco, se que el tiempo es limitado. Solo queria saber: Tu equipo de ventas pasa mas tiempo prospectando o cerrando?
 
 Si tiene sentido, 15 min para mostrarte los numeros. Si no, sin problema — quedo como contacto por si en algun momento te sirve.
 
@@ -1208,7 +1242,7 @@ Guillermo, corto y al punto:
 
 Empresas B2B en Chile que automatizan su pipeline de ventas estan viendo 5-7x mas conversiones vs stack DIY. La diferencia: responder rapido y solo a los leads correctos.
 
-prospeccion manual consume tiempo del equipo de ventas
+prospeccion manual consume tiempo del equipo de ventas.
 
 15 minutos para mostrarte como? automatiza la prospeccion y enfocate en cerrar.
 
@@ -1217,7 +1251,7 @@ Felipe
 ### Email 4: Direct Ask (Day 12)
 **Subject:** Guillermo, una pregunta
 
-Guillermo, te lo pregunto directo: tu equipo de ventas pierde tiempo prospectando en vez de cerrando?
+Guillermo, te lo pregunto directo: Tu equipo de ventas pasa mas tiempo prospectando o cerrando?
 
 Si la respuesta es si, te muestro en 15 minutos como lo resolvemos. Si no, todo bien — no insisto mas.
 
@@ -1236,10 +1270,10 @@ Exito con IAparaempresas.
 
 Felipe
 
-### LinkedIn Connection Note (300 chars)
-Hola Guillermo, vi que lideras expansion y nuevos mercados en IAparaempresas. En Sisteco ayudamos a equipos de ventas B2B a automatizar la prospeccion B2B. Tu equipo de ventas pasa mas tiempo prospectando o cerrando? — Guillermo, hablamos?
+### LinkedIn Connection Note (max 300 chars)
+Hola Guillermo, vi que lideras expansion y nuevos mercados en IAparaempresas. En Sisteco ayudamos a equipos de ventas B2B a automatizar la prospeccion B2B. Tu equipo de ventas pasa mas tiempo prospectando o cerrando? — hablamos?
 
-### LinkedIn Follow-up 1
+### LinkedIn Follow-up 1 (Value)
 Guillermo, gracias por conectar.
 
 Te comparto un dato: 5-7x mas conversiones vs stack DIY.
@@ -1250,8 +1284,8 @@ Si te interesa, te cuento mas en 15 min.
 
 Felipe
 
-### LinkedIn Follow-up 2
-Guillermo, se que el tiempo es limitado. Solo queria saber: tu equipo de ventas pierde tiempo prospectando en vez de cerrando?
+### LinkedIn Follow-up 2 (CTA)
+Guillermo, se que el tiempo es limitado. Solo queria saber: Tu equipo de ventas pasa mas tiempo prospectando o cerrando?
 
 Si tiene sentido, automatiza la prospeccion y enfocate en cerrar. Si no, sin problema — quedo como contacto por si en algun momento te sirve.
 
@@ -1300,7 +1334,7 @@ Ernesto, corto y al punto:
 
 Empresas B2B en Chile que automatizan su pipeline de ventas estan viendo 5-7x mas conversiones vs stack DIY. La diferencia: responder rapido y solo a los leads correctos.
 
-prospeccion manual consume tiempo del equipo de ventas
+prospeccion manual consume tiempo del equipo de ventas.
 
 15 minutos para mostrarte como? 15 minutos para mostrarte como funciona.
 
@@ -1309,7 +1343,7 @@ Felipe
 ### Email 4: Direct Ask (Day 12)
 **Subject:** Ernesto, una pregunta
 
-Ernesto, te lo pregunto directo: tu equipo de ventas pierde tiempo prospectando en vez de cerrando?
+Ernesto, te lo pregunto directo: Tu equipo de ventas pasa mas tiempo prospectando o cerrando?
 
 Si la respuesta es si, te muestro en 15 minutos como lo resolvemos. Si no, todo bien — no insisto mas.
 
@@ -1328,10 +1362,10 @@ Exito con licklider.
 
 Felipe
 
-### LinkedIn Connection Note (300 chars)
-Hola Ernesto, vi que lideras eficiencia en ventas B2B en licklider. En Sisteco ayudamos a equipos de ventas B2B a automatizar la prospeccion B2B. Tu equipo de ventas pasa mas tiempo prospectando o cerrando? — Ernesto, hablamos?
+### LinkedIn Connection Note (max 300 chars)
+Hola Ernesto, vi que lideras eficiencia en ventas B2B en licklider. En Sisteco ayudamos a equipos de ventas B2B a automatizar la prospeccion B2B. Tu equipo de ventas pasa mas tiempo prospectando o cerrando? — hablamos?
 
-### LinkedIn Follow-up 1
+### LinkedIn Follow-up 1 (Value)
 Ernesto, gracias por conectar.
 
 Te comparto un dato: 5-7x mas conversiones vs stack DIY.
@@ -1342,8 +1376,8 @@ Si te interesa, te cuento mas en 15 min.
 
 Felipe
 
-### LinkedIn Follow-up 2
-Ernesto, se que el tiempo es limitado. Solo queria saber: tu equipo de ventas pierde tiempo prospectando en vez de cerrando?
+### LinkedIn Follow-up 2 (CTA)
+Ernesto, se que el tiempo es limitado. Solo queria saber: Tu equipo de ventas pasa mas tiempo prospectando o cerrando?
 
 Si tiene sentido, 15 minutos para mostrarte como funciona. Si no, sin problema — quedo como contacto por si en algun momento te sirve.
 
@@ -1392,7 +1426,7 @@ Agustín, corto y al punto:
 
 Empresas B2B en Chile que automatizan su pipeline de ventas estan viendo 5-7x mas conversiones vs stack DIY. La diferencia: responder rapido y solo a los leads correctos.
 
-prospeccion manual consume tiempo del equipo de ventas
+prospeccion manual consume tiempo del equipo de ventas.
 
 15 minutos para mostrarte como? te muestro la arquitectura en 15 min.
 
@@ -1401,7 +1435,7 @@ Felipe
 ### Email 4: Direct Ask (Day 12)
 **Subject:** Agustín, una pregunta
 
-Agustín, te lo pregunto directo: tu equipo de ventas pierde tiempo prospectando en vez de cerrando?
+Agustín, te lo pregunto directo: Tu equipo de ventas pasa mas tiempo prospectando o cerrando?
 
 Si la respuesta es si, te muestro en 15 minutos como lo resolvemos. Si no, todo bien — no insisto mas.
 
@@ -1420,10 +1454,10 @@ Exito con QWANTEC.
 
 Felipe
 
-### LinkedIn Connection Note (300 chars)
-Hola Agustín, vi que lideras stack, integraciones, data en QWANTEC. En Sisteco ayudamos a equipos de ventas B2B a automatizar la prospeccion B2B. Tu equipo de ventas pasa mas tiempo prospectando o cerrando? — Agustín, hablamos?
+### LinkedIn Connection Note (max 300 chars)
+Hola Agustín, vi que lideras stack, integraciones, data en QWANTEC. En Sisteco ayudamos a equipos de ventas B2B a automatizar la prospeccion B2B. Tu equipo de ventas pasa mas tiempo prospectando o cerrando? — hablamos?
 
-### LinkedIn Follow-up 1
+### LinkedIn Follow-up 1 (Value)
 Agustín, gracias por conectar.
 
 Te comparto un dato: 5-7x mas conversiones vs stack DIY.
@@ -1434,8 +1468,8 @@ Si te interesa, te cuento mas en 15 min.
 
 Felipe
 
-### LinkedIn Follow-up 2
-Agustín, se que el tiempo es limitado. Solo queria saber: tu equipo de ventas pierde tiempo prospectando en vez de cerrando?
+### LinkedIn Follow-up 2 (CTA)
+Agustín, se que el tiempo es limitado. Solo queria saber: Tu equipo de ventas pasa mas tiempo prospectando o cerrando?
 
 Si tiene sentido, te muestro la arquitectura en 15 min. Si no, sin problema — quedo como contacto por si en algun momento te sirve.
 
@@ -1484,7 +1518,7 @@ Pablo, corto y al punto:
 
 Empresas B2B en Chile que automatizan su pipeline de ventas estan viendo 5-7x mas conversiones vs stack DIY. La diferencia: responder rapido y solo a los leads correctos.
 
-prospeccion manual consume tiempo del equipo de ventas
+prospeccion manual consume tiempo del equipo de ventas.
 
 15 minutos para mostrarte como? 15 minutos para mostrarte como funciona.
 
@@ -1493,7 +1527,7 @@ Felipe
 ### Email 4: Direct Ask (Day 12)
 **Subject:** Pablo, una pregunta
 
-Pablo, te lo pregunto directo: tu equipo de ventas pierde tiempo prospectando en vez de cerrando?
+Pablo, te lo pregunto directo: Tu equipo de ventas pasa mas tiempo prospectando o cerrando?
 
 Si la respuesta es si, te muestro en 15 minutos como lo resolvemos. Si no, todo bien — no insisto mas.
 
@@ -1512,10 +1546,10 @@ Exito con InterSystems.
 
 Felipe
 
-### LinkedIn Connection Note (300 chars)
-Hola Pablo, vi que lideras eficiencia en ventas B2B en InterSystems. En Sisteco ayudamos a equipos de ventas B2B a automatizar la prospeccion B2B. Tu equipo de ventas pasa mas tiempo prospectando o cerrando? — Pablo, hablamos?
+### LinkedIn Connection Note (max 300 chars)
+Hola Pablo, vi que lideras eficiencia en ventas B2B en InterSystems. En Sisteco ayudamos a equipos de ventas B2B a automatizar la prospeccion B2B. Tu equipo de ventas pasa mas tiempo prospectando o cerrando? — hablamos?
 
-### LinkedIn Follow-up 1
+### LinkedIn Follow-up 1 (Value)
 Pablo, gracias por conectar.
 
 Te comparto un dato: 5-7x mas conversiones vs stack DIY.
@@ -1526,8 +1560,8 @@ Si te interesa, te cuento mas en 15 min.
 
 Felipe
 
-### LinkedIn Follow-up 2
-Pablo, se que el tiempo es limitado. Solo queria saber: tu equipo de ventas pierde tiempo prospectando en vez de cerrando?
+### LinkedIn Follow-up 2 (CTA)
+Pablo, se que el tiempo es limitado. Solo queria saber: Tu equipo de ventas pasa mas tiempo prospectando o cerrando?
 
 Si tiene sentido, 15 minutos para mostrarte como funciona. Si no, sin problema — quedo como contacto por si en algun momento te sirve.
 
@@ -1576,7 +1610,7 @@ Sergio, corto y al punto:
 
 Empresas B2B en Chile que automatizan su pipeline de ventas estan viendo 5-7x mas conversiones vs stack DIY. La diferencia: responder rapido y solo a los leads correctos.
 
-prospeccion manual consume tiempo del equipo de ventas
+prospeccion manual consume tiempo del equipo de ventas.
 
 15 minutos para mostrarte como? 15 minutos para mostrarte como funciona.
 
@@ -1585,7 +1619,7 @@ Felipe
 ### Email 4: Direct Ask (Day 12)
 **Subject:** Sergio, una pregunta
 
-Sergio, te lo pregunto directo: tu equipo de ventas pierde tiempo prospectando en vez de cerrando?
+Sergio, te lo pregunto directo: Tu equipo de ventas pasa mas tiempo prospectando o cerrando?
 
 Si la respuesta es si, te muestro en 15 minutos como lo resolvemos. Si no, todo bien — no insisto mas.
 
@@ -1604,10 +1638,10 @@ Exito con Empresas AquaChile.
 
 Felipe
 
-### LinkedIn Connection Note (300 chars)
-Hola Sergio, vi que lideras eficiencia en ventas B2B en Empresas AquaChile. En Sisteco ayudamos a equipos de ventas B2B a automatizar la prospeccion B2B. Tu equipo de ventas pasa mas tiempo prospectando o cerrando? — Sergio, hablamos?
+### LinkedIn Connection Note (max 300 chars)
+Hola Sergio, vi que lideras eficiencia en ventas B2B en Empresas AquaChile. En Sisteco ayudamos a equipos de ventas B2B a automatizar la prospeccion B2B. Tu equipo de ventas pasa mas tiempo prospectando o cerrando? — hablamos?
 
-### LinkedIn Follow-up 1
+### LinkedIn Follow-up 1 (Value)
 Sergio, gracias por conectar.
 
 Te comparto un dato: 5-7x mas conversiones vs stack DIY.
@@ -1618,8 +1652,8 @@ Si te interesa, te cuento mas en 15 min.
 
 Felipe
 
-### LinkedIn Follow-up 2
-Sergio, se que el tiempo es limitado. Solo queria saber: tu equipo de ventas pierde tiempo prospectando en vez de cerrando?
+### LinkedIn Follow-up 2 (CTA)
+Sergio, se que el tiempo es limitado. Solo queria saber: Tu equipo de ventas pasa mas tiempo prospectando o cerrando?
 
 Si tiene sentido, 15 minutos para mostrarte como funciona. Si no, sin problema — quedo como contacto por si en algun momento te sirve.
 
@@ -1668,7 +1702,7 @@ Ricardo, corto y al punto:
 
 Empresas B2B en Chile que automatizan su pipeline de ventas estan viendo 5-7x mas conversiones vs stack DIY. La diferencia: responder rapido y solo a los leads correctos.
 
-prospeccion manual consume tiempo del equipo de ventas
+prospeccion manual consume tiempo del equipo de ventas.
 
 15 minutos para mostrarte como? 15 minutos para mostrarte como funciona.
 
@@ -1677,7 +1711,7 @@ Felipe
 ### Email 4: Direct Ask (Day 12)
 **Subject:** Ricardo, una pregunta
 
-Ricardo, te lo pregunto directo: tu equipo de ventas pierde tiempo prospectando en vez de cerrando?
+Ricardo, te lo pregunto directo: Tu equipo de ventas pasa mas tiempo prospectando o cerrando?
 
 Si la respuesta es si, te muestro en 15 minutos como lo resolvemos. Si no, todo bien — no insisto mas.
 
@@ -1696,10 +1730,10 @@ Exito con IDIEM.
 
 Felipe
 
-### LinkedIn Connection Note (300 chars)
-Hola Ricardo, vi que lideras eficiencia en ventas B2B en IDIEM. En Sisteco ayudamos a equipos de ventas B2B a automatizar la prospeccion B2B. Tu equipo de ventas pasa mas tiempo prospectando o cerrando? — Ricardo, hablamos?
+### LinkedIn Connection Note (max 300 chars)
+Hola Ricardo, vi que lideras eficiencia en ventas B2B en IDIEM. En Sisteco ayudamos a equipos de ventas B2B a automatizar la prospeccion B2B. Tu equipo de ventas pasa mas tiempo prospectando o cerrando? — hablamos?
 
-### LinkedIn Follow-up 1
+### LinkedIn Follow-up 1 (Value)
 Ricardo, gracias por conectar.
 
 Te comparto un dato: 5-7x mas conversiones vs stack DIY.
@@ -1710,8 +1744,8 @@ Si te interesa, te cuento mas en 15 min.
 
 Felipe
 
-### LinkedIn Follow-up 2
-Ricardo, se que el tiempo es limitado. Solo queria saber: tu equipo de ventas pierde tiempo prospectando en vez de cerrando?
+### LinkedIn Follow-up 2 (CTA)
+Ricardo, se que el tiempo es limitado. Solo queria saber: Tu equipo de ventas pasa mas tiempo prospectando o cerrando?
 
 Si tiene sentido, 15 minutos para mostrarte como funciona. Si no, sin problema — quedo como contacto por si en algun momento te sirve.
 
@@ -1760,7 +1794,7 @@ Marianny, corto y al punto:
 
 Empresas B2B en Chile que automatizan su pipeline de ventas estan viendo 5-7x mas conversiones vs stack DIY. La diferencia: responder rapido y solo a los leads correctos.
 
-prospeccion manual consume tiempo del equipo de ventas
+prospeccion manual consume tiempo del equipo de ventas.
 
 15 minutos para mostrarte como? 15 minutos para mostrarte como funciona.
 
@@ -1769,7 +1803,7 @@ Felipe
 ### Email 4: Direct Ask (Day 12)
 **Subject:** Marianny, una pregunta
 
-Marianny, te lo pregunto directo: tu equipo de ventas pierde tiempo prospectando en vez de cerrando?
+Marianny, te lo pregunto directo: Tu equipo de ventas pasa mas tiempo prospectando o cerrando?
 
 Si la respuesta es si, te muestro en 15 minutos como lo resolvemos. Si no, todo bien — no insisto mas.
 
@@ -1788,10 +1822,10 @@ Exito con Walmart Chile.
 
 Felipe
 
-### LinkedIn Connection Note (300 chars)
-Hola Marianny, vi que lideras eficiencia en ventas B2B en Walmart Chile. En Sisteco ayudamos a equipos de ventas B2B a automatizar la prospeccion B2B. Tu equipo de ventas pasa mas tiempo prospectando o cerrando? — Marianny, hablamos?
+### LinkedIn Connection Note (max 300 chars)
+Hola Marianny, vi que lideras eficiencia en ventas B2B en Walmart Chile. En Sisteco ayudamos a equipos de ventas B2B a automatizar la prospeccion B2B. Tu equipo de ventas pasa mas tiempo prospectando o cerrando? — hablamos?
 
-### LinkedIn Follow-up 1
+### LinkedIn Follow-up 1 (Value)
 Marianny, gracias por conectar.
 
 Te comparto un dato: 5-7x mas conversiones vs stack DIY.
@@ -1802,8 +1836,8 @@ Si te interesa, te cuento mas en 15 min.
 
 Felipe
 
-### LinkedIn Follow-up 2
-Marianny, se que el tiempo es limitado. Solo queria saber: tu equipo de ventas pierde tiempo prospectando en vez de cerrando?
+### LinkedIn Follow-up 2 (CTA)
+Marianny, se que el tiempo es limitado. Solo queria saber: Tu equipo de ventas pasa mas tiempo prospectando o cerrando?
 
 Si tiene sentido, 15 minutos para mostrarte como funciona. Si no, sin problema — quedo como contacto por si en algun momento te sirve.
 
