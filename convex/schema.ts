@@ -196,6 +196,23 @@ export default defineSchema({
     .index("by_estado", ["estado"])
     .index("by_token", ["verificationToken"]),
 
+  // ── tenantSheets — Mapeo orgId → Google Sheet para propagacion compliance ──
+  // Tabla global. Registra el spreadsheetId del Sheet de entrega de cada tenant.
+  // Usada por sheetsPropagation.ts para eliminar filas en opt-out/expiracion.
+  tenantSheets: defineTable({
+    orgId: v.string(),
+    spreadsheetId: v.string(),
+    sheetName: v.optional(v.string()),      // default "Leads" si no se especifica
+    createdAt: v.number(),
+    lastSyncAt: v.optional(v.number()),
+    status: v.optional(v.union(
+      v.literal("active"),
+      v.literal("paused"),
+      v.literal("error")
+    )),
+  })
+    .index("by_orgId", ["orgId"]),
+
   // ── Usuarios y roles (multi-tenant) ───────────────────────────────────────
   users: defineTable({
     // Multi-tenant isolation
