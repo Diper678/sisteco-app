@@ -4,7 +4,7 @@ milestone: v2.0
 milestone_name: milestone
 status: executing
 stopped_at: Completed 04-04-PLAN.md — Sheets propagation + ARCO-POL triage (Plan 4 of Phase 4)
-last_updated: "2026-03-16T22:38:00.947Z"
+last_updated: "2026-03-16T22:45:38.827Z"
 last_activity: 2026-03-15 — Phase 4 discuss-phase completado — 4 areas, 16 decisiones, adaptado a workflows-first
 progress:
   total_phases: 5
