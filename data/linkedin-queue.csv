@@ -1,0 +1,867 @@
+leadId,linkedinUrl,fullName,company,icpScore,tier,connectionStatus,connectionDate,connectionNote,msg1Sent,msg1Date,msg1Text,msg2Sent,msg2Date,msg2Text,replied,replyDate,replyChannel,meetingBooked,notes
+https://linkedin.com/in/pdiazc,https://linkedin.com/in/pdiazc,Pablo Díaz,E-lixir,100,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/thomashannamorales,https://linkedin.com/in/thomashannamorales,Thomas Hanna Morales,Ricoh Latin America Inc,100,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/cristianoviedoa,https://linkedin.com/in/cristianoviedoa,Cristian Oviedo,Virgin Mobile Latam,100,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/paola-cisternas-novoa,https://linkedin.com/in/paola-cisternas-novoa,Paola Jimena Cisternas Novoa,Gtd Chile,100,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/bastian-troncoso-mardones-abitech,https://linkedin.com/in/bastian-troncoso-mardones-abitech,Bastián Troncoso Mardones,Abitech Latam,100,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/lino-tejeda-m-sc-innovation-phd-s-intelligent-industries-4b98998,https://linkedin.com/in/lino-tejeda-m-sc-innovation-phd-s-intelligent-industries-4b98998,Lino Tejeda [M. Sc. Innovación - PhD(s) Industria Inteligente],Sourcing,100,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/eduardo-palacios-ca%C3%B1as-34462a1ab,https://linkedin.com/in/eduardo-palacios-ca%C3%B1as-34462a1ab,Eduardo Palacios Cañas,Huawei,100,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/dharmandaroglu,https://linkedin.com/in/dharmandaroglu,Deniz Harmandaroglu,ASICOM,100,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/guillermocorream,https://linkedin.com/in/guillermocorream,Guillermo Correa Mackenna,IAparaempresas,100,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/erico-cid-zapata-94231542,https://linkedin.com/in/erico-cid-zapata-94231542,Erico Cid Zapata,Telefónica,100,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/crichters,https://linkedin.com/in/crichters,Christian Richter Stein,ASICOM,100,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/claudio-ortiz-welsch,https://linkedin.com/in/claudio-ortiz-welsch,Claudio Ortiz Welsch,Telefónica Tech,100,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/cnavarroa,https://linkedin.com/in/cnavarroa,Constanza Navarro Abbott,NotCo,95,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/christian-osses,https://linkedin.com/in/christian-osses,Christian Osses,Asimov Consultores®️,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/adolfohubner,https://linkedin.com/in/adolfohubner,Adolfo Hübner,Drang,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/juan-pe%C3%B1a,https://linkedin.com/in/juan-pe%C3%B1a,Juan Peña,Vyax spa,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/pamelamaldonadosuarez,https://linkedin.com/in/pamelamaldonadosuarez,Pamela Maldonado Suarez,Mutual de Seguridad,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/renato-ramirez-iglesias,https://linkedin.com/in/renato-ramirez-iglesias,Renato Ramírez Iglesias,Rastreosat by Redd,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/victor-cabrera-maturana,https://linkedin.com/in/victor-cabrera-maturana,Víctor Cabrera Maturana,Principal Financial Group,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/andrea-d%C3%ADaz-candia-818a9437,https://linkedin.com/in/andrea-d%C3%ADaz-candia-818a9437,Andrea Díaz Candia,Unnio Seguros Generales,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/christianbehm,https://linkedin.com/in/christianbehm,Christian Behm,OTIC del Comercio Servicios y Turismo de Chile.,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/pabloskog,https://linkedin.com/in/pabloskog,Pablo Skog,Sendu Multicourier,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/pablo-vera-9b97b61a9,https://linkedin.com/in/pablo-vera-9b97b61a9,Pablo Vera,Metaproject S.A,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/ronaldmella,https://linkedin.com/in/ronaldmella,Ronald Mella Pineda,WOM Chile,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/cristofer-aravena-fern%C3%A1ndez-051273134,https://linkedin.com/in/cristofer-aravena-fern%C3%A1ndez-051273134,Cristofer Aravena Fernández,Achs Seguro Laboral,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/ruben-villegas-4977b9b5,https://linkedin.com/in/ruben-villegas-4977b9b5,Ruben Villegas,Abenis Consultores,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/andr%C3%A9s-guimpert-guridi-94876a34,https://linkedin.com/in/andr%C3%A9s-guimpert-guridi-94876a34,Andrés Guimpert Guridi,Isapre Esencial,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/ronald-vuscovich,https://linkedin.com/in/ronald-vuscovich,Ronald Vuscovich,TINET S.A.,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/jose-hormazabal-ramirez-a9262287,https://linkedin.com/in/jose-hormazabal-ramirez-a9262287,Jose Hormazabal Ramirez,Netline,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/marceloramoscastillo,https://linkedin.com/in/marceloramoscastillo,Marcelo Ramos Castillo,Intellegere Data Driven Mining Solutions,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/andreahernandezp,https://linkedin.com/in/andreahernandezp,Andrea H.,Penta Financiero S.A.,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/andreagarciah,https://linkedin.com/in/andreagarciah,Andrea García H,Optima Consulting,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/nicol%C3%A1s-antonio-r%C3%ADos-cartagena-979311172,https://linkedin.com/in/nicol%C3%A1s-antonio-r%C3%ADos-cartagena-979311172,Nicolás Antonio Ríos Cartagena,MACHBANK,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/angelalopezgenel,https://linkedin.com/in/angelalopezgenel,Angela López Genel,Banco Ripley Chile,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/claudio-figueroa-urtubia-945a5178,https://linkedin.com/in/claudio-figueroa-urtubia-945a5178,Claudio Figueroa Urtubia,Luvisoft Spa,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/diegoleonva,https://linkedin.com/in/diegoleonva,Diego León von Appen,Tata Consultancy Services,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/camilo-chamorro,https://linkedin.com/in/camilo-chamorro,Camilo Chamorro Cáceres,Banco Ripley Chile,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/rebeca-kiguel-levy-8534b75,https://linkedin.com/in/rebeca-kiguel-levy-8534b75,Rebeca Kiguel Levy,StrategicPartner SpA,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/daniel-ulloa-pmp-73736630,https://linkedin.com/in/daniel-ulloa-pmp-73736630,Daniel Ulloa PMP®,Microsystem S.A.,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/alejandra-rodr%C3%ADguez-25247422,https://linkedin.com/in/alejandra-rodr%C3%ADguez-25247422,Alejandra Rodríguez,Conosur Corredores de Seguros y Reaseguros,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/henrymolina,https://linkedin.com/in/henrymolina,Henry M.,BBR SpA,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/octavio-gamboa,https://linkedin.com/in/octavio-gamboa,Octavio Gamboa,Augure,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/ver%C3%B3nica-n%C3%BA%C3%B1ezrojas,https://linkedin.com/in/ver%C3%B3nica-n%C3%BA%C3%B1ezrojas,Verónica Núñez,Banco Ripley Chile,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/sergiocortesrobledo,https://linkedin.com/in/sergiocortesrobledo,Sergio Cortés Robledo,Zurich Santander Insurance America,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/isabelfuentealba1,https://linkedin.com/in/isabelfuentealba1,Isabel Fuentealba Fuentes,Independent Consultant,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/marceloficotto,https://linkedin.com/in/marceloficotto,Marcelo Ficotto,NTT DATA Europe & Latam,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/joseignaciocalle,https://linkedin.com/in/joseignaciocalle,Jose Ignacio Calle,Blend Consulting,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/marialoretojimenez,https://linkedin.com/in/marialoretojimenez,Maria Loreto Jimenez Araya,Grupo Antofagasta Minerals,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/felipe-urzua-45228854,https://linkedin.com/in/felipe-urzua-45228854,FELIPE URZUA,JRI Ingeniería SA,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/juan-ignacio-castro-gonzalez,https://linkedin.com/in/juan-ignacio-castro-gonzalez,Juan Ignacio Castro Gonzalez,Banco Ripley Chile,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/paula-greene-g,https://linkedin.com/in/paula-greene-g,Paula Greene,HDI Seguros Chile,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/arm%C3%ADn-antonio-chicao-mart%C3%ADnez-4508134,https://linkedin.com/in/arm%C3%ADn-antonio-chicao-mart%C3%ADnez-4508134,Armín Antonio Chicao Martínez,KPaz,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/francisco-javier-diaz-gallardo-a325a925,https://linkedin.com/in/francisco-javier-diaz-gallardo-a325a925,FRANCISCO JAVIER DIAZ GALLARDO,Sociedad Contractual Minera Carola,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/alvaro-weiss-ruiz-a925947b,https://linkedin.com/in/alvaro-weiss-ruiz-a925947b,Alvaro Weiss Ruiz,Trebol,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/benjaminmoyam,https://linkedin.com/in/benjaminmoyam,Benjamín Moya Maturana,Minsait,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/ccarrascocarre,https://linkedin.com/in/ccarrascocarre,Cesar Alexander Carrasco Carré,Primus,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/b%C3%A1rbarapantoja,https://linkedin.com/in/b%C3%A1rbarapantoja,Bárbara Pantoja,AIJourney®,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/charles-rogers-hawes,https://linkedin.com/in/charles-rogers-hawes,Charles Rogers,C&R Consulting SpA,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/erickcortezpinto,https://linkedin.com/in/erickcortezpinto,Erick Cortez Pinto,Minsait,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/juan-manuel-s%C3%A1ez-victoriano-27437b53,https://linkedin.com/in/juan-manuel-s%C3%A1ez-victoriano-27437b53,Juan Manuel Sáez Victoriano,Lider Bci,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/pablogonzalezpena,https://linkedin.com/in/pablogonzalezpena,Pablo Antonio González Peña,Lider Bci,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/karinadurney,https://linkedin.com/in/karinadurney,Karina Durney Sepúlveda,TWGroup,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/llopezaraya,https://linkedin.com/in/llopezaraya,Luis Lopez Araya,OLX,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/gary-osswald,https://linkedin.com/in/gary-osswald,Gary Osswald Quezada,VTEX,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/fernandoramosa,https://linkedin.com/in/fernandoramosa,Fernando Ramos Aguayo,2WIN,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/carla-pino-saavedra,https://linkedin.com/in/carla-pino-saavedra,Carla Pino Saavedra,Telefónica,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/pedro-ortega-poblete,https://linkedin.com/in/pedro-ortega-poblete,Pedro O.,Mastercard,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/claudio-soarzo,https://linkedin.com/in/claudio-soarzo,Claudio Soarzo Cataldo,"NTT DATA, Inc.",90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/cristian-tobar-cifuentes-3b096728,https://linkedin.com/in/cristian-tobar-cifuentes-3b096728,Cristian Tobar Cifuentes,MetLife Chile,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/marcelaverae,https://linkedin.com/in/marcelaverae,Marcela Vera Espinoza,CODELCO – Corporación Nacional del Cobre de Chile,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/gonzoalvarado,https://linkedin.com/in/gonzoalvarado,Gonzalo A.,Emprende.cl,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/sebasti%C3%A1n-ozimica-ruiz-47823264,https://linkedin.com/in/sebasti%C3%A1n-ozimica-ruiz-47823264,Sebastián Ozimica Ruiz,SoapBomberos.cl,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/fernando-cepeda-55a872b5,https://linkedin.com/in/fernando-cepeda-55a872b5,Fernando Cepeda,Penta Vida,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/javierbravojadrievic,https://linkedin.com/in/javierbravojadrievic,Javier Bravo Jadrievic,Somax,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/leonardomorley,https://linkedin.com/in/leonardomorley,Leonardo Morley,HSBC,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/luis-enrique-alvarado-hern%C3%A1ndez-888a533b,https://linkedin.com/in/luis-enrique-alvarado-hern%C3%A1ndez-888a533b,Luis Enrique Alvarado Hernández,ORSAN Seguros,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/jadiazrodriguez,https://linkedin.com/in/jadiazrodriguez,Jorge Díaz Rodríguez,AFP PlanVital,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/cristianblanchard,https://linkedin.com/in/cristianblanchard,Cristian Blanchard,PwC Chile,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/alejandracornejojara,https://linkedin.com/in/alejandracornejojara,Alejandra Cornejo Jara,AFP PlanVital,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/consuelo-pinto-z%C3%BA%C3%B1iga-76327b136,https://linkedin.com/in/consuelo-pinto-z%C3%BA%C3%B1iga-76327b136,Consuelo Pinto Zúñiga,AFP PlanVital,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/alejandrosegovian,https://linkedin.com/in/alejandrosegovian,Alejandro Segovia Núñez,Banchile Inversiones,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/gromo,https://linkedin.com/in/gromo,Guillermo Romo,Banco BICE,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/andres-arce-acevedo,https://linkedin.com/in/andres-arce-acevedo,Andrés A.,EBR TECH,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/magallygongora,https://linkedin.com/in/magallygongora,Magally Góngora,Banco BICE,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/francisco-cespedes-vinuela,https://linkedin.com/in/francisco-cespedes-vinuela,Francisco Céspedes Viñuela,CreditSat,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/jasminfuentesf,https://linkedin.com/in/jasminfuentesf,Jasmin Fuentes Figueroa,Tenpo,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/andres-cortes-46b269234,https://linkedin.com/in/andres-cortes-46b269234,Andres Cortes,Profesional Independiente,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/nereaollo,https://linkedin.com/in/nereaollo,Nerea Ollo,AFP PlanVital,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/maria-teresa-macaya-88a6508b,https://linkedin.com/in/maria-teresa-macaya-88a6508b,Maria Teresa Macaya,MetLife,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/camila-brontis-15680882,https://linkedin.com/in/camila-brontis-15680882,Camila Brontis,VRONDIS,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/francisco-puelles,https://linkedin.com/in/francisco-puelles,Francisco Puelles,Mitsui Auto Finance Chile Ltda.,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/paulina-jeria-aguirre-6772b65,https://linkedin.com/in/paulina-jeria-aguirre-6772b65,Paulina Jeria Aguirre,Banco BICE,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/ernestofreyre,https://linkedin.com/in/ernestofreyre,Ernesto Freyre Ramírez,licklider,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/rodrigo-jimenez-logistics,https://linkedin.com/in/rodrigo-jimenez-logistics,Rodrigo Jimenez,POSITION GPS,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/paula-ramirez-975b7211,https://linkedin.com/in/paula-ramirez-975b7211,Paula Ramirez,Charles Taylor,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/agust%C3%ADn-go%C3%B1i,https://linkedin.com/in/agust%C3%ADn-go%C3%B1i,Agustín Goñi,QWANTEC,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/patriciosanmartin,https://linkedin.com/in/patriciosanmartin,Patricio San Martín P.,Autofact,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/diana-brito-101a37a5,https://linkedin.com/in/diana-brito-101a37a5,Diana Brito,Bagrou,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/edisonponce71818923,https://linkedin.com/in/edisonponce71818923,Edison Ponce Rojas,Previred,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/luis-medina-lizama-38966b15,https://linkedin.com/in/luis-medina-lizama-38966b15,Luis Medina Lizama,Grupo Digital Bank,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/katherine-bravo-hernandez,https://linkedin.com/in/katherine-bravo-hernandez,Katherine Bravo Hernández,Tessi,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/cesar-reyes-transformacion-digital,https://linkedin.com/in/cesar-reyes-transformacion-digital,Cesar Reyes Rivas,SONDA,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/rodrigomontecinos,https://linkedin.com/in/rodrigomontecinos,Rodrigo Montecinos,Logicalis,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/evillaseca,https://linkedin.com/in/evillaseca,Esteban Villaseca,AFP HABITAT,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/jalexisvergaraa,https://linkedin.com/in/jalexisvergaraa,J Alexis Vergara Alvarado,CBpay,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/silvina-sadler,https://linkedin.com/in/silvina-sadler,Silvina Sadler 🇦🇷 🇪🇸,Bci Seguros,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/rodrigo-valdivia-lopez,https://linkedin.com/in/rodrigo-valdivia-lopez,Rodrigo Alberto Valdivia López,DinamIA Labs,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/david-restrepo-vergara-,https://linkedin.com/in/david-restrepo-vergara-,David Restrepo Vergara,Enaex,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/cristobalmontero,https://linkedin.com/in/cristobalmontero,Cristóbal Montero,SURA Investments,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/joselyn-bolton-dollenz-30282119,https://linkedin.com/in/joselyn-bolton-dollenz-30282119,Joselyn Bolton Dollenz,Tanner,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/omar-huaquin-hott-3a767317,https://linkedin.com/in/omar-huaquin-hott-3a767317,Omar Huaquin Hott,Cleo Consulting Group,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/catalopezcalcumil,https://linkedin.com/in/catalopezcalcumil,Catalina López Calcumil,Imagemaker,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/catalina-fernanda-araya-duarte-bb4440146,https://linkedin.com/in/catalina-fernanda-araya-duarte-bb4440146,Catalina Fernanda Araya Duarte,BC Tecnología,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/fanny-mogollon,https://linkedin.com/in/fanny-mogollon,Fanny M.,Greenti | Commerce Solutions,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/giostamoulis,https://linkedin.com/in/giostamoulis,Giovanni Stamoulis Aguilar,Financoop,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/esteban-medina-35bb64238,https://linkedin.com/in/esteban-medina-35bb64238,Esteban Medina,InterWins Motorola,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/bryan-reyes-462638b5,https://linkedin.com/in/bryan-reyes-462638b5,Bryan Reyes,Banco Falabella,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/gustavo-valdebenito-b696924b,https://linkedin.com/in/gustavo-valdebenito-b696924b,Gustavo Valdebenito,Defontana Chile,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/paula-andrea-d%C3%ADaz-echeverr%C3%ADa-a3566b25,https://linkedin.com/in/paula-andrea-d%C3%ADaz-echeverr%C3%ADa-a3566b25,Paula Andrea Díaz Echeverría,Floid,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/pablo-flores-bernales-51007b97,https://linkedin.com/in/pablo-flores-bernales-51007b97,Pablo Flores Bernales,nuam,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/cpobleter25,https://linkedin.com/in/cpobleter25,Cristián Poblete Rodriguez,Entel,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/sebastianperezhenriquez,https://linkedin.com/in/sebastianperezhenriquez,Sebastián P.,MIND - The Marketing Intelligence Company,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/malmendr,https://linkedin.com/in/malmendr,Marcos Almendras Riesco,CGS (Computer Generated Solutions),90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/roberto-fonseca-pino-613632164,https://linkedin.com/in/roberto-fonseca-pino-613632164,Roberto Fonseca Pino,Vantaz Group,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/cristian-cabrera-bustamante-a2899214a,https://linkedin.com/in/cristian-cabrera-bustamante-a2899214a,Cristian Cabrera Bustamante,Webdox Legal,90,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/eduardolobos,https://linkedin.com/in/eduardolobos,Eduardo Lobos Stevens,GeForce NOW powered by Digevo,85,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/susana-olavarrieta-bravo-7780455a,https://linkedin.com/in/susana-olavarrieta-bravo-7780455a,Susana Olavarrieta Bravo,Santander,85,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/valentina-ureta-b4ba36235,https://linkedin.com/in/valentina-ureta-b4ba36235,Valentina Ureta,Addval,85,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/jos%C3%A9-luis-barr%C3%ADa-v%C3%A1squez,https://linkedin.com/in/jos%C3%A9-luis-barr%C3%ADa-v%C3%A1squez,José Luis Barría Vásquez,Baker Tilly Chile Auditores Consultores,85,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/rodrigorohland,https://linkedin.com/in/rodrigorohland,Rodrigo Rohland,KPaz,85,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/fernanda-damiano-o-45a9945b,https://linkedin.com/in/fernanda-damiano-o-45a9945b,Fernanda Damiano O,Trebol,85,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/vicente-pacheco-9846841a8,https://linkedin.com/in/vicente-pacheco-9846841a8,Vicente Pacheco,Envision,85,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/fernanda-abarca-n,https://linkedin.com/in/fernanda-abarca-n,Fernanda Abarca Núñez,Banco Ripley Chile,85,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/felipe-flores-ruiz-pym,https://linkedin.com/in/felipe-flores-ruiz-pym,Felipe Andres Flores Ruiz,Banco Ripley Chile,85,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/felipesandoval,https://linkedin.com/in/felipesandoval,Felipe Sandoval Montenegro,The Blue Commerce Consulting,85,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/calamab,https://linkedin.com/in/calamab,Cristian Lama,WOM Chile,85,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/rubem-simoes-netto-091b88a,https://linkedin.com/in/rubem-simoes-netto-091b88a,Rubem Simoes Netto,Itaú Chile,85,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/josevasquezhiway,https://linkedin.com/in/josevasquezhiway,José Vásquez,Hiway,85,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/raquel-alvarez-villalobos-,https://linkedin.com/in/raquel-alvarez-villalobos-,RAQUEL ALVAREZ VILLALOBOS,Consilium People Consultores,85,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/mabel-bahamondez,https://linkedin.com/in/mabel-bahamondez,Mabel Bahamondez,BancoEstado,85,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/victor-hugo-poblete-agullo,https://linkedin.com/in/victor-hugo-poblete-agullo,Victor Poblete Agulló,Bupa Seguros,85,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/juan-manuel-guti%C3%A9rrez-cisternas-a6949a12a,https://linkedin.com/in/juan-manuel-guti%C3%A9rrez-cisternas-a6949a12a,Juan Manuel Gutiérrez Cisternas,Seguros Falabella,85,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/vanessa-crespo-rodriguez,https://linkedin.com/in/vanessa-crespo-rodriguez,Vanessa Crespo,Banco de Chile,85,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/pablo-magyar,https://linkedin.com/in/pablo-magyar,Pablo Magyar,InterSystems,85,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/francisco-pinto-godoy-b7965125,https://linkedin.com/in/francisco-pinto-godoy-b7965125,Francisco Pinto Godoy,Banco Bci,85,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/cvildosola,https://linkedin.com/in/cvildosola,Carlos Vildósola Gómez,Bci Pagos,85,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/zapatamauricio,https://linkedin.com/in/zapatamauricio,Mauricio Zapata,BIT Consultores,85,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/luis-diaz-santis,https://linkedin.com/in/luis-diaz-santis,Luis Díaz Santis,Latam Trade Capital,85,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/daniel-reyes-40890752,https://linkedin.com/in/daniel-reyes-40890752,Daniel Reyes,Coopeuch,85,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/rodrigo-carvallo-4b98a92a3,https://linkedin.com/in/rodrigo-carvallo-4b98a92a3,Rodrigo Carvallo,Key One,85,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/daniel-zuniga-r,https://linkedin.com/in/daniel-zuniga-r,Daniel Z.,Capitalizarme,85,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/marcos-guti%C3%A9rrez-sotomayor-28014835,https://linkedin.com/in/marcos-guti%C3%A9rrez-sotomayor-28014835,Marcos Gutiérrez Sotomayor,SQM Litio,85,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/rubenulloaulloa,https://linkedin.com/in/rubenulloaulloa,Ruben Ulloa,Coopeuch,85,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/alonso-mu%C3%B1oz-jorquera-265767108,https://linkedin.com/in/alonso-mu%C3%B1oz-jorquera-265767108,Alonso Muñoz Jorquera,Setteny Consulting SpA,85,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/fabriziodelmauro,https://linkedin.com/in/fabriziodelmauro,Fabrizio del Mauro Pinto,Entel,85,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/jacobkriman,https://linkedin.com/in/jacobkriman,Jacob Kriman,Vidrios Dellorto,80,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/andreamanterola,https://linkedin.com/in/andreamanterola,Andrea Manterola Blanquer,Universidad de Santiago de Chile,80,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/jocelyn-pinto,https://linkedin.com/in/jocelyn-pinto,Jocelyn Pinto Merino,Best Place to Live® Store,80,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/jorge-mira-olivos,https://linkedin.com/in/jorge-mira-olivos,Jorge Mira Olivos,Engel & Völkers Chile,80,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/jgcajias,https://linkedin.com/in/jgcajias,José Gabriel Cajías,Constructora e Inmobiliaria Cerro Bayo,80,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/rodolfotapia,https://linkedin.com/in/rodolfotapia,Rodolfo Tapia,Marley Coffee Chile,80,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/felipesilvaluco,https://linkedin.com/in/felipesilvaluco,Felipe Silva Luco,Fundación Invica,80,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/christopher-tegtmeier-21127141,https://linkedin.com/in/christopher-tegtmeier-21127141,Christopher Tegtmeier,Agencia Growth 360,80,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/genaroramirezfoubert,https://linkedin.com/in/genaroramirezfoubert,Genaro Ramirez Foubert,ENAP,80,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/ronitbendov,https://linkedin.com/in/ronitbendov,Ronit Ben-Dov,Buk,80,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/gustavo-vargas-herrera-22881722,https://linkedin.com/in/gustavo-vargas-herrera-22881722,Gustavo Vargas Herrera,FundPay,80,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/victor-jorquera-fieldhouse-17b79b59,https://linkedin.com/in/victor-jorquera-fieldhouse-17b79b59,Victor Jorquera Fieldhouse,Clinica Alemana de Santiago,80,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/rub%C3%A9n-alejandro-raby-correa-18340852,https://linkedin.com/in/rub%C3%A9n-alejandro-raby-correa-18340852,Rubén Alejandro Raby Correa,Artam Solutions Group,80,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/joseestebangaray,https://linkedin.com/in/joseestebangaray,Jose Esteban Garay Anex-dit-Chenaud,OTIC - Cámara Chilena de la Construcción,80,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/tiarenpizarroh,https://linkedin.com/in/tiarenpizarroh,Tiaren Pizarro Hernández,Remax Start,80,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/v-gonz%C3%A1lez-navarro,https://linkedin.com/in/v-gonz%C3%A1lez-navarro,Valentina González Navarro,Walmart Chile,80,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/nicofernandezdiaz,https://linkedin.com/in/nicofernandezdiaz,Nicolás Fernández Díaz,Agrosuper,80,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/marialauraherman,https://linkedin.com/in/marialauraherman,Maria Laura Herman,Abbott,80,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/nataliaserranor,https://linkedin.com/in/nataliaserranor,Natalia Serrano,Pfizer,80,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/jenny-g%C3%B3ngora-c%C3%A1ceres-30810133,https://linkedin.com/in/jenny-g%C3%B3ngora-c%C3%A1ceres-30810133,Jenny Góngora Cáceres,Komatsu Chile,80,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/eugenio-palacios,https://linkedin.com/in/eugenio-palacios,Eugenio Palacios Portales,Sant Ambrogio,80,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/agarciaiz,https://linkedin.com/in/agarciaiz,Andrés García Izquierdo,Great Profile Spa,80,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/mijal-gelin,https://linkedin.com/in/mijal-gelin,Mijal Gelin,_FERREBOX,80,HOT,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/carlos-francisco-huaiquimil-vergara-0b695350,https://linkedin.com/in/carlos-francisco-huaiquimil-vergara-0b695350,Carlos Francisco Huaiquimil Vergara,Telhome Chile,75,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/carolina-aceiton,https://linkedin.com/in/carolina-aceiton,Carolina Aceitón Rojas,H2D,75,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/ignacia-moller-,https://linkedin.com/in/ignacia-moller-,Ignacia Moller Verderau,The Blue Commerce Consulting,75,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/brian-nettle-tastets-77a16b1a,https://linkedin.com/in/brian-nettle-tastets-77a16b1a,Brian Nettle Tastets,Freelance (Self employed),75,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/crisandrews,https://linkedin.com/in/crisandrews,Juan Cristóbal Andrews Mujica,JetSMART Airlines,75,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/maxivrevello,https://linkedin.com/in/maxivrevello,Maximiliano Revello,Grupo Antofagasta Minerals,75,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/humberto-fuentes-sandoval,https://linkedin.com/in/humberto-fuentes-sandoval,Humberto Fuentes Sandoval,HF Servicios y Asesorías,75,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/loretocastillomolina,https://linkedin.com/in/loretocastillomolina,Loreto Castillo Molina,HumanNet,75,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/rodrigosolis,https://linkedin.com/in/rodrigosolis,Rodrigo Solis,Bureau Veritas,75,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/jorge-aymar-sanchez,https://linkedin.com/in/jorge-aymar-sanchez,Jorge Aymar Sánchez,,75,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/sof%C3%ADa-martinez-medina-,https://linkedin.com/in/sof%C3%ADa-martinez-medina-,Sofía Martinez Medina,Chubb,75,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/rvalenzuelag,https://linkedin.com/in/rvalenzuelag,"Ricardo Valenzuela G,",Oracle,75,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/felipeguerrafuentes,https://linkedin.com/in/felipeguerrafuentes,Felipe Guerra Fuentes,MetLife,75,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/denise-goldener-22313924,https://linkedin.com/in/denise-goldener-22313924,Denise Goldener,Ecert,75,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/matiascanessa,https://linkedin.com/in/matiascanessa,Matias Canessa,Rocketcar,75,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/katty-orellana-bol%C3%ADvar-0019a658,https://linkedin.com/in/katty-orellana-bol%C3%ADvar-0019a658,Katty Orellana Bolívar,hiberus,75,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/sebastianschneiderc,https://linkedin.com/in/sebastianschneiderc,Sebastián Schneider Cataldo,Banco BICE,75,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/violeta-soto-jara-a1a1a18a,https://linkedin.com/in/violeta-soto-jara-a1a1a18a,Violeta Soto Jara,Lider Bci,75,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/montserrat-jerez-reale,https://linkedin.com/in/montserrat-jerez-reale,Montserrat Sofía Jerez Reale,KPMG Chile,75,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/sebasti%C3%A1n-carrizo-baeza-1b9615178,https://linkedin.com/in/sebasti%C3%A1n-carrizo-baeza-1b9615178,Sebastián Carrizo Baeza,Defontana Chile,75,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/mabel-salinas-luco,https://linkedin.com/in/mabel-salinas-luco,Mabel Salinas Luco,Optimiza Soluciones,75,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/fabian-alvarado-gonzalez-37805924,https://linkedin.com/in/fabian-alvarado-gonzalez-37805924,Fabian Alvarado Gonzalez,Hitachi Energy,75,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/camila-orme%C3%B1o-cid-30983976,https://linkedin.com/in/camila-orme%C3%B1o-cid-30983976,Camila Ormeño Cid,CleverIT Group,75,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/alejandra-lobosh,https://linkedin.com/in/alejandra-lobosh,Alejandra Paz Lobos Hernández,SERVICIO ROBOT,75,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/marco-aravena-vivar-081b8224,https://linkedin.com/in/marco-aravena-vivar-081b8224,Marco Aravena Vivar,Universidad de Valparaíso,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/gorellanap,https://linkedin.com/in/gorellanap,Gabriel Orellana,Universidad San Sebastián,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/jonathan-miranda-sanhueza-62948738,https://linkedin.com/in/jonathan-miranda-sanhueza-62948738,Jonathan Miranda Sanhueza,Dirección de Educación Pública,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/diegog3,https://linkedin.com/in/diegog3,Diego Guzmán Fenick,Santo Tomás,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/carolinacasascanepa,https://linkedin.com/in/carolinacasascanepa,Carolina Casas Canepa,BordeSur SpA,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/luis-mondaca-cio-transformaci%C3%B3n-digital-gerente-informatica-mba,https://linkedin.com/in/luis-mondaca-cio-transformaci%C3%B3n-digital-gerente-informatica-mba,Luis Mondaca,Alifrut S.A.,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/marcelofernandezdonoso,https://linkedin.com/in/marcelofernandezdonoso,Marcelo Fernández Donoso,Empresas Virutex Ilko,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/pablo-montero-perez,https://linkedin.com/in/pablo-montero-perez,Pablo Montero Perez,Transición Laboral en People & Partners,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/enrique-montealegre,https://linkedin.com/in/enrique-montealegre,Enrique Montealegre Gandolfo,Zona Franca de Iquique S.A. (ZOFRI S.A.),70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/carlos-puga-48a99962,https://linkedin.com/in/carlos-puga-48a99962,Carlos Puga,CIC,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/daniel-duranu,https://linkedin.com/in/daniel-duranu,Daniel Duran Urizar,Reutter S.A.,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/francisca-lizama,https://linkedin.com/in/francisca-lizama,Francisca Lizama,Mercado Mayorista Lo Valledor,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/gerentetecnolog%C3%ADa-cecheverrias,https://linkedin.com/in/gerentetecnolog%C3%ADa-cecheverrias,Carlos Echeverría,FAYA Limitada,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/falmazan,https://linkedin.com/in/falmazan,Felipe Almazan Tepliski,Comisión para el Mercado Financiero (CMF),70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/alemogueda,https://linkedin.com/in/alemogueda,Alem O.,Academia Nacional de Estudios Políticos y Estratégicos,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/claudio-morales-flores-44551329,https://linkedin.com/in/claudio-morales-flores-44551329,Claudio Morales Flores,Radio Pauta,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/pcavaletto,https://linkedin.com/in/pcavaletto,Paola Cavaletto Hevia,OCIDES Foundation,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/lorena-mancilla-vidal,https://linkedin.com/in/lorena-mancilla-vidal,Lorena Mancilla Vidal,Careyou,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/lopezfloresalejandro,https://linkedin.com/in/lopezfloresalejandro,"Alejandro López Flores PMP®, PMO-CP",Project Management Institute (PMI),70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/remobetta,https://linkedin.com/in/remobetta,Remo Betta Olivares,Instituto Profesional IACC,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/roberto-castro-c-56779031,https://linkedin.com/in/roberto-castro-c-56779031,Roberto Castro C.,"SMU S.A. (Unimarc, M10, Alvi, y Super10)",70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/tiago-vargas,https://linkedin.com/in/tiago-vargas,Tiago Vargas Flores,ISI Dublin - English Language School,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/carolina-morales-57980ab,https://linkedin.com/in/carolina-morales-57980ab,Carolina Morales,Asesorias Tecnologicas Especializadas,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/veronicaburgos,https://linkedin.com/in/veronicaburgos,Verónica L. Burgos Seguel,ESVAL S.A.,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/msantanav,https://linkedin.com/in/msantanav,Marcelo Santana,Agricultural and Livestock Service of Chile (SAG),70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/ralz,https://linkedin.com/in/ralz,Rodrigo López Zamorano,Fundación Educacional Docere,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/andreshidalgog,https://linkedin.com/in/andreshidalgog,Andres Hidalgo,Consultor independiente,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/hembert7,https://linkedin.com/in/hembert7,Hembert Alfonzo,Grupo Falabella,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/carlos-gajardo-silva,https://linkedin.com/in/carlos-gajardo-silva,Carlos Gajardo Silva,Inmobiliaria Imagina Chile,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/gerard-greg-diaz-jimenez,https://linkedin.com/in/gerard-greg-diaz-jimenez,Gerard Greg D.,Servicio Local de Educación Pública Petorca (SLEP Petorca),70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/renato-machado-morales,https://linkedin.com/in/renato-machado-morales,Renato Machado Morales,Transvip Chile,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/claudio-a-aguayo-molina-36bb2429,https://linkedin.com/in/claudio-a-aguayo-molina-36bb2429,Claudio A. Aguayo Molina,Santo Tomás,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/gonzalooviedoalbornoz,https://linkedin.com/in/gonzalooviedoalbornoz,Gonzalo Oviedo Albornoz,Comercializadora e Inversiones DOB,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/davidparraosses,https://linkedin.com/in/davidparraosses,David Alejandro Parra Osses,Molino Victoria | Industria: Alimentación | Molinería | Producción Industrial,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/cristian-sulzer,https://linkedin.com/in/cristian-sulzer,Cristian Sulzer,Capital Express,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/product-owner-business-intelligence-data-science-experienciaclientes-lider-proyectos-analytics,https://linkedin.com/in/product-owner-business-intelligence-data-science-experienciaclientes-lider-proyectos-analytics,Cesar Gallardo Molina,Animal Care - ACWS,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/donubu,https://linkedin.com/in/donubu,Michael Gomez Cruz,Puerto Chile,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/saulpalma,https://linkedin.com/in/saulpalma,Saúl Palma Toloza,EL VOLCAN CHILE,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/manuel-alejandro-maldonado-medel,https://linkedin.com/in/manuel-alejandro-maldonado-medel,Manuel Alejandro Maldonado Medel,Asociación Nacional Automotriz de Chile (ANAC A.G),70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/reinaldo-caceres-veliz,https://linkedin.com/in/reinaldo-caceres-veliz,Reinaldo Cáceres Véliz,Metro de Santiago S.A.,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/alex-faundez-b58aab57,https://linkedin.com/in/alex-faundez-b58aab57,Alex Faundez,St. Andrews Mussels,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/gissella-moraga-pradenas-2285131b,https://linkedin.com/in/gissella-moraga-pradenas-2285131b,Gissella Moraga Pradenas,Metro de Santiago S.A.,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/hans-ulloa-ortega-b5695817,https://linkedin.com/in/hans-ulloa-ortega-b5695817,Hans Ulloa Ortega,Radio Pauta,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/pablofranulich,https://linkedin.com/in/pablofranulich,Pablo Franulich,D.G.A.C. (Dirección General de Aeronáutica Civil) Chile,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/rodrigo-s%C3%A1nchez-p-4b756842,https://linkedin.com/in/rodrigo-s%C3%A1nchez-p-4b756842,Rodrigo Sánchez,Echeverría Izquierdo S.A,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/alvaro-herrera-jaque-gerente-ti,https://linkedin.com/in/alvaro-herrera-jaque-gerente-ti,Alvaro H.,Profesional independiente,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/gerardoarrau,https://linkedin.com/in/gerardoarrau,Gerardo Arrau Domínguez,Anagra S.A.,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/edgarlobos,https://linkedin.com/in/edgarlobos,Edgar Lobos Ulloa,Turistik,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/pablo-v%C3%A1squez-esparza-878766110,https://linkedin.com/in/pablo-v%C3%A1squez-esparza-878766110,Pablo Vásquez Esparza,Treck S.A.,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/carlosvaldebenitonova,https://linkedin.com/in/carlosvaldebenitonova,Carlos Valdebenito Nova,Transportes San Gabriel Ltda,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/augusto-catalan,https://linkedin.com/in/augusto-catalan,Augusto Catalán,Peluquerias Integrales S A,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/carolina-p%C3%A9rez-morras-30b75377,https://linkedin.com/in/carolina-p%C3%A9rez-morras-30b75377,Carolina Pérez Morras,Grupo Falabella,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/jorge-ugarte-humeres,https://linkedin.com/in/jorge-ugarte-humeres,Jorge Ugarte Humeres,Inmobiliaria Costanera Pacífico,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/esteban-bas%C3%A1ez-jorquera-56072618,https://linkedin.com/in/esteban-bas%C3%A1ez-jorquera-56072618,Esteban Basáez Jorquera,Epysa Implementos Chile,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/carloslarrain,https://linkedin.com/in/carloslarrain,Carlos Larrain,ARDUUM - Consultoría en Transformación Digital y Gestión Tecnológica,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/hernangodoyconcha,https://linkedin.com/in/hernangodoyconcha,Hernán Enrique Godoy Concha,Colegio Santa Cruz Chicureo,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/tom%C3%A1s-abarz%C3%BAa-toledo,https://linkedin.com/in/tom%C3%A1s-abarz%C3%BAa-toledo,Tomás Abarzúa Toledo,Smart Suites,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/carlosreusser,https://linkedin.com/in/carlosreusser,Carlos Reusser Monsálvez,Universidad San Sebastián,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/roberto-castro-soto,https://linkedin.com/in/roberto-castro-soto,Roberto Castro Soto,Universidad de Santiago de Chile,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/leonardini,https://linkedin.com/in/leonardini,Omar Leonardini Cavero,DHL Express,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/bernarda-valderrama-mena-7b039735,https://linkedin.com/in/bernarda-valderrama-mena-7b039735,Bernarda Valderrama Mena,Coordinador Eléctrico Nacional,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/mar%C3%ADap%C3%ADamontereypoblete,https://linkedin.com/in/mar%C3%ADap%C3%ADamontereypoblete,María Pía Monterey Poblete,ENAP,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/william-herrera-caneleo,https://linkedin.com/in/william-herrera-caneleo,William Herrera Caneleo,Grupo Schutz S.A.,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/paulo-miranda-diaz-2bab41149,https://linkedin.com/in/paulo-miranda-diaz-2bab41149,Paulo Miranda Diaz,Cafetería Rincón Verde,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/psommaruga,https://linkedin.com/in/psommaruga,Paulo Sommaruga Llobet,Viña Casa Silva,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/yerko-caceres-8b9a4529,https://linkedin.com/in/yerko-caceres-8b9a4529,Yerko Caceres,Red Alma Mater Studiorum,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/alejandro-carrascoperez,https://linkedin.com/in/alejandro-carrascoperez,Alejandro Carrasco Pérez,Clinica Alemana de Santiago,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/pstagno,https://linkedin.com/in/pstagno,Paolo Stagno Durán,Bupa Chile,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/cristobalingrrhh,https://linkedin.com/in/cristobalingrrhh,Cristobal Celedón Henríquez,Buk,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/gonzalo-guerra-alvarez,https://linkedin.com/in/gonzalo-guerra-alvarez,Gonzalo Guerra Alvarez,Multicajas SA,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/jcborquezm,https://linkedin.com/in/jcborquezm,Juan Carlos Bórquez,Lucas Diesel,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/pjaguirreh,https://linkedin.com/in/pjaguirreh,Pablo Javier Aguirre Hörmann,INZAI S.A.,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/max-valdivieso,https://linkedin.com/in/max-valdivieso,Maximiliano Valdivieso Reyes,Caja La Araucana,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/julioorregomirandaingeniero,https://linkedin.com/in/julioorregomirandaingeniero,Julio Orrego Miranda,Boarder Logistics,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/nicolascelis,https://linkedin.com/in/nicolascelis,Nicolás Celis Carrasco,ECOS CHILE,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/nicolastoromarin,https://linkedin.com/in/nicolastoromarin,Nicolas Toro Marin,Instituto de Tecnología para la Innovación en Salud y Bienestar,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/esteban-m%C3%A9ndez-lesser,https://linkedin.com/in/esteban-m%C3%A9ndez-lesser,Esteban Méndez Lesser,Integramedica S.A.,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/jose-miguel-vallejo-gonzalez-a2b5139,https://linkedin.com/in/jose-miguel-vallejo-gonzalez-a2b5139,Jose Miguel Vallejo González,Xraptor SPA,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/cvizcaya,https://linkedin.com/in/cvizcaya,Carlos Vizcaya,abc S.A.,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/carolina-b%C3%BCchi-sagredo-5477b3208,https://linkedin.com/in/carolina-b%C3%BCchi-sagredo-5477b3208,Carolina Büchi Sagredo,Inmobiliaria Imagina Chile,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/juan-luis-santis-v,https://linkedin.com/in/juan-luis-santis-v,Juan Luis Santis Vásquez,Universidad Adolfo Ibáñez,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/octavio-espinoza-collyer,https://linkedin.com/in/octavio-espinoza-collyer,Octavio Espinoza Collyer,"National Cultural Heritage Service  (Ministry of Cultures, Arts and Heritage) ",70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/mjlaraina,https://linkedin.com/in/mjlaraina,María José Larraín Arretx,Cerámicas Cordillera,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/francisco-polo-viera-26335a3a,https://linkedin.com/in/francisco-polo-viera-26335a3a,Francisco Polo Viera,Transsa Consultores Inmobiliarios,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/carolina-pinto-grez,https://linkedin.com/in/carolina-pinto-grez,Carolina Pinto Grez,Universidad San Sebastián,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/ingeniero-civil-industrial-uc,https://linkedin.com/in/ingeniero-civil-industrial-uc,Álvaro Numhauser Valderrama,Consultoría Operaciones |  Proyectos |  Transformación Digital,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/sergio-vera-ohberg-17393a1b1,https://linkedin.com/in/sergio-vera-ohberg-17393a1b1,Sergio Vera Ohberg,Empresas AquaChile,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/arturo-cabello-soto,https://linkedin.com/in/arturo-cabello-soto,Arturo Cabello,GMK Chile,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/deivi-ramos-174aa0285,https://linkedin.com/in/deivi-ramos-174aa0285,Deivi Ramos,Aster Aceleradora,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/csantiba,https://linkedin.com/in/csantiba,Cristian Santibañez,"Universidad de Artes, Ciencias y Comunicación",70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/marco-ter%C3%A1n-aguilar-1565157,https://linkedin.com/in/marco-ter%C3%A1n-aguilar-1565157,Marco Terán Aguilar,Fundación País Digital,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/ricardofloresbarrera,https://linkedin.com/in/ricardofloresbarrera,Ricardo Flores Barrera,IDIEM,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/marianny-godoy,https://linkedin.com/in/marianny-godoy,Marianny Godoy Macias,Walmart Chile,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/pam%C3%A1lvarez,https://linkedin.com/in/pam%C3%A1lvarez,Pamela Álvarez,Zona de Talentos,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/rsanchezazocar,https://linkedin.com/in/rsanchezazocar,Rodrigo Sánchez Azócar,CMPC,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/daniel-pena-nunez,https://linkedin.com/in/daniel-pena-nunez,Daniel Peña Nuñez,TecnoRed S.A,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/ian-doren-roig-63294633,https://linkedin.com/in/ian-doren-roig-63294633,Ian Doren Roig,DIMER SA,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/ricardowenzel,https://linkedin.com/in/ricardowenzel,Ricardo G. Konopnicki Wenzel,Soprole,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/jayishmanwani,https://linkedin.com/in/jayishmanwani,Jayish Manwani,Travel Security S.A.,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/alvarocepeda,https://linkedin.com/in/alvarocepeda,Álvaro Cepeda Ortiz,Universidad Andres Bello,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/gabriel-herrera-diaz-4644aa136,https://linkedin.com/in/gabriel-herrera-diaz-4644aa136,Gabriel Herrera Diaz,MetLife Chile,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/christianrodiek,https://linkedin.com/in/christianrodiek,Christian R.,FirmaVirtual,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/francisco-loehnert-tampier-19358421,https://linkedin.com/in/francisco-loehnert-tampier-19358421,Francisco Loehnert Tampier,Kaufmann Chile,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/helmut-montalva-domedel,https://linkedin.com/in/helmut-montalva-domedel,Helmut Montalva D.,Wildnet Group,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/fabiolavillegasmarin,https://linkedin.com/in/fabiolavillegasmarin,Fabiola Villegas Marin,Consultor,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/martinez-ak8-mario-72a09bb7,https://linkedin.com/in/martinez-ak8-mario-72a09bb7,Martinez AK8 Mario,AK8,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/daniellepileo,https://linkedin.com/in/daniellepileo,Daniel V. Lepileo,GMPOWER,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/ppuebla,https://linkedin.com/in/ppuebla,Patricio A. Puebla Fuenzalida,Saba Chile,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/patricio-campos-aliste-4b864155,https://linkedin.com/in/patricio-campos-aliste-4b864155,Patricio Campos Aliste,Ipyme,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/carlos-enrique-escobar-zepeda-00235660,https://linkedin.com/in/carlos-enrique-escobar-zepeda-00235660,Carlos Enrique Escobar Zepeda,Universidad de Santiago,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/m%C3%A9rida-carmona-03a1b4176,https://linkedin.com/in/m%C3%A9rida-carmona-03a1b4176,Mérida Carmona,Adecco,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/david-munoz-cuitino,https://linkedin.com/in/david-munoz-cuitino,David Muñoz Cuitiño,SmartLEX,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/franco-geoffroy-castro-399506b2,https://linkedin.com/in/franco-geoffroy-castro-399506b2,Franco Geoffroy Castro,CCU,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/nicolascontrerascrenovich,https://linkedin.com/in/nicolascontrerascrenovich,Nicolas Contreras Crenovich,Freelance,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/benjamin-verdessi,https://linkedin.com/in/benjamin-verdessi,Benjamín Verdessi,Falabella,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/jorisstolk,https://linkedin.com/in/jorisstolk,Joris Stolk,CCU,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/hellen-quiroz-garc%C3%ADa,https://linkedin.com/in/hellen-quiroz-garc%C3%ADa,Hellen Quiroz García,Pontificia Universidad Católica de Chile,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/gustavocisternassilva,https://linkedin.com/in/gustavocisternassilva,Gustavo Cisternas Silva,FarmaLoop,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/claudio-olate-connell,https://linkedin.com/in/claudio-olate-connell,Claudio Rodrigo Olate Connell,Relque,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/cristian-farias-ramirez-85b00420,https://linkedin.com/in/cristian-farias-ramirez-85b00420,Cristian Farias Ramirez,Geofrut,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/martinaplanella,https://linkedin.com/in/martinaplanella,Martina Planella Norambuena,Agencia de Aduanas Macowan,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/felipearriagada,https://linkedin.com/in/felipearriagada,Felipe Arriagada Baraona,Abbott,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/claudiacaceresaraya,https://linkedin.com/in/claudiacaceresaraya,Claudia Cáceres Araya,Grupo Almacruz,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/ricardo-castillo-c-16241312,https://linkedin.com/in/ricardo-castillo-c-16241312,Ricardo Castillo C.,Watt's,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/carolinacamus,https://linkedin.com/in/carolinacamus,Carolina Camus,Grupo Kaufmann,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/jose-alejandro-soto-zevallos-5582b627,https://linkedin.com/in/jose-alejandro-soto-zevallos-5582b627,Jose Alejandro Soto Zevallos,Independent,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/marklamac,https://linkedin.com/in/marklamac,Mark Brian Lamac Geller,LATAM Airlines,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/mariana-morales-heerlein,https://linkedin.com/in/mariana-morales-heerlein,Mariana Morales Heerlein,LATAM Airlines,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/ma-alejandra-avenda%C3%B1o-matheus-38a84b190,https://linkedin.com/in/ma-alejandra-avenda%C3%B1o-matheus-38a84b190,Ma. Alejandra Avendaño Matheus,LATAM Airlines,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/brodillo,https://linkedin.com/in/brodillo,Bartolome Rodillo Pérez,INACAP,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/silvanadiazs,https://linkedin.com/in/silvanadiazs,Silvana Belén Díaz Silva,Desafío Latam,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/juli%C3%A1n-rodr%C3%ADguez-39334b150,https://linkedin.com/in/juli%C3%A1n-rodr%C3%ADguez-39334b150,Julián Rodríguez,Gama Mobility,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/andr%C3%A9s-olea-rivera-b6602821,https://linkedin.com/in/andr%C3%A9s-olea-rivera-b6602821,Andrés Olea Rivera,Chilquinta Energía S.A.,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/joharuiz,https://linkedin.com/in/joharuiz,Johanna Ruiz,B. Braun Group,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/ayleen-l%C3%B3pez-ch%C3%A1vez-178296139,https://linkedin.com/in/ayleen-l%C3%B3pez-ch%C3%A1vez-178296139,Ayleen López Chávez,LATAM Airlines,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/luis-roman-78b79b5,https://linkedin.com/in/luis-roman-78b79b5,Luis Roman,Parque Arauco,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/mariajesusramirez,https://linkedin.com/in/mariajesusramirez,María Jesús Ramírez Vergara,astara,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/ricardobasquinzay,https://linkedin.com/in/ricardobasquinzay,Ricardo Basquinzay Ledezma,Empresa de los Ferrocarriles del Estado - Grupo EFE,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/rdmatusp,https://linkedin.com/in/rdmatusp,Rolando Matus,Nike,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/victor-duarte-l%C3%B3pez-87093569,https://linkedin.com/in/victor-duarte-l%C3%B3pez-87093569,Victor Duarte López,Newrest,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/hector-andres-morel-briones-104ba414,https://linkedin.com/in/hector-andres-morel-briones-104ba414,Héctor Andrés Morel Briones,RIGroup Consulting,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/fehidalgo,https://linkedin.com/in/fehidalgo,Felipe Hidalgo Cáceres,Syncore,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/analia-rojas-araya-056349205,https://linkedin.com/in/analia-rojas-araya-056349205,Analia Rojas araya,DevExtreme,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/joaquinjaque,https://linkedin.com/in/joaquinjaque,Joaquin Jaque,Gauss Control,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/pablo-espinoza-rodriguez,https://linkedin.com/in/pablo-espinoza-rodriguez,Pablo Espinoza Rodriguez,Arcos Dorados,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/felipe-ovalle-perez-96146954,https://linkedin.com/in/felipe-ovalle-perez-96146954,Felipe Ovalle Perez,Garces Fruit,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/lvalderramaruiz,https://linkedin.com/in/lvalderramaruiz,Luis Alfaro Valderrama Ruiz,Coca-Cola Andina,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/sergio-silvab,https://linkedin.com/in/sergio-silvab,Sergio Silva 🦓,Cebra 🦓,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/aimara-alejandra-castro-fernandoi-40b9a290,https://linkedin.com/in/aimara-alejandra-castro-fernandoi-40b9a290,Aimara Alejandra Castro Fernandoi,Nike,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/patriciochaparro,https://linkedin.com/in/patriciochaparro,Patricio Chaparro Vera,Agrosuper,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/cristian-san-martin-vera-15b016210,https://linkedin.com/in/cristian-san-martin-vera-15b016210,Cristian San Martin Vera,LATAM Airlines,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/daglin-soto-melo-574644135,https://linkedin.com/in/daglin-soto-melo-574644135,Daglin Soto Melo,Smartycar,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/diana-zorec-b588ba44,https://linkedin.com/in/diana-zorec-b588ba44,Diana Zorec,Melon S.A.,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/gonzalo-salazar-galleguillos-2b78641a3,https://linkedin.com/in/gonzalo-salazar-galleguillos-2b78641a3,Gonzalo Salazar Galleguillos,AFC Chile,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/gabriel-candia-gallardo-07a02243,https://linkedin.com/in/gabriel-candia-gallardo-07a02243,Gabriel Candia Gallardo,Americar,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/giselaramirez,https://linkedin.com/in/giselaramirez,Gisela Ramírez Günz,Coca-Cola Andina,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/rodrigo-vizcarra-romero,https://linkedin.com/in/rodrigo-vizcarra-romero,Rodrigo Esteban Vizcarra Romero,Digital Education Council,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/francisca-leiva-valenzuela-b60202174,https://linkedin.com/in/francisca-leiva-valenzuela-b60202174,Francisca Leiva Valenzuela,Coopeuch,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/cindy-betzab%C3%A9-contador-cisterna-1335a238,https://linkedin.com/in/cindy-betzab%C3%A9-contador-cisterna-1335a238,Cindy Betzabé Contador Cisterna,Duoc UC,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/francisco-javier-valenzuela-cruces-a5539b71,https://linkedin.com/in/francisco-javier-valenzuela-cruces-a5539b71,Francisco Javier Valenzuela Cruces,Tattersall,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/leslery-tolorza-ramirez-27288b56,https://linkedin.com/in/leslery-tolorza-ramirez-27288b56,Leslery Tolorza Ramirez,CGE S.A.,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/alexisromo,https://linkedin.com/in/alexisromo,Alexis Esteban Romo Lagos,Advisor,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/marcelosulia,https://linkedin.com/in/marcelosulia,Marcelo Miguel Sulia,CANNON HOME,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/ricardoyanezarredondo,https://linkedin.com/in/ricardoyanezarredondo,Ricardo Yáñez,Duoc UC,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/jlevicoy,https://linkedin.com/in/jlevicoy,Juan Carlos Levicoy,Bupa UK,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/claudio-leiva-556196130,https://linkedin.com/in/claudio-leiva-556196130,Claudio Leiva,Garces Fruit,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/javier-zarate-bertoglio,https://linkedin.com/in/javier-zarate-bertoglio,Javier Andres Zárate Bertoglio,DDC - David Del Curto,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/daniela-merino-garay-411285111,https://linkedin.com/in/daniela-merino-garay-411285111,Daniela Merino Garay,Agrosuper,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/rodrigovillarroelrrhh,https://linkedin.com/in/rodrigovillarroelrrhh,Rodrigo Villarroel Diaz,SACP ,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/nayibtala,https://linkedin.com/in/nayibtala,Nayib Tala,Estudio Tala,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/dsalass,https://linkedin.com/in/dsalass,Daniela Andrea Salas Sutil,Glemflow,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/minayao,https://linkedin.com/in/minayao,Marcelo Alejandro Inayao Mendoza,CANNON HOME,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/pablo-juan-sereno-78439537,https://linkedin.com/in/pablo-juan-sereno-78439537,Pablo Juan Sereno,Coca-Cola Andina,70,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/gonzalo-beltr%C3%A1n-mart%C3%ADnez,https://linkedin.com/in/gonzalo-beltr%C3%A1n-mart%C3%ADnez,Gonzalo Beltrán Martínez,mutual de seguros de chile,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/nelson-tudela,https://linkedin.com/in/nelson-tudela,Nelson Tudela Carrasco,WOM Chile,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/ruthvallejos,https://linkedin.com/in/ruthvallejos,Ruth Vallejos Rojas,,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/%C3%A1lvaro-prelle-guerra-6b108139,https://linkedin.com/in/%C3%A1lvaro-prelle-guerra-6b108139,Álvaro Prelle Guerra,Itaú Chile,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/alejandromauro,https://linkedin.com/in/alejandromauro,Alejandro Mauro,Clinica Alemana de Santiago,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/oscarsaavedradiaz,https://linkedin.com/in/oscarsaavedradiaz,Oscar Saavedra Diaz,Principal Financial Group,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/jjuretic,https://linkedin.com/in/jjuretic,"Jerko Juretic, MBA",Analytics Day DCS Universidad de Chile,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/andrea-sotelo-guzm%C3%A1n,https://linkedin.com/in/andrea-sotelo-guzm%C3%A1n,María Andrea Sotelo Guzmán,NTT DATA Europe & Latam,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/alan-meneses-cio-lider-transformacion-digital-tecnologia-manufactura-mineria-inteligente,https://linkedin.com/in/alan-meneses-cio-lider-transformacion-digital-tecnologia-manufactura-mineria-inteligente,Alan Meneses,Macronline Software,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/eduardo-robledo-santelices-49b0ba4a,https://linkedin.com/in/eduardo-robledo-santelices-49b0ba4a,Eduardo Robledo Santelices,Imagine Consulting,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/marco-antonio-santana-pina,https://linkedin.com/in/marco-antonio-santana-pina,Marco Antonio Santana Piña,NTT DATA Europe & Latam,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/alfredo-rivero-572a0378,https://linkedin.com/in/alfredo-rivero-572a0378,Alfredo Rivero,Banco Falabella Chile,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/cristobal-motto,https://linkedin.com/in/cristobal-motto,Cristóbal Motto,,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/janruschr,https://linkedin.com/in/janruschr,Jan Rusch Reichhard,GrupoTusMaquinas.com,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/carolina-garafulich-r-4381942a,https://linkedin.com/in/carolina-garafulich-r-4381942a,Carolina Garafulich R.,PlanOK Latam,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/gisela-perozo-01147321,https://linkedin.com/in/gisela-perozo-01147321,Gisela Perozo,Workmate,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/susanahuertaorrego,https://linkedin.com/in/susanahuertaorrego,Susana Alejandra Huerta Orrego,MILA Connect Chile,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/spgo-bi,https://linkedin.com/in/spgo-bi,Equipo SPGO BI,SPGO Business Intelligence,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/cristobal-esteban-perez-miranda-3aa15334,https://linkedin.com/in/cristobal-esteban-perez-miranda-3aa15334,Cristobal Esteban Perez Miranda,S3 Groups,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/paulopaulek,https://linkedin.com/in/paulopaulek,Paulo Paulek,U-Payments Company S.A,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/karenbartheld,https://linkedin.com/in/karenbartheld,Karen Bartheld,,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/rodrigolozanorubio,https://linkedin.com/in/rodrigolozanorubio,Rodrigo Lozano R.,ITSolutions S.A.,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/bernardita-briones-826a141a7,https://linkedin.com/in/bernardita-briones-826a141a7,Bernardita Briones,Enel Chile,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/antonio-quevedo,https://linkedin.com/in/antonio-quevedo,Antonio Quevedo Vergara,Universidad de Las Américas (CL),65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/jorge-mora-villegas,https://linkedin.com/in/jorge-mora-villegas,Jorge M.,WOM Chile,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/pablo-fernandez-andrade,https://linkedin.com/in/pablo-fernandez-andrade,Pablo Fernández Andrade,Itaú Chile,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/marceloeduardo-ulloa-illanes-670961144,https://linkedin.com/in/marceloeduardo-ulloa-illanes-670961144,Marcelo Eduardo Ulloa Illanes,Itaú Chile,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/niccoloc,https://linkedin.com/in/niccoloc,Niccolo Caceres Cornejo,Maquila de envases y servicios logísticos M3 ltda.,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/iacosta-azure,https://linkedin.com/in/iacosta-azure,Israel Cristóbal Acosta Morales,Ingram Micro Chile,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/slincopan,https://linkedin.com/in/slincopan,Sergio David Lincopán Salinas,Catena Ingeniería y Servicios,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/eduardod%C3%ADazc,https://linkedin.com/in/eduardod%C3%ADazc,Eduardo Díaz Cruz,Vela Sustainability Technologies,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/kurtwitkerr,https://linkedin.com/in/kurtwitkerr,Kurt Witker Riveros,Tottus,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/jioyarzun,https://linkedin.com/in/jioyarzun,JUAN IGNACIO OYARZÚN OTÁROLA,GeoVictoria,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/vmendezg,https://linkedin.com/in/vmendezg,Víctor Méndez,Itaú Chile,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/dmunozfe,https://linkedin.com/in/dmunozfe,Diego Muñoz Ferrer,NTT DATA Europe & Latam,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/rodrigo-mujica-salsilli-8a6483126,https://linkedin.com/in/rodrigo-mujica-salsilli-8a6483126,Rodrigo Mujica Salsilli,Digitech Solutions S.A,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/c%C3%A9sar-lorca-z%C3%BA%C3%B1iga-4119a863,https://linkedin.com/in/c%C3%A9sar-lorca-z%C3%BA%C3%B1iga-4119a863,César Lorca Zúñiga,Mutual de Seguridad,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/crist%C3%B3bal-alejandro-barra-monsalve-b81308135,https://linkedin.com/in/crist%C3%B3bal-alejandro-barra-monsalve-b81308135,Cristóbal Alejandro Barra Monsalve,I. Municipalidad de Valparaíso,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/matias-caro-troncoso,https://linkedin.com/in/matias-caro-troncoso,Matias Caro Troncoso,BCTEC - Engineering and Technology,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/gonzaloperezgalasso,https://linkedin.com/in/gonzaloperezgalasso,Gonzalo Pérez Galasso,SQM Industrial S.A.,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/emiliana-baeza-garces-8b488789,https://linkedin.com/in/emiliana-baeza-garces-8b488789,Emiliana Baeza Garces,Banco Falabella Chile,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/ignacio-caviedes,https://linkedin.com/in/ignacio-caviedes,Ignacio Andres Caviedes Castillo,Itaú Chile,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/alvaro-manr%C3%ADquez-garrido,https://linkedin.com/in/alvaro-manr%C3%ADquez-garrido,Alvaro Manríquez Garrido,Reale Seguros,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/matnrl,https://linkedin.com/in/matnrl,Matías Ramírez Leyton,Itaú Chile,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/fernanda-camila-flores-uribe-92069a119,https://linkedin.com/in/fernanda-camila-flores-uribe-92069a119,Fernanda Camila Flores Uribe,Itaú Chile,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/marcogutierrez89,https://linkedin.com/in/marcogutierrez89,Marco Gutierrez,Itaú Chile,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/roc%C3%ADo-alvarez-urrutia-1b51a9202,https://linkedin.com/in/roc%C3%ADo-alvarez-urrutia-1b51a9202,Rocío Alvarez Urrutia,Empresas Agrotop,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/mauricio-puebla,https://linkedin.com/in/mauricio-puebla,Mauricio Puebla,Mincore Services,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/man%C3%A9-ansaldo,https://linkedin.com/in/man%C3%A9-ansaldo,María Inés Ansaldo,Ricoh Latin America Inc,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/carlosjararojas,https://linkedin.com/in/carlosjararojas,Carlos J.,,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/diegovargastobar,https://linkedin.com/in/diegovargastobar,Diego Ignacio Vargas Tobar,MAWDY,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/gabrieladascal,https://linkedin.com/in/gabrieladascal,Gabriela R. Dascal,Neewz.ai,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/america-digital,https://linkedin.com/in/america-digital,America Digital,AI World Congress,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/juan-huircalaf-8789154,https://linkedin.com/in/juan-huircalaf-8789154,Juan Huircalaf,IMAGEN,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/bruno-barrera-chevecich-59ab734,https://linkedin.com/in/bruno-barrera-chevecich-59ab734,Bruno Barrera Chevecich,,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/lagoscastro,https://linkedin.com/in/lagoscastro,Sergio Lagos Castro,Lundin Mining Corporation,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/sebastianpmontenegro,https://linkedin.com/in/sebastianpmontenegro,Sebastian Montenegro,Itaú Chile,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/alvaropuentesmoncada,https://linkedin.com/in/alvaropuentesmoncada,Alvaro Puentes,Industrial Analytics,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/miguel-cort%C3%A9s-burgos-5a79bb43,https://linkedin.com/in/miguel-cort%C3%A9s-burgos-5a79bb43,Miguel Cortés Burgos,Coagra S.A.,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/diego-andr%C3%A9s-ocaranza-araya-813892233,https://linkedin.com/in/diego-andr%C3%A9s-ocaranza-araya-813892233,Diego Andrés Ocaranza Araya,4minds Consulting,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/andresaliaga,https://linkedin.com/in/andresaliaga,Andrés Aliaga Galdames,CODELCO – Corporación Nacional del Cobre de Chile,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/obustosr,https://linkedin.com/in/obustosr,Oscar Bustos Riquelme,Apply Digital,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/renato-contador-rivas-93926533b,https://linkedin.com/in/renato-contador-rivas-93926533b,Renato Contador Rivas,Rent Invest,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/pedromirandab,https://linkedin.com/in/pedromirandab,Pedro Andrés Miranda Borie,ProntoPaga,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/felipe-latino-rojas,https://linkedin.com/in/felipe-latino-rojas,Felipe Latino Rojas,BHP,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/cristian-gomezloaizav,https://linkedin.com/in/cristian-gomezloaizav,Cristian Gómez-Loaiza Videla,zyxwave,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/jorgehernandezf,https://linkedin.com/in/jorgehernandezf,Jorge Hernández,MetLife Chile,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/jherreragodoy,https://linkedin.com/in/jherreragodoy,Jaime Andrés H.,Acertare,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/claudurang,https://linkedin.com/in/claudurang,Claudia Duran Galaz,Profesional Independiente,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/victorhugomunozramirez,https://linkedin.com/in/victorhugomunozramirez,Víctor Hugo M.,Maxservice ,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/gonzalo-donoso-perez,https://linkedin.com/in/gonzalo-donoso-perez,Gonzalo Donoso Pérez,Amazon Web Services (AWS),65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/xavier-espinosa-6015a410,https://linkedin.com/in/xavier-espinosa-6015a410,Xavier Espinosa,Principado de Asturias,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/mpaipa,https://linkedin.com/in/mpaipa,Mónica P.,PMG Chile,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/fulloacl,https://linkedin.com/in/fulloacl,Fernando Ulloa,Huawei,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/viviana-bertrand,https://linkedin.com/in/viviana-bertrand,Viviana Bertrand,Consultoría tecnológica,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/rogelio-roa-cabrera,https://linkedin.com/in/rogelio-roa-cabrera,Rogelio Roa C.,ASTEC,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/marcelo-silva-rojas-5912b2153,https://linkedin.com/in/marcelo-silva-rojas-5912b2153,Marcelo Silva Rojas,Telefónica,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/h%C3%A9ctor-nicol%C3%A1s-gonz%C3%A1lez-baeza-833059177,https://linkedin.com/in/h%C3%A9ctor-nicol%C3%A1s-gonz%C3%A1lez-baeza-833059177,Héctor Nicolás González Baeza,Banco Bci,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/freddy-alvarez-a-574b6423,https://linkedin.com/in/freddy-alvarez-a-574b6423,Freddy Alvarez A,Anglo American,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/claudiamoralesacu%C3%B1a,https://linkedin.com/in/claudiamoralesacu%C3%B1a,Claudia Morales Acuña,Collahuasi,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/jorge-orellana-pastrian,https://linkedin.com/in/jorge-orellana-pastrian,Jorge Orellana Pastrián,Telefónica,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/iv%C3%A1n-riveros-olivares-512817122,https://linkedin.com/in/iv%C3%A1n-riveros-olivares-512817122,Iván Riveros Olivares,Holo,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/constanza-retamal,https://linkedin.com/in/constanza-retamal,Constanza Retamal Navarro,Telefónica,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/njofreb,https://linkedin.com/in/njofreb,Nicolas Jofre Barra,OTEC Mejorando Capacitación,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/javiera-bel%C3%A9n-godoy-solis-2a0192226,https://linkedin.com/in/javiera-bel%C3%A9n-godoy-solis-2a0192226,Javiera Belén Godoy Solis,CODELCO – Corporación Nacional del Cobre de Chile,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/jorge-chahu%C3%A1n-eltit-697a2649,https://linkedin.com/in/jorge-chahu%C3%A1n-eltit-697a2649,Jorge Chahuán Eltit,Vida Security,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/karinaguadalupe,https://linkedin.com/in/karinaguadalupe,Karina Guadalupe,Travel Security S.A.,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/rodrigolalannealvarez,https://linkedin.com/in/rodrigolalannealvarez,Rodrigo Lalanne Alvarez,AFP PlanVital,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/vanessaramosrivera,https://linkedin.com/in/vanessaramosrivera,Vanessa Ramos Rivera,Aurys Consulting,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/javiera-paz-marin,https://linkedin.com/in/javiera-paz-marin,Javiera Paz Marín,MetLife,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/fgarciamilla,https://linkedin.com/in/fgarciamilla,Francisco Javier Garcia Milla,ARGA IT,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/mpalominos,https://linkedin.com/in/mpalominos,Mauricio Palominos,Karcal.cl,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/marisol-castillo-gonz%C3%A1lez-17655616a,https://linkedin.com/in/marisol-castillo-gonz%C3%A1lez-17655616a,Marisol Castillo González,Telefónica,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/carlos-colella-9709a115b,https://linkedin.com/in/carlos-colella-9709a115b,Carlos Colella,Cibergestión,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/jacqueline-o-ryan-blavia-b2684927,https://linkedin.com/in/jacqueline-o-ryan-blavia-b2684927,Jacqueline O'Ryan Blavia,Esmax,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/javiera-fuentes-munoz,https://linkedin.com/in/javiera-fuentes-munoz,Javiera Fuentes Muñoz,Achs,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/maca-troncoso-garcia,https://linkedin.com/in/maca-troncoso-garcia,Macarena Troncoso Garcia,BICE VIDA,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/yuvana-kovacevic-r-77b48441,https://linkedin.com/in/yuvana-kovacevic-r-77b48441,Yuvana Kovacevic R,Sierra Gorda SCM,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/danielacuevastoro,https://linkedin.com/in/danielacuevastoro,Daniela Cuevas Toro,MetroMuv,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/jcastrogorostiza,https://linkedin.com/in/jcastrogorostiza,José Miguel Castro Gorostiza,Bruno Fritsch,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/isaias-arancibia-aa903317b,https://linkedin.com/in/isaias-arancibia-aa903317b,Isaias Arancibia,Grupo AV,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/veroalmeida,https://linkedin.com/in/veroalmeida,Veronica Almeida,Adobe,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/victor-santander-m,https://linkedin.com/in/victor-santander-m,Víctor Santander,Amisoft,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/manuel-moya-perez-25021592,https://linkedin.com/in/manuel-moya-perez-25021592,Manuel Moya Perez,Isapre Colmena,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/naliagar,https://linkedin.com/in/naliagar,Nicolás Aliaga Rodríguez,Tanner,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/rpescee,https://linkedin.com/in/rpescee,Roberto Pesce Eguiguren,El Alto,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/gisselle1,https://linkedin.com/in/gisselle1,Gisselle Azúa S.,Genesys,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/jose-mengido,https://linkedin.com/in/jose-mengido,Jose Mengido,Molymet,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/margaritajaquenoboa,https://linkedin.com/in/margaritajaquenoboa,Margarita Jaque Noboa,Pontificia Universidad Católica de Chile,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/lucas-gutierrez-rogers,https://linkedin.com/in/lucas-gutierrez-rogers,Lucas Gutierrez Rogers,Geely Motor Chile,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/rene-vuskovic-cl,https://linkedin.com/in/rene-vuskovic-cl,Rene Vuskovic,Bata Chile,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/cristian-puga-417231158,https://linkedin.com/in/cristian-puga-417231158,Cristian Puga,Lifestyle and Wellness,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/juan-pablo-araya-m-981ab127,https://linkedin.com/in/juan-pablo-araya-m-981ab127,Juan Pablo Araya M.,NEURONIA,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/valerianavarromaldonado,https://linkedin.com/in/valerianavarromaldonado,Valeria Navarro Maldonado,Entel,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/felipe-gutierrez-43b58628,https://linkedin.com/in/felipe-gutierrez-43b58628,Felipe Gutierrez,CANNON HOME,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/letelierfrancisco,https://linkedin.com/in/letelierfrancisco,Francisco Letelier,Parque Arauco,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/nestorcarrasco,https://linkedin.com/in/nestorcarrasco,Nestor Carrasco Lagos,Kampium,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/howardmartinez,https://linkedin.com/in/howardmartinez,Howard Martínez,Weir Minerals,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/vicentebishara,https://linkedin.com/in/vicentebishara,Vicente Bishara,Toku,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/diego-nielsen-barra-998b1a191,https://linkedin.com/in/diego-nielsen-barra-998b1a191,Diego Nielsen Barra,Compás AgroSistemas,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/smbrionesi,https://linkedin.com/in/smbrionesi,Sebastián Briones,BICE VIDA,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/bastian-bahamonde-aa6759156,https://linkedin.com/in/bastian-bahamonde-aa6759156,Bastian Bahamonde,Consorcio,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/eliasperezmorales,https://linkedin.com/in/eliasperezmorales,Elías Isaac Pérez Morales,P&V Consultores,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/rodrigo-alejandro-villalobos,https://linkedin.com/in/rodrigo-alejandro-villalobos,Rodrigo Villalobos,Entel,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/carlos-briones-5a186a41,https://linkedin.com/in/carlos-briones-5a186a41,Carlos Briones,Golead,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/paulina-pizarro-godoy,https://linkedin.com/in/paulina-pizarro-godoy,Paulina Pizarro Godoy,bCoord,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/carlossandovalcastillo,https://linkedin.com/in/carlossandovalcastillo,Carlos Sandoval Castillo,Duoc UC,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/javiererrazuriz,https://linkedin.com/in/javiererrazuriz,Javier Errazuriz,Achs,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/yolimarplaza,https://linkedin.com/in/yolimarplaza,Yolimar Plaza,Santander Chile,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/dgaray,https://linkedin.com/in/dgaray,Diego Garay Nef,Ranco Cherries,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/juan-antonio-figueroa-0aa3037,https://linkedin.com/in/juan-antonio-figueroa-0aa3037,Juan Antonio Figueroa,ChilePay,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/juan-soto-pena,https://linkedin.com/in/juan-soto-pena,Juan Antonio Soto Peña,CONKORD,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/felipe-sebastian-contreras-rubio,https://linkedin.com/in/felipe-sebastian-contreras-rubio,Felipe Sebastián Contreras Rubio,Management Solutions,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/camila-reyes-moragrega-590ab510a,https://linkedin.com/in/camila-reyes-moragrega-590ab510a,Camila Reyes Moragrega,3IT,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/cruzdoussau,https://linkedin.com/in/cruzdoussau,Anyelo Cruz Doussau,Conectatech Consultora,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/franciscopellegriniarellano,https://linkedin.com/in/franciscopellegriniarellano,Francisco Pellegrini Arellano,OneMarketer,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/diego-andr%C3%A9s-rivera-abarca,https://linkedin.com/in/diego-andr%C3%A9s-rivera-abarca,Diego Andrés Rivera Abarca,Enaex,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/carlos-werner-m-b7026126,https://linkedin.com/in/carlos-werner-m-b7026126,Carlos Werner M.,SoftwarePro Chile,65,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/lvarelab,https://linkedin.com/in/lvarelab,Luis Varela,Bupa Chile,60,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/camilaaguilarcastillo,https://linkedin.com/in/camilaaguilarcastillo,Camila Aguilar Castillo,AVOS Tech | Chile,60,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/stephanie-aranguiz-meza,https://linkedin.com/in/stephanie-aranguiz-meza,Stephanie A.,,60,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/daniel-riveros,https://linkedin.com/in/daniel-riveros,Daniel Riveros,Lean Institute Chile,60,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/javiera-ignacia-figueroa-opazo-292a4169,https://linkedin.com/in/javiera-ignacia-figueroa-opazo-292a4169,Javiera Ignacia Figueroa Opazo,Infracommerce,60,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/oscar-l%C3%B3pez-godoy-452a523b,https://linkedin.com/in/oscar-l%C3%B3pez-godoy-452a523b,Oscar López Godoy,Banco Ripley Chile,60,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/pablo-piderit-6580a9117,https://linkedin.com/in/pablo-piderit-6580a9117,Pablo Piderit,Primus Capital Chile,60,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/frankcarmonaz-consultor-transformacion-digital-estrategia-cultura,https://linkedin.com/in/frankcarmonaz-consultor-transformacion-digital-estrategia-cultura,Frank Carmona,Patagonia Elevate SpA,60,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/andrea-bergeret,https://linkedin.com/in/andrea-bergeret,Andrea Bergeret,Mutual de Seguridad,60,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/laura-carvajal-salinas-120097120,https://linkedin.com/in/laura-carvajal-salinas-120097120,Laura Carvajal Salinas,Corporación Tamsec,60,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/claudia-carvajal-quiroz-1b603b154,https://linkedin.com/in/claudia-carvajal-quiroz-1b603b154,Claudia Carvajal Quiroz,Global Catalog,60,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/jerson-s%C3%A1nchez-3356615b,https://linkedin.com/in/jerson-s%C3%A1nchez-3356615b,Jerson Sánchez,Empresas Jordan Chile S.A.,60,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/valeska-andrea-vivanco-estay-92416925b,https://linkedin.com/in/valeska-andrea-vivanco-estay-92416925b,Valeska Andrea Vivanco Estay,Seguros Falabella,60,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/naracenah,https://linkedin.com/in/naracenah,Nelson Aracena,Fetén Consulting,60,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/ronaldreyic,https://linkedin.com/in/ronaldreyic,Ronald Rey Oxcendford,Veeam Software,60,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/jaimetirado,https://linkedin.com/in/jaimetirado,Jaime Tirado,Banco de Chile,60,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/fcojroman,https://linkedin.com/in/fcojroman,Francisco Román Vega,Apiux Tech,60,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/denisse-ruz-0a7209a2,https://linkedin.com/in/denisse-ruz-0a7209a2,Denisse Ruz,Zenta Group,60,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/antonio-castillo-rodriguez-87926916,https://linkedin.com/in/antonio-castillo-rodriguez-87926916,Antonio Castillo Rodriguez,Banco Bci,60,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/andres-p-29822822,https://linkedin.com/in/andres-p-29822822,Andres P.,Collahuasi,60,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/mauriciosep%C3%BAlvedatapia,https://linkedin.com/in/mauriciosep%C3%BAlvedatapia,Mauricio Sepúlveda Tapia,Banco de Chile,60,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/mar%C3%ADa-jos%C3%A9-amor-958729ab,https://linkedin.com/in/mar%C3%ADa-jos%C3%A9-amor-958729ab,María José Amor,Grupo CAP,60,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/alejandra-h-saldias-sanchez-26028441,https://linkedin.com/in/alejandra-h-saldias-sanchez-26028441,Alejandra H Saldias Sanchez,BancoEstado,60,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/6020,https://linkedin.com/in/6020,JENNIFFER M.,Telefónica,60,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/gonzalope%C3%B1ababarovich,https://linkedin.com/in/gonzalope%C3%B1ababarovich,Gonzalo Peña Babarovich,ZeroQ,60,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/jorge-baez-aguilar-ti,https://linkedin.com/in/jorge-baez-aguilar-ti,Jorge Báez Aguilar,IA-Solutions,60,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/esteban-vald%C3%A9s-5b109858,https://linkedin.com/in/esteban-vald%C3%A9s-5b109858,Esteban Valdés,IT SOLUTION SPA,60,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/mat%C3%ADas-hernandez-vistoso-555996153,https://linkedin.com/in/mat%C3%ADas-hernandez-vistoso-555996153,Matías Hernandez Vistoso,Grupo Digital Bank,60,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/joaqu%C3%ADn-cisternas-oyarz%C3%BAn-8541b8142,https://linkedin.com/in/joaqu%C3%ADn-cisternas-oyarz%C3%BAn-8541b8142,Joaquín Cisternas Oyarzún,Ripley Chile,60,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/yosser-urz%C3%BAa-gallardo-81a54391,https://linkedin.com/in/yosser-urz%C3%BAa-gallardo-81a54391,Yosser Urzúa Gallardo,Bci Seguros,60,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/fvicencios,https://linkedin.com/in/fvicencios,Francisco Vicencio Salazar,Noventiq,60,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/carlos-pardo-14b2b345,https://linkedin.com/in/carlos-pardo-14b2b345,Carlos Pardo,HEREDIA ^ SANTANA,60,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/christophernunezestay,https://linkedin.com/in/christophernunezestay,Christopher Núñez Estay,Vector TD,60,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/simonriveros,https://linkedin.com/in/simonriveros,Simón de Jesús Riveros Cifuentes,ACL,60,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/javier-alvarez-hsec,https://linkedin.com/in/javier-alvarez-hsec,Javier Alvarez,Enaex,60,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/cesarpintochile,https://linkedin.com/in/cesarpintochile,César Antonio Pinto Flores,Entel Digital,60,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/rodrigo-hidalgo-jim%C3%A9nez-3022bb209,https://linkedin.com/in/rodrigo-hidalgo-jim%C3%A9nez-3022bb209,Rodrigo Hidalgo Jiménez,Dentameet-PacienteFácil,55,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/fernando-miranda-carcamo,https://linkedin.com/in/fernando-miranda-carcamo,Fernando Miranda C,Transvip Chile,55,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/sebastiangarcializama,https://linkedin.com/in/sebastiangarcializama,Sebastian Garcia Lizama,Johnson & Johnson,55,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/betmar-uzcategui-salazar-49b9528b,https://linkedin.com/in/betmar-uzcategui-salazar-49b9528b,Betmar Uzcategui Salazar,Viña Viu Manent,55,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/andrescaceresmesias,https://linkedin.com/in/andrescaceresmesias,Andrés Cáceres Mesías,Vorwerk - Chile,55,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/paola-robayo-gal%C3%A1n,https://linkedin.com/in/paola-robayo-gal%C3%A1n,Paola Robayo Galán,Universidad Adolfo Ibáñez,55,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/michelle-ossandon,https://linkedin.com/in/michelle-ossandon,Michelle Ossandon Rothery,Cencosud S.A.,55,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/ignacio-monteverde-3770126,https://linkedin.com/in/ignacio-monteverde-3770126,Ignacio Monteverde,Sodimac,55,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/diegomussio,https://linkedin.com/in/diegomussio,Diego M.,Dr.MKT,55,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/aldo-aguila-villaman,https://linkedin.com/in/aldo-aguila-villaman,Aldo Aguila V.,Panorama Lumon,55,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/jorge-ramm-padilla-04312235,https://linkedin.com/in/jorge-ramm-padilla-04312235,Jorge Ramm Padilla,Metso,55,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/nicol%C3%A1s-troncoso,https://linkedin.com/in/nicol%C3%A1s-troncoso,Nicolás Troncoso Mujica,Softys,55,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/valentina-escobar-saavedra,https://linkedin.com/in/valentina-escobar-saavedra,Valentina Escobar Saavedra,Ranco Cherries,55,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/gustavovasquezserey,https://linkedin.com/in/gustavovasquezserey,Gustavo Vásquez Serey,Ocean Analytics,55,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/matias-schwartz,https://linkedin.com/in/matias-schwartz,Matias Schwartz,Natura,55,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/jesusmarceloprado,https://linkedin.com/in/jesusmarceloprado,Jesús Prado,Integra Chile,55,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/fbarreralobo,https://linkedin.com/in/fbarreralobo,Felipe Andrés Barrera Lobo,GrupoExpro,55,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/carlos-crino,https://linkedin.com/in/carlos-crino,Carlos Crino Duarte,4 Senses,55,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/javiera-paz-bravo-latorre-61280717b,https://linkedin.com/in/javiera-paz-bravo-latorre-61280717b,Javiera Paz Bravo Latorre,La Casa de Juana,55,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/patriciavasquezmontenegro,https://linkedin.com/in/patriciavasquezmontenegro,Patricia Vásquez Montenegro,Centinela Consultoría,55,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/camila-aguilar-acuna,https://linkedin.com/in/camila-aguilar-acuna,Camila Aguilar Acuña,Metrogas Chile,50,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/sebabril,https://linkedin.com/in/sebabril,Sebastian Bril,Marsol,50,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/florencia-y-a4303b1a0,https://linkedin.com/in/florencia-y-a4303b1a0,Florencia Y.,Uber,50,WARM,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/benjam%C3%ADn-jara,https://linkedin.com/in/benjam%C3%ADn-jara,Benjamín Jara,Summit Agro Chile,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/lesliebustamantec,https://linkedin.com/in/lesliebustamantec,Leslie Bustamante Concha,Universidad Adolfo Ibáñez,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/eduardo-tapia-delgado-66631927,https://linkedin.com/in/eduardo-tapia-delgado-66631927,Eduardo Tapia Delgado,Papa John's Chile,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/sebastiangoldsackg,https://linkedin.com/in/sebastiangoldsackg,Sebastián Goldsack G.,Clínica Sanatorio Alemán,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/mmanterola,https://linkedin.com/in/mmanterola,Mauricio Manterola Soto,Gestiona Consultores,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/catalina-riquelme-mu%C3%B1oz-015b5a1b9,https://linkedin.com/in/catalina-riquelme-mu%C3%B1oz-015b5a1b9,Catalina Riquelme Muñoz,Caja La Araucana,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/rsalcedoc,https://linkedin.com/in/rsalcedoc,Rodrigo S.,Profesional independiente,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/aldo-salvad%C3%B3-67aa46259,https://linkedin.com/in/aldo-salvad%C3%B3-67aa46259,Aldo Salvadó,BECO BANCO ESTADO SERVICIOS DE COBRANZA,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/michele-bass-del-campo-193b6a74,https://linkedin.com/in/michele-bass-del-campo-193b6a74,Michele Bass del Campo,Universidad de Las Américas (CL),45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/josecifuentesr,https://linkedin.com/in/josecifuentesr,José Cifuentes,Creaeducativa,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/leo-arancibiac,https://linkedin.com/in/leo-arancibiac,Leonardo Arancibia,Hospital Clínico Dra. Eloísa Díaz I. La Florida,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/diegopalaciosd,https://linkedin.com/in/diegopalaciosd,Diego Palacios Durán,KaDi Cowork,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/fernandovargasbi,https://linkedin.com/in/fernandovargasbi,Fernando Vargas 💡📈,Fundación Soymás,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/pilar-diaz-ellis,https://linkedin.com/in/pilar-diaz-ellis,Pilar Díaz Ellis,"Guttemberg Archivos, Cultura y Modernización",45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/manuel-n%C3%BA%C3%B1ez-cortez-0a386043,https://linkedin.com/in/manuel-n%C3%BA%C3%B1ez-cortez-0a386043,Manuel Núñez Cortez,CTEC | Centro Tecnológico para la Innovación en la Construcción,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/anibalromo,https://linkedin.com/in/anibalromo,Aníbal Romo Hepp,Universidad Tecnica Federico Santa Maria,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/catalina-s-204a65140,https://linkedin.com/in/catalina-s-204a65140,Catalina S.,Fundación Susana Torrealba,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/ernesto-hunter-ti,https://linkedin.com/in/ernesto-hunter-ti,Ernesto ®,Hunter TI,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/transformaci%C3%B3n-digital-udd-b64332168,https://linkedin.com/in/transformaci%C3%B3n-digital-udd-b64332168,Transformación Digital UDD,Universidad del Desarrollo,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/juan-pablo-reyes-v,https://linkedin.com/in/juan-pablo-reyes-v,Juan Pablo Reyes Valenzuela,Empresas Demaria S.A.,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/rodrigo-segura-pm,https://linkedin.com/in/rodrigo-segura-pm,Rodrigo Segura Ortega,Talana,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/mauricio-hodge-arroyo,https://linkedin.com/in/mauricio-hodge-arroyo,Mauricio Hodge Arroyo,Hospitalia Productos Medicos SPA,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/davidgonzalezcid,https://linkedin.com/in/davidgonzalezcid,David G.,Golden Omega,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/dianamartinezl,https://linkedin.com/in/dianamartinezl,Diana Martinez,Clinica Alemana de Santiago,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/alejandrovi,https://linkedin.com/in/alejandrovi,Alejandro Veliz Isla,Sotta Recovery,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/karin-quiroga-suazo-8248664a,https://linkedin.com/in/karin-quiroga-suazo-8248664a,Karin Quiroga Suazo,AIEP,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/macarena-van-schouwen-garrido,https://linkedin.com/in/macarena-van-schouwen-garrido,Macarena V.,Colegio El Carmen Teresiano La Reina,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/antoniohanan%C3%ADa,https://linkedin.com/in/antoniohanan%C3%ADa,Antonio Hananía Salazar,UDD Ventures,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/gonzaloecr,https://linkedin.com/in/gonzaloecr,Gonzalo Cárdenas Rubio,Universidad del Desarrollo,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/giovannianfossy,https://linkedin.com/in/giovannianfossy,Giovanni Anfossy,Wabtec Corporation,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/dieter-laage-moreno-280194201,https://linkedin.com/in/dieter-laage-moreno-280194201,DIETER LAAGE MORENO,Congreso Nacional de Chile,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/v%C3%ADctor-reyes-montenegro-79191728,https://linkedin.com/in/v%C3%ADctor-reyes-montenegro-79191728,Víctor Reyes Montenegro,Galilea S.A.,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/boris-sep%C3%BAlveda-682b9539,https://linkedin.com/in/boris-sep%C3%BAlveda-682b9539,Boris Sepúlveda,DRYER,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/rgp1986,https://linkedin.com/in/rgp1986,Rodrigo Gastón González Pozo,VOENS,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/mjriquelme,https://linkedin.com/in/mjriquelme,María José Riquelme Núñez,ENGIE Chile,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/gonzalobrizuelamenares,https://linkedin.com/in/gonzalobrizuelamenares,Gonzalo Brizuela Menares,Laboratorio de Gobierno,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/edoritos,https://linkedin.com/in/edoritos,Eduardo Hernández Verdugo,Cámara Chilena de la Construcción,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/karina-otero,https://linkedin.com/in/karina-otero,Karina Otero Guitart,Clínica Universidad de los Andes,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/c%C3%A9sar-pino-soto-phd-65a64835,https://linkedin.com/in/c%C3%A9sar-pino-soto-phd-65a64835,"César Pino Soto, PhD.",Escuela de Negocios UAI,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/freddyolano,https://linkedin.com/in/freddyolano,Freddy Olano,Equans Chile,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/alvarodelreal,https://linkedin.com/in/alvarodelreal,Álvaro Del Real García,Corporación Municipal de Desarrollo Social de Pudahuel,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/mariana-soto-zu%C3%B1iga,https://linkedin.com/in/mariana-soto-zu%C3%B1iga,Mariana Soto Zuñiga,Laboratorio de Innovación Pública,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/ignaciamonge,https://linkedin.com/in/ignaciamonge,María Ignacia Monge Larraín,Transforma360°,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/felipe-olfos-89395b67,https://linkedin.com/in/felipe-olfos-89395b67,Felipe Olfos,Gobierno Regional de Valparaíso,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/elianamanriquez,https://linkedin.com/in/elianamanriquez,Eliana Manríquez Cachicas,TD Chile | Digital Business,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/oscarlabra,https://linkedin.com/in/oscarlabra,Oscar A. Labra Carreño,Atenea Group SpA,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/ricardoandradesilva,https://linkedin.com/in/ricardoandradesilva,Ricardo Andrade Silva 💻🔋🏡,servicio de salud vina del mar quillota,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/ninette-olivos-v%C3%A1squez-9b373066,https://linkedin.com/in/ninette-olivos-v%C3%A1squez-9b373066,Ninette Olivos Vásquez,ENAP,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/luisfelipeortegaprieto,https://linkedin.com/in/luisfelipeortegaprieto,Luis Felipe Ortega Prieto,Matanzilla,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/tdx-e-learning-moodle-330681144,https://linkedin.com/in/tdx-e-learning-moodle-330681144,TDx E-Learning - Moodle,TDX Transformación Digital,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/benjaminyaneztapia,https://linkedin.com/in/benjaminyaneztapia,Benjamín Yáñez Tapia,Generadora Metropolitana,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/daniela-devia-villagra-,https://linkedin.com/in/daniela-devia-villagra-,Daniela Devia Villagra,Grupo Falabella,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/mariafernandapobleteveloso,https://linkedin.com/in/mariafernandapobleteveloso,María Fernanda Poblete Veloso,Municipalidad de Las Condes,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/christian-gatica-9b66a44,https://linkedin.com/in/christian-gatica-9b66a44,Christian Gatica,Superintendencia de Electricidad y Combustibles,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/atorriani,https://linkedin.com/in/atorriani,Antonelli Torriani,Grupo Falabella,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/e-iturrieta,https://linkedin.com/in/e-iturrieta,Elizabeth Iturrieta de la Barra,E-Iturrieta Automatizacion y Eficiencia Energetica ,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/carlosabuter,https://linkedin.com/in/carlosabuter,"Carlos Abuter, Gangas",C&E Servicios Spa,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/nataliamillanassler,https://linkedin.com/in/nataliamillanassler,Natalia Millan Assler,Socovesa Santiago,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/david-rivas-esquirol-8ba75834,https://linkedin.com/in/david-rivas-esquirol-8ba75834,David Rivas Esquirol,RedSalud CCHC,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/fernando-rojas-leading-people,https://linkedin.com/in/fernando-rojas-leading-people,Fernando Rojas Calderon,Centro de Innovación Tecnológica de la Armada,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/paola-contreras-guti%C3%A9rrez-799aa7200,https://linkedin.com/in/paola-contreras-guti%C3%A9rrez-799aa7200,Paola Contreras Gutiérrez,Oh my coockie,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/julio-cesar-garc%C3%ADa-reyna-59630a133,https://linkedin.com/in/julio-cesar-garc%C3%ADa-reyna-59630a133,Julio Cesar García Reyna,Nestlé,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/andres-bello-zamorano,https://linkedin.com/in/andres-bello-zamorano,Andrés Bello Zamorano,Caja La Araucana,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/felipeizquierdochadwick,https://linkedin.com/in/felipeizquierdochadwick,Felipe Izquierdo Chadwick,Universidad Adolfo Ibáñez,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/moises-nieto-a3506a184,https://linkedin.com/in/moises-nieto-a3506a184,Moises Nieto,INROPLAS CHILE,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/franco-niccoli-merello-90b1043b,https://linkedin.com/in/franco-niccoli-merello-90b1043b,Franco Niccoli Merello,Rentokil initial Chile,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/priscilla-torres-ahumada,https://linkedin.com/in/priscilla-torres-ahumada,Priscilla Torres Ahumada,CFT Estatal Región de Valparaíso,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/matias-valenzuela-914a8114,https://linkedin.com/in/matias-valenzuela-914a8114,Matias Valenzuela,Universidad Adolfo Ibáñez,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/felipe-vidal-cepeda-b3868459,https://linkedin.com/in/felipe-vidal-cepeda-b3868459,Felipe Vidal Cepeda,Complejo Hospitalario San José,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/josefinapetitpas,https://linkedin.com/in/josefinapetitpas,Josefina Petitpas,Clínica Las Condes,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/evelyn-gatica-1585438a,https://linkedin.com/in/evelyn-gatica-1585438a,Evelyn Gatica,Hospital Dr. Guillermo Grant Benavente,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/marta-fuentes-campos,https://linkedin.com/in/marta-fuentes-campos,Marta Fuentes Campos,"ATN - Sociedad de Directores Audiovisuales, Guionistas y Dramaturgos",45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/camartinez84,https://linkedin.com/in/camartinez84,Carla Martínez R.,Clínica INDISA,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/sergio-am%C3%ADn-c%C3%A1rcamo-6354ba23,https://linkedin.com/in/sergio-am%C3%ADn-c%C3%A1rcamo-6354ba23,Sergio Amín Cárcamo,Facultad de Comunicaciones Universidad del Desarrollo,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/dallan-acevedo-a183b2202,https://linkedin.com/in/dallan-acevedo-a183b2202,Dallan Acevedo,"Ministerio de Economía, Fomento y Turismo",45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/adrian-jaramillo-s,https://linkedin.com/in/adrian-jaramillo-s,Adrián Jaramillo,Corporación Municipal de La Florida,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/oscarpicont,https://linkedin.com/in/oscarpicont,Oscar Gonzalo Picón Taucán,"Ucampus, Facultad de Ingeniería, Universidad de Chile.",45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/nicolasretamalesd,https://linkedin.com/in/nicolasretamalesd,Nicolás Retamales Díaz,COPEC S.A.,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/cristobal-mardones-e-commerce,https://linkedin.com/in/cristobal-mardones-e-commerce,Cristobal Mardones de la Cerda,Tiza Consulting,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/manuel-soto-lizama-81ba4933,https://linkedin.com/in/manuel-soto-lizama-81ba4933,Manuel Soto Lizama,Camanchaca SA,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/clara-d%C3%ADaz-romero-3b4b7758,https://linkedin.com/in/clara-d%C3%ADaz-romero-3b4b7758,Clara Díaz Romero,ENGIE Chile,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/francisca-gatica,https://linkedin.com/in/francisca-gatica,Francisca Gatica,Metro de Santiago S.A.,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/karen-canales-07014618,https://linkedin.com/in/karen-canales-07014618,Karen Canales,Fiscalía Nacional Económica,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/nicolasignaciosotogonzalez,https://linkedin.com/in/nicolasignaciosotogonzalez,Nicolás Soto González,Santo Tomás,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/erica-ram%C3%ADrez,https://linkedin.com/in/erica-ram%C3%ADrez,Erica Ramírez,Comisión Nacional de Acreditación,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/silvanagc,https://linkedin.com/in/silvanagc,Silvana Gutiérrez Calvo,Grupo Falabella,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/rafaelmachado32,https://linkedin.com/in/rafaelmachado32,Rafael Machado,Grupo Falabella,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/corimar-gonzalez-machado-b7a71563,https://linkedin.com/in/corimar-gonzalez-machado-b7a71563,Corimar Gonzalez Machado,Empresas Carozzi S.A.,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/valevasq,https://linkedin.com/in/valevasq,Valery Vásquez M,Grupo Falabella,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/emersson-valencia-garcia-17387a4a,https://linkedin.com/in/emersson-valencia-garcia-17387a4a,Emersson Valencia Garcia,Universidad Diego Portales,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/jorgecruzf,https://linkedin.com/in/jorgecruzf,Jorge E. Cruz,Farmacias del Dr. Simi Chile,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/tamara-riquelme-32118736,https://linkedin.com/in/tamara-riquelme-32118736,Tamara Riquelme,Universidad Adolfo Ibáñez,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/victor-paillan-valdivia-87696191,https://linkedin.com/in/victor-paillan-valdivia-87696191,Victor Paillan Valdivia,V.P.V Inteligencia de Negocio,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/loreto-alejandra-llambias-veloso,https://linkedin.com/in/loreto-alejandra-llambias-veloso,Loreto Alejandra Llambias Veloso,MultiAceros Chile,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/fernandonunezjerezperfil,https://linkedin.com/in/fernandonunezjerezperfil,Fernando Nuñez Jerez,INCAE Business School,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/danizavalaponce,https://linkedin.com/in/danizavalaponce,Daniela Zavala Ponce,DRS Ingeniería y Gestión,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/felipe-c%C3%A1rcamo-jaque-2513a3141,https://linkedin.com/in/felipe-c%C3%A1rcamo-jaque-2513a3141,Felipe Cárcamo Jaque,Universidad Central (CL),45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/nicol%C3%A1s-andr%C3%A9s-zamora-saavedra-4814a3178,https://linkedin.com/in/nicol%C3%A1s-andr%C3%A9s-zamora-saavedra-4814a3178,Nicolás Andrés Zamora Saavedra,Le Grand Chic S.A.,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/gzohm,https://linkedin.com/in/gzohm,Gonzalo Hormazábal Mejías,Cencosud S.A.,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/mauricio-a-608b1355,https://linkedin.com/in/mauricio-a-608b1355,Mauricio A.,Consultoría en Transformación Digital,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/alvaro-alonso-vera-alcaya-a2640b68,https://linkedin.com/in/alvaro-alonso-vera-alcaya-a2640b68,Alvaro Alonso Vera Alcaya,Archivo Nacional de Chile,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/matias-reyes,https://linkedin.com/in/matias-reyes,Matías Reyes Salinas,VLD Gestiones SpA,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/eacamposa,https://linkedin.com/in/eacamposa,Esteban Campos A.,Universidad San Sebastián,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/joaqu%C3%ADn-ruz-de-la-cruz,https://linkedin.com/in/joaqu%C3%ADn-ruz-de-la-cruz,Joaquín Ruz De La Cruz,PROMOSMART,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/ivonne-villada,https://linkedin.com/in/ivonne-villada,Ivonne Villada,Agencia de Calidad de la Educación,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/josefaguzman,https://linkedin.com/in/josefaguzman,Josefa Guzman Z.,Amorketing | Marketing Digital,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/angel-ramirezh,https://linkedin.com/in/angel-ramirezh,Angel Ramirez Herrera,Gasvalpo,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/rodrigoherrerava,https://linkedin.com/in/rodrigoherrerava,Rodrigo F. Herrera,Pontificia Universidad Católica de Valparaíso,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/nicol%C3%A1s-sabaleta-parada-a4b969159,https://linkedin.com/in/nicol%C3%A1s-sabaleta-parada-a4b969159,Nicolás Sabaleta Parada,Empresas AquaChile,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/fabiola-escobar-olmedo,https://linkedin.com/in/fabiola-escobar-olmedo,Fabiola Escobar,Laboratorio Chile | Teva,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/shadia-ea,https://linkedin.com/in/shadia-ea,Shadia El Masou Atuez,Securitas Chile,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/isabel-maureira-alvarado-91a4a7112,https://linkedin.com/in/isabel-maureira-alvarado-91a4a7112,Isabel Maureira Alvarado,Instituto de Salud Pública,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/guillermomunoz,https://linkedin.com/in/guillermomunoz,Guillermo Muñoz Herrera,Groupe Loyal,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/franciscobenavidescastro,https://linkedin.com/in/franciscobenavidescastro,Francisco Benavides,Transyañez - Logística y distribución,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/caroram%C3%ADrezarroyave,https://linkedin.com/in/caroram%C3%ADrezarroyave,Carolina Ramírez Arroyave,Ultramar,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/isiluck,https://linkedin.com/in/isiluck,Isidora Luck Jara,Constructora San Sebastián,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/matias-castro-cabrera,https://linkedin.com/in/matias-castro-cabrera,Matias Castro Cabrera,Lureye Chile,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/josefapalominos,https://linkedin.com/in/josefapalominos,María Josefa Palominos,Softys,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/nicolas-cicogna-arg,https://linkedin.com/in/nicolas-cicogna-arg,Nicolás Cicogna,Pfizer,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/alineaprileo,https://linkedin.com/in/alineaprileo,Aline Aprileo,CMPC,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/roymackenney,https://linkedin.com/in/roymackenney,Roy Mac Kenney,Chileatiende,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/benjamin-toselli-it-hunter,https://linkedin.com/in/benjamin-toselli-it-hunter,Benjamin Toselli,IT Hunter,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/alexia-albornoz,https://linkedin.com/in/alexia-albornoz,Alexia Albornoz Albornoz,Ministerio de Desarrollo Social de Chile,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/headhunterdigital,https://linkedin.com/in/headhunterdigital,Eminsor Diaz,Headhunter Digital,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/matiasortegarauld,https://linkedin.com/in/matiasortegarauld,Matias Ortega Rauld,GPR Constructora & Inmobiliaria,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/emariana,https://linkedin.com/in/emariana,Emariana Cohen Bravo,Profesional Independiente,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/rafael-wadnipar-8580778,https://linkedin.com/in/rafael-wadnipar-8580778,Rafael Wadnipar,Walmart Chile,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/vicenteruizgonzalez,https://linkedin.com/in/vicenteruizgonzalez,Vicente Ruiz González,Superintendencia de Pensiones,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/sergio-sepulveda-cerda,https://linkedin.com/in/sergio-sepulveda-cerda,Sergio Sepulveda,TG Go,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/salomealcaino,https://linkedin.com/in/salomealcaino,Salomé Alcaíno Cáceres,Kaufmann Chile,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/jaimearenasp,https://linkedin.com/in/jaimearenasp,Jaime Arenas Polanco,BancoEstado Microempresas,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/rcaceresp,https://linkedin.com/in/rcaceresp,Rodrigo Cáceres Pino,ISDIN,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/cristobal-reyes-orellana-7aa034168,https://linkedin.com/in/cristobal-reyes-orellana-7aa034168,Cristobal Reyes Orellana,Kaufmann Chile,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/mariellaolivaresbonilla,https://linkedin.com/in/mariellaolivaresbonilla,Mariella Olivares Bonilla,Walmart Chile,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/davis-mart%C3%ADnez-mu%C3%B1oz-9873b1a6,https://linkedin.com/in/davis-mart%C3%ADnez-mu%C3%B1oz-9873b1a6,Davis Martínez Muñoz,Pharmagroup S.A.,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/carla-sanhueza-radovich-07745b32,https://linkedin.com/in/carla-sanhueza-radovich-07745b32,Carla Sanhueza Radovich,Servicio Público,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/jorge-murra,https://linkedin.com/in/jorge-murra,Jorge Murra,Techdigital.cl,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/osvaldo-mege-moran,https://linkedin.com/in/osvaldo-mege-moran,Osvaldo Mège Morán,Bata Group,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/matias-ortega-scm,https://linkedin.com/in/matias-ortega-scm,Matias Ortega Mayorga,Intercarry Logística Limitada,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/felipe-bongain-755a228,https://linkedin.com/in/felipe-bongain-755a228,Felipe Bongain,Securitas Chile,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/renelander,https://linkedin.com/in/renelander,René Lander Verdugo,Lipigas,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/sebastian-riveros-salas,https://linkedin.com/in/sebastian-riveros-salas,Sebastián Riveros Salas,Fundación Movilízate,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/donna-quezada-galaz,https://linkedin.com/in/donna-quezada-galaz,Donna Sheena Quezada Galaz,Mercans,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/msvadsgn,https://linkedin.com/in/msvadsgn,Mitchel Pacheco O.,Misiva,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/gilber-guasimucaro,https://linkedin.com/in/gilber-guasimucaro,Gilber Guasimucaro,Australia Post,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/max-albert-alman,https://linkedin.com/in/max-albert-alman,Max Albert Alman,CCU,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/marcelodonoso,https://linkedin.com/in/marcelodonoso,Marcelo Donoso Herrera,Mallplaza,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/franciscocayon,https://linkedin.com/in/franciscocayon,Francisco Javier Cayón Giambruno,Chilquinta Energía S.A.,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/miguelg%C3%B3mezjeria,https://linkedin.com/in/miguelg%C3%B3mezjeria,Miguel Gómez Jeria,Garces Fruit,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/felipe-alejandro-lizana-urra,https://linkedin.com/in/felipe-alejandro-lizana-urra,Felipe Alejandro Lizana Urra,CCU,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/macarena-figueroa-rojas,https://linkedin.com/in/macarena-figueroa-rojas,Macarena Figueroa Rojas,Garces Fruit,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/katherine-montero-5b04032a0,https://linkedin.com/in/katherine-montero-5b04032a0,Katherine Montero,Pontificia Universidad Católica de Chile,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/apimentelacu%C3%B1a,https://linkedin.com/in/apimentelacu%C3%B1a,Andres Pimentel Acuña,Chilquinta Energía S.A.,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/cristian-torres-alvarez-2383a959,https://linkedin.com/in/cristian-torres-alvarez-2383a959,Cristian Torres Alvarez,AEROSAN Airport Services S.A.,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/cesar-ortega-gutierrez,https://linkedin.com/in/cesar-ortega-gutierrez,Cesar Ortega,Universidad de Chile,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/apozoi,https://linkedin.com/in/apozoi,Armando Pozo Ide,Duoc UC,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/david-donoso-urz%C3%BAa-6106b869,https://linkedin.com/in/david-donoso-urz%C3%BAa-6106b869,David Donoso Urzúa,Agrosuper,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/nathanael-gonz%C3%A1lez-flores-9a173978,https://linkedin.com/in/nathanael-gonz%C3%A1lez-flores-9a173978,Nathanael González Flores,Duoc UC,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/delgadopatricio,https://linkedin.com/in/delgadopatricio,Patricio Delgado Pardo,Mutual Asesorías,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/amullerg,https://linkedin.com/in/amullerg,Andres Muller Gutierrez,Interclínica,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/pamelanicolemh23,https://linkedin.com/in/pamelanicolemh23,Pamela Nicole Méndez Heyne,Fondo Esperanza,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/patricio-ignacio-ignacio-romero-mar%C3%ADn,https://linkedin.com/in/patricio-ignacio-ignacio-romero-mar%C3%ADn,Patricio Ignacio Romero Marín,LATAM Airlines,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/dangelo-figallo-063242,https://linkedin.com/in/dangelo-figallo-063242,DANGELO FIGALLO,Traverso,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/fabian-ignacio-soares-castro-073241a1,https://linkedin.com/in/fabian-ignacio-soares-castro-073241a1,Fabian Ignacio Soares Castro,Colgram S.A.,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/mario-maturana-undurraga,https://linkedin.com/in/mario-maturana-undurraga,Mario Maturana Undurraga,Falabella,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/gadlerstein,https://linkedin.com/in/gadlerstein,Gabriela Adlerstein Lapostól,ARAUCO,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/francisco-parra-hermosilla,https://linkedin.com/in/francisco-parra-hermosilla,Francisco Javier Parra Hermosilla,Habita Grupo Inmobiliario,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/yelitberth-mendez-04aa58b3,https://linkedin.com/in/yelitberth-mendez-04aa58b3,Yelitberth Mendez,GRUPO CINTAC,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/jarentsen,https://linkedin.com/in/jarentsen,Johan Arentsen Aramburu,Masisa,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/carlos-longeri-605129a,https://linkedin.com/in/carlos-longeri-605129a,Carlos Longeri,TS Group SpA,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/albcl,https://linkedin.com/in/albcl,Alexis Lemus Bobadilla,Fondo Esperanza,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/alejandra-zapata-bb0ab288,https://linkedin.com/in/alejandra-zapata-bb0ab288,Alejandra Zapata,Agrosuper,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/msumonteyanez,https://linkedin.com/in/msumonteyanez,Matias Sumonte Yañez,Masisa,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/fernanda-landeros-perez-782414200,https://linkedin.com/in/fernanda-landeros-perez-782414200,Fernanda Landeros Perez,Agrosuper,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/camilo-m-259853ba,https://linkedin.com/in/camilo-m-259853ba,Camilo M.,Duoc UC,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/david-%C3%A1vila-carriel-b6674263,https://linkedin.com/in/david-%C3%A1vila-carriel-b6674263,David Ávila Carriel,Garces Fruit,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/julio-c%C3%A9sar-mu%C3%B1oz-b6080033,https://linkedin.com/in/julio-c%C3%A9sar-mu%C3%B1oz-b6080033,Julio César Muñoz,Parque Arauco,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/jeremias-soto-mu%C3%B1oz,https://linkedin.com/in/jeremias-soto-mu%C3%B1oz,Jeremias Soto Muñoz,IDEAL S.A.,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/juanbermudezf,https://linkedin.com/in/juanbermudezf,Juan Ignacio Bermúdez F.,Spm Administración y Asesorías SpA,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/denissebravolopez,https://linkedin.com/in/denissebravolopez,Denisse Bravo López,ENGIE Perú,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/iqvelasquez,https://linkedin.com/in/iqvelasquez,Jesús Velásquez Bahamóndez,Coca-Cola Andina,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/carmina-ferrada-alvarado-2834bb34,https://linkedin.com/in/carmina-ferrada-alvarado-2834bb34,Carmina Ferrada Alvarado,Parque Arauco,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/pamela-oportu-mu%C3%B1oz-6549b795,https://linkedin.com/in/pamela-oportu-mu%C3%B1oz-6549b795,Pamela Oportu Muñoz,LATAM Airlines,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/ruthgacitua,https://linkedin.com/in/ruthgacitua,Ruth G.,Freelancer,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/sergio-quezada-101043144,https://linkedin.com/in/sergio-quezada-101043144,Sergio Quezada,Starco|Demarco,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/diegopradocorrea,https://linkedin.com/in/diegopradocorrea,Diego Prado Correa,Kodea NGO,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/pablo-brice%C3%B1o-garc%C3%A9s-20120a35,https://linkedin.com/in/pablo-brice%C3%B1o-garc%C3%A9s-20120a35,Pablo Briceño Garcés,Logistica y Soluciones,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/pedronavarrob,https://linkedin.com/in/pedronavarrob,Pedro Navarro Blanchard,Data Tech,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/esteban-pinto-figueroa,https://linkedin.com/in/esteban-pinto-figueroa,Esteban Pinto Figueroa,Ultracción,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/karen-alvarez-palacios-40739935,https://linkedin.com/in/karen-alvarez-palacios-40739935,Karen Alvarez Palacios,Wyndham Pettra Hoteles,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/karenkohnenkamp,https://linkedin.com/in/karenkohnenkamp,Karen Köhnenkamp,Resiter,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/erick-bahamondes-hernandez-309371175,https://linkedin.com/in/erick-bahamondes-hernandez-309371175,Erick Bahamondes Hernandez,E2E,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/magdalena-gonzalez-dupre,https://linkedin.com/in/magdalena-gonzalez-dupre,Magdalena González Dupre,Grupo Saesa,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/americo-castro-aviles,https://linkedin.com/in/americo-castro-aviles,Americo Castro (el/he),PorProfesParaProfes®,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/fda-martinez-diaz,https://linkedin.com/in/fda-martinez-diaz,Fernanda Martínez Díaz,GNL Quintero,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/jose-ariza-lobos-9bb64018,https://linkedin.com/in/jose-ariza-lobos-9bb64018,Jose Ariza Lobos,FOSIS,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/marcos-melin-videla,https://linkedin.com/in/marcos-melin-videla,Marcos Melín Videla,SalfaCorp,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/gabriela-rios-solorzano,https://linkedin.com/in/gabriela-rios-solorzano,Gabriela Ríos Solórzano,Americar,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/joshuamunozh,https://linkedin.com/in/joshuamunozh,Joshua Muñoz Hurtado,Agrosuper,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/carolina-toro-serqueira-6b8b50152,https://linkedin.com/in/carolina-toro-serqueira-6b8b50152,Carolina Toro Serqueira,SKY Airline,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/juan-de-dios-uren-g%C3%A1lvez-b392181b2,https://linkedin.com/in/juan-de-dios-uren-g%C3%A1lvez-b392181b2,Juan de Dios Uren Gálvez,Compañía Pisquera de Chile - CCU,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/samuel-larrain-noguera-a347b379,https://linkedin.com/in/samuel-larrain-noguera-a347b379,Samuel Larrain Noguera,Kouzee,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/nicolas-von-graevenitz-03a9bb21,https://linkedin.com/in/nicolas-von-graevenitz-03a9bb21,Nicolas von Graevenitz,Empresas DBS,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/felipe-quintanilla,https://linkedin.com/in/felipe-quintanilla,Felipe Quintanilla Farías,Agrosuper,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/karla-barraza-garcia-75915865,https://linkedin.com/in/karla-barraza-garcia-75915865,Karla Barraza Garcia,MTS,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/jose-manuel-valiente-wittwer,https://linkedin.com/in/jose-manuel-valiente-wittwer,José Manuel Valiente Wittwer,ChileCompra,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/daniel-bahamondes-j-b6b209b,https://linkedin.com/in/daniel-bahamondes-j-b6b209b,Daniel Bahamondes J.,CORFO | Chilean Economic Development Agency,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/victorhfloresm,https://linkedin.com/in/victorhfloresm,Victor Hugo Flores Maza,Grupo Puerto,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/patricio-meza-buzzetti-b2678130,https://linkedin.com/in/patricio-meza-buzzetti-b2678130,Patricio Meza Buzzetti,G&N Brands,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/darialvaezf-ap161986,https://linkedin.com/in/darialvaezf-ap161986,Darinka Álvarez Flores,Hogar de Cristo,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/rodrigosepulvedaprocesos,https://linkedin.com/in/rodrigosepulvedaprocesos,Rodrigo S.,Duoc UC,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/patinopato,https://linkedin.com/in/patinopato,Alejandro Patiño,ECLAC,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/benjamin-torres-palma,https://linkedin.com/in/benjamin-torres-palma,Benjamin Torres,Agrosuper,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/enzo-balboa-nunez,https://linkedin.com/in/enzo-balboa-nunez,Enzo Fabián Balboa Núñez,Subsecretaría de Relaciones Económicas Internacionales Chile,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/bravocisterna,https://linkedin.com/in/bravocisterna,David Bravo Cisterna,Agrosuper,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/felipe-ponce-87315519,https://linkedin.com/in/felipe-ponce-87315519,Felipe Ponce,AGUNSA,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/andrea-pino-avenda%C3%B1o,https://linkedin.com/in/andrea-pino-avenda%C3%B1o,Andrea Pino Avendaño,Mutual Asesorías,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/katherinalohse,https://linkedin.com/in/katherinalohse,Katherina Lohse,Espacio Urbano,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/gonzalocastroz,https://linkedin.com/in/gonzalocastroz,Gonzalo Castro,Hazlo con Maestría,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/mart%C3%ADn-mondaca-quiroz-839122390,https://linkedin.com/in/mart%C3%ADn-mondaca-quiroz-839122390,Martín Mondaca Quiroz,SCT Security,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/consuelo-paz-provoste-hermosilla-3537061b4,https://linkedin.com/in/consuelo-paz-provoste-hermosilla-3537061b4,Consuelo Paz Provoste Hermosilla,LATAM Airlines,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/gonzalogg,https://linkedin.com/in/gonzalogg,Gonzalo Gutiérrez Gagliardi,Corrupac,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/anagonzalezmatiz,https://linkedin.com/in/anagonzalezmatiz,Ana María González Matiz,Schneider Electric,45,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/magdalena-schneider-hr,https://linkedin.com/in/magdalena-schneider-hr,Magdalena Schneider Infante,Impulso GTH,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/fernando-eimbcke-bosch,https://linkedin.com/in/fernando-eimbcke-bosch,Fernando Eimbcke Bosch,Clinica Alemana de Santiago,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/jmbejide,https://linkedin.com/in/jmbejide,José Miguel Bejide Barturen,Universidad Católica Silva Henríquez (UCSH),40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/marion-costagliola-vera-4b957b14a,https://linkedin.com/in/marion-costagliola-vera-4b957b14a,Marion Costagliola Vera,Distribuidora  Viña  del  Mar  S.A,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/matiasamadorgutierrezsepulveda,https://linkedin.com/in/matiasamadorgutierrezsepulveda,Matías Amador Gutiérrez Sepúlveda,Universidad Central (CL),40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/nancy-p%C3%A9rez-ojeda,https://linkedin.com/in/nancy-p%C3%A9rez-ojeda,Nancy Pérez,Universidad Tecnica Federico Santa Maria,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/transformaci%C3%B3n-digital-cencosud-5843a0164,https://linkedin.com/in/transformaci%C3%B3n-digital-cencosud-5843a0164,Transformación Digital Cencosud,Cencosud S.A.,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/paula-retamal-l%C3%B3pez-498403234,https://linkedin.com/in/paula-retamal-l%C3%B3pez-498403234,Paula Retamal López,OTIC - Cámara Chilena de la Construcción,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/grmcl,https://linkedin.com/in/grmcl,Gabriel Rosas Miranda,Constructora Gardilcic,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/yazenka-marella-lazo-carvajal,https://linkedin.com/in/yazenka-marella-lazo-carvajal,Yazenka Marella Lazo Carvajal,Tepsac S.A,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/evanavarros%C3%A1nchez,https://linkedin.com/in/evanavarros%C3%A1nchez,Eva Navarro Sánchez,FAM Minerals & Mining,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/daniloayalaj,https://linkedin.com/in/daniloayalaj,Danilo Ayala J.,Grupo Falabella,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/nicol%C3%A1s-cordero-arellano-9221a434,https://linkedin.com/in/nicol%C3%A1s-cordero-arellano-9221a434,Nicolás Cordero Arellano,inmobiliaria y constructora nueva pacifico sur limitada,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/juancarlosleonf,https://linkedin.com/in/juancarlosleonf,Juan Carlos LEÓN Flores,PHD Ingeniería y Construcción,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/paola-andrea-cifuentes-berrios-0b796b50,https://linkedin.com/in/paola-andrea-cifuentes-berrios-0b796b50,PAOLA ANDREA CIFUENTES BERRIOS,Municipalidad de Arica,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/daniellelemaitre,https://linkedin.com/in/daniellelemaitre,Danielle Lemaitre Escobar,Universidad del Desarrollo,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/nadezda-abbas-4779a6295,https://linkedin.com/in/nadezda-abbas-4779a6295,Nadezda Abbas,Universidad Bernardo O'Higgins,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/alejandro-onfire-par%C3%A9s-85967321a,https://linkedin.com/in/alejandro-onfire-par%C3%A9s-85967321a,"Alejandro ""onFire"" Parés",Putitin Chile,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/juan-miguel-orellana-00786145,https://linkedin.com/in/juan-miguel-orellana-00786145,Juan Miguel Orellana,Autopista Vespucio Norte,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/paola-espejo-2461b31b0,https://linkedin.com/in/paola-espejo-2461b31b0,Paola Espejo,,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/jose-ignacio-dorlhiac-91637654,https://linkedin.com/in/jose-ignacio-dorlhiac-91637654,Jose Ignacio Dorlhiac,Universidad del Desarrollo,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/camilafgs,https://linkedin.com/in/camilafgs,Camila García Sanhueza,Universidad de Concepción,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/felipe-jimenez,https://linkedin.com/in/felipe-jimenez,Felipe Jimenez,ICB Food Service,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/edith-ramirez-63a77b1b9,https://linkedin.com/in/edith-ramirez-63a77b1b9,Edith Ramirez,Comisión para el Mercado Financiero (CMF),40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/c%C3%A9sar-ahumada-gonz%C3%A1lez-260aa14a,https://linkedin.com/in/c%C3%A9sar-ahumada-gonz%C3%A1lez-260aa14a,César Ahumada González,AIEP,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/derek-needham-arnold,https://linkedin.com/in/derek-needham-arnold,Derek Needham Arnold,Bupa Chile,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/rareyesc,https://linkedin.com/in/rareyesc,Rafael Antonio Reyes Cuevas,Ministerio de Agricultura - Chile,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/gabriela-infante-48baab35,https://linkedin.com/in/gabriela-infante-48baab35,Gabriela Infante,Comaco Grúas,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/guillermo-javier-oliver-zucchino-394162b4,https://linkedin.com/in/guillermo-javier-oliver-zucchino-394162b4,Guillermo Javier Oliver Zucchino,Universidad del Desarrollo,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/paulina-gallardo-p,https://linkedin.com/in/paulina-gallardo-p,Paulina Gallardo Paredes,Pluxee Chile,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/ricardovalenzuela,https://linkedin.com/in/ricardovalenzuela,★ Ricardo Valenzuela Caico ★,Universidad Adolfo Ibáñez,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/josefina-barrera-jim%C3%A9nez-a8990521,https://linkedin.com/in/josefina-barrera-jim%C3%A9nez-a8990521,Josefina Barrera Jiménez,,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/belenbravos,https://linkedin.com/in/belenbravos,Belén Bravo Sierra,bildit.cl,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/jmvegag,https://linkedin.com/in/jmvegag,José Miguel Vega G.,,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/s-castillo-valdebenito,https://linkedin.com/in/s-castillo-valdebenito,Juan Sebastián Castillo Valdebenito,,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/claudia-bascur-8b5a7a28,https://linkedin.com/in/claudia-bascur-8b5a7a28,Claudia Bascur,Universidad Andres Bello,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/raul-morillo,https://linkedin.com/in/raul-morillo,Raul Morillo,SC Johnson,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/bel%C3%A9n-cortesi-badilla-724bb513b,https://linkedin.com/in/bel%C3%A9n-cortesi-badilla-724bb513b,Belén Cortesi Badilla,Derco,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/thomas-danilo-andr%C3%A9s-pacheco-carvajal-0b2ab4229,https://linkedin.com/in/thomas-danilo-andr%C3%A9s-pacheco-carvajal-0b2ab4229,Thomas Danilo Andrés Pacheco Carvajal,"Salinas y Fabres, Salfa",40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/adolfo-wulf-leal-892452125,https://linkedin.com/in/adolfo-wulf-leal-892452125,Adolfo Wulf Leal,COLUN,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/smirandao,https://linkedin.com/in/smirandao,Sebastián Miranda Osorio,"Salinas y Fabres, Salfa",40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/patricio-godoy-aburto-6b0525127,https://linkedin.com/in/patricio-godoy-aburto-6b0525127,Patricio Godoy Aburto,RightCom,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/lboitano,https://linkedin.com/in/lboitano,Loreto Boitano,Universidad Andrés Bello,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/nmunozt,https://linkedin.com/in/nmunozt,Natalia M.,Cristalchile,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/transformaci%C3%B3n-digital-db-838351185,https://linkedin.com/in/transformaci%C3%B3n-digital-db-838351185,Transformación Digital DB,Digital Bank,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/juan-urrutia-galaz,https://linkedin.com/in/juan-urrutia-galaz,Juan Urrutia Galaz,Comercial GE2,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:A
+https://linkedin.com/in/tom%C3%A1s-pe%C3%B1a-373a2b25a,https://linkedin.com/in/tom%C3%A1s-pe%C3%B1a-373a2b25a,Tomás Peña,Chilquinta Energía S.A.,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/lahc,https://linkedin.com/in/lahc,Luis Herrera Cofré,Agrosuper,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/pablocovacevich,https://linkedin.com/in/pablocovacevich,Pablo Covacevich,Melon S.A.,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/transformaci%C3%B3n-digital-383225273,https://linkedin.com/in/transformaci%C3%B3n-digital-383225273,Transformación Digital,Indumotora,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/edgardo-huma%C3%B1a-bustos-8b762439,https://linkedin.com/in/edgardo-huma%C3%B1a-bustos-8b762439,Edgardo Humaña Bustos,Essbio,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/gonzalo-castillo-avenda%C3%B1o,https://linkedin.com/in/gonzalo-castillo-avenda%C3%B1o,Gonzalo Castillo Avendaño,Pontificia Universidad Católica de Chile,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/alexipascual-architect-it,https://linkedin.com/in/alexipascual-architect-it,Alexi Pascual García,Pontificia Universidad Católica de Chile,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/vivianavasquezc,https://linkedin.com/in/vivianavasquezc,Viviana Vásquez,Enel Group,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/paulina-baeza-cx,https://linkedin.com/in/paulina-baeza-cx,Paulina Baeza,Chilquinta Energía S.A.,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/felipe-riquelme-calderon,https://linkedin.com/in/felipe-riquelme-calderon,Felipe Riquelme Calderón,Coca-Cola Andina,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/natalia-queirolo-93399830,https://linkedin.com/in/natalia-queirolo-93399830,Natalia Queirolo,LATAM Airlines,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/mariaignaciacunn,https://linkedin.com/in/mariaignaciacunn,María Ignacia Cunn,Schneider Electric,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/fernando-ezequiel-cayul-zavala-2a28746b,https://linkedin.com/in/fernando-ezequiel-cayul-zavala-2a28746b,Fernando Ezequiel Cayul Zavala,CASTAÑO,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/luisalhez,https://linkedin.com/in/luisalhez,Luis Alejandro Alvarez Hernandez,uPlanner,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/manavarrete,https://linkedin.com/in/manavarrete,Miguel Angel Navarrete López,SKY Airline,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/javiercruzgh,https://linkedin.com/in/javiercruzgh,Javier Cruz García-Huidobro,Independiente ,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/rodrigo-almuna-sanchez-56176842,https://linkedin.com/in/rodrigo-almuna-sanchez-56176842,Rodrigo Almuna Sanchez,Quelen Fruit,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/xavierasobarzod%C3%ADaz,https://linkedin.com/in/xavierasobarzod%C3%ADaz,Xaviera Sobarzo Díaz,Blum Coffee,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/hildajararivera,https://linkedin.com/in/hildajararivera,Hilda Jara Rivera,Empresas Banmédica,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/fgoeppinger,https://linkedin.com/in/fgoeppinger,Felipe Goeppinger,Cintac,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/fmuenzer,https://linkedin.com/in/fmuenzer,Jorge Felipe Andres Muenzer Herrera,Red Apis,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/h%C3%A9ctor-f%C3%A9lix-aar%C3%B3n-bustamante-baeza-6baba866,https://linkedin.com/in/h%C3%A9ctor-f%C3%A9lix-aar%C3%B3n-bustamante-baeza-6baba866,Héctor Félix Aarón Bustamante Baeza,Agrosuper,40,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/pablo-perez-de-tudela-35557b38,https://linkedin.com/in/pablo-perez-de-tudela-35557b38,Pablo Perez de Tudela,,35,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:C
+https://linkedin.com/in/natalia-castro-valderrama,https://linkedin.com/in/natalia-castro-valderrama,Natalia Castro Valderrama,LATAM Airlines,35,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
+https://linkedin.com/in/gerardo-soto-salazar-13027a145,https://linkedin.com/in/gerardo-soto-salazar-13027a145,Gerardo Soto Salazar,AFP Capital,35,NURTURE,NOT_SENT,,,false,,,false,,,false,,,false,List:B
