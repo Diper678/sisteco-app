@@ -14,7 +14,7 @@ dashboard desde cero, y conseguir los primeros clientes fundadores pagando.
 - [ ] **Phase 1: Pipeline de Leads Activo** - Activar workflows reales: PhantomBuster extrae, SII valida, Gemini califica, datos llegan a Convex
 - [x] **Phase 2: Diseno Dashboard (Colaborativo)** - Usuario investiga mercado, selecciona referencias, define UX. Claude propone wireframes. (completed 2026-03-12)
 - [x] **Phase 3: Dashboard Build** - Construir dashboard multi-tenant multi-rol desde cero conectado a datos reales de Convex (completed 2026-03-13)
-- [ ] **Phase 4: Compliance Basico Ley 21.719** - RAT, opt-out, base legal documentada, aviso de privacidad — lo minimo para operar legal
+- [x] **Phase 4: Compliance Basico Ley 21.719** - RAT, opt-out, base legal documentada, aviso de privacidad — lo minimo para operar legal (completed 2026-03-16)
 - [ ] **Phase 5: Onboarding Clientes Fundadores** - Trial con datos reales, cobro via Reveniu, primeros 3-10 clientes pagando
 
 ## Phase Details
@@ -79,7 +79,7 @@ Plans:
 **Goal**: Cumplir los requisitos minimos de la Ley 21.719 para operar legalmente con datos B2B
 **Depends on**: Phase 1 (hay datos que proteger), Phase 3 (dashboard donde mostrar avisos)
 **Requirements**: COMP-01, COMP-02, COMP-03, COMP-04, COMP-05
-**Plans:** 3/4 plans executed
+**Plans:** 4/4 plans complete
 
 Plans:
 - [ ] 04-01-PLAN.md — Schema compliance fields + legal documents (RAT, DPA, privacy policy, EIPD, balancing test)
@@ -117,5 +117,5 @@ Order: 1 || 2 -> 3 -> 4 -> 5
 | 1. Pipeline de Leads | 3 plans (2 waves) | 2/3 plans complete | In progress |
 | 2. Diseno Dashboard | 2 plans (2 waves) | 2/2 plans complete | 2026-03-12 |
 | 3. Dashboard Build | 5 plans (4 waves) | 5/5 plans complete | 2026-03-13 |
-| 4. Compliance Ley 21.719 | 3/4 | In Progress|  |
+| 4. Compliance Ley 21.719 | 4/4 | Complete   | 2026-03-16 |
 | 5. Onboarding Fundadores | TBD | Not started | - |

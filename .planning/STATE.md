@@ -3,11 +3,27 @@ gsd_state_version: 1.0
 milestone: v2.0
 milestone_name: milestone
 status: executing
+stopped_at: Completed 04-04-PLAN.md — Sheets propagation + ARCO-POL triage (Plan 4 of Phase 4)
+last_updated: "2026-03-16T22:38:00.947Z"
+last_activity: 2026-03-15 — Phase 4 discuss-phase completado — 4 areas, 16 decisiones, adaptado a workflows-first
+progress:
+  total_phases: 5
+  completed_phases: 4
+  total_plans: 14
+  completed_plans: 14
+  percent: 100
+---
+
+---
+gsd_state_version: 1.0
+milestone: v2.0
+milestone_name: milestone
+status: executing
 stopped_at: Completed 04-02 compliance opt-out endpoints (optOut.ts + compliance.ts + http.ts)
 last_updated: "2026-03-16T22:06:38.424Z"
 last_activity: 2026-03-15 — Phase 4 discuss-phase completado — 4 areas, 16 decisiones, adaptado a workflows-first
 progress:
-  total_phases: 5
+  [██████████] 100%
   completed_phases: 3
   total_plans: 14
   completed_plans: 13
@@ -121,6 +137,9 @@ Trabajo completado que se reutiliza directamente:
 - [Phase 04-compliance-21719]: emailHash stores email directly in mutations (V8 runtime lacks crypto.subtle)
 - [Phase 04-compliance-21719]: verifyArcoRequest returns email explicitly — enables opt-out chain without extra query
 - [Phase 04-compliance-21719]: POST /unsubscribe returns 200 even on error — RFC 8058 clients expect silent success
+- [Phase 04-compliance-21719]: ctx.scheduler.runAfter(0) from mutation to trigger internalActions for Sheets propagation
+- [Phase 04-compliance-21719]: Email redaction (3 chars + ***@domain) in all external notifications for privacy by design
+- [Phase 04-compliance-21719]: tenantSheets table enables orgId-to-spreadsheetId mapping for compliance propagation to tenant Sheets
 
 ### Blockers/Concerns
 
@@ -131,6 +150,6 @@ Trabajo completado que se reutiliza directamente:
 
 ## Session Continuity
 
-Last session: 2026-03-16T22:06:38.417Z
-Stopped at: Completed 04-03-PLAN.md — retention crons + privacy footer + smoke test script
+Last session: 2026-03-16T22:38:00.942Z
+Stopped at: Completed 04-04-PLAN.md — Sheets propagation + ARCO-POL triage (Plan 4 of Phase 4)
 Resume file: None
