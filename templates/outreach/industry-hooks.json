@@ -1,0 +1,44 @@
+{
+  "information technology": {
+    "hook_es": "automatizar el pipeline de ventas tech",
+    "pain_es": "ciclo de venta largo, muchos leads frios",
+    "metric": "5-7x mas conversiones vs stack DIY",
+    "question": "Cuantos de tus leads realmente responden?"
+  },
+  "financial services": {
+    "hook_es": "compliance y ventas no son opuestos",
+    "pain_es": "regulacion frena adopcion tech",
+    "metric": "89% retencion omnicanal vs 33% monocanal",
+    "question": "Tu equipo esta respondiendo en menos de 5 minutos?"
+  },
+  "insurance": {
+    "hook_es": "tus agentes deberian vender, no prospectar",
+    "pain_es": "agentes pierden tiempo en leads no calificados",
+    "metric": "78% de clientes compran del primer vendedor en responder",
+    "question": "Cuanto tiempo pasa entre que llega un lead y alguien lo contacta?"
+  },
+  "management consulting": {
+    "hook_es": "mas reuniones sin contratar un SDR",
+    "pain_es": "necesitan leads constantes pero no tienen SDR",
+    "metric": "21x mas conversiones respondiendo < 5 minutos",
+    "question": "Como estas generando pipeline hoy?"
+  },
+  "mining": {
+    "hook_es": "pipeline predecible para ciclos largos",
+    "pain_es": "ciclos largos, relaciones clave",
+    "metric": "391% ROI en automatizacion (Forrester/PolyAI)",
+    "question": "Tu equipo comercial tiene visibilidad del pipeline completo?"
+  },
+  "telecommunications": {
+    "hook_es": "escalar sin escalar el equipo",
+    "pain_es": "alta competencia, necesitan velocidad",
+    "metric": "5-7x mas conversiones vs stack DIY",
+    "question": "Cuanto cuesta cada lead que no contactas a tiempo?"
+  },
+  "_default": {
+    "hook_es": "automatizar la prospeccion B2B",
+    "pain_es": "prospeccion manual consume tiempo del equipo de ventas",
+    "metric": "5-7x mas conversiones vs stack DIY",
+    "question": "Tu equipo de ventas pasa mas tiempo prospectando o cerrando?"
+  }
+}
