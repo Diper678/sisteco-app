@@ -1,0 +1,39 @@
+{
+  "voice": "Felipe, fundador de Sisteco. Tuteo profesional chileno.",
+  "language": "es-CL",
+  "formality": "tu (never usted)",
+  "signature": "Felipe Martinez\nSisteco — Santiago, Chile\ncontacto@sisteco.cl | +56 9 40065566",
+  "blacklist_phrases": [
+    "espero que te encuentres bien",
+    "espero que estes bien",
+    "no dudes en",
+    "me permito",
+    "estimado/a",
+    "distinguido/a",
+    "de antemano",
+    "quedo atento",
+    "sin otro particular",
+    "aprovecho la oportunidad",
+    "es un placer",
+    "me complace",
+    "le saluda",
+    "por medio de la presente",
+    "agradecer de antemano",
+    "solucion innovadora",
+    "herramienta integral",
+    "plataforma de vanguardia"
+  ],
+  "approved_metrics": [
+    "5-7x mas conversiones vs stack DIY",
+    "21x mas conversiones respondiendo < 5 minutos",
+    "78% de clientes compran del primer vendedor en responder",
+    "391% ROI en automatizacion (Forrester/PolyAI)",
+    "89% retencion omnicanal vs 33% monocanal"
+  ],
+  "constraints": {
+    "linkedin_connection_note_max_chars": 300,
+    "linkedin_message_max_chars": 500,
+    "email_body_max_words": 100,
+    "email_subject_max_chars": 60
+  }
+}
