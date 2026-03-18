@@ -781,4 +781,68 @@ http.route({
   }),
 });
 
+// ── Route 8: OPTIONS /intake preflight ───────────────────────────────────────
+
+http.route({
+  path: "/intake",
+  method: "OPTIONS",
+  handler: httpAction(async (_ctx, _request) => {
+    return new Response(null, { status: 204, headers: corsHeaders() });
+  }),
+});
+
+// ── Route 9: POST /intake — Formulario publico de trial ──────────────────────
+// Recibe datos del formulario de intake (prospecto), los guarda en trialRequests.
+// No requiere autenticacion — es el punto de entrada publico del funnel.
+
+http.route({
+  path: "/intake",
+  method: "POST",
+  handler: httpAction(async (ctx, request) => {
+    try {
+      const body = await request.json();
+      // Validar campos requeridos
+      const nombre = body?.nombre ?? "";
+      const email = body?.email ?? "";
+      const empresa = body?.empresa ?? "";
+      const sector = body?.sector ?? "";
+      const mercado = body?.mercado ?? "";
+      const tipoclientes = body?.tipoclientes ?? "";
+
+      if (!nombre || !email || !empresa || !sector || !mercado || !tipoclientes) {
+        return new Response(
+          JSON.stringify({ ok: false, error: "Campos requeridos: nombre, email, empresa, sector, mercado, tipoclientes" }),
+          { status: 400, headers: { ...corsHeaders(), "Content-Type": "application/json" } }
+        );
+      }
+
+      const requestId = await ctx.runMutation(internal.trialRequests.create, {
+        nombre: nombre.trim(),
+        email: email.trim().toLowerCase(),
+        empresa: empresa.trim(),
+        cargo: body?.cargo?.trim(),
+        telefono: body?.telefono?.trim(),
+        sector: sector.trim(),
+        mercado: mercado.trim(),
+        tipoclientes: tipoclientes.trim(),
+        crm: body?.crm?.trim(),
+        almacenamientoLeads: body?.almacenamientoLeads?.trim(),
+        setupCorreos: body?.setupCorreos?.trim(),
+        procesoVentas: body?.procesoVentas?.trim(),
+      });
+
+      return new Response(
+        JSON.stringify({ ok: true, requestId, message: "Solicitud recibida. Te contactaremos pronto." }),
+        { status: 200, headers: { ...corsHeaders(), "Content-Type": "application/json" } }
+      );
+    } catch (err) {
+      console.error("POST /intake error:", err);
+      return new Response(
+        JSON.stringify({ ok: false, error: "Error interno. Intenta nuevamente." }),
+        { status: 500, headers: { ...corsHeaders(), "Content-Type": "application/json" } }
+      );
+    }
+  }),
+});
+
 export default http;

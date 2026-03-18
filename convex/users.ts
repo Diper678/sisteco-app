@@ -138,6 +138,55 @@ export const getOrCreateUser = mutation({
 });
 
 /**
+ * createFromProvisioning — Crea un usuario desde el script de provisioning.
+ * Publica con adminSecret para que provision-trial.js pueda llamarla via CLI.
+ * Idempotente: si el usuario ya existe en esa org, no hace nada.
+ */
+export const createFromProvisioning = mutation({
+  args: {
+    orgId: v.string(),
+    clerkUserId: v.string(),
+    nombre: v.string(),
+    email: v.string(),
+    rol: v.union(
+      v.literal("ceo"),
+      v.literal("vp_ventas"),
+      v.literal("sdr")
+    ),
+    adminSecret: v.string(),
+  },
+  handler: async (ctx, args) => {
+    // Validar adminSecret
+    const expectedSecret = process.env.SAAN_API_SECRET;
+    if (!expectedSecret || args.adminSecret !== expectedSecret) {
+      throw new Error("Unauthorized: invalid admin secret");
+    }
+
+    // Idempotente: si ya existe, retornar su ID
+    const existing = await ctx.db
+      .query("users")
+      .withIndex("by_clerkUserId", (q) => q.eq("clerkUserId", args.clerkUserId))
+      .filter((q) => q.eq(q.field("orgId"), args.orgId))
+      .first();
+
+    if (existing) {
+      return existing._id;
+    }
+
+    const now = Date.now();
+    return await ctx.db.insert("users", {
+      orgId: args.orgId,
+      clerkUserId: args.clerkUserId,
+      nombre: args.nombre,
+      email: args.email,
+      rol: args.rol,
+      createdAt: now,
+      updatedAt: now,
+    });
+  },
+});
+
+/**
  * updateUserRole — Actualiza el rol de un usuario (solo CEO/VP pueden hacer esto)
  */
 export const updateUserRole = mutation({
