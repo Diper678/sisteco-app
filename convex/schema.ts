@@ -407,4 +407,65 @@ export default defineSchema({
     .index("by_status_priority", ["status", "priority"])
     .index("by_status_created", ["status", "createdAt"])
     .index("by_consolidation", ["consolidationWindow", "status"]),
+
+  // ── Trial Requests (formulario de intake publico) ──────────────────────────
+  trialRequests: defineTable({
+    nombre: v.string(),
+    email: v.string(),
+    empresa: v.string(),
+    cargo: v.optional(v.string()),
+    telefono: v.optional(v.string()),
+    sector: v.string(),
+    mercado: v.string(),
+    tipoclientes: v.string(),
+    crm: v.optional(v.string()),
+    almacenamientoLeads: v.optional(v.string()),
+    setupCorreos: v.optional(v.string()),
+    procesoVentas: v.optional(v.string()),
+    status: v.union(
+      v.literal("received"),
+      v.literal("provisioning"),
+      v.literal("provisioned"),
+      v.literal("error"),
+    ),
+    clerkOrgId: v.optional(v.string()),
+    clerkUserId: v.optional(v.string()),
+    spreadsheetId: v.optional(v.string()),
+    errorMessage: v.optional(v.string()),
+    createdAt: v.number(),
+    provisionedAt: v.optional(v.number()),
+  })
+    .index("by_email", ["email"])
+    .index("by_status", ["status"]),
+
+  // ── Subscriptions (monetizacion + trial) ───────────────────────────────────
+  subscriptions: defineTable({
+    orgId: v.string(),
+    plan: v.union(v.literal("base"), v.literal("crecimiento"), v.literal("enterprise")),
+    status: v.union(
+      v.literal("trial"),
+      v.literal("active"),
+      v.literal("grace"),
+      v.literal("paused"),
+      v.literal("cancelled"),
+      v.literal("expired"),
+    ),
+    trialStartedAt: v.number(),
+    trialEndsAt: v.number(),
+    reveniuSubscriptionId: v.optional(v.string()),
+    billingEmail: v.string(),
+    billingAmount: v.optional(v.number()),
+    billingCycle: v.optional(v.string()),
+    currentPeriodStart: v.optional(v.number()),
+    currentPeriodEnd: v.optional(v.number()),
+    lastPipelineRunAt: v.optional(v.number()),
+    pipelineRunCount: v.number(),
+    dpaSignedAt: v.optional(v.number()),
+    dpaVersion: v.optional(v.string()),
+    createdAt: v.number(),
+    updatedAt: v.number(),
+  })
+    .index("by_orgId", ["orgId"])
+    .index("by_status", ["status"])
+    .index("by_trialEndsAt", ["trialEndsAt"]),
 });
