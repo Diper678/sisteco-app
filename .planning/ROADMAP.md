@@ -82,10 +82,10 @@ Plans:
 **Plans:** 4/4 plans complete
 
 Plans:
-- [ ] 04-01-PLAN.md — Schema compliance fields + legal documents (RAT, DPA, privacy policy, EIPD, balancing test)
-- [ ] 04-02-PLAN.md — Opt-out + ARCO-POL HTTP endpoints + email verification + blacklist
-- [ ] 04-03-PLAN.md — Retention crons (auto-purge 24/36 meses) + dashboard privacy link + compliance smoke tests
-- [ ] 04-04-PLAN.md — Sheets propagation on opt-out + ARCO-POL n8n triage webhook + tenant CRM notification
+- [x] 04-01-PLAN.md — Schema compliance fields + legal documents (RAT, DPA, privacy policy, EIPD, balancing test)
+- [x] 04-02-PLAN.md — Opt-out + ARCO-POL HTTP endpoints + email verification + blacklist
+- [x] 04-03-PLAN.md — Retention crons (auto-purge 24/36 meses) + dashboard privacy link + compliance smoke tests
+- [x] 04-04-PLAN.md — Sheets propagation on opt-out + ARCO-POL n8n triage webhook + tenant CRM notification
 
 **Success Criteria**:
   1. RAT (Registro de Actividades de Tratamiento) documentado
@@ -100,6 +100,13 @@ Plans:
 **Goal**: Los primeros 3-10 clientes fundadores usan Sisteco con datos reales y pagan mensualmente
 **Depends on**: Phase 3 (dashboard listo), Phase 4 (compliance basico)
 **Requirements**: PAY-01, PAY-02, PAY-03, PAY-04
+**Plans:** 3 plans
+
+Plans:
+- [ ] 05-01-PLAN.md — Schema subscriptions + trialRequests + endpoint /intake + provisioning script
+- [ ] 05-02-PLAN.md — Webhook Reveniu + emails onboarding Resend + metricas MRR/churn/LTV + smoke tests
+- [ ] 05-03-PLAN.md — Trial banner en dashboard + DPA acceptance modal + integracion links Reveniu
+
 **Success Criteria**:
   1. Trial de 14 dias con datos reales del vertical del prospecto
   2. Cobro mensual via Reveniu funcionando
@@ -118,4 +125,4 @@ Order: 1 || 2 -> 3 -> 4 -> 5
 | 2. Diseno Dashboard | 2 plans (2 waves) | 2/2 plans complete | 2026-03-12 |
 | 3. Dashboard Build | 5 plans (4 waves) | 5/5 plans complete | 2026-03-13 |
 | 4. Compliance Ley 21.719 | 4/4 | Complete   | 2026-03-16 |
-| 5. Onboarding Fundadores | TBD | Not started | - |
+| 5. Onboarding Fundadores | 3 plans (2 waves) | Not started | - |
