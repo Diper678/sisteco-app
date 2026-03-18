@@ -103,9 +103,11 @@ Plans:
 **Plans:** 3 plans
 
 Plans:
-- [ ] 05-01-PLAN.md — Schema subscriptions + trialRequests + endpoint /intake + provisioning script
-- [ ] 05-02-PLAN.md — Webhook Reveniu + emails onboarding Resend + metricas MRR/churn/LTV + smoke tests
+- [ ] 05-01-PLAN.md — Schema subscriptions + trialRequests + endpoint /intake + provisioning script + test trial status
+- [ ] 05-02-PLAN.md — Webhook Reveniu + emails onboarding (con welcome email callable desde CLI) + metricas MRR/churn/LTV + smoke tests
 - [ ] 05-03-PLAN.md — Trial banner en dashboard + DPA acceptance modal + integracion links Reveniu
+
+NOTE: Exit-intent popup (CONTEXT.md Areas 2 and 4) belongs to the Landing Page project (`C:/Users/Dell 5520/Documents/AgenticWorkflows/Landing Page/`), not this project. Track separately.
 
 **Success Criteria**:
   1. Trial de 14 dias con datos reales del vertical del prospecto
@@ -125,4 +127,4 @@ Order: 1 || 2 -> 3 -> 4 -> 5
 | 2. Diseno Dashboard | 2 plans (2 waves) | 2/2 plans complete | 2026-03-12 |
 | 3. Dashboard Build | 5 plans (4 waves) | 5/5 plans complete | 2026-03-13 |
 | 4. Compliance Ley 21.719 | 4/4 | Complete   | 2026-03-16 |
-| 5. Onboarding Fundadores | 3 plans (2 waves) | Not started | - |
+| 5. Onboarding Fundadores | 3 plans (3 waves) | Not started | - |
