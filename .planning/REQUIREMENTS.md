@@ -57,7 +57,7 @@
 
 - [ ] **PAY-01**: Cobro mensual via Reveniu (CLP, sin entidad legal)
 - [ ] **PAY-02**: Planes: Starter ($99.990 CLP), Growth ($249.990 CLP), Enterprise (custom)
-- [ ] **PAY-03**: Trial de 14 dias con datos reales del prospecto
+- [x] **PAY-03**: Trial de 14 dias con datos reales del prospecto
 - [ ] **PAY-04**: Metricas: MRR, churn, LTV calculados automaticamente
 
 ---

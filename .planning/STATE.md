@@ -3,11 +3,27 @@ gsd_state_version: 1.0
 milestone: v2.0
 milestone_name: milestone
 status: executing
+stopped_at: Completed 05-01-PLAN.md — subscriptions schema + intake endpoint + provisioning script
+last_updated: "2026-03-19T13:40:33.174Z"
+last_activity: 2026-03-15 — Phase 4 discuss-phase completado — 4 areas, 16 decisiones, adaptado a workflows-first
+progress:
+  total_phases: 5
+  completed_phases: 4
+  total_plans: 17
+  completed_plans: 15
+  percent: 88
+---
+
+---
+gsd_state_version: 1.0
+milestone: v2.0
+milestone_name: milestone
+status: executing
 stopped_at: Completed 04-04-PLAN.md — Sheets propagation + ARCO-POL triage (Plan 4 of Phase 4)
 last_updated: "2026-03-16T22:45:38.827Z"
 last_activity: 2026-03-15 — Phase 4 discuss-phase completado — 4 areas, 16 decisiones, adaptado a workflows-first
 progress:
-  total_phases: 5
+  [█████████░] 88%
   completed_phases: 4
   total_plans: 14
   completed_plans: 14
@@ -140,6 +156,8 @@ Trabajo completado que se reutiliza directamente:
 - [Phase 04-compliance-21719]: ctx.scheduler.runAfter(0) from mutation to trigger internalActions for Sheets propagation
 - [Phase 04-compliance-21719]: Email redaction (3 chars + ***@domain) in all external notifications for privacy by design
 - [Phase 04-compliance-21719]: tenantSheets table enables orgId-to-spreadsheetId mapping for compliance propagation to tenant Sheets
+- [Phase 05]: createTrialSubscription + registerTenantSheet como mutations publicas con adminSecret — permite npx convex run desde CLI
+- [Phase 05]: Paso 9 (email bienvenida) no-fatal en provision-trial.js — Plan 02 puede no estar desplegado
 
 ### Blockers/Concerns
 
@@ -150,6 +168,6 @@ Trabajo completado que se reutiliza directamente:
 
 ## Session Continuity
 
-Last session: 2026-03-16T22:38:00.942Z
-Stopped at: Completed 04-04-PLAN.md — Sheets propagation + ARCO-POL triage (Plan 4 of Phase 4)
+Last session: 2026-03-19T13:40:33.170Z
+Stopped at: Completed 05-01-PLAN.md — subscriptions schema + intake endpoint + provisioning script
 Resume file: None

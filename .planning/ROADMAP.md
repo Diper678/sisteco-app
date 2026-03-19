@@ -100,7 +100,7 @@ Plans:
 **Goal**: Los primeros 3-10 clientes fundadores usan Sisteco con datos reales y pagan mensualmente
 **Depends on**: Phase 3 (dashboard listo), Phase 4 (compliance basico)
 **Requirements**: PAY-01, PAY-02, PAY-03, PAY-04
-**Plans:** 3 plans
+**Plans:** 1/3 plans executed
 
 Plans:
 - [ ] 05-01-PLAN.md — Schema subscriptions + trialRequests + endpoint /intake + provisioning script + test trial status
@@ -125,6 +125,5 @@ Order: 1 || 2 -> 3 -> 4 -> 5
 |-------|-------|----------|-----------|
 | 1. Pipeline de Leads | 3 plans (2 waves) | 2/3 plans complete | In progress |
 | 2. Diseno Dashboard | 2 plans (2 waves) | 2/2 plans complete | 2026-03-12 |
-| 3. Dashboard Build | 5 plans (4 waves) | 5/5 plans complete | 2026-03-13 |
-| 4. Compliance Ley 21.719 | 4/4 | Complete   | 2026-03-16 |
+| 3. Dashboard Build | 5 plans (4 waves) | 1/3 | In Progress|  | 4. Compliance Ley 21.719 | 4/4 | Complete   | 2026-03-16 |
 | 5. Onboarding Fundadores | 3 plans (3 waves) | Not started | - |
