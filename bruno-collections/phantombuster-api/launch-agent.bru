@@ -4,12 +4,14 @@ meta {
   seq: 1
 }
 
-// Lanza el PhantomBuster agent configurado.
-// Sisteco usa dos phantoms:
-//   - PB_LINKEDIN_AGENT_ID (510547627503326): "Gerente de Ventas Chile"
-//   - PB_TD_AGENT_ID (1153354836325554): "Ingeniero Transformacion Digital Chile"
-// El plan PB es $69/mo (LinkedIn Search Export, sin Sales Navigator).
-// Despues de launch, PB corre async — usar get-results.bru para recoger output.
+docs {
+Lanza el PhantomBuster agent configurado.
+Sisteco usa dos phantoms:
+  - PB_LINKEDIN_AGENT_ID (510547627503326): "Gerente de Ventas Chile"
+  - PB_TD_AGENT_ID (1153354836325554): "Ingeniero Transformacion Digital Chile"
+El plan PB es $69/mo (LinkedIn Search Export, sin Sales Navigator).
+Despues de launch, PB corre async — usar get-results.bru para recoger output.
+}
 
 post {
   url: https://api.phantombuster.com/api/v2/agents/launch

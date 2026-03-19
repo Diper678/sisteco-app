@@ -5,7 +5,7 @@ meta {
 }
 
 post {
-  url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={{gemini_api_key}}
+  url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key={{gemini_api_key}}
   body: json
   auth: none
 }
@@ -20,14 +20,13 @@ body:json {
       {
         "parts": [
           {
-            "text": "Eres un asistente de enriquecimiento de datos B2B para empresas chilenas.\nDado el nombre de una empresa y su RUT, genera informacion de contexto para calificarla como prospecto de ventas B2B.\nEmpresa: \"Empresa Tecnologica Ltda\"\nRUT: \"76.123.456-7\"\nResponde en JSON con este formato exacto (sin texto adicional fuera del JSON):\n{ \"giro\": \"string (rubro o industria principal, max 50 caracteres)\",\n  \"tamano\": \"string (estimacion: 'Micro <10', 'Pequeña 10-50', 'Mediana 50-200', 'Grande 200+')\",\n  \"region\": \"string (region de Chile donde opera, o 'Nacional' si es multi-regional)\",\n  \"señalesCompra\": [\"string\", \"string\"] }"
+            "text": "Return ONLY compact JSON (no whitespace, no prose). Enrich: {\"empresa\":\"Empresa Tecnologica Ltda\",\"rut\":\"76.123.456-7\"}. Schema: {\"giro\":\"\",\"tamano\":\"\",\"region\":\"\",\"senalesCompra\":[\"\"]}"
           }
         ]
       }
     ],
     "generationConfig": {
-      "responseMimeType": "application/json",
-      "temperature": 0.2,
+      "temperature": 0.1,
       "maxOutputTokens": 256
     }
   }
@@ -46,8 +45,11 @@ tests {
 
   test("Respuesta tiene estructura de enriquecimiento", function() {
     const data = res.getBody();
-    const rawText = data?.candidates?.[0]?.content?.parts?.[0]?.text;
-    const parsed = JSON.parse(rawText);
+    const rawText = data?.candidates?.[0]?.content?.parts?.[0]?.text || "";
+    // Extraer primer bloque JSON del texto (Gemini a veces agrega prosa antes)
+    const jsonMatch = rawText.match(/\{[\s\S]*\}/);
+    expect(jsonMatch, "No se encontró JSON en la respuesta").to.not.be.null;
+    const parsed = JSON.parse(jsonMatch[0]);
     expect(parsed).to.have.property("giro");
     expect(parsed).to.have.property("tamano");
   });

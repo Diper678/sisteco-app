@@ -13,6 +13,10 @@
  * Rate limit: max 20 calls/hour per org (in-memory, resets on cold start).
  */
 
+// Sentry error monitoring
+require("../instrument");
+const Sentry = require("@sentry/node");
+
 // In-memory rate limit store: orgId -> { count, windowStart }
 const rateLimitStore = {};
 const RATE_LIMIT_MAX = 20;
@@ -124,6 +128,7 @@ Responde en JSON con este formato exacto (sin texto adicional fuera del JSON):
       })
     });
   } catch (fetchErr) {
+    Sentry.captureException(fetchErr);
     console.error('[gemini-query] Fetch error:', fetchErr.message);
     return res.status(502).json({ error: 'No pude conectar con el servicio de IA. Intenta nuevamente.' });
   }

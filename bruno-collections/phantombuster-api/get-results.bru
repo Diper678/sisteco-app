@@ -4,18 +4,18 @@ meta {
   seq: 2
 }
 
-// Recupera el output del phantom. El campo `status` puede ser:
-//   - "running": phantom en ejecucion, reintentar en ~20s
-//   - "finished": output disponible en `resultObject`
-//   - "error" / "crashed": revisar campo `output` para logs
-//
-// resultObject es un JSON string con array de perfiles LinkedIn.
-// Campos clave por perfil: fullName, jobTitle, company, industry,
-//   location, linkedinProfileUrl, companyUrl.
-//
-// pb-parse-output.js parsea resultObject y escribe pb-leads-latest.json.
-// icp-engine.js luego scorea los perfiles con pesos: titulo 40%, industria 25%,
-//   ubicacion 15%, calidad de datos 10%.
+docs {
+Recupera el output del phantom. El campo `status` puede ser:
+  - "running": phantom en ejecucion, reintentar en ~20s
+  - "finished": output disponible en `resultObject`
+  - "error" / "crashed": revisar campo `output` para logs
+resultObject es un JSON string con array de perfiles LinkedIn.
+Campos clave por perfil: fullName, jobTitle, company, industry,
+  location, linkedinProfileUrl, companyUrl.
+pb-parse-output.js parsea resultObject y escribe pb-leads-latest.json.
+icp-engine.js luego scorea los perfiles con pesos: titulo 40%, industria 25%,
+  ubicacion 15%, calidad de datos 10%.
+}
 
 get {
   url: https://api.phantombuster.com/api/v2/agents/fetch-output

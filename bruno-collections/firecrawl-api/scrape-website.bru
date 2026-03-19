@@ -4,11 +4,13 @@ meta {
   seq: 1
 }
 
-// Firecrawl se usa para enriquecer leads del pipeline:
-// dado el companyUrl extraido de LinkedIn por PhantomBuster,
-// scrapea el sitio web de la empresa para obtener contexto adicional
-// (productos, tecnologia, senales de compra, tamano).
-// La variable FIRECRAWL_API_KEY esta en .env como FIRECRAWL_API_KEY.
+docs {
+Firecrawl se usa para enriquecer leads del pipeline:
+dado el companyUrl extraido de LinkedIn por PhantomBuster,
+scrapea el sitio web de la empresa para obtener contexto adicional
+(productos, tecnologia, senales de compra, tamano).
+La variable FIRECRAWL_API_KEY esta en .env como FIRECRAWL_API_KEY.
+}
 
 post {
   url: https://api.firecrawl.dev/v1/scrape

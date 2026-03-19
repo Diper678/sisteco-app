@@ -4,25 +4,23 @@ meta {
   seq: 2
 }
 
-// Mutation para cambiar el estado de un lead.
-// El sistema de scoring (icp-engine.js) asigna categorias HOT/WARM/NURTURE/SKIP
-// basadas en: cargo (40%), industria (25%), ubicacion (15%), calidad datos (10%).
-//
-// ESTADOS VALIDOS: sin_asignar | asignado | en_progreso | cerrado
-// SUBESTADOS (solo con estado "cerrado"): ganado | perdido | descartado
-//
-// El handler verifica que:
-//   1. El usuario este autenticado (JWT Clerk valido)
-//   2. El orgId del JWT coincida con el lead (aislamiento multi-tenant)
-//   3. Se cree un registro en auditTrail con usuario y timestamp
-//
-// OTRAS MUTATIONS disponibles en convex/leads.ts:
-//   - leads:assignLead        → Asigna lead a un SDR (leadId, sdrUserId, sdrNombre)
-//   - leads:bulkAssignLeads   → Asigna multiples leads en lote
-//   - leads:reasignarLead     → Reasignacion con log en auditTrail
-//
-// MUTATIONS de ICP en convex/icp.ts:
-//   - icp:saveIcpConfig       → Guarda config ICP del wizard VP (industria, tamano, ubicacion, keywords)
+docs {
+Mutation para cambiar el estado de un lead.
+El sistema de scoring (icp-engine.js) asigna categorias HOT/WARM/NURTURE/SKIP
+basadas en: cargo (40%), industria (25%), ubicacion (15%), calidad datos (10%).
+ESTADOS VALIDOS: sin_asignar | asignado | en_progreso | cerrado
+SUBESTADOS (solo con estado "cerrado"): ganado | perdido | descartado
+El handler verifica que:
+  1. El usuario este autenticado (JWT Clerk valido)
+  2. El orgId del JWT coincida con el lead (aislamiento multi-tenant)
+  3. Se cree un registro en auditTrail con usuario y timestamp
+OTRAS MUTATIONS disponibles en convex/leads.ts:
+  - leads:assignLead        → Asigna lead a un SDR (leadId, sdrUserId, sdrNombre)
+  - leads:bulkAssignLeads   → Asigna multiples leads en lote
+  - leads:reasignarLead     → Reasignacion con log en auditTrail
+MUTATIONS de ICP en convex/icp.ts:
+  - icp:saveIcpConfig       → Guarda config ICP del wizard VP (industria, tamano, ubicacion, keywords)
+}
 
 post {
   url: {{convex_url}}/api/mutation
