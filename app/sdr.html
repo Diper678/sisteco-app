@@ -570,6 +570,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
   <script src="../shared/pdf-report.js"></script>
 
+  <!-- Trial banner + DPA acceptance (Phase 5 — Onboarding) -->
+  <script src="../shared/dpa-acceptance.js"></script>
+  <script src="../shared/trial-banner.js"></script>
+
   <!-- Auth guard + SDR dashboard init con datos reales de Convex -->
   <script>
   (function() {
@@ -583,6 +587,9 @@
 
       /* 2. Actualizar UI con datos del usuario (nombre, org, avatar) */
       window.SistecoAuth.mountUserInfo();
+
+      /* 3. Mostrar estado de trial / subscription */
+      if (window.SistecoTrialBanner) window.SistecoTrialBanner.init();
 
       /* 3. Actualizar topbar subtitle con nombre real del usuario */
       var subtitle = document.querySelector('.topbar-subtitle');

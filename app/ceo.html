@@ -324,6 +324,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
   <script src="../shared/pdf-report.js"></script>
 
+  <!-- Trial banner + DPA acceptance (Phase 5 — Onboarding) -->
+  <script src="../shared/dpa-acceptance.js"></script>
+  <script src="../shared/trial-banner.js"></script>
+
   <!-- Auth guard: verificar sesion antes de iniciar dashboard -->
   <script>
   (function() {
@@ -338,6 +342,9 @@
 
       // Actualizar UI con datos del usuario real
       window.SistecoAuth.mountUserInfo();
+
+      // Mostrar estado de trial / subscription
+      if (window.SistecoTrialBanner) window.SistecoTrialBanner.init();
 
       // Pre-fetch stats for query badge counts (queryConvex one-shot)
       // Actual data rendering is handled by content-builders.js CEO builders

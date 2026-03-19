@@ -18,6 +18,39 @@ import {
   query,
 } from "./_generated/server";
 
+// ── MUTATIONS (publicas autenticadas — para el dashboard) ──────────────────
+
+/**
+ * acceptDpa — Registra la aceptacion del DPA por el usuario desde el dashboard.
+ * Publica con autenticacion JWT — no requiere adminSecret (el usuario esta logueado).
+ * Llamada por dpa-acceptance.js via window.mutateConvex('subscriptions:acceptDpa').
+ */
+export const acceptDpa = mutation({
+  args: { dpaVersion: v.string() },
+  handler: async (ctx, args) => {
+    const identity = await ctx.auth.getUserIdentity();
+    if (!identity) throw new Error("Not authenticated");
+
+    const orgId = identity.org_id as string;
+    if (!orgId) throw new Error("No organization — JWT template 'convex' must include org_id");
+
+    const sub = await ctx.db
+      .query("subscriptions")
+      .withIndex("by_orgId", (q) => q.eq("orgId", orgId))
+      .first();
+
+    if (!sub) throw new Error(`No subscription found for orgId: ${orgId}`);
+
+    await ctx.db.patch(sub._id, {
+      dpaSignedAt: Date.now(),
+      dpaVersion: args.dpaVersion,
+      updatedAt: Date.now(),
+    });
+
+    return { ok: true };
+  },
+});
+
 // ── MUTATIONS (publicas con adminSecret — para npx convex run) ────────────────
 
 /**
