@@ -845,4 +845,76 @@ http.route({
   }),
 });
 
+// ── Route: OPTIONS /reveniu-webhook preflight ─────────────────────────────────
+http.route({
+  path: "/reveniu-webhook",
+  method: "OPTIONS",
+  handler: httpAction(async (_ctx, _request) => {
+    return new Response(null, { status: 204, headers: corsHeaders() });
+  }),
+});
+
+// ── Route: POST /reveniu-webhook — Activar subscription al confirmar pago ─────
+//
+// Reveniu envia este webhook cuando un cliente confirma el pago de su suscripcion.
+// El handler verifica el secreto, parsea el evento, y activa la suscripcion via
+// internal.subscriptions.activateFromWebhook.
+//
+// Ref: 05-02-PLAN.md — Monetizacion loop: pago Reveniu → subscription activa
+http.route({
+  path: "/reveniu-webhook",
+  method: "POST",
+  handler: httpAction(async (ctx, request) => {
+    // Verificar Reveniu secret header (case-insensitive fallback)
+    const secret =
+      request.headers.get("Reveniu-Secret-Key") ||
+      request.headers.get("reveniu-secret-key");
+    const expectedSecret = process.env.REVENIU_WEBHOOK_SECRET;
+
+    if (!expectedSecret || !secret || secret !== expectedSecret) {
+      console.error("POST /reveniu-webhook: unauthorized — invalid or missing secret");
+      return new Response("Unauthorized", { status: 401, headers: corsHeaders() });
+    }
+
+    try {
+      const event = await request.json();
+      console.log("Reveniu webhook event:", event.event);
+
+      // Activar suscripcion solo en eventos de pago exitoso
+      if (
+        event.event === "subscription_activated" ||
+        event.event === "payment_successful" ||
+        event.event === "subscription_renewed"
+      ) {
+        await ctx.runMutation(internal.subscriptions.activateFromWebhook, {
+          reveniuSubscriptionId: String(
+            event.data?.subscription_id ?? event.data?.id ?? ""
+          ),
+          email: String(
+            event.data?.email ?? event.data?.customer_email ?? ""
+          ),
+          plan: String(event.data?.plan_name ?? "base") as
+            | "base"
+            | "crecimiento"
+            | "enterprise",
+          amount: Number(event.data?.amount ?? 0),
+        });
+
+        console.log(
+          `POST /reveniu-webhook: suscripcion activada para ${event.data?.email ?? "unknown"}`
+        );
+      } else {
+        // Evento ignorado — retornar 200 de todas formas
+        console.log(`POST /reveniu-webhook: evento "${event.event}" ignorado`);
+      }
+
+      return new Response("OK", { status: 200, headers: corsHeaders() });
+    } catch (err) {
+      console.error("POST /reveniu-webhook error:", err);
+      // Retornar 200 incluso en error para prevenir reintentos de Reveniu
+      return new Response("OK", { status: 200, headers: corsHeaders() });
+    }
+  }),
+});
+
 export default http;

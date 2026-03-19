@@ -314,12 +314,15 @@ async function main() {
   console.log('\n[9/9] Enviando email de bienvenida...');
   try {
     const trialEndsAt = Date.now() + 14 * 24 * 60 * 60 * 1000;
-    runConvex('onboardingEmail:sendWelcomeEmail', {
+    // triggerWelcomeEmail es la version publica (action) con adminSecret.
+    // sendWelcomeEmail es internalAction — no accesible via npx convex run.
+    runConvex('onboardingEmail:triggerWelcomeEmail', {
       email,
       nombre,
       empresa,
       dashboardUrl: DASHBOARD_URL,
       trialEndsAt,
+      adminSecret: SAAN_API_SECRET,
     });
     console.log(`  Email de bienvenida enviado a ${email}`);
   } catch (err) {
