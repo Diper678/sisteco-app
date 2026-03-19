@@ -1,0 +1,562 @@
+{
+  "name": "Sisteco — Lead Scoring Pipeline",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "11111111-1111-1111-1111-111111111111",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 300]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 14,
+              "triggerAtMinute": 0
+            }
+          ]
+        }
+      },
+      "id": "22222222-2222-2222-2222-222222222222",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [0, 520]
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"pbApiKey\": \"{{ $env.PB_API_KEY || '4g2SqzX1xS45348lUTaaRYhF87uLc8o64HObs4QhJRA' }}\",\n  \"pbAgentId\": \"{{ $env.PB_AGENT_ID || '510547627503326' }}\",\n  \"geminiApiKey\": \"{{ $env.GEMINI_API_KEY }}\",\n  \"discordWebhook\": \"{{ $env.DISCORD_WEBHOOK_URL }}\",\n  \"sheetId\": \"{{ $env.LEADS_SHEET_ID || '1o9edhOg3LJxUx25x8Ecs3zAOrkhbtXlps5uCjGXVdVI' }}\",\n  \"clientName\": \"Sisteco\",\n  \"hotThreshold\": 80,\n  \"warmThreshold\": 50,\n  \"useGemini\": true\n}",
+        "options": {}
+      },
+      "id": "33333333-3333-3333-3333-333333333333",
+      "name": "Client Config",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [260, 400]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "=https://api.phantombuster.com/api/v1/agent/{{ $json.pbAgentId }}/output",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-Phantombuster-Key",
+              "value": "={{ $json.pbApiKey }}"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          }
+        }
+      },
+      "id": "44444444-4444-4444-4444-444444444444",
+      "name": "PB Fetch Output",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [480, 400]
+    },
+    {
+      "parameters": {
+        "jsCode": "const data = $input.first().json.data;\nconst resultObject = typeof data.resultObject === 'string' \n  ? JSON.parse(data.resultObject) \n  : data.resultObject;\n\nreturn [{\n  json: {\n    resultUrl: resultObject.jsonUrl || resultObject.csvURL,\n    agentStatus: data.agentStatus,\n    config: $('Client Config').first().json\n  }\n}];"
+      },
+      "id": "55555555-5555-5555-5555-555555555555",
+      "name": "Extract Result URL",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [700, 400]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "={{ $json.resultUrl }}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          }
+        }
+      },
+      "id": "66666666-6666-6666-6666-666666666666",
+      "name": "Download Leads",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [920, 400]
+    },
+    {
+      "parameters": {
+        "jsCode": "// === ICP SCORING ENGINE (self-contained for n8n) ===\nconst config = $('Client Config').first().json;\n\n// ICP Configuration — parametrizable per client\nconst ICP = {\n  titles: {\n    hot: ['gerente de ventas', 'director comercial', 'vp sales', 'vp ventas',\n      'chief revenue', 'cro', 'head of sales', 'director de ventas',\n      'sales director', 'regional sales manager', 'vp of sales'],\n    warm: ['gerente comercial', 'sales manager', 'jefe de ventas',\n      'country manager', 'gerente general', 'ceo', 'director general',\n      'business development', 'desarrollo de negocios', 'gerente de operaciones',\n      'managing director', 'cofundador', 'co-founder', 'founder']\n  },\n  industries: {\n    hot: ['information technology', 'computer software', 'internet',\n      'financial services', 'management consulting', 'marketing',\n      'staffing', 'human resources', 'insurance', 'telecommunications'],\n    warm: ['logistics', 'mechanical', 'automotive', 'retail',\n      'wholesale', 'food', 'pharmaceutical', 'consumer goods', 'banking']\n  },\n  locations: {\n    premium: ['santiago', 'las condes', 'providencia', 'vitacura'],\n    standard: ['chile']\n  },\n  weights: { title: 40, industry: 25, location: 15, dataQuality: 10 },\n  thresholds: { hot: config.hotThreshold || 80, warm: config.warmThreshold || 50, nurture: 20 }\n};\n\nfunction scoreLead(l) {\n  let score = 0;\n  const title = (l.jobTitle || l.headline || '').toLowerCase();\n  const industry = (l.industry || '').toLowerCase();\n  const location = (l.location || '').toLowerCase();\n  const signals = [];\n  const risks = [];\n\n  // Title scoring\n  let titleMatch = false;\n  for (const t of ICP.titles.hot) {\n    if (title.includes(t)) {\n      score += ICP.weights.title;\n      signals.push('Cargo ideal: ' + t);\n      titleMatch = true;\n      break;\n    }\n  }\n  if (!titleMatch) {\n    for (const t of ICP.titles.warm) {\n      if (title.includes(t)) {\n        score += Math.round(ICP.weights.title * 0.625);\n        signals.push('Cargo relevante: ' + t);\n        titleMatch = true;\n        break;\n      }\n    }\n  }\n  if (!titleMatch && (title.includes('vp') || title.includes('vice president') || title.includes('director'))) {\n    score += Math.round(ICP.weights.title * 0.375);\n    signals.push('Nivel directivo');\n  }\n\n  // Industry scoring\n  let indMatch = false;\n  for (const ind of ICP.industries.hot) {\n    if (industry.includes(ind)) {\n      score += ICP.weights.industry;\n      signals.push('Industria ideal: ' + l.industry);\n      indMatch = true;\n      break;\n    }\n  }\n  if (!indMatch) {\n    for (const ind of ICP.industries.warm) {\n      if (industry.includes(ind)) {\n        score += Math.round(ICP.weights.industry * 0.6);\n        signals.push('Industria relevante: ' + l.industry);\n        indMatch = true;\n        break;\n      }\n    }\n  }\n  if (!indMatch && industry) score += 5;\n  if (!industry) risks.push('Sin industria');\n\n  // Location scoring\n  let locMatch = false;\n  for (const loc of ICP.locations.premium) {\n    if (location.includes(loc)) {\n      score += ICP.weights.location;\n      signals.push('Santiago zona premium');\n      locMatch = true;\n      break;\n    }\n  }\n  if (!locMatch) {\n    for (const loc of ICP.locations.standard) {\n      if (location.includes(loc)) {\n        score += Math.round(ICP.weights.location * 0.667);\n        signals.push('Chile');\n        locMatch = true;\n        break;\n      }\n    }\n  }\n  if (!locMatch) risks.push('Ubicacion no clara');\n\n  // Data quality\n  if (l.company && l.company.length > 1) score += 5;\n  else risks.push('Sin empresa');\n  if (l.companyUrl) { score += 5; signals.push('Website disponible'); }\n\n  // Category\n  let category;\n  if (score >= ICP.thresholds.hot) category = 'HOT';\n  else if (score >= ICP.thresholds.warm) category = 'WARM';\n  else if (score >= ICP.thresholds.nurture) category = 'NURTURE';\n  else category = 'SKIP';\n\n  // Confidence\n  let confidence = 0.5;\n  if (l.company && l.industry && l.companyUrl) confidence = 0.8;\n  if (titleMatch && confidence >= 0.8) confidence = 0.9;\n\n  return {\n    json: {\n      fullName: l.fullName || '',\n      jobTitle: l.jobTitle || l.headline || '',\n      company: l.company || '',\n      industry: l.industry || '',\n      location: l.location || '',\n      linkedinUrl: l.linkedinProfileUrl || l.profileUrl || '',\n      companyUrl: l.companyUrl || '',\n      score,\n      category,\n      signals,\n      risks,\n      confidence,\n      scoredAt: new Date().toISOString(),\n      needsGemini: category === 'HOT' && (config.useGemini === true || config.useGemini === 'true')\n    }\n  };\n}\n\n// Score all leads from input\nconst leads = $input.first().json;\nconst items = Array.isArray(leads) ? leads : [leads];\nconst results = items.map(scoreLead);\n\n// Sort by score descending\nresults.sort((a, b) => b.json.score - a.json.score);\n\nreturn results;"
+      },
+      "id": "77777777-7777-7777-7777-777777777777",
+      "name": "ICP Score",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1140, 400]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "condition-hot",
+              "leftValue": "={{ $json.category }}",
+              "rightValue": "HOT",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "88888888-8888-8888-8888-888888888888",
+      "name": "Has HOT Leads?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [1360, 400]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Only pass through HOT leads that need Gemini\nconst items = $input.all().filter(item => item.json.needsGemini === true);\nif (items.length === 0) {\n  return [{ json: { skip: true, reason: 'No HOT leads need Gemini' } }];\n}\nreturn items;"
+      },
+      "id": "99999999-9999-9999-9999-999999999999",
+      "name": "Filter HOT Only",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1580, 280]
+    },
+    {
+      "parameters": {
+        "options": {
+          "batchSize": 1
+        }
+      },
+      "id": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+      "name": "Batch HOT",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [1800, 280]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={{ $('Client Config').first().json.geminiApiKey }}",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"contents\": [{\"parts\": [{\"text\": \"Eres un experto en ventas B2B en Chile. Evalua este lead para {{ $('Client Config').first().json.clientName }}, una plataforma SaaS de automatizacion de ventas B2B.\\n\\nLead:\\n- Nombre: {{ $json.fullName }}\\n- Cargo: {{ $json.jobTitle }}\\n- Empresa: {{ $json.company }}\\n- Industria: {{ $json.industry }}\\n- Ubicacion: {{ $json.location }}\\n\\nResponde en JSON: {\\\"aiScore\\\": <0-100>, \\\"reasoning\\\": \\\"<2 oraciones>\\\", \\\"suggested_approach\\\": \\\"<como contactar>\\\", \\\"confidence\\\": <0-1>}\"}]}],\n  \"generationConfig\": {\"responseMimeType\": \"application/json\"}\n}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
+      "name": "Gemini Deep Score",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [2020, 280],
+      "retryOnFail": true,
+      "maxTries": 2,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "amount": 4,
+        "unit": "seconds"
+      },
+      "id": "cccccccc-cccc-cccc-cccc-cccccccccccc",
+      "name": "Rate Limit",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [2240, 280]
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\nconst results = [];\nfor (const item of items) {\n  const lead = item.json;\n  if (lead.skip) continue;\n  \n  // Try to extract Gemini response\n  let aiData = {};\n  try {\n    const candidates = lead.candidates || [];\n    if (candidates.length > 0) {\n      const text = candidates[0].content.parts[0].text;\n      aiData = JSON.parse(text);\n    }\n  } catch (e) {\n    // Gemini failed, keep ICP score only\n  }\n  \n  results.push({\n    json: {\n      ...lead,\n      aiScore: aiData.aiScore || null,\n      aiReasoning: aiData.reasoning || '',\n      aiApproach: aiData.suggested_approach || '',\n      aiConfidence: aiData.confidence || null,\n      geminiReviewed: !!aiData.aiScore\n    }\n  });\n}\nreturn results.length > 0 ? results : [{ json: { empty: true } }];"
+      },
+      "id": "dddddddd-dddd-dddd-dddd-dddddddddddd",
+      "name": "Merge Gemini Results",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [2460, 280]
+    },
+    {
+      "parameters": {},
+      "id": "eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeee",
+      "name": "Skip Gemini",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [1580, 540]
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\nconst rows = [];\nfor (const item of items) {\n  const l = item.json;\n  if (l.empty || l.skip) continue;\n  rows.push({\n    json: {\n      empresa: l.company || '',\n      contacto: l.fullName || '',\n      cargo: l.jobTitle || '',\n      email: l.email || '',\n      linkedin: l.linkedinUrl || '',\n      website: l.companyUrl || '',\n      industria: l.industry || '',\n      ubicacion: l.location || '',\n      source: 'PhantomBuster',\n      score: l.score || 0,\n      categoria: l.category || '',\n      status: l.category === 'HOT' ? 'Prioridad' : 'Nuevo',\n      fecha: new Date().toISOString().substring(0, 10),\n      aiScore: l.aiScore || '',\n      aiReasoning: l.aiReasoning || '',\n      aiApproach: l.aiApproach || ''\n    }\n  });\n}\nreturn rows.length > 0 ? rows : [{ json: { empty: true } }];"
+      },
+      "id": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+      "name": "Prepare Sheet Data",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [2680, 400]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "={{ $('Client Config').first().json.sheetId }}",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Leads",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "empresa": "={{ $json.empresa }}",
+            "contacto": "={{ $json.contacto }}",
+            "cargo": "={{ $json.cargo }}",
+            "email": "={{ $json.email }}",
+            "linkedin": "={{ $json.linkedin }}",
+            "website": "={{ $json.website }}",
+            "industria": "={{ $json.industria }}",
+            "ubicacion": "={{ $json.ubicacion }}",
+            "source": "={{ $json.source }}",
+            "score": "={{ $json.score }}",
+            "categoria": "={{ $json.categoria }}",
+            "status": "={{ $json.status }}",
+            "fecha": "={{ $json.fecha }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {"id": "empresa", "displayName": "empresa", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": true},
+            {"id": "contacto", "displayName": "contacto", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": true},
+            {"id": "cargo", "displayName": "cargo", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": true},
+            {"id": "email", "displayName": "email", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": true},
+            {"id": "linkedin", "displayName": "linkedin", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": true},
+            {"id": "website", "displayName": "website", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": true},
+            {"id": "industria", "displayName": "industria", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": true},
+            {"id": "ubicacion", "displayName": "ubicacion", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": true},
+            {"id": "source", "displayName": "source", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": true},
+            {"id": "score", "displayName": "score", "required": false, "defaultMatch": false, "display": true, "type": "number", "canBeUsedToMatch": true},
+            {"id": "categoria", "displayName": "categoria", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": true},
+            {"id": "status", "displayName": "status", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": true},
+            {"id": "fecha", "displayName": "fecha", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": true}
+          ]
+        },
+        "options": {}
+      },
+      "id": "11111111-2222-3333-4444-555555555555",
+      "name": "Update Pipeline",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [2900, 400],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "CONFIGURE_ME",
+          "name": "Google Sheets — Sisteco"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "condition-notify",
+              "leftValue": "={{ $json.categoria }}",
+              "rightValue": "HOT",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "22222222-3333-4444-5555-666666666666",
+      "name": "Has HOT to Notify?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [3120, 400]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Client Config').first().json.discordWebhook }}",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"embeds\": [{\n    \"title\": \"\\ud83d\\udd25 HOT LEAD \\u2014 {{ $json.contacto }}\",\n    \"description\": \"**{{ $json.cargo }}** @ {{ $json.empresa }}\\n\\ud83d\\udccd {{ $json.ubicacion }}\\n\\ud83d\\udcca Score: {{ $json.score }}/100\\n\\ud83d\\udca1 {{ $json.aiReasoning || 'ICP match' }}\",\n    \"color\": 16711680,\n    \"fields\": [\n      {\"name\": \"LinkedIn\", \"value\": \"{{ $json.linkedin }}\", \"inline\": true},\n      {\"name\": \"Industria\", \"value\": \"{{ $json.industria }}\", \"inline\": true}\n    ]\n  }]\n}",
+        "options": {}
+      },
+      "id": "33333333-4444-5555-6666-777777777777",
+      "name": "Discord Alert",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [3340, 280]
+    },
+    {
+      "parameters": {},
+      "id": "44444444-5555-6666-7777-888888888888",
+      "name": "No Notification",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [3340, 520]
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [
+        [
+          {
+            "node": "Client Config",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Client Config",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Client Config": {
+      "main": [
+        [
+          {
+            "node": "PB Fetch Output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "PB Fetch Output": {
+      "main": [
+        [
+          {
+            "node": "Extract Result URL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Result URL": {
+      "main": [
+        [
+          {
+            "node": "Download Leads",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download Leads": {
+      "main": [
+        [
+          {
+            "node": "ICP Score",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ICP Score": {
+      "main": [
+        [
+          {
+            "node": "Has HOT Leads?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Has HOT Leads?": {
+      "main": [
+        [
+          {
+            "node": "Filter HOT Only",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Skip Gemini",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter HOT Only": {
+      "main": [
+        [
+          {
+            "node": "Batch HOT",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Batch HOT": {
+      "main": [
+        [
+          {
+            "node": "Merge Gemini Results",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Gemini Deep Score",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gemini Deep Score": {
+      "main": [
+        [
+          {
+            "node": "Rate Limit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Rate Limit": {
+      "main": [
+        [
+          {
+            "node": "Batch HOT",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge Gemini Results": {
+      "main": [
+        [
+          {
+            "node": "Prepare Sheet Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Skip Gemini": {
+      "main": [
+        [
+          {
+            "node": "Prepare Sheet Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Sheet Data": {
+      "main": [
+        [
+          {
+            "node": "Update Pipeline",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Pipeline": {
+      "main": [
+        [
+          {
+            "node": "Has HOT to Notify?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Has HOT to Notify?": {
+      "main": [
+        [
+          {
+            "node": "Discord Alert",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Notification",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "timezone": "America/Santiago"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "name": "lead-scoring"
+    },
+    {
+      "name": "sisteco"
+    },
+    {
+      "name": "pipeline"
+    }
+  ],
+  "triggerCount": 2,
+  "updatedAt": "2026-03-15T00:00:00.000Z",
+  "versionId": "1"
+}

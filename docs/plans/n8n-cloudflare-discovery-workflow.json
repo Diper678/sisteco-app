@@ -1,0 +1,467 @@
+{
+  "name": "Sisteco — Descubrimiento Cloudflare (Semanal)",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "cf-disc-0001-4000-a000-000000000001",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 300]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 7 * * 1"
+            }
+          ]
+        }
+      },
+      "id": "cf-disc-0001-4000-a000-000000000002",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [0, 500]
+    },
+    {
+      "parameters": {
+        "jsCode": "return [{\n  json: {\n    cloudflare_account_id: $env.CF_ACCOUNT_ID || 'CONFIGURE_ME',\n    cloudflare_api_token: $env.CF_API_TOKEN || 'CONFIGURE_ME',\n    // URLs to crawl — Chilean business directories\n    crawl_urls: [\n      'https://www.emol.com/economia/empresas/',\n      'https://www.df.cl/empresas',\n      'https://www.registrodeempresas.cl'\n    ],\n    enrichment_webhook: ($env.N8N_WEBHOOK_URL || 'https://primary-production-24f87.up.railway.app') + '/webhook/enriquecer-lead',\n    enrichment_api_key: $env.ENRICHMENT_API_KEY || 'sisteco-internal',\n    sheet_id: $env.LEADS_CRUDOS_SHEET_ID || '1o9edhOg3LJxUx25x8Ecs3zAOrkhbtXlps5uCjGXVdVI',\n    max_pages: 50,\n    crawl_id: null\n  }\n}];"
+      },
+      "id": "cf-disc-0001-4000-a000-000000000003",
+      "name": "Config",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [260, 400]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api.cloudflare.com/client/v4/accounts/{{ $json.cloudflare_account_id }}/browser-rendering/crawl",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $json.cloudflare_api_token }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"url\": \"{{ $json.crawl_urls[0] }}\",\n  \"maxPages\": {{ $json.max_pages }},\n  \"jsonOptions\": {\n    \"prompt\": \"Extract company information: empresa (company name), rut (Chilean tax ID if visible), email, telefono (phone), ciudad (city), giro (business activity)\",\n    \"schema\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"empresa\": { \"type\": \"string\" },\n          \"rut\": { \"type\": \"string\" },\n          \"email\": { \"type\": \"string\" },\n          \"telefono\": { \"type\": \"string\" },\n          \"ciudad\": { \"type\": \"string\" },\n          \"giro\": { \"type\": \"string\" }\n        }\n      }\n    }\n  }\n}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "id": "cf-disc-0001-4000-a000-000000000004",
+      "name": "Start Crawl",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [520, 400],
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "amount": 2,
+        "unit": "minutes"
+      },
+      "id": "cf-disc-0001-4000-a000-000000000005",
+      "name": "Esperar Crawl",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [780, 400]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "=https://api.cloudflare.com/client/v4/accounts/{{ $('Config').first().json.cloudflare_account_id }}/browser-rendering/crawl/{{ $('Start Crawl').first().json.result.id || $json.crawl_id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Config').first().json.cloudflare_api_token }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "cf-disc-0001-4000-a000-000000000006",
+      "name": "Check Status",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1040, 400],
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "condition-crawl-completed",
+              "leftValue": "={{ $json.result.status }}",
+              "rightValue": "completed",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "cf-disc-0001-4000-a000-000000000007",
+      "name": "Completed?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [1300, 400]
+    },
+    {
+      "parameters": {
+        "amount": 30,
+        "unit": "seconds"
+      },
+      "id": "cf-disc-0001-4000-a000-000000000008",
+      "name": "Retry Wait",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [1300, 600]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "=https://api.cloudflare.com/client/v4/accounts/{{ $('Config').first().json.cloudflare_account_id }}/browser-rendering/crawl/{{ $('Start Crawl').first().json.result.id }}/results?page=1&per_page=100",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Config').first().json.cloudflare_api_token }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "cf-disc-0001-4000-a000-000000000009",
+      "name": "Get Results",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1560, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const config = $('Config').first().json;\nconst data = $input.first().json;\nconst records = (data.result && data.result.records) || data.result || [];\n\nconst leads = [];\nconst seen = new Set();\n\nfor (const record of records) {\n  const items = record.json || record.data || [record];\n  const itemList = Array.isArray(items) ? items : [items];\n  \n  for (const item of itemList) {\n    if (!item.empresa && !item.email) continue;\n    \n    // Deduplicate by empresa+email\n    const key = (item.empresa || '') + '|' + (item.email || '');\n    if (seen.has(key)) continue;\n    seen.add(key);\n    \n    leads.push({\n      json: {\n        empresa: item.empresa || null,\n        rut: item.rut || null,\n        email: item.email || null,\n        telefono: item.telefono || null,\n        ciudad: item.ciudad || null,\n        giro: item.giro || null,\n        url_origen: record.url || null,\n        fecha_descubrimiento: new Date().toISOString().substring(0, 10),\n        fuente: 'cloudflare_crawl'\n      }\n    });\n  }\n}\n\nif (leads.length === 0) {\n  return [{ json: { empty: true, message: 'No leads found in crawl results' } }];\n}\n\nreturn leads;"
+      },
+      "id": "cf-disc-0001-4000-a000-000000000010",
+      "name": "Extract Leads",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1820, 300]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "={{ $('Config').first().json.sheet_id }}",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Leads Crudos",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "empresa": "={{ $json.empresa }}",
+            "rut": "={{ $json.rut }}",
+            "email": "={{ $json.email }}",
+            "telefono": "={{ $json.telefono }}",
+            "ciudad": "={{ $json.ciudad }}",
+            "giro": "={{ $json.giro }}",
+            "url_origen": "={{ $json.url_origen }}",
+            "fecha_descubrimiento": "={{ $json.fecha_descubrimiento }}",
+            "fuente": "={{ $json.fuente }}"
+          },
+          "schema": [
+            {"id": "empresa", "displayName": "empresa", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": true},
+            {"id": "rut", "displayName": "rut", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": true},
+            {"id": "email", "displayName": "email", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": false},
+            {"id": "telefono", "displayName": "telefono", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": false},
+            {"id": "ciudad", "displayName": "ciudad", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": false},
+            {"id": "giro", "displayName": "giro", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": false},
+            {"id": "url_origen", "displayName": "url_origen", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": false},
+            {"id": "fecha_descubrimiento", "displayName": "fecha_descubrimiento", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": false},
+            {"id": "fuente", "displayName": "fuente", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": false}
+          ]
+        },
+        "options": {}
+      },
+      "id": "cf-disc-0001-4000-a000-000000000011",
+      "name": "Append Leads Crudos",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [2080, 300],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "CONFIGURE_ME",
+          "name": "Google Sheets — Sisteco"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "options": {
+          "batchSize": 1
+        }
+      },
+      "id": "cf-disc-0001-4000-a000-000000000012",
+      "name": "Batch Leads",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [2340, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Config').first().json.enrichment_webhook }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-API-Key",
+              "value": "={{ $('Config').first().json.enrichment_api_key }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"empresa\": \"{{ $json.empresa }}\",\n  \"rut\": \"{{ $json.rut }}\",\n  \"email\": \"{{ $json.email }}\",\n  \"cliente_id\": \"sisteco_discovery\"\n}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "id": "cf-disc-0001-4000-a000-000000000013",
+      "name": "Call Enrichment",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [2600, 300],
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "amount": 2,
+        "unit": "seconds"
+      },
+      "id": "cf-disc-0001-4000-a000-000000000014",
+      "name": "Rate Limit",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [2820, 300]
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [
+        [
+          {
+            "node": "Config",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Config",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Config": {
+      "main": [
+        [
+          {
+            "node": "Start Crawl",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Start Crawl": {
+      "main": [
+        [
+          {
+            "node": "Esperar Crawl",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Esperar Crawl": {
+      "main": [
+        [
+          {
+            "node": "Check Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Status": {
+      "main": [
+        [
+          {
+            "node": "Completed?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Completed?": {
+      "main": [
+        [
+          {
+            "node": "Get Results",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Retry Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Retry Wait": {
+      "main": [
+        [
+          {
+            "node": "Check Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Results": {
+      "main": [
+        [
+          {
+            "node": "Extract Leads",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Leads": {
+      "main": [
+        [
+          {
+            "node": "Append Leads Crudos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append Leads Crudos": {
+      "main": [
+        [
+          {
+            "node": "Batch Leads",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Batch Leads": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Call Enrichment",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call Enrichment": {
+      "main": [
+        [
+          {
+            "node": "Rate Limit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Rate Limit": {
+      "main": [
+        [
+          {
+            "node": "Batch Leads",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "timezone": "America/Santiago"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "name": "discovery"
+    },
+    {
+      "name": "sisteco"
+    },
+    {
+      "name": "cloudflare"
+    },
+    {
+      "name": "weekly"
+    }
+  ],
+  "triggerCount": 2,
+  "updatedAt": "2026-03-16T00:00:00.000Z",
+  "versionId": "1"
+}

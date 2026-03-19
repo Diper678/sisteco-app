@@ -1,0 +1,43 @@
+meta {
+  name: Scrape Website (Company Page)
+  type: http
+  seq: 1
+}
+
+// Firecrawl se usa para enriquecer leads del pipeline:
+// dado el companyUrl extraido de LinkedIn por PhantomBuster,
+// scrapea el sitio web de la empresa para obtener contexto adicional
+// (productos, tecnologia, senales de compra, tamano).
+// La variable FIRECRAWL_API_KEY esta en .env como FIRECRAWL_API_KEY.
+
+post {
+  url: https://api.firecrawl.dev/v1/scrape
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{firecrawl_api_key}}
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "url": "https://ejemplo-empresa.cl",
+    "formats": ["markdown"],
+    "onlyMainContent": true
+  }
+}
+
+tests {
+  test("Status 200", function() {
+    expect(res.getStatus()).to.equal(200);
+  });
+
+  test("Respuesta tiene data o markdown", function() {
+    const data = res.getBody();
+    expect(data).to.satisfy(function(d) {
+      return d.success === true || d.data !== undefined;
+    });
+  });
+}

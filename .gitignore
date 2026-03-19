@@ -20,9 +20,44 @@ environments/*.secret.bru
 # n8n exports temp
 .n8n-backup-tmp/
 
+# n8n backup — ignorar archivos generados, trackear estructura y README
+n8n-workflows/workflows/*.json
+n8n-workflows/manifest.json
+
 # OS
 Thumbs.db
 .DS_Store
 
 # Locks opcionales (mantener package-lock.json pero ignorar otros)
 yarn.lock
+
+# MCP config (contiene API keys reales)
+.mcp.json
+
+# Claude Code internals
+.claude/
+.agent/
+.agents/
+.superpowers/
+.worktrees/
+.firecrawl/
+
+# Leads data (datos personales — Ley 21.719)
+pb-*.json
+leads-lists/
+feedback.json
+skills-lock.json
+
+# Scripts con credenciales hardcodeadas (usar solo localmente)
+scripts/n8n-update-config.js
+
+# Documentacion privada de empresa
+/sisteco-knowledge/
+/autoresearch/
+
+# Archivos generados / assets locales
+*.otf
+workspace-v3-light.png
+pngiconosisteco.png
+"Variacion de Logo Sisteco-01.png"
+"Git Control key*"

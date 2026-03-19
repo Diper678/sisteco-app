@@ -1,0 +1,896 @@
+{
+  "name": "Sisteco — HubSpot CRM Sync",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 300]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 2
+            }
+          ]
+        }
+      },
+      "id": "b2c3d4e5-f6a7-8901-bcde-f12345678901",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [0, 520]
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"hubspotApiKey\": \"{{ $env.HUBSPOT_API_KEY || 'CONFIGURE_PER_CLIENT' }}\",\n  \"sheetId\": \"{{ $env.LEADS_SHEET_ID || 'CONFIGURE_PER_CLIENT' }}\",\n  \"syncThreshold\": 50,\n  \"discordWebhook\": \"{{ $env.DISCORD_WEBHOOK_URL || 'CONFIGURE_PER_CLIENT' }}\",\n  \"assignmentRule\": \"round-robin\",\n  \"salesReps\": [\"rep1@client.com\", \"rep2@client.com\"],\n  \"clientName\": \"ClientName\",\n  \"currentRepIndex\": 0\n}",
+        "options": {}
+      },
+      "id": "c3d4e5f6-a7b8-9012-cdef-123456789012",
+      "name": "Client Config",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [260, 400]
+    },
+    {
+      "parameters": {
+        "operation": "read",
+        "documentId": {
+          "__rl": true,
+          "value": "={{ $json.sheetId }}",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Leads",
+          "mode": "name"
+        },
+        "filters": {},
+        "options": {}
+      },
+      "id": "d4e5f6a7-b8c9-0123-defa-234567890123",
+      "name": "Read Leads Sheet",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [480, 400],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "CONFIGURE_ME",
+          "name": "Google Sheets — Sisteco"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Filter leads eligible for HubSpot sync\nconst config = $('Client Config').first().json;\nconst threshold = config.syncThreshold || 50;\nconst items = $input.all();\nconst eligible = [];\n\nfor (const item of items) {\n  const lead = item.json;\n  const status = (lead.status || '').trim();\n  const score = parseInt(lead.score, 10) || 0;\n  const categoria = (lead.categoria || '').trim().toUpperCase();\n\n  // Only sync leads that are Nuevo or Prioridad, above threshold, and HOT or WARM\n  const isEligibleStatus = (status === 'Nuevo' || status === 'Prioridad');\n  const isAboveThreshold = score >= threshold;\n  const isEligibleCategory = (categoria === 'HOT' || categoria === 'WARM');\n\n  if (isEligibleStatus && isAboveThreshold && isEligibleCategory) {\n    // Split contacto into firstname + lastname\n    const fullName = (lead.contacto || '').trim();\n    const nameParts = fullName.split(/\\s+/);\n    const firstName = nameParts[0] || '';\n    const lastName = nameParts.slice(1).join(' ') || '';\n\n    // Map categoria to HubSpot lifecyclestage\n    let lifecyclestage = 'lead';\n    if (categoria === 'HOT') lifecyclestage = 'salesqualifiedlead';\n    else if (categoria === 'WARM') lifecyclestage = 'marketingqualifiedlead';\n\n    eligible.push({\n      json: {\n        // Original fields\n        empresa: lead.empresa || '',\n        contacto: fullName,\n        cargo: lead.cargo || '',\n        email: (lead.email || '').trim(),\n        linkedin: (lead.linkedin || '').trim(),\n        website: lead.website || '',\n        industria: lead.industria || '',\n        ubicacion: lead.ubicacion || '',\n        score: score,\n        categoria: categoria,\n        status: status,\n        fecha: lead.fecha || '',\n        source: lead.source || '',\n        // HubSpot mapped fields\n        hs_firstname: firstName,\n        hs_lastname: lastName,\n        hs_lifecyclestage: lifecyclestage,\n        // Row number for later update (1-indexed, +2 for header)\n        _rowNumber: item.json.row_number || item.pairedItem?.item || 0\n      }\n    });\n  }\n}\n\nif (eligible.length === 0) {\n  return [{ json: { _empty: true, _message: 'No eligible leads to sync' } }];\n}\n\nreturn eligible;"
+      },
+      "id": "e5f6a7b8-c9d0-1234-efab-345678901234",
+      "name": "Filter Eligible Leads",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [700, 400]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "condition-has-leads",
+              "leftValue": "={{ $json._empty }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "f6a7b8c9-d0e1-2345-fabc-456789012345",
+      "name": "Has Eligible Leads?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [920, 400]
+    },
+    {
+      "parameters": {
+        "options": {
+          "batchSize": 1
+        }
+      },
+      "id": "a7b8c9d0-e1f2-3456-abcd-567890123456",
+      "name": "Loop Leads",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [1140, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Determine search identifier: prefer email, fallback to LinkedIn URL\nconst lead = $input.first().json;\nlet searchValue = '';\nlet searchField = '';\n\nif (lead.email && lead.email.length > 3 && lead.email.includes('@')) {\n  searchValue = lead.email;\n  searchField = 'email';\n} else if (lead.linkedin && lead.linkedin.length > 5) {\n  searchValue = lead.linkedin;\n  searchField = 'hs_linkedin_url';\n} else {\n  // No valid identifier — skip this lead\n  return [{ json: { ...lead, _skipSync: true, _skipReason: 'No email or LinkedIn URL' } }];\n}\n\nreturn [{ json: { ...lead, _searchValue: searchValue, _searchField: searchField } }];"
+      },
+      "id": "b8c9d0e1-f2a3-4567-bcde-678901234567",
+      "name": "Prepare Search",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1360, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "condition-skip",
+              "leftValue": "={{ $json._skipSync }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "c9d0e1f2-a3b4-5678-cdef-789012345678",
+      "name": "Has Identifier?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [1580, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://api.hubapi.com/crm/v3/objects/contacts/search",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Client Config').first().json.hubspotApiKey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"filterGroups\": [\n    {\n      \"filters\": [\n        {\n          \"propertyName\": \"{{ $json._searchField }}\",\n          \"operator\": \"EQ\",\n          \"value\": \"{{ $json._searchValue }}\"\n        }\n      ]\n    }\n  ],\n  \"properties\": [\"email\", \"firstname\", \"lastname\", \"company\", \"jobtitle\", \"hs_linkedin_url\", \"lifecyclestage\"],\n  \"limit\": 1\n}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          },
+          "timeout": 15000
+        }
+      },
+      "id": "d0e1f2a3-b4c5-6789-defa-890123456789",
+      "name": "HubSpot Search Contact",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1800, 200],
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// Check if HubSpot returned an existing contact\nconst lead = $('Prepare Search').first().json;\nconst searchResult = $input.first().json;\n\nlet contactExists = false;\nlet hubspotContactId = null;\n\ntry {\n  if (searchResult.total && searchResult.total > 0 && searchResult.results && searchResult.results.length > 0) {\n    contactExists = true;\n    hubspotContactId = searchResult.results[0].id;\n  }\n} catch (e) {\n  // Search failed or unexpected format — treat as not found\n  contactExists = false;\n}\n\nreturn [{\n  json: {\n    ...lead,\n    _contactExists: contactExists,\n    _hubspotContactId: hubspotContactId\n  }\n}];"
+      },
+      "id": "e1f2a3b4-c5d6-7890-efab-901234567890",
+      "name": "Check Contact Exists",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [2020, 200]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "condition-exists",
+              "leftValue": "={{ $json._contactExists }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "f2a3b4c5-d6e7-8901-fabc-012345678901",
+      "name": "Contact Exists?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [2240, 200]
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "=https://api.hubapi.com/crm/v3/objects/contacts/{{ $json._hubspotContactId }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Client Config').first().json.hubspotApiKey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"properties\": {\n    \"company\": \"{{ $json.empresa }}\",\n    \"jobtitle\": \"{{ $json.cargo }}\",\n    \"industry\": \"{{ $json.industria }}\",\n    \"city\": \"{{ $json.ubicacion }}\",\n    \"website\": \"{{ $json.website }}\",\n    \"lifecyclestage\": \"{{ $json.hs_lifecyclestage }}\",\n    \"hs_lead_status\": \"{{ $json.categoria === 'HOT' ? 'OPEN' : 'IN_PROGRESS' }}\",\n    \"sisteco_score\": \"{{ $json.score }}\",\n    \"sisteco_categoria\": \"{{ $json.categoria }}\",\n    \"sisteco_sync_date\": \"{{ new Date().toISOString().substring(0, 10) }}\"\n  }\n}",
+        "options": {
+          "timeout": 15000
+        }
+      },
+      "id": "a3b4c5d6-e7f8-9012-abcd-123456789abc",
+      "name": "HubSpot Update Contact",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [2460, 80],
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// Pass through updated contact data for sheet update\nconst lead = $('Check Contact Exists').first().json;\nreturn [{\n  json: {\n    ...lead,\n    _syncAction: 'updated',\n    _hubspotContactId: lead._hubspotContactId\n  }\n}];"
+      },
+      "id": "b4c5d6e7-f8a9-0123-bcde-234567890bcd",
+      "name": "Mark Updated",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [2680, 80]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.hubapi.com/crm/v3/objects/contacts",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Client Config').first().json.hubspotApiKey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"properties\": {\n    \"email\": \"{{ $json.email }}\",\n    \"firstname\": \"{{ $json.hs_firstname }}\",\n    \"lastname\": \"{{ $json.hs_lastname }}\",\n    \"company\": \"{{ $json.empresa }}\",\n    \"jobtitle\": \"{{ $json.cargo }}\",\n    \"industry\": \"{{ $json.industria }}\",\n    \"city\": \"{{ $json.ubicacion }}\",\n    \"website\": \"{{ $json.website }}\",\n    \"hs_linkedin_url\": \"{{ $json.linkedin }}\",\n    \"lifecyclestage\": \"{{ $json.hs_lifecyclestage }}\",\n    \"hs_lead_status\": \"{{ $json.categoria === 'HOT' ? 'OPEN' : 'IN_PROGRESS' }}\",\n    \"sisteco_score\": \"{{ $json.score }}\",\n    \"sisteco_categoria\": \"{{ $json.categoria }}\",\n    \"sisteco_sync_date\": \"{{ new Date().toISOString().substring(0, 10) }}\",\n    \"lead_source\": \"Sisteco Pipeline\"\n  }\n}",
+        "options": {
+          "timeout": 15000
+        }
+      },
+      "id": "c5d6e7f8-a9b0-1234-cdef-345678901cde",
+      "name": "HubSpot Create Contact",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [2460, 340],
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// Extract new contact ID and prepare deal creation for HOT leads\nconst lead = $('Check Contact Exists').first().json;\nconst createResult = $input.first().json;\n\nlet hubspotContactId = null;\ntry {\n  hubspotContactId = createResult.id || null;\n} catch (e) {\n  // Contact creation may have failed\n}\n\nconst needsDeal = lead.categoria === 'HOT' && hubspotContactId;\n\nreturn [{\n  json: {\n    ...lead,\n    _hubspotContactId: hubspotContactId,\n    _needsDeal: needsDeal,\n    _syncAction: hubspotContactId ? 'created' : 'failed'\n  }\n}];"
+      },
+      "id": "d6e7f8a9-b0c1-2345-defa-456789012def",
+      "name": "Extract Contact ID",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [2680, 340]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "condition-needs-deal",
+              "leftValue": "={{ $json._needsDeal }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "e7f8a9b0-c1d2-3456-efab-567890123efa",
+      "name": "Needs Deal?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [2900, 340]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.hubapi.com/crm/v3/objects/deals",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Client Config').first().json.hubspotApiKey }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"properties\": {\n    \"dealname\": \"{{ $json.empresa }} \\u2014 Oportunidad Sisteco\",\n    \"pipeline\": \"default\",\n    \"dealstage\": \"appointmentscheduled\",\n    \"amount\": \"0\",\n    \"description\": \"Lead generado por Sisteco Pipeline. Score: {{ $json.score }}/100. Categoria: {{ $json.categoria }}. Contacto: {{ $json.contacto }} ({{ $json.cargo }})\",\n    \"sisteco_score\": \"{{ $json.score }}\"\n  },\n  \"associations\": [\n    {\n      \"to\": {\n        \"id\": \"{{ $json._hubspotContactId }}\"\n      },\n      \"types\": [\n        {\n          \"associationCategory\": \"HUBSPOT_DEFINED\",\n          \"associationTypeId\": 3\n        }\n      ]\n    }\n  ]\n}",
+        "options": {
+          "timeout": 15000
+        }
+      },
+      "id": "f8a9b0c1-d2e3-4567-fabc-678901234fab",
+      "name": "HubSpot Create Deal",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [3120, 240],
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// Assign deal to sales rep using round-robin\nconst config = $('Client Config').first().json;\nconst lead = $('Extract Contact ID').first().json;\nconst dealResult = $input.first().json;\n\nlet dealId = null;\ntry {\n  dealId = dealResult.id || null;\n} catch (e) {}\n\n// Round-robin assignment\nconst reps = config.salesReps || [];\nlet assignedRep = '';\nif (reps.length > 0) {\n  const idx = (config.currentRepIndex || 0) % reps.length;\n  assignedRep = reps[idx];\n  // Note: currentRepIndex should be incremented externally or via static data\n}\n\nreturn [{\n  json: {\n    ...lead,\n    _hubspotDealId: dealId,\n    _assignedRep: assignedRep,\n    _syncAction: 'created_with_deal'\n  }\n}];"
+      },
+      "id": "a9b0c1d2-e3f4-5678-abcd-789012345abc",
+      "name": "Assign Rep",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [3340, 240]
+    },
+    {
+      "parameters": {},
+      "id": "b0c1d2e3-f4a5-6789-bcde-890123456bcd",
+      "name": "Skip Deal",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [3120, 460]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Merge all sync paths into unified output for sheet update\nconst items = $input.all();\nconst result = items[0].json;\n\n// Build the final sync record\nconst syncDate = new Date().toISOString().substring(0, 10);\nconst hubspotId = result._hubspotContactId || 'SYNC_ERROR';\nconst action = result._syncAction || 'unknown';\nconst dealId = result._hubspotDealId || '';\nconst assignedRep = result._assignedRep || '';\n\nreturn [{\n  json: {\n    ...result,\n    _finalStatus: 'Synced to CRM',\n    _syncDate: syncDate,\n    _hubspotContactId: hubspotId,\n    _hubspotDealId: dealId,\n    _assignedRep: assignedRep,\n    _syncAction: action\n  }\n}];"
+      },
+      "id": "c1d2e3f4-a5b6-7890-cdef-901234567cde",
+      "name": "Prepare Sync Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [3560, 300]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "={{ $('Client Config').first().json.sheetId }}",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Leads",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "status": "=Synced to CRM",
+            "hubspot_contact_id": "={{ $json._hubspotContactId }}",
+            "hubspot_deal_id": "={{ $json._hubspotDealId }}",
+            "sync_date": "={{ $json._syncDate }}",
+            "assigned_rep": "={{ $json._assignedRep }}"
+          },
+          "matchingColumns": ["email"],
+          "schema": [
+            {"id": "email", "displayName": "email", "required": false, "defaultMatch": true, "display": true, "type": "string", "canBeUsedToMatch": true},
+            {"id": "status", "displayName": "status", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": false},
+            {"id": "hubspot_contact_id", "displayName": "hubspot_contact_id", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": false},
+            {"id": "hubspot_deal_id", "displayName": "hubspot_deal_id", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": false},
+            {"id": "sync_date", "displayName": "sync_date", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": false},
+            {"id": "assigned_rep", "displayName": "assigned_rep", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": false}
+          ]
+        },
+        "options": {}
+      },
+      "id": "d2e3f4a5-b6c7-8901-defa-012345678def",
+      "name": "Update Sheet Status",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [3780, 300],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "CONFIGURE_ME",
+          "name": "Google Sheets — Sisteco"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "amount": 0.5,
+        "unit": "seconds"
+      },
+      "id": "e3f4a5b6-c7d8-9012-efab-123456789efa",
+      "name": "Rate Limit",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [4000, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Collect sync summary across all iterations\n// This node runs after the loop completes\nconst allItems = $input.all();\nconst summary = {\n  totalSynced: 0,\n  created: 0,\n  updated: 0,\n  failed: 0,\n  hotLeadsSynced: 0,\n  dealsCreated: 0,\n  leads: []\n};\n\nfor (const item of allItems) {\n  const data = item.json;\n  if (data._empty || data._skipSync) continue;\n\n  summary.totalSynced++;\n  if (data._syncAction === 'created' || data._syncAction === 'created_with_deal') summary.created++;\n  else if (data._syncAction === 'updated') summary.updated++;\n  else summary.failed++;\n\n  if (data.categoria === 'HOT') summary.hotLeadsSynced++;\n  if (data._hubspotDealId) summary.dealsCreated++;\n\n  summary.leads.push({\n    contacto: data.contacto,\n    empresa: data.empresa,\n    categoria: data.categoria,\n    score: data.score,\n    action: data._syncAction,\n    hubspotId: data._hubspotContactId\n  });\n}\n\nreturn [{ json: summary }];"
+      },
+      "id": "f4a5b6c7-d8e9-0123-fabc-234567890fab",
+      "name": "Build Summary",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [4440, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "condition-hot-synced",
+              "leftValue": "={{ $json.hotLeadsSynced }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "gt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "a5b6c7d8-e9f0-1234-abcd-345678901abc",
+      "name": "Has HOT Synced?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [4660, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Client Config').first().json.discordWebhook }}",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"embeds\": [{\n    \"title\": \"\\ud83d\\udd04 HubSpot CRM Sync \\u2014 {{ $('Client Config').first().json.clientName }}\",\n    \"description\": \"**{{ $json.hotLeadsSynced }}** HOT leads sincronizados a HubSpot\\n\\n\\ud83d\\udcca Total sincronizados: {{ $json.totalSynced }}\\n\\u2705 Creados: {{ $json.created }}\\n\\ud83d\\udd04 Actualizados: {{ $json.updated }}\\n\\ud83d\\udcbc Deals creados: {{ $json.dealsCreated }}\\n\\u274c Fallidos: {{ $json.failed }}\",\n    \"color\": 8311585,\n    \"fields\": [\n      {\"name\": \"\\ud83d\\udd25 HOT Leads\", \"value\": \"{{ $json.leads.filter(l => l.categoria === 'HOT').map(l => l.contacto + ' @ ' + l.empresa + ' (' + l.action + ')').join('\\\\n') || 'Ninguno' }}\", \"inline\": false}\n    ],\n    \"footer\": {\"text\": \"Sisteco CRM Sync \\u2022 {{ new Date().toISOString().substring(0, 16).replace('T', ' ') }}\"}\n  }]\n}",
+        "options": {}
+      },
+      "id": "b6c7d8e9-f0a1-2345-bcde-456789012bcd",
+      "name": "Discord Alert",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [4880, 200]
+    },
+    {
+      "parameters": {},
+      "id": "c7d8e9f0-a1b2-3456-cdef-567890123cde",
+      "name": "No HOT — Done",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [4880, 420]
+    },
+    {
+      "parameters": {},
+      "id": "d8e9f0a1-b2c3-4567-defa-678901234def",
+      "name": "No Eligible — Done",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [1140, 540]
+    },
+    {
+      "parameters": {},
+      "id": "e9f0a1b2-c3d4-5678-efab-789012345efa",
+      "name": "Skip No Identifier",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [1800, 420]
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [
+        [
+          {
+            "node": "Client Config",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Client Config",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Client Config": {
+      "main": [
+        [
+          {
+            "node": "Read Leads Sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read Leads Sheet": {
+      "main": [
+        [
+          {
+            "node": "Filter Eligible Leads",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter Eligible Leads": {
+      "main": [
+        [
+          {
+            "node": "Has Eligible Leads?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Has Eligible Leads?": {
+      "main": [
+        [
+          {
+            "node": "Loop Leads",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Eligible — Done",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Leads": {
+      "main": [
+        [
+          {
+            "node": "Build Summary",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Prepare Search",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Search": {
+      "main": [
+        [
+          {
+            "node": "Has Identifier?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Has Identifier?": {
+      "main": [
+        [
+          {
+            "node": "HubSpot Search Contact",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Skip No Identifier",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HubSpot Search Contact": {
+      "main": [
+        [
+          {
+            "node": "Check Contact Exists",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Contact Exists": {
+      "main": [
+        [
+          {
+            "node": "Contact Exists?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Contact Exists?": {
+      "main": [
+        [
+          {
+            "node": "HubSpot Update Contact",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "HubSpot Create Contact",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HubSpot Update Contact": {
+      "main": [
+        [
+          {
+            "node": "Mark Updated",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mark Updated": {
+      "main": [
+        [
+          {
+            "node": "Prepare Sync Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HubSpot Create Contact": {
+      "main": [
+        [
+          {
+            "node": "Extract Contact ID",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Contact ID": {
+      "main": [
+        [
+          {
+            "node": "Needs Deal?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Needs Deal?": {
+      "main": [
+        [
+          {
+            "node": "HubSpot Create Deal",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Skip Deal",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HubSpot Create Deal": {
+      "main": [
+        [
+          {
+            "node": "Assign Rep",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Assign Rep": {
+      "main": [
+        [
+          {
+            "node": "Prepare Sync Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Skip Deal": {
+      "main": [
+        [
+          {
+            "node": "Prepare Sync Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Skip No Identifier": {
+      "main": [
+        [
+          {
+            "node": "Prepare Sync Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Sync Result": {
+      "main": [
+        [
+          {
+            "node": "Update Sheet Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Sheet Status": {
+      "main": [
+        [
+          {
+            "node": "Rate Limit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Rate Limit": {
+      "main": [
+        [
+          {
+            "node": "Loop Leads",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build Summary": {
+      "main": [
+        [
+          {
+            "node": "Has HOT Synced?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Has HOT Synced?": {
+      "main": [
+        [
+          {
+            "node": "Discord Alert",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No HOT — Done",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "timezone": "America/Santiago"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "name": "hubspot"
+    },
+    {
+      "name": "crm-sync"
+    },
+    {
+      "name": "sisteco"
+    },
+    {
+      "name": "pipeline"
+    }
+  ],
+  "triggerCount": 2,
+  "updatedAt": "2026-03-15T00:00:00.000Z",
+  "versionId": "1"
+}

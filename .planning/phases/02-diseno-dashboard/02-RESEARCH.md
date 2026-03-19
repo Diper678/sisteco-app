@@ -407,7 +407,7 @@ El concepto Cowork ya aprobado (warm minimal, command bar como centro, single-pa
 │ Timeline:                                                     │
 │  • 2026-03-10: Lead capturado de LinkedIn Sales Nav          │
 │  • 2026-03-10: Score calculado por IA — HOT                  │
-│  • 2026-03-10: Notificación enviada vía Telegram             │
+│  • 2026-03-10: Notificación enviada vía Discord             │
 │  • 2026-03-11: Asignado a SDR María González (VP Ventas)     │
 │  • 2026-03-12: Marcado como contactado (SDR)                 │
 ├──────────────────────────────────────────────────────────────┤

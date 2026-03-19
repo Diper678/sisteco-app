@@ -1,0 +1,375 @@
+{
+  "name": "Sisteco — Inteligencia Competitiva FireCrawl",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "w3-node-0001-0001-0001-000000000001",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 300]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 8 * * 1"
+            }
+          ]
+        }
+      },
+      "id": "w3-node-0002-0002-0002-000000000002",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [0, 500]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Configure competitors to monitor per client\n// Add/remove competitors as needed\nreturn [{\n  json: {\n    cliente: 'Sisteco Demo',\n    discord_webhook: $env.DISCORD_WEBHOOK_URL || 'CONFIGURE_ME',\n    firecrawl_key: $env.FIRECRAWL_API_KEY || 'CONFIGURE_ME',\n    gemini_key: $env.GEMINI_API_KEY || 'CONFIGURE_ME',\n    competidores: [\n      {\n        nombre: 'Competidor A',\n        url: 'https://www.ejemplo-competidor-a.cl',\n        focus: 'precios, features, posicionamiento'\n      },\n      {\n        nombre: 'Competidor B',\n        url: 'https://www.ejemplo-competidor-b.cl',\n        focus: 'precios, features, casos de uso'\n      },\n      {\n        nombre: 'Competidor C',\n        url: 'https://www.ejemplo-competidor-c.cl',\n        focus: 'precios, features, testimonios'\n      }\n    ],\n    briefs: []\n  }\n}];"
+      },
+      "id": "w3-node-0003-0003-0003-000000000003",
+      "name": "Config Competidores",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [260, 400]
+    },
+    {
+      "parameters": {
+        "options": {
+          "batchSize": 1
+        }
+      },
+      "id": "w3-node-0004-0004-0004-000000000004",
+      "name": "Batch Competidores",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [520, 400]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.firecrawl.dev/v1/scrape",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $('Config Competidores').first().json.firecrawl_key }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"url\": \"{{ $json.url }}\",\n  \"formats\": [\"markdown\"],\n  \"onlyMainContent\": true,\n  \"timeout\": 30000\n}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "id": "w3-node-0005-0005-0005-000000000005",
+      "name": "FireCrawl Scrape",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [780, 400],
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "jsCode": "const item = $input.first().json;\nconst competidor = $('Batch Competidores').first().json;\nconst markdown = (item.data && item.data.markdown) || item.markdown || '';\n\nif (!markdown || markdown.length < 100) {\n  return [{\n    json: {\n      nombre: competidor.nombre,\n      url: competidor.url,\n      markdown: '',\n      error: 'No content extracted',\n      skip_analysis: true\n    }\n  }];\n}\n\n// Truncate to ~4000 chars to stay within Gemini token limits\nconst truncated = markdown.substring(0, 4000);\n\nreturn [{\n  json: {\n    nombre: competidor.nombre,\n    url: competidor.url,\n    focus: competidor.focus,\n    markdown: truncated,\n    skip_analysis: false,\n    scraped_at: new Date().toISOString()\n  }\n}];"
+      },
+      "id": "w3-node-0006-0006-0006-000000000006",
+      "name": "Extract Markdown",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1040, 400]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "condition-has-content",
+              "leftValue": "={{ $json.skip_analysis }}",
+              "rightValue": false,
+              "operator": {
+                "type": "boolean",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "w3-node-0007-0007-0007-000000000007",
+      "name": "Has Content?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [1300, 400]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={{ $('Config Competidores').first().json.gemini_key }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"contents\": [{\"parts\": [{\"text\": \"Analiza este contenido del sitio web de {{ $json.nombre }}, una empresa SaaS chilena competidora.\\nFoco del análisis: {{ $json.focus }}\\n\\nIdentifica: cambios de precios, nuevas features mencionadas, nuevos casos de uso, cambios en posicionamiento.\\nResponde en español, máximo 200 palabras, formato ejecutivo con bullets.\\n\\nContenido:\\n{{ $json.markdown }}\"}]}]\n}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "w3-node-0008-0008-0008-000000000008",
+      "name": "Gemini Analyze",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1560, 300],
+      "retryOnFail": true,
+      "maxTries": 2,
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "jsCode": "const item = $input.first().json;\nconst competidor = $('Batch Competidores').first().json;\nlet analisis = '';\n\ntry {\n  // Gemini 2.5 Flash response format\n  const candidates = item.candidates || [];\n  if (candidates.length > 0) {\n    analisis = candidates[0].content.parts[0].text;\n  } else if (item.content && item.content[0]) {\n    analisis = item.content[0].text;\n  }\n} catch(e) {\n  analisis = 'Error al analizar: ' + (e.message || 'Unknown error');\n}\n\n// Store brief for later compilation\nconst config = $('Config Competidores').first().json;\nconst brief = {\n  nombre: competidor.nombre || $json.nombre,\n  url: competidor.url || $json.url,\n  analisis: analisis,\n  fecha: new Date().toISOString().substring(0, 10)\n};\n\nreturn [{\n  json: {\n    ...brief,\n    _brief: brief\n  }\n}];"
+      },
+      "id": "w3-node-0009-0009-0009-000000000009",
+      "name": "Format Brief",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1820, 400]
+    },
+    {
+      "parameters": {},
+      "id": "w3-node-0010-0010-0010-000000000010",
+      "name": "Skip Analysis",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [1560, 520]
+    },
+    {
+      "parameters": {
+        "amount": 3,
+        "unit": "seconds"
+      },
+      "id": "w3-node-0011-0011-0011-000000000011",
+      "name": "Rate Limit",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [2080, 400]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Collect all briefs from the batch execution\nconst items = $input.all();\nconst config = $('Config Competidores').first().json;\nconst fecha = new Date().toISOString().substring(0, 10);\n\nlet report = '**Reporte de Inteligencia Competitiva**\\n';\nreport += '**Cliente:** ' + config.cliente + '\\n';\nreport += '**Fecha:** ' + fecha + '\\n\\n';\n\nfor (const item of items) {\n  const data = item.json;\n  if (data._brief) {\n    report += '---\\n';\n    report += '**' + data._brief.nombre + '** (' + data._brief.url + ')\\n';\n    report += data._brief.analisis + '\\n\\n';\n  }\n}\n\nreport += '---\\n*Generado automaticamente por Sisteco Intelligence*';\n\nreturn [{\n  json: {\n    report: report,\n    cliente: config.cliente,\n    fecha: fecha,\n    discord_webhook: config.discord_webhook\n  }\n}];"
+      },
+      "id": "w3-node-0012-0012-0012-000000000012",
+      "name": "Compile Report",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [780, 200]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $json.discord_webhook }}",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"embeds\": [{\n    \"title\": \"Inteligencia Competitiva — {{ $json.fecha }}\",\n    \"description\": \"{{ $json.report }}\",\n    \"color\": 3066993,\n    \"footer\": {\n      \"text\": \"Sisteco Intelligence | {{ $json.cliente }}\"\n    }\n  }]\n}",
+        "options": {}
+      },
+      "id": "w3-node-0013-0013-0013-000000000013",
+      "name": "Discord Brief",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1040, 200],
+      "continueOnFail": true
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [
+        [
+          {
+            "node": "Config Competidores",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Config Competidores",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Config Competidores": {
+      "main": [
+        [
+          {
+            "node": "Batch Competidores",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Batch Competidores": {
+      "main": [
+        [
+          {
+            "node": "Compile Report",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "FireCrawl Scrape",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "FireCrawl Scrape": {
+      "main": [
+        [
+          {
+            "node": "Extract Markdown",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Markdown": {
+      "main": [
+        [
+          {
+            "node": "Has Content?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Has Content?": {
+      "main": [
+        [
+          {
+            "node": "Gemini Analyze",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Skip Analysis",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gemini Analyze": {
+      "main": [
+        [
+          {
+            "node": "Format Brief",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Brief": {
+      "main": [
+        [
+          {
+            "node": "Rate Limit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Skip Analysis": {
+      "main": [
+        [
+          {
+            "node": "Rate Limit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Rate Limit": {
+      "main": [
+        [
+          {
+            "node": "Batch Competidores",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Compile Report": {
+      "main": [
+        [
+          {
+            "node": "Discord Brief",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "timezone": "America/Santiago"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "name": "competitive-intel"
+    },
+    {
+      "name": "sisteco"
+    },
+    {
+      "name": "firecrawl"
+    },
+    {
+      "name": "weekly"
+    }
+  ],
+  "triggerCount": 2,
+  "updatedAt": "2026-03-16T00:00:00.000Z",
+  "versionId": "1"
+}

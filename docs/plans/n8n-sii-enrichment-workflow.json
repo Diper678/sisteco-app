@@ -1,0 +1,568 @@
+{
+  "name": "Sisteco — Enriquecimiento SII Multi-Cliente",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "enriquecer-lead",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "t2-00000000-0000-4000-a000-000000000001",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [0, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const item = $input.first().json;\nconst body = item.body || item;\nlet rut = (body.rut || '').toString();\n\n// Clean format\nrut = rut.replace(/\\./g, '').replace(/-/g, '');\n\nif (!rut || rut.length < 8) {\n  return [{ json: { ...body, rut_cuerpo: null, rut_dv: null, rut_limpio: null, has_rut: false } }];\n}\n\nconst dv = rut.slice(-1).toUpperCase();\nconst cuerpo = rut.slice(0, -1);\n\nif (!cuerpo || cuerpo.length < 7 || isNaN(Number(cuerpo))) {\n  return [{ json: { ...body, rut_cuerpo: null, rut_dv: null, rut_limpio: null, has_rut: false } }];\n}\n\nreturn [{\n  json: {\n    ...body,\n    rut_cuerpo: cuerpo,\n    rut_dv: dv,\n    rut_limpio: cuerpo + '-' + dv,\n    has_rut: true\n  }\n}];"
+      },
+      "id": "t2-00000000-0000-4000-a000-000000000002",
+      "name": "Parse RUT",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [260, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "condition-has-rut",
+              "leftValue": "={{ $json.has_rut }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "t2-00000000-0000-4000-a000-000000000003",
+      "name": "Has RUT?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [520, 300]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "=https://zeus.sii.cl/cvc_cgi/stc/getstc?RUT={{ $json.rut_cuerpo }}&DV={{ $json.rut_dv }}&PRG=STC&OPC=NOR",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "Referer",
+              "value": "https://www.sii.cl/"
+            }
+          ]
+        },
+        "options": {
+          "timeout": 15000
+        }
+      },
+      "id": "t2-00000000-0000-4000-a000-000000000004",
+      "name": "SII Consulta",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [780, 180],
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "=https://api.simpleapi.cl/api/v1/empresa/{{ $('Parse RUT').first().json.rut_limpio }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $env.SIMPLE_API_KEY }}"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "json"
+            }
+          },
+          "timeout": 15000
+        }
+      },
+      "id": "t2-00000000-0000-4000-a000-000000000005",
+      "name": "SimpleAPI",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1040, 180],
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "jsCode": "const original = $('Parse RUT').first().json;\nlet siiData = {};\nlet simpleData = {};\n\ntry { siiData = $('SII Consulta').first().json || {}; } catch(e) {}\ntry { simpleData = $('SimpleAPI').first().json || {}; } catch(e) {}\n\nreturn [{\n  json: {\n    empresa: original.empresa || simpleData.razon_social || null,\n    rut: original.rut_limpio,\n    email: original.email || null,\n    cliente_id: original.cliente_id || 'default',\n    razon_social: simpleData.razon_social || null,\n    giro: simpleData.giro || simpleData.actividad_economica || null,\n    estado_tributario: simpleData.estado || null,\n    inicio_actividades: simpleData.inicio_actividades || null,\n    region: simpleData.region || null,\n    comuna: simpleData.comuna || null,\n    tramo_ventas: simpleData.tramo_ventas || null,\n    rango_trabajadores: simpleData.rango_trabajadores || null,\n    enriquecido_en: new Date().toISOString(),\n    fuente: 'SII + SimpleAPI'\n  }\n}];"
+      },
+      "id": "t2-00000000-0000-4000-a000-000000000006",
+      "name": "Merge SII Data",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1300, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const original = $('Parse RUT').first().json;\n\nreturn [{\n  json: {\n    empresa: original.empresa || null,\n    rut: null,\n    email: original.email || null,\n    cliente_id: original.cliente_id || 'default',\n    razon_social: null,\n    giro: null,\n    estado_tributario: null,\n    inicio_actividades: null,\n    region: null,\n    comuna: null,\n    tramo_ventas: null,\n    rango_trabajadores: null,\n    enriquecido_en: new Date().toISOString(),\n    fuente: 'sin_rut'\n  }\n}];"
+      },
+      "id": "t2-00000000-0000-4000-a000-000000000007",
+      "name": "Lead Parcial",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [780, 480]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={{ $env.GEMINI_API_KEY }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\"contents\":[{\"parts\":[{\"text\":\"Evalúa este lead B2B SaaS chileno del 1-10. Responde SOLO JSON con score (numero), razon (texto corto), categoria (caliente/tibio/frio).\\n\\nEmpresa: {{ $json.empresa }}\\nGiro: {{ $json.giro }}\\nTramo ventas: {{ $json.tramo_ventas }}\\nRegión: {{ $json.region }}\\nEstado: {{ $json.estado_tributario }}\\nInicio actividades: {{ $json.inicio_actividades }}\"}]}],\"generationConfig\":{\"responseMimeType\":\"application/json\"}}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "t2-00000000-0000-4000-a000-000000000008",
+      "name": "Gemini ICP Score",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1560, 300],
+      "continueOnFail": true,
+      "retryOnFail": true,
+      "maxTries": 2
+    },
+    {
+      "parameters": {
+        "jsCode": "const respuesta = $input.first().json;\nlet scoring = { score: null, razon: 'Error parsing', categoria: 'sin_score' };\n\ntry {\n  // Gemini 2.5 Flash response: candidates[0].content.parts[0].text\n  const candidates = respuesta.candidates || [];\n  if (candidates.length > 0) {\n    const texto = candidates[0].content.parts[0].text;\n    const limpio = texto.replace(/```json|```/g, '').trim();\n    scoring = JSON.parse(limpio);\n  }\n} catch(e) {\n  // Keep default scoring\n}\n\n// Get the enriched data from before Gemini scoring\nlet enriched = {};\ntry { enriched = $('Merge SII Data').first().json; } catch(e) {}\ntry { if (!enriched.empresa) enriched = $('Lead Parcial').first().json; } catch(e) {}\n\nreturn [{\n  json: {\n    ...enriched,\n    score_icp: scoring.score,\n    score_razon: scoring.razon,\n    score_categoria: scoring.categoria\n  }\n}];"
+      },
+      "id": "t2-00000000-0000-4000-a000-000000000009",
+      "name": "Extract Score",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1820, 300]
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.cliente_id }}",
+                    "rightValue": "empresa_A",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Client A"
+            },
+            {
+              "conditions": {
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.cliente_id }}",
+                    "rightValue": "empresa_B",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Client B"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra"
+        }
+      },
+      "id": "t2-00000000-0000-4000-a000-000000000010",
+      "name": "Router Cliente",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [2080, 300]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "={{ $env.CLIENT_A_SHEET_ID || 'CONFIGURE_ME' }}",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Enriched",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "empresa": "={{ $json.empresa }}",
+            "rut": "={{ $json.rut }}",
+            "email": "={{ $json.email }}",
+            "razon_social": "={{ $json.razon_social }}",
+            "giro": "={{ $json.giro }}",
+            "estado_tributario": "={{ $json.estado_tributario }}",
+            "region": "={{ $json.region }}",
+            "tramo_ventas": "={{ $json.tramo_ventas }}",
+            "score_icp": "={{ $json.score_icp }}",
+            "score_categoria": "={{ $json.score_categoria }}",
+            "score_razon": "={{ $json.score_razon }}",
+            "enriquecido_en": "={{ $json.enriquecido_en }}",
+            "cliente_id": "={{ $json.cliente_id }}"
+          },
+          "schema": [
+            {"id": "empresa", "displayName": "empresa", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": true},
+            {"id": "rut", "displayName": "rut", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": true},
+            {"id": "email", "displayName": "email", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": false},
+            {"id": "razon_social", "displayName": "razon_social", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": false},
+            {"id": "giro", "displayName": "giro", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": false},
+            {"id": "estado_tributario", "displayName": "estado_tributario", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": false},
+            {"id": "region", "displayName": "region", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": false},
+            {"id": "tramo_ventas", "displayName": "tramo_ventas", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": false},
+            {"id": "score_icp", "displayName": "score_icp", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": false},
+            {"id": "score_categoria", "displayName": "score_categoria", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": false},
+            {"id": "score_razon", "displayName": "score_razon", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": false},
+            {"id": "enriquecido_en", "displayName": "enriquecido_en", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": false},
+            {"id": "cliente_id", "displayName": "cliente_id", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": false}
+          ]
+        },
+        "options": {}
+      },
+      "id": "t2-00000000-0000-4000-a000-000000000011",
+      "name": "Sheets Client A",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [2340, 120],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "CONFIGURE_ME",
+          "name": "Google Sheets — Sisteco"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.hubapi.com/crm/v3/objects/contacts",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "=Bearer {{ $env.HUBSPOT_CLIENT_B_TOKEN }}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\"properties\":{\"email\":\"{{ $json.email }}\",\"company\":\"{{ $json.empresa }}\",\"jobtitle\":\"{{ $json.giro }}\",\"hs_lead_status\":\"{{ $json.score_categoria }}\",\"sisteco_score\":\"{{ $json.score_icp }}\",\"sisteco_rut\":\"{{ $json.rut }}\"}}",
+        "options": {}
+      },
+      "id": "t2-00000000-0000-4000-a000-000000000012",
+      "name": "HubSpot Client B",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [2340, 300],
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "={{ $env.LEADS_SHEET_ID || '1o9edhOg3LJxUx25x8Ecs3zAOrkhbtXlps5uCjGXVdVI' }}",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Enriched",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "empresa": "={{ $json.empresa }}",
+            "rut": "={{ $json.rut }}",
+            "email": "={{ $json.email }}",
+            "razon_social": "={{ $json.razon_social }}",
+            "giro": "={{ $json.giro }}",
+            "estado_tributario": "={{ $json.estado_tributario }}",
+            "region": "={{ $json.region }}",
+            "tramo_ventas": "={{ $json.tramo_ventas }}",
+            "score_icp": "={{ $json.score_icp }}",
+            "score_categoria": "={{ $json.score_categoria }}",
+            "score_razon": "={{ $json.score_razon }}",
+            "enriquecido_en": "={{ $json.enriquecido_en }}",
+            "cliente_id": "={{ $json.cliente_id }}"
+          },
+          "schema": [
+            {"id": "empresa", "displayName": "empresa", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": true},
+            {"id": "rut", "displayName": "rut", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": true},
+            {"id": "email", "displayName": "email", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": false},
+            {"id": "razon_social", "displayName": "razon_social", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": false},
+            {"id": "giro", "displayName": "giro", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": false},
+            {"id": "estado_tributario", "displayName": "estado_tributario", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": false},
+            {"id": "region", "displayName": "region", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": false},
+            {"id": "tramo_ventas", "displayName": "tramo_ventas", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": false},
+            {"id": "score_icp", "displayName": "score_icp", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": false},
+            {"id": "score_categoria", "displayName": "score_categoria", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": false},
+            {"id": "score_razon", "displayName": "score_razon", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": false},
+            {"id": "enriquecido_en", "displayName": "enriquecido_en", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": false},
+            {"id": "cliente_id", "displayName": "cliente_id", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": false}
+          ]
+        },
+        "options": {}
+      },
+      "id": "t2-00000000-0000-4000-a000-000000000013",
+      "name": "Sheets Maestro",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [2340, 480],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "CONFIGURE_ME",
+          "name": "Google Sheets — Sisteco"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "allIncomingItems",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "id": "t2-00000000-0000-4000-a000-000000000014",
+      "name": "Respond",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [2600, 300]
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Parse RUT",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse RUT": {
+      "main": [
+        [
+          {
+            "node": "Has RUT?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Has RUT?": {
+      "main": [
+        [
+          {
+            "node": "SII Consulta",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Lead Parcial",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SII Consulta": {
+      "main": [
+        [
+          {
+            "node": "SimpleAPI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "SimpleAPI": {
+      "main": [
+        [
+          {
+            "node": "Merge SII Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge SII Data": {
+      "main": [
+        [
+          {
+            "node": "Gemini ICP Score",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Lead Parcial": {
+      "main": [
+        [
+          {
+            "node": "Gemini ICP Score",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gemini ICP Score": {
+      "main": [
+        [
+          {
+            "node": "Extract Score",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Score": {
+      "main": [
+        [
+          {
+            "node": "Router Cliente",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Router Cliente": {
+      "main": [
+        [
+          {
+            "node": "Sheets Client A",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "HubSpot Client B",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Sheets Maestro",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sheets Client A": {
+      "main": [
+        [
+          {
+            "node": "Respond",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HubSpot Client B": {
+      "main": [
+        [
+          {
+            "node": "Respond",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sheets Maestro": {
+      "main": [
+        [
+          {
+            "node": "Respond",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "timezone": "America/Santiago"
+  },
+  "staticData": null,
+  "tags": [
+    {"name": "enrichment"},
+    {"name": "sisteco"},
+    {"name": "sii"},
+    {"name": "multi-client"}
+  ],
+  "triggerCount": 1,
+  "updatedAt": "2026-03-16T00:00:00.000Z",
+  "versionId": "2"
+}

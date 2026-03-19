@@ -122,6 +122,13 @@ node_modules/
 run.log
 *.log
 .DS_Store
+# AutoResearch state files (generated at runtime)
+.harvest-state.json
+.deploy-state.json
+.failures
+modules/*/.harvest-state.json
+modules/*/.deploy-state.json
+modules/*/.failures
 ```
 
 - [ ] **Step 5: Install dependencies and commit**
@@ -317,6 +324,25 @@ export function modulePath(moduleName) {
 }
 
 /**
+ * Parse frontmatter from a markdown file.
+ * Returns { meta: {}, body: string } or null if no frontmatter.
+ * Shared by validate.js and deploy.js (DRY).
+ */
+export function parseFrontmatter(content) {
+  const match = content.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
+  if (!match) return null;
+
+  const meta = {};
+  for (const line of match[1].split('\n')) {
+    const idx = line.indexOf(':');
+    if (idx > 0) {
+      meta[line.slice(0, idx).trim()] = line.slice(idx + 1).trim();
+    }
+  }
+  return { meta, body: match[2].trim() };
+}
+
+/**
  * Simple logger with timestamps.
  */
 export const log = {
@@ -477,7 +503,7 @@ hypothesis:
     "auth_env": "INSTANTLY_API_KEY"
   },
   "experiment": {
-    "leads_per_variant": 100,
+    "leads_per_variant": 200,
     "split_ratio": 0.5,
     "min_sample_size": 200,
     "wait_hours": 72,
@@ -774,8 +800,10 @@ export async function analyzeModule(moduleName) {
   return { module: moduleName, ...result, runId };
 }
 
-// CLI entry point
-if (process.argv[1] && process.argv[1].includes('analyze.js')) {
+// CLI entry point — ESM-safe guard
+const __isCliAnalyze = import.meta.url === `file://${process.argv[1]}` ||
+  process.argv[1]?.endsWith('analyze.js');
+if (__isCliAnalyze) {
   const args = process.argv.slice(2);
   const dryRun = args.includes('--dry-run');
   const modules = args.includes('--all')
@@ -899,24 +927,7 @@ Expected: FAIL
 
 ```js
 // framework/validate.js
-
-/**
- * Parse frontmatter from a challenger markdown file.
- * Returns { meta: {}, body: string }
- */
-function parseFrontmatter(content) {
-  const match = content.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
-  if (!match) return null;
-
-  const meta = {};
-  for (const line of match[1].split('\n')) {
-    const idx = line.indexOf(':');
-    if (idx > 0) {
-      meta[line.slice(0, idx).trim()] = line.slice(idx + 1).trim();
-    }
-  }
-  return { meta, body: match[2].trim() };
-}
+import { parseFrontmatter } from './utils.js';
 
 /**
  * Validate a challenger.md file against cold email constraints.
@@ -1015,9 +1026,13 @@ async function harvestInstantly(config) {
   const baseUrl = config.api.base_url;
 
   // List campaigns to find baseline and challenger
-  const res = await fetch(`${baseUrl}/campaigns?api_key=${apiKey}&limit=10`, {
-    headers: { 'Content-Type': 'application/json' }
-  });
+  // Instantly API v2 uses Bearer token auth (not query param)
+  const headers = {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${apiKey}`,
+  };
+
+  const res = await fetch(`${baseUrl}/campaigns?limit=10`, { headers });
 
   if (!res.ok) throw new Error(`Instantly API error: ${res.status} ${await res.text()}`);
   const campaigns = await res.json();
@@ -1048,7 +1063,9 @@ async function harvestInstantly(config) {
 }
 
 async function fetchCampaignStats(baseUrl, apiKey, campaignId) {
-  const res = await fetch(`${baseUrl}/campaigns/${campaignId}/analytics?api_key=${apiKey}`);
+  const res = await fetch(`${baseUrl}/campaigns/${campaignId}/analytics`, {
+    headers: { 'Authorization': `Bearer ${apiKey}` },
+  });
   if (!res.ok) throw new Error(`Stats error for ${campaignId}: ${res.status}`);
   const data = await res.json();
 
@@ -1072,6 +1089,18 @@ export async function harvestModule(moduleName) {
   if (config.circuit_breaker?.paused) {
     log.warn(`[${moduleName}] Circuit breaker PAUSED — skipping`);
     return null;
+  }
+
+  // Check 72h elapsed since last deploy before harvesting (B2B replies take 3-5 days)
+  const deployStateFile = path.join(modPath, '.deploy-state.json');
+  if (fs.existsSync(deployStateFile)) {
+    const deployState = JSON.parse(fs.readFileSync(deployStateFile, 'utf-8'));
+    const deployedAt = new Date(deployState.deployed_at);
+    const hoursElapsed = (Date.now() - deployedAt.getTime()) / (1000 * 60 * 60);
+    if (hoursElapsed < config.experiment.wait_hours) {
+      log.info(`[${moduleName}] Only ${hoursElapsed.toFixed(1)}h since deploy (need ${config.experiment.wait_hours}h) — skipping`);
+      return null;
+    }
   }
 
   let state;
@@ -1111,8 +1140,10 @@ export async function harvestModule(moduleName) {
   return state;
 }
 
-// CLI entry point
-if (process.argv[1] && process.argv[1].includes('harvest.js')) {
+// CLI entry point — ESM-safe guard
+const __isCliHarvest = import.meta.url === `file://${process.argv[1]}` ||
+  process.argv[1]?.endsWith('harvest.js');
+if (__isCliHarvest) {
   const { config: dotenvConfig } = await import('dotenv');
   dotenvConfig();
 
@@ -1152,7 +1183,7 @@ git commit -m "feat: add harvest module — Instantly API integration with circu
 
 ```js
 // framework/deploy.js
-import { loadModuleConfig, modulePath, log } from './utils.js';
+import { loadModuleConfig, modulePath, log, parseFrontmatter } from './utils.js';
 import { validateChallenger } from './validate.js';
 import fs from 'fs';
 import path from 'path';
@@ -1190,8 +1221,12 @@ async function deployInstantly(modPath, config) {
     throw new Error(`Not enough leads: need ${needed}, have ${leads.length}`);
   }
 
-  // Split leads 50/50
-  const shuffled = leads.sort(() => Math.random() - 0.5);
+  // Split leads 50/50 — Fisher-Yates shuffle (unbiased)
+  const shuffled = [...leads];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
   const baselineLeads = shuffled.slice(0, config.experiment.leads_per_variant);
   const challengerLeads = shuffled.slice(
     config.experiment.leads_per_variant,
@@ -1229,16 +1264,17 @@ async function deployInstantly(modPath, config) {
 }
 
 async function createInstantlyCampaign(baseUrl, apiKey, name, email, leads) {
+  // Instantly API v2 uses Bearer token auth
+  const headers = {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${apiKey}`,
+  };
+
   // Create campaign
   const campRes = await fetch(`${baseUrl}/campaigns`, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      api_key: apiKey,
-      name,
-      subject: email.subject,
-      body: email.body,
-    }),
+    headers,
+    body: JSON.stringify({ name, subject: email.subject, body: email.body }),
   });
   if (!campRes.ok) throw new Error(`Create campaign failed: ${campRes.status}`);
   const campaign = await campRes.json();
@@ -1246,9 +1282,8 @@ async function createInstantlyCampaign(baseUrl, apiKey, name, email, leads) {
   // Add leads to campaign
   const leadsRes = await fetch(`${baseUrl}/leads`, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers,
     body: JSON.stringify({
-      api_key: apiKey,
       campaign_id: campaign.id,
       leads: leads.map(l => ({
         email: l.email,
@@ -1263,8 +1298,7 @@ async function createInstantlyCampaign(baseUrl, apiKey, name, email, leads) {
   // Activate campaign
   const activateRes = await fetch(`${baseUrl}/campaigns/${campaign.id}/activate`, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ api_key: apiKey }),
+    headers,
   });
   if (!activateRes.ok) log.warn(`Activate campaign warning: ${activateRes.status}`);
 
@@ -1272,16 +1306,9 @@ async function createInstantlyCampaign(baseUrl, apiKey, name, email, leads) {
 }
 
 function parseEmailFromMd(content) {
-  const match = content.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
-  if (!match) throw new Error('Invalid email markdown — missing frontmatter');
-
-  const meta = {};
-  for (const line of match[1].split('\n')) {
-    const idx = line.indexOf(':');
-    if (idx > 0) meta[line.slice(0, idx).trim()] = line.slice(idx + 1).trim();
-  }
-
-  return { subject: meta.subject || '', body: match[2].trim() };
+  const parsed = parseFrontmatter(content);
+  if (!parsed) throw new Error('Invalid email markdown — missing frontmatter');
+  return { subject: parsed.meta.subject || '', body: parsed.body };
 }
 
 function parseCsv(csvString) {
@@ -1316,8 +1343,10 @@ export async function deployModule(moduleName) {
   return null;
 }
 
-// CLI entry point
-if (process.argv[1] && process.argv[1].includes('deploy.js')) {
+// CLI entry point — ESM-safe guard
+const __isCliDeploy = import.meta.url === `file://${process.argv[1]}` ||
+  process.argv[1]?.endsWith('deploy.js');
+if (__isCliDeploy) {
   const { config: dotenvConfig } = await import('dotenv');
   dotenvConfig();
 
@@ -1494,8 +1523,10 @@ export async function notifyAll(results) {
   }
 }
 
-// CLI entry point
-if (process.argv[1] && process.argv[1].includes('notify.js')) {
+// CLI entry point — ESM-safe guard
+const __isCliNotify = import.meta.url === `file://${process.argv[1]}` ||
+  process.argv[1]?.endsWith('notify.js');
+if (__isCliNotify) {
   const { config: dotenvConfig } = await import('dotenv');
   dotenvConfig();
 
@@ -1644,19 +1675,22 @@ jobs:
           max_turns: 10
 
       - name: Commit and push
+        id: commit
         run: |
           git config user.name "sisteco-autoresearch[bot]"
           git config user.email "bot@sisteco.cl"
           git add -A
           if git diff --staged --quiet; then
             echo "No changes to commit"
+            echo "has_changes=false" >> $GITHUB_OUTPUT
           else
             git commit -m "experiment: new challenger $(date -u +%Y-%m-%d-%H%M)"
             git push
+            echo "has_changes=true" >> $GITHUB_OUTPUT
           fi
 
       - name: Trigger deploy
-        if: success()
+        if: steps.commit.outputs.has_changes == 'true'
         uses: actions/github-script@v7
         with:
           script: |

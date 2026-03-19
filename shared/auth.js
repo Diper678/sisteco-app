@@ -68,8 +68,22 @@
     // Verificar organizacion activa
     var orgId = Clerk.session?.lastActiveOrganizationId;
     if (!orgId) {
-      _showNoOrgScreen();
-      return null;
+      // El user puede tener membresías pero sin org activa en sesión (ej: agregado via API)
+      // Auto-activar la primera org disponible
+      var memberships = Clerk.user?.organizationMemberships || [];
+      if (memberships.length > 0) {
+        try {
+          await Clerk.setActive({ organization: memberships[0].organization.id });
+          orgId = memberships[0].organization.id;
+        } catch (err) {
+          console.error('[SistecoAuth] Error activando org:', err);
+          _showNoOrgScreen();
+          return null;
+        }
+      } else {
+        _showNoOrgScreen();
+        return null;
+      }
     }
 
     // Guardar estado global

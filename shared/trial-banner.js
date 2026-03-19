@@ -207,15 +207,22 @@
 
   // ── Funcion principal init() ──────────────────────────────────────────────
 
+  function _debugBar(msg, color) {
+    var el = document.createElement('div');
+    el.style.cssText = 'position:fixed;bottom:0;left:0;right:0;background:' + color + ';color:#fff;font:13px monospace;padding:8px 16px;z-index:99999;white-space:pre-wrap;';
+    el.textContent = '[TrialBanner] ' + msg;
+    document.body.appendChild(el);
+  }
+
   async function init() {
     var orgId = window.CURRENT_ORG_ID;
     if (!orgId) {
-      console.warn('[TrialBanner] CURRENT_ORG_ID no disponible — omitiendo banner');
+      _debugBar('FALLO: CURRENT_ORG_ID no disponible', '#c0392b');
       return;
     }
 
     if (typeof window.queryConvex !== 'function') {
-      console.warn('[TrialBanner] queryConvex no disponible — omitiendo banner');
+      _debugBar('FALLO: queryConvex no es función', '#c0392b');
       return;
     }
 
@@ -223,17 +230,20 @@
     try {
       sub = await window.queryConvex('subscriptions:getByOrgId', { orgId: orgId });
     } catch (err) {
-      console.warn('[TrialBanner] Error al obtener subscription:', err.message);
-      return; // No mostrar banner si falla — no bloquear el dashboard
+      _debugBar('FALLO en query: ' + err.message, '#c0392b');
+      return;
     }
 
     if (!sub) {
-      // Sin subscription — probablemente admin o cuenta sin trial aun
+      _debugBar('subscription null para orgId: ' + orgId, '#e67e22');
       return;
     }
 
     var config = getBannerConfig(sub);
-    if (!config) return; // Status "active" — sin banner
+    if (!config) {
+      _debugBar('status "' + sub.status + '" — sin banner (OK si es active)', '#27ae60');
+      return;
+    }
 
     var banner = createBanner(config);
 

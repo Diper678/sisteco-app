@@ -11,7 +11,7 @@
 - Phase 4 parcial: Leads Agent (04-01 schema, 04-02 discovery, 04-03 scoring)
 
 ### Archived (not continued)
-- Phase 2: HTTP Layer + Telegram Bot (parcial — 1/2 plans)
+- Phase 2: HTTP Layer + Discord Bot (parcial — 1/2 plans)
 - Phase 4: 04-04 Skill Metacognition (concepto SAAN)
 - Phase 5: Finance Agent (no ejecutado)
 - Phase 6: Agent Learning + Dashboard CEO (no ejecutado)

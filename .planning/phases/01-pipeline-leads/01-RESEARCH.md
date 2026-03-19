@@ -1,12 +1,12 @@
 # Phase 1: Pipeline de Leads Activo - Research
 
 **Researched:** 2026-03-09
-**Domain:** n8n workflows, PhantomBuster, SII Chile data, Convex, Gemini AI scoring, Telegram notifications
+**Domain:** n8n workflows, PhantomBuster, SII Chile data, Convex, Gemini AI scoring, Discord webhook notifications
 **Confidence:** MEDIUM
 
 ## Summary
 
-Phase 1 reutiliza trabajo significativo de SAAN v1.0 (leads schema, discovery workflows, AI scoring) pero tiene cuatro areas nuevas que requieren construccion: (1) integracion PhantomBuster con Sales Navigator, (2) enriquecimiento con datos SII chilenos (RUT, actividad economica, tamano), (3) sistema de notificaciones para leads HOT via Telegram, y (4) conectar todo el pipeline end-to-end para que corra sin intervencion manual.
+Phase 1 reutiliza trabajo significativo de SAAN v1.0 (leads schema, discovery workflows, AI scoring) pero tiene cuatro areas nuevas que requieren construccion: (1) integracion PhantomBuster con LinkedIn Search gratuito (Sales Navigator se agrega cuando haya clientes pagando), (2) enriquecimiento con datos SII chilenos (RUT, actividad economica, tamano), (3) sistema de notificaciones para leads HOT via Discord webhook, y (4) conectar todo el pipeline end-to-end para que corra sin intervencion manual.
 
 Se detectaron dos problemas criticos en el codigo existente que bloquearan la ejecucion: (A) las funciones de leads (batchUpsertLeads, enrichLead, updateLeadScore, etc.) NO estan en el allowlist de `http.ts`, causando 403 Forbidden en todas las llamadas desde n8n, y (B) los workflows de scoring/outreach usan `Authorization: Bearer` en vez de `X-SAAN-Secret`, lo cual causa 401 Unauthorized porque `http.ts` solo valida el header `X-SAAN-Secret`.
 
@@ -17,12 +17,12 @@ Se detectaron dos problemas criticos en el codigo existente que bloquearan la ej
 
 | ID | Description | Research Support |
 |----|-------------|-----------------|
-| LEAD-01 | PhantomBuster workflow activo: LinkedIn Sales Nav -> extraccion 3x/semana | Workflow JSON ya existe pero requiere configuracion real (API key, agent ID, search URL). n8n tiene nodo nativo PhantomBuster. |
+| LEAD-01 | PhantomBuster workflow activo: LinkedIn Search gratuito -> extraccion 3x/semana | Workflow JSON ya existe, configurado con API key y agent ID reales. Usamos LinkedIn Search (no Sales Nav) hasta tener clientes pagando. |
 | LEAD-02 | Datos extraidos se guardan en Convex tabla leads | Schema y mutations existen (leads.ts). BLOQUEADO: funciones leads no estan en allowlist HTTP. |
 | LEAD-03 | Enriquecimiento con Firecrawl + SII | Firecrawl enrich workflow existe. SII: usar SimpleAPI (10 consultas gratis/mes) o scraping directo de sii.cl para datos publicos. |
 | LEAD-04 | Scoring IA con Gemini: HOT/WARM/NURTURE/SKIP | Workflow JSON existe. BLOQUEADO: usa header auth incorrecto (Bearer vs X-SAAN-Secret). |
 | LEAD-05 | Deduplicacion por email/dominio antes de insertar | Ya implementado en batchUpsertLeads (dedup by email then empresa). Funcional. |
-| LEAD-06 | Leads HOT generan notificacion via Telegram | telegramQueue existe en Convex. Falta: bot de Telegram, workflow n8n que envie mensajes, y workflow que encole HOT leads. |
+| LEAD-06 | Leads HOT generan notificacion via Discord webhook | discordQueue existe en Convex. Falta: webhook de Discord, workflow n8n que envie mensajes, y workflow que encole HOT leads. |
 </phase_requirements>
 
 ## Standard Stack
@@ -37,10 +37,10 @@ Se detectaron dos problemas criticos en el codigo existente que bloquearan la ej
 ### Nuevas integraciones (por construir)
 | Library | Version | Purpose | When to Use |
 |---------|---------|---------|-------------|
-| PhantomBuster API | v2 | Extraccion LinkedIn Sales Nav | Discovery 3x/semana |
+| PhantomBuster API | v2 | Extraccion LinkedIn Search gratuito | Discovery 3x/semana |
 | SimpleAPI RUT | 1.0 | Validacion RUT + datos SII | Enriquecimiento de leads chilenos |
-| Telegram Bot API | latest | Notificaciones HOT leads | Alertas al CEO/vendedor |
-| n8n Telegram node | built-in | Envio de mensajes Telegram | Dentro de workflows n8n |
+| Discord Webhook API | latest | Notificaciones HOT leads | Alertas al CEO/vendedor |
+| n8n HTTP Request node | built-in | Envio de mensajes Discord | Dentro de workflows n8n |
 
 ### Alternatives Considered
 | Instead of | Could Use | Tradeoff |
@@ -48,7 +48,7 @@ Se detectaron dos problemas criticos en el codigo existente que bloquearan la ej
 | SimpleAPI (SII) | apigateway.cl | Mas completo pero minimo $40,000 CLP/mes. SimpleAPI tiene tier gratis (10/mes). |
 | SimpleAPI (SII) | Floid.io | Enterprise, sin tier gratis, requiere contacto comercial. Overkill para MVP. |
 | SimpleAPI (SII) | Scraping directo sii.cl | Gratis pero fragil (cambios de UI), posible CAPTCHA, mantenerlo es costoso. |
-| Telegram | Email (Resend) | Telegram es mas inmediato para alertas. Email para reportes diarios. |
+| Discord | Email (Resend) | Discord es mas inmediato para alertas. Email para reportes diarios. |
 
 ## Architecture Patterns
 
@@ -72,7 +72,7 @@ n8n: Scoring (cada 3h) -> getLeadsToScore -> Gemini 2.5 Flash Lite
 n8n: updateLeadScore -> Convex (status: "scored", scoreCategory: HOT/WARM/NURTURE/SKIP)
   |
   v
-n8n: Notification (post-scoring) -> IF scoreCategory == "HOT" -> Telegram Bot -> CEO
+n8n: Notification (post-scoring) -> IF scoreCategory == "HOT" -> Discord Webhook -> CEO
 ```
 
 ### Pattern 1: HTTP Allowlist Extension
@@ -126,14 +126,14 @@ Lead tiene empresa name -> buscar RUT en SimpleAPI -> obtener:
   - tamano (inferir de codigo actividad)
 ```
 
-### Pattern 4: Telegram Notification for HOT Leads
-**What:** Crear bot de Telegram + workflow n8n que envie alerta cuando un lead es clasificado HOT
+### Pattern 4: Discord Webhook Notification for HOT Leads
+**What:** Crear webhook en canal Discord + workflow n8n que envie alerta cuando un lead es clasificado HOT
 **When to use:** Post-scoring, cuando scoreCategory == "HOT"
 **Flow:**
 ```
 Scoring workflow marca lead como HOT
   -> n8n node: IF scoreCategory == "HOT"
-  -> n8n Telegram node: sendMessage(chatId, formatted alert)
+  -> n8n HTTP Request node: POST Discord webhook URL con embed formateado
   -> Mensaje incluye: empresa, contacto, score, reasoning, link a LinkedIn
 ```
 
@@ -141,15 +141,15 @@ Scoring workflow marca lead como HOT
 - **Scraping directo del SII:** Fragil, puede tener CAPTCHA, no escalable. Usar SimpleAPI o apigateway.cl.
 - **Polling en vez de cron:** Los workflows ya usan cron schedules. No agregar polling innecesario.
 - **Hardcodear credenciales en workflows:** Todo via `$vars` de n8n (ya establecido como patron).
-- **Notification spam:** Solo notificar HOT leads, no WARM/NURTURE. Rate limit via telegramQueue consolidation.
+- **Notification spam:** Solo notificar HOT leads, no WARM/NURTURE. Rate limit via discordQueue consolidation.
 
 ## Don't Hand-Roll
 
 | Problem | Don't Build | Use Instead | Why |
 |---------|-------------|-------------|-----|
-| LinkedIn scraping | Custom scraper | PhantomBuster Sales Nav Search Export | Anti-bot detection, session management, rate limits |
+| LinkedIn scraping | Custom scraper | PhantomBuster LinkedIn Search Export (gratuito) | Anti-bot detection, session management, rate limits |
 | SII data lookup | Scraper de sii.cl | SimpleAPI RUT (free tier) o apigateway.cl | CAPTCHA handling, HTML parsing, cambios de UI |
-| Telegram messaging | Custom bot polling | n8n Telegram node (built-in) | Maneja rate limits, formatting, retry automatico |
+| Discord messaging | Custom bot | n8n HTTP Request node (Discord webhook) | Simple POST, embeds con formatting, sin bot token necesario |
 | Lead deduplication | Custom dedup | batchUpsertLeads (ya implementado) | Dedup by email then empresa ya probado |
 | AI scoring prompts | Custom prompt engineering | Workflow existente saan-leads-score-ai.json | ICP-aware prompting con memory-before-action ya built |
 
@@ -171,8 +171,8 @@ Scoring workflow marca lead como HOT
 
 ### Pitfall 3: PhantomBuster Agent Not Configured
 **What goes wrong:** Workflow se ejecuta pero PhantomBuster devuelve error o datos vacios
-**Why it happens:** El workflow JSON tiene placeholder para `PB_SALES_NAV_AGENT_ID` que necesita un agente real configurado en PhantomBuster
-**How to avoid:** ANTES de activar el workflow: (1) crear cuenta PhantomBuster, (2) configurar Sales Navigator Search Export phantom, (3) definir search URL con filtros Chile B2B, (4) obtener Agent ID, (5) configurar n8n vars
+**Why it happens:** El workflow JSON necesita un agente real configurado en PhantomBuster
+**How to avoid:** Usar Agent ID real (510547627503326) con LinkedIn Search Export phantom. Configurar search URL con filtros Chile B2B (keywords + geoUrn Chile). Variable n8n: PB_LINKEDIN_AGENT_ID.
 **Warning signs:** PhantomBuster API devuelve agent_not_found o empty resultObject
 
 ### Pitfall 4: SimpleAPI Rate Limits on Free Tier
@@ -228,18 +228,18 @@ if (data && data.results && data.results.length > 0) {
 return [{ json: { ...lead, sii_validated: false } }];
 ```
 
-### Telegram HOT Lead Notification Template
+### Discord HOT Lead Notification Template
 ```
-🔥 *Lead HOT Detectado*
+**Lead HOT Detectado**
 
-*Empresa:* {{ $json.empresa }}
-*Contacto:* {{ $json.contacto }} ({{ $json.cargo }})
-*Score:* {{ $json.score }}/100
-*Industria:* {{ $json.industria }}
+**Empresa:** {{ $json.empresa }}
+**Contacto:** {{ $json.contacto }} ({{ $json.cargo }})
+**Score:** {{ $json.score }}/100
+**Industria:** {{ $json.industria }}
 
-*Razon:* {{ $json.scoreReasoning }}
+**Razon:** {{ $json.scoreReasoning }}
 
-🔗 [Ver en LinkedIn]({{ $json.linkedinUrl }})
+[Ver en LinkedIn]({{ $json.linkedinUrl }})
 ```
 
 ### HTTP Allowlist Update Pattern
@@ -274,7 +274,7 @@ return [{ json: { ...lead, sii_validated: false } }];
 |--------------|------------------|--------------|--------|
 | Firecrawl-only discovery | PhantomBuster + Firecrawl + ScrapingBee multi-source | SAAN 04-02 (Mar 2026) | 3 fuentes complementarias |
 | Manual RUT lookup en sii.cl | SimpleAPI RUT (API) | Disponible desde 2024 | Automatizable via HTTP |
-| Email notification | Telegram instant alert | SAAN 02 (Mar 2026) | Mas rapido para movil |
+| Email notification | Discord webhook instant alert | SAAN 02 (Mar 2026) | Mas rapido para movil |
 | Single scoring model | Gemini 2.5 Flash Lite con ICP dinamico | SAAN 04-03 (Mar 2026) | ~$0.0002/lead, JSON mode |
 
 ## Open Questions
@@ -289,10 +289,10 @@ return [{ json: { ...lead, sii_validated: false } }];
    - What's unclear: Si el plan actual permite 25/run, cuantos runs/dia, costo exacto
    - Recommendation: Verificar plan PhantomBuster activo y limites antes de activar cron
 
-3. **Telegram Bot: Chat ID del CEO**
-   - What we know: telegramQueue existe en Convex, n8n tiene nodo Telegram nativo
-   - What's unclear: Si ya existe un bot de Telegram creado, cual es el chat_id destino
-   - Recommendation: Crear bot via @BotFather, obtener chat_id del CEO, configurar en n8n vars
+3. **Discord Webhook: Canal de notificaciones**
+   - What we know: discordQueue existe en Convex, n8n puede hacer POST a webhooks
+   - What's unclear: Si ya existe un webhook de Discord creado, cual es el canal destino
+   - Recommendation: Crear webhook en canal Discord, copiar URL, configurar en n8n vars como DISCORD_WEBHOOK_URL
 
 4. **Convex Deployment: Estado actual**
    - What we know: Schema y funciones existen en SAAN/convex/
@@ -317,7 +317,7 @@ return [{ json: { ...lead, sii_validated: false } }];
 | LEAD-03 | Enriquecimiento Firecrawl + SII | integration | `curl POST /api/call leads:enrichLead` + SII API test | Wave 0 |
 | LEAD-04 | Scoring Gemini HOT/WARM/NURTURE/SKIP | integration | Trigger score workflow, verify score in Convex | Wave 0 |
 | LEAD-05 | Deduplicacion email/dominio | unit-like/smoke | `curl batchUpsertLeads` twice with same email, verify count=1 | Wave 0 |
-| LEAD-06 | HOT leads -> notificacion Telegram | integration/manual | Send test message to Telegram bot | Wave 0 |
+| LEAD-06 | HOT leads -> notificacion Discord | integration/manual | Send test message via Discord webhook | Wave 0 |
 
 ### Sampling Rate
 - **Per task commit:** `bash SAAN/tests/smoke-phase1.sh`
@@ -327,7 +327,7 @@ return [{ json: { ...lead, sii_validated: false } }];
 ### Wave 0 Gaps
 - [ ] `SAAN/tests/smoke-phase1.sh` -- extend from smoke-phase2.sh to cover leads CRUD via HTTP
 - [ ] Manual test checklist for PhantomBuster + n8n + Convex integration
-- [ ] Telegram bot token and chat_id configured in n8n vars
+- [ ] Discord webhook URL configured in n8n vars
 
 ## Sources
 
@@ -340,7 +340,7 @@ return [{ json: { ...lead, sii_validated: false } }];
 - [SimpleAPI](https://www.simpleapi.cl/Productos) -- RUT API con tier gratis (10/mes), datos SII verificados en web
 - [API Gateway](https://www.apigateway.cl/) -- Alternativa SII API, pricing desde $40K CLP/mes
 - [PhantomBuster Sales Nav Search Export](https://phantombuster.com/automations/sales-navigator/6988/sales-navigator-search-export) -- Documentacion de la herramienta
-- [n8n Telegram node](https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.telegram/) -- Documentacion oficial
+- [Discord Webhooks](https://discord.com/developers/docs/resources/webhook) -- Documentacion oficial
 - [SII Situacion Tributaria Terceros](https://www2.sii.cl/stc/noauthz) -- Portal publico gratuito de consulta
 - [Floid.io API SII](https://www.floid.io/servicios/api-sii) -- API enterprise para SII (sin pricing publico)
 

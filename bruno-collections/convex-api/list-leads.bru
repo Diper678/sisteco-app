@@ -1,0 +1,52 @@
+meta {
+  name: List Leads (getLeadsByOrg)
+  type: http
+  seq: 1
+}
+
+// Convex HTTP API — queries y mutations via POST a /api/query o /api/mutation.
+//
+// AUTH IMPORTANTE:
+//   En produccion, Convex require un JWT de Clerk en el header Authorization.
+//   El JWT se obtiene desde el Clerk SDK en el frontend tras autenticarse.
+//   Formato: "Authorization: Bearer <clerk_jwt_token>"
+//   El orgId se extrae del JWT en el backend (NUNCA del body — seguridad multi-tenant).
+//
+// FUNCIONES DISPONIBLES en convex/leads.ts:
+//   Queries:
+//     - leads:getLeadsByOrg       → Lista todos los leads de la org (max 200, desc)
+//     - leads:getLeadsByStatus    → Filtra por estado: sin_asignar|asignado|en_progreso|cerrado
+//     - leads:getLeadsStats       → Stats agregadas: total, porEstado, porScore, tasaConversion
+//     - leads:getLeadsByAssignee  → Leads asignados al usuario autenticado
+//     - leads:getLeadById         → Lead individual por ID
+//
+// NOTA: El endpoint /api/query de Convex usa POST con body JSON incluso para queries de lectura.
+
+post {
+  url: {{convex_url}}/api/query
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: Bearer <CLERK_JWT_TOKEN>
+}
+
+body:json {
+  {
+    "path": "leads:getLeadsByOrg",
+    "args": {}
+  }
+}
+
+tests {
+  test("Status 200", function() {
+    expect(res.getStatus()).to.equal(200);
+  });
+
+  test("Respuesta es array", function() {
+    const data = res.getBody();
+    expect(data).to.be.an("array");
+  });
+}

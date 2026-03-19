@@ -1,0 +1,61 @@
+meta {
+  name: Score Lead (Command Bar NL Query)
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={{gemini_api_key}}
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "contents": [
+      {
+        "parts": [
+          {
+            "text": "Eres un asistente de ventas B2B chileno para el rol de VP de Ventas.\nSolo tienes acceso a metricas agregadas del pipeline de ventas. Nunca tienes datos de contacto individuales.\nMetricas del pipeline: {\"total\": 142, \"hot\": 18, \"warm\": 47, \"nurture\": 61, \"skip\": 16, \"tasaConversion\": 4.2, \"nuevosUltimos30Dias\": 34}\nPregunta del usuario: \"Cuantos leads HOT tenemos esta semana?\"\nResponde en JSON con este formato exacto (sin texto adicional fuera del JSON):\n{ \"titulo\": \"string (titulo corto de la respuesta, maximo 6 palabras)\",\n  \"valor\": \"string (dato duro principal, ej: '42%' o '18 leads' o 'Construccion')\",\n  \"unidad\": \"string (unidad del valor, ej: '%', 'leads', 'CLP', 'empresas', 'dias')\",\n  \"narrativa\": \"string (1-2 oraciones interpretativas en espanol chileno, basadas en las metricas)\" }"
+          }
+        ]
+      }
+    ],
+    "generationConfig": {
+      "responseMimeType": "application/json",
+      "temperature": 0.3,
+      "maxOutputTokens": 512
+    }
+  }
+}
+
+tests {
+  test("Status 200", function() {
+    expect(res.getStatus()).to.equal(200);
+  });
+
+  test("Respuesta tiene candidates", function() {
+    const data = res.getBody();
+    expect(data).to.have.property("candidates");
+    expect(data.candidates).to.be.an("array").with.lengthOf.at.least(1);
+  });
+
+  test("candidates[0].content.parts[0].text existe", function() {
+    const data = res.getBody();
+    const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+    expect(text).to.be.a("string").with.lengthOf.at.least(1);
+  });
+
+  test("Respuesta parseable como JSON con estructura Sisteco", function() {
+    const data = res.getBody();
+    const rawText = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+    const parsed = JSON.parse(rawText);
+    expect(parsed).to.have.property("titulo");
+    expect(parsed).to.have.property("valor");
+    expect(parsed).to.have.property("narrativa");
+  });
+}

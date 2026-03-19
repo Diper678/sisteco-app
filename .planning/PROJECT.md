@@ -7,7 +7,7 @@ agentes — construimos el pipeline de datos + dashboard donde los clientes ven 
 calificados, enriquecidos con datos locales (SII, LinkedIn, fuentes publicas) y listos
 para trabajar.
 
-Pipeline automatizado: PhantomBuster extrae de LinkedIn Sales Nav, SII valida empresas,
+Pipeline automatizado: PhantomBuster extrae de LinkedIn Search (gratuito), SII valida empresas,
 Gemini califica, y todo llega a un dashboard multi-tenant donde cada cliente ve solo sus
 leads con scores, KPIs y acciones pendientes.
 
@@ -47,7 +47,7 @@ dashboard multi-tenant multi-rol para clientes B2B chilenos.
 ### Active (H1 2026: Q1-Q2)
 
 **Pipeline de Leads (PRIORIDAD 1 — genera revenue)**
-- [ ] PhantomBuster + Sales Nav: extraccion automatica de prospectos 3x/semana
+- [ ] PhantomBuster + LinkedIn Search (gratuito): extraccion automatica de prospectos 3x/semana
 - [ ] SII: validacion de empresas (RUT, actividad economica, tamano)
 - [ ] Gemini scoring: 100 puntos (HOT/WARM/NURTURE/SKIP)
 - [ ] Datos enriquecidos llegan a Convex listos para dashboard

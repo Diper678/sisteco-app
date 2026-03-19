@@ -43,7 +43,7 @@ created: 2026-03-09
 | 01-02-01 | 02 | 1 | LEAD-03 | integration | SII API test call | TBD | pending |
 | 01-02-02 | 02 | 1 | LEAD-04 | integration | Gemini scoring test | TBD | pending |
 | 01-03-01 | 03 | 2 | LEAD-05 | integration | Dedup test with duplicate data | TBD | pending |
-| 01-03-02 | 03 | 2 | LEAD-06 | manual | Telegram/email notification check | TBD | pending |
+| 01-03-02 | 03 | 2 | LEAD-06 | manual | Discord/email notification check | TBD | pending |
 
 *Status: pending / green / red / flaky*
 
@@ -63,9 +63,9 @@ created: 2026-03-09
 
 | Behavior | Requirement | Why Manual | Test Instructions |
 |----------|-------------|------------|-------------------|
-| PhantomBuster extraction | LEAD-01 | Requires active PB account + Sales Nav | Configure phantom, run, check n8n logs |
+| PhantomBuster extraction | LEAD-01 | Requires active PB account + LinkedIn Search | Configure phantom (ID: 510547627503326), run, check n8n logs |
 | SII RUT validation | LEAD-03 | Requires SimpleAPI account | Call API with known RUT, verify response |
-| Telegram HOT notification | LEAD-06 | Requires bot setup | Create bot, send test, verify delivery |
+| Discord HOT notification | LEAD-06 | Requires webhook setup | Crear webhook en canal Discord, send test, verify delivery |
 | Pipeline runs 1 week | All | Time-based | Monitor n8n executions over 7 days |
 
 ---

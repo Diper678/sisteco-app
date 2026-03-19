@@ -2,7 +2,7 @@
 phase: 01-pipeline-leads
 plan: 03
 subsystem: workflows
-tags: [n8n, telegram, gemini, scoring, notifications, pipeline]
+tags: [n8n, discord, gemini, scoring, notifications, pipeline]
 
 requires:
   - phase: 01-pipeline-leads/01-01
@@ -11,12 +11,12 @@ requires:
     provides: "SII enrichment workflow via SimpleAPI"
 provides:
   - "Fixed scoring workflow with X-SAAN-Secret auth (not Bearer)"
-  - "HOT lead Telegram notification workflow"
+  - "HOT lead Discord webhook notification workflow"
   - "Complete pipeline activation checklist"
 affects: [02-dashboard, 05-onboarding]
 
 tech-stack:
-  added: [telegram-bot-api]
+  added: [discord-webhook-api]
   patterns: [n8n-var-based-config, x-saan-secret-auth, lead-status-progression]
 
 key-files:
@@ -43,7 +43,7 @@ completed: 2026-03-10
 
 # Phase 1 Plan 3: Scoring Auth Fix + HOT Notifications Summary
 
-**Fixed scoring workflow auth to X-SAAN-Secret, created Telegram HOT lead alerts, and produced pipeline activation checklist for end-to-end operation**
+**Fixed scoring workflow auth to X-SAAN-Secret, created Discord webhook HOT lead alerts, and produced pipeline activation checklist for end-to-end operation**
 
 ## Performance
 
@@ -56,7 +56,7 @@ completed: 2026-03-10
 ## Accomplishments
 - All HTTP Request nodes in scoring workflow now use X-SAAN-Secret header (was Authorization Bearer)
 - Fixed inconsistent variable name SAAN_CONVEX_SECRET -> SAAN_API_SECRET in scoring workflow
-- Created saan-leads-notify-hot.json: polls every 30min for HOT scored leads, sends Telegram alert, moves to outreach_queued
+- Created saan-leads-notify-hot.json: polls every 30min for HOT scored leads, sends Discord webhook alert, moves to outreach_queued
 - Created PIPELINE-ACTIVATION.md with 8 sections: pre-requisites, n8n variables, import order, activation sequence, validation tests, schedule, troubleshooting, cost estimates
 
 ## Task Commits
@@ -70,12 +70,12 @@ Note: Commits are in the SAAN repository (`C:/Users/Dell 5520/Documents/AgenticW
 
 ## Files Created/Modified
 - `SAAN/n8n-workflows/saan-leads-score-ai.json` - Fixed auth headers (X-SAAN-Secret) and var name (SAAN_API_SECRET)
-- `SAAN/n8n-workflows/saan-leads-notify-hot.json` - New workflow: Telegram notifications for HOT leads every 30min
+- `SAAN/n8n-workflows/saan-leads-notify-hot.json` - New workflow: Discord webhook notifications for HOT leads every 30min
 - `SAAN/n8n-workflows/PIPELINE-ACTIVATION.md` - Step-by-step activation checklist with troubleshooting
 
 ## Decisions Made
 - Used `leads:getLeadsByScore` query endpoint (filters by scoreCategory + status) instead of fetching all leads and filtering client-side
-- Leads move to `outreach_queued` status after notification to prevent duplicate Telegram alerts
+- Leads move to `outreach_queued` status after notification to prevent duplicate Discord alerts
 - Fixed `SAAN_CONVEX_SECRET` to `SAAN_API_SECRET` for consistency with all other workflows (Rule 1 - Bug fix)
 
 ## Deviations from Plan
@@ -103,7 +103,7 @@ None
 **External services require manual configuration.** See [PIPELINE-ACTIVATION.md](../../../SAAN/n8n-workflows/PIPELINE-ACTIVATION.md) for:
 - Environment variables to add in n8n (9 variables)
 - PhantomBuster phantom configuration
-- Telegram bot creation and chat ID retrieval
+- Discord webhook creation in notification channel
 - Workflow import order and activation sequence
 - Validation tests
 

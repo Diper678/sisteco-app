@@ -1,0 +1,89 @@
+{
+  "name": "Sisteco — Enqueue HOT Lead",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "hot-lead-enqueue",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "a1000001-aaaa-aaaa-aaaa-000000000001",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [240, 300],
+      "webhookId": "sisteco-hot-lead-enqueue"
+    },
+    {
+      "parameters": {
+        "jsCode": "const raw = $input.first().json;\nconst lead = raw.body || raw;\n\n// Normalize field names (accepts both camelCase and snake_case)\nconst email = lead.lead_email || lead.email || lead.emailBestGuess || '';\nconst firstName = lead.first_name || lead.firstName || '';\nconst company = lead.company || '';\n\nif (!email) throw new Error('Missing required field: lead_email');\nif (!firstName) throw new Error('Missing required field: first_name');\nif (!company) throw new Error('Missing required field: company');\n\n// Basic email validation\nif (!/^[^@]+@[^@]+\\.[^@]+$/.test(email)) throw new Error('Invalid email: ' + email);\n\nconst now = new Date().toISOString();\n\nreturn [{\n  json: {\n    lead_email: email,\n    first_name: firstName,\n    last_name: lead.last_name || lead.lastName || '',\n    company: company,\n    job_title: lead.job_title || lead.jobTitle || lead.headline || '',\n    industry: lead.industry || '',\n    additional_info: (lead.additional_info || lead.additionalInfo || '').substring(0, 500),\n    linkedin_url: lead.linkedin_url || lead.linkedinProfileUrl || '',\n    score: lead.score || lead.icpScore || '',\n    touch_sent: 0,\n    status_after: 'active',\n    sent_at: '',\n    next_send_at: now,\n    enqueued_at: now\n  }\n}];"
+      },
+      "id": "a1000002-aaaa-aaaa-aaaa-000000000002",
+      "name": "Validate and Prepare Row",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "mode": "id",
+          "value": "={{ $env.LEADS_SHEET_ID || '1o9edhOg3LJxUx25x8Ecs3zAOrkhbtXlps5uCjGXVdVI' }}"
+        },
+        "sheetName": {
+          "mode": "name",
+          "value": "outreach-tracker"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {}
+        },
+        "options": {
+          "cellFormat": "RAW"
+        }
+      },
+      "id": "a1000003-aaaa-aaaa-aaaa-000000000003",
+      "name": "Add to Outreach Tracker",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [680, 300],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "REPLACE_WITH_GOOGLE_SHEETS_CREDENTIAL_ID",
+          "name": "Google Sheets"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({ queued: true, lead_email: $('Validate and Prepare Row').first().json.lead_email, company: $('Validate and Prepare Row').first().json.company, touch_sent: 0 }) }}",
+        "options": {}
+      },
+      "id": "a1000004-aaaa-aaaa-aaaa-000000000004",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [900, 300]
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [[{ "node": "Validate and Prepare Row", "type": "main", "index": 0 }]]
+    },
+    "Validate and Prepare Row": {
+      "main": [[{ "node": "Add to Outreach Tracker", "type": "main", "index": 0 }]]
+    },
+    "Add to Outreach Tracker": {
+      "main": [[{ "node": "Respond to Webhook", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "meta": {
+    "description": "Receives HOT lead data (from Lead Scoring workflow or scripts/enqueue-hot-leads.js) and appends to outreach-tracker tab in LEADS_SHEET_ID Google Sheet. SETUP: 1) Create tab 'outreach-tracker' in the leads Google Sheet with columns: lead_email, first_name, last_name, company, job_title, industry, additional_info, linkedin_url, score, touch_sent, status_after, sent_at, next_send_at, enqueued_at. 2) Configure GOOGLE_SHEETS_CREDENTIAL_ID. 3) Activate workflow and note the webhook URL for use in scripts/enqueue-hot-leads.js"
+  }
+}

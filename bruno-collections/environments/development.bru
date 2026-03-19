@@ -1,0 +1,16 @@
+vars {
+  gemini_api_key: {{process.env.GEMINI_API_KEY}}
+  pb_api_key: {{process.env.PHANTOMBUSTER_API_KEY}}
+  pb_agent_id: {{process.env.PB_LINKEDIN_AGENT_ID}}
+  pb_td_agent_id: {{process.env.PB_TD_AGENT_ID}}
+  firecrawl_api_key: {{process.env.FIRECRAWL_API_KEY}}
+  convex_url: {{process.env.CONVEX_SITE_URL}}
+  n8n_host: https://primary-production-24f87.up.railway.app
+  base_url: http://localhost:3000
+}
+
+vars:secret [
+  gemini_api_key,
+  pb_api_key,
+  firecrawl_api_key
+]

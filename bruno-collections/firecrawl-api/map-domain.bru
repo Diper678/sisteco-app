@@ -1,0 +1,32 @@
+meta {
+  name: Map Domain (Discover All URLs)
+  type: http
+  seq: 2
+}
+
+// Devuelve el sitemap de URLs de un dominio. Util para descubrir
+// paginas de productos, equipo, blog — fuentes adicionales de senales
+// de compra antes de hacer el scrape completo con scrape-website.bru.
+
+post {
+  url: https://api.firecrawl.dev/v1/map
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{firecrawl_api_key}}
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "url": "https://ejemplo-empresa.cl"
+  }
+}
+
+tests {
+  test("Status 200", function() {
+    expect(res.getStatus()).to.equal(200);
+  });
+}

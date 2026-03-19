@@ -107,7 +107,7 @@ Responde en JSON con este formato exacto (sin texto adicional fuera del JSON):
   "unidad": "string (unidad del valor, ej: '%', 'leads', 'CLP', 'empresas', 'dias')",
   "narrativa": "string (1-2 oraciones interpretativas en espanol chileno, basadas en las metricas)" }`;
 
-  const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+  const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
 
   let geminiResponse;
   try {

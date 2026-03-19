@@ -1192,13 +1192,13 @@ function initQueryButtons(role) {
   if (lastQueryId) {
     var matchBtn = container.querySelector('.query-btn[data-query-id="' + lastQueryId + '"]');
     if (matchBtn) {
-      /* Restore after a small delay to let auth settle */
+      /* Restore after auth + Convex settle (window.load + token fetch) */
       setTimeout(function() {
         container.querySelectorAll('.query-btn').forEach(function(b) { b.classList.remove('active'); });
         matchBtn.classList.add('active');
         var qLabel = matchBtn.dataset.queryLabel || lastQueryId;
         loadContent(lastQueryId, role, qLabel);
-      }, 600);
+      }, 2500);
     }
   }
 }

@@ -5,11 +5,14 @@
   "scripts": {
     "dev:convex": "npx convex dev",
     "deploy:convex": "npx convex deploy",
-    "start": "npx serve . -p 3000"
+    "start": "npx serve . -p 3000",
+    "n8n:backup": "node scripts/n8n-backup.js",
+    "n8n:backup:git": "node scripts/n8n-backup.js --git"
   },
   "dependencies": {
     "@notionhq/client": "^5.12.0",
     "convex": "^1.33.0",
+    "deep-email-validator": "^0.1.21",
     "dotenv": "^17.3.1"
   },
   "devDependencies": {
