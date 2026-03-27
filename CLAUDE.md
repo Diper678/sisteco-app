@@ -1,4 +1,4 @@
-# CLAUDE.md — Instrucciones para Claude Code en proyectos Sisteco
+# CLAUDE.md — Instrucciones para Claude Code en proyectos Sisteco / SAASTRE
 
 > Copia este archivo a la raiz de cualquier nuevo proyecto de Sisteco como `CLAUDE.md`.
 > Claude Code lo lee automaticamente al inicio de cada sesion.
@@ -7,8 +7,11 @@
 
 ## Contexto de la empresa
 
-**Sisteco** es una plataforma B2B SaaS de automatizacion de ventas para empresas medianas chilenas.
-- **Mision:** Infraestructura inteligente para ventas B2B
+**Sisteco** opera con la metodologia **SAASTRE** (Sales-As-A-Service Tailored Runtime Environment):
+creamos aplicaciones de ventas B2B que se comportan como **arcilla inteligente** — totalmente
+adaptables a la necesidad de cada cliente dentro del dominio de ventas.
+- **Mision:** Infraestructura inteligente para ventas B2B, moldeada a cada negocio
+- **Metodologia:** SAASTRE — cada cliente obtiene SU aplicacion de ventas configurada
 - **Tagline:** "Menos leads, mas cierres"
 - **Mercado:** Chile (50+ empleados) → LATAM (2027+)
 - **Contacto:** contacto@sisteco.cl · +56 9 40065566 · Las Condes, Santiago de Chile
@@ -65,6 +68,10 @@ Iconos:       Lucide 0.468.0
   - 89% retencion omnicanal vs 33% monocanal
 
 ## Documentos de referencia en este proyecto
+
+**Metodologia SAASTRE:**
+- `docs/SAASTRE-METODOLOGIA.md` — **Documento core de la metodologia** (5 capas, proceso, diferenciadores)
+- `.planning/PROJECT.md` — Vision del proyecto y requirements actuales
 
 Ver carpeta `sisteco-knowledge/` para:
 - `empresa/IDENTIDAD_MARCA.md` — Identidad, voz, tono, estadisticas

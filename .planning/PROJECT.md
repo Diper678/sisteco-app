@@ -1,132 +1,166 @@
-# Sisteco — Plataforma Vertical de Inteligencia de Leads B2B para Chile
+# SAASTRE — Metodología de Arcilla Inteligente para Ventas B2B
 
 ## What This Is
 
-Sisteco es la plataforma vertical de inteligencia de leads B2B para Chile. No construimos
-agentes — construimos el pipeline de datos + dashboard donde los clientes ven sus leads
-calificados, enriquecidos con datos locales (SII, LinkedIn, fuentes publicas) y listos
-para trabajar.
+**SAASTRE** (Sales-As-A-Service Tailored Runtime Environment) es la metodología propietaria
+de Sisteco para crear aplicaciones de ventas B2B que se comportan como **arcilla inteligente**:
+totalmente adaptables a la necesidad específica de cada cliente dentro del dominio de ventas.
 
-Pipeline automatizado: PhantomBuster extrae de LinkedIn Search (gratuito), SII valida empresas,
-Gemini califica, y todo llega a un dashboard multi-tenant donde cada cliente ve solo sus
-leads con scores, KPIs y acciones pendientes.
+No construimos UN producto para todos — construimos un sistema que se moldea a cada negocio.
+Cada cliente obtiene su propia aplicación configurada a su proceso de ventas, su industria,
+su equipo y sus métricas. La infraestructura es compartida, la experiencia es única.
 
 ## Core Value
 
-"Menos leads, mas cierres" — Calidad sobre cantidad. Sisteco genera, enriquece y califica
-leads B2B usando datos exclusivos del mercado chileno que ningun competidor internacional tiene.
+"Menos leads, más cierres" — Calidad sobre cantidad.
 
-## Pivote Estrategico (2026-03-09)
+SAASTRE genera, enriquece y califica leads B2B usando datos exclusivos del mercado chileno,
+y lo hace dentro de una aplicación que se adapta exactamente al negocio del cliente,
+como arcilla que toma la forma que necesitas.
 
-### DE (SAAN v1.0):
-"Sisteco construye agentes autonomos de ventas" — Red de 9 agentes custom, infraestructura
-propia, agent-to-agent commerce.
+## Evolución Estratégica
 
-### A (Vertical SaaS v2.0):
-"Sisteco es la capa de inteligencia B2B chilena" — Pipeline de datos automatizado +
-dashboard multi-tenant multi-rol para clientes B2B chilenos.
+### v1.0 — SAAN (2026-03-05 → 2026-03-09) ❌ Archivado
+"Red de 9 agentes autónomos de ventas"
+→ Inviable: competir con OpenAI/Microsoft/Google en infra de agentes con $65/mes.
 
-### Por que el pivote:
-1. OpenAI (Frontier), Microsoft (Agent Framework), Google (A2A) y Lindy ya construyen agentes
-2. Competir en infraestructura de agentes con $65/mes vs $100M+ de funding es inviable
-3. Los verticales estan ganando: Sierra ($100M ARR en 7 quarters), Harvey, Hippocratic
-4. NADIE hace esto para ventas B2B en Chile — ese es nuestro espacio
-5. El foso defensivo real: datos chilenos + regulacion + integraciones locales
-6. Anthropic va por skills/estandares, no agentes — confirma que el valor esta en la capa de datos
+### v2.0 — Vertical SaaS (2026-03-09 → 2026-03-27) ❌ Superado
+"Capa de inteligencia B2B chilena — dashboard fijo multi-tenant"
+→ Limitante: un producto rígido no captura la diversidad de procesos de ventas B2B.
+
+### v3.0 — SAASTRE (2026-03-27 → actual) ✅ Activo
+"Arcilla inteligente — cada cliente tiene SU aplicación de ventas"
+→ Por qué: cada empresa vende diferente. Un dashboard genérico no sirve.
+  La metodología SAASTRE crea aplicaciones ajustadas a cada necesidad.
+
+### Por qué el pivote a SAASTRE:
+1. Los procesos de ventas B2B son profundamente diferentes entre industrias y empresas
+2. Un dashboard fijo obliga al cliente a adaptarse al software (anti-patrón)
+3. La verdadera ventaja competitiva es ADAPTAR la solución, no vender una solución genérica
+4. "Arcilla inteligente" = infraestructura compartida + configuración única por cliente
+5. Modelo más rentable: cada instancia se configura, no se reconstruye
+6. El foso defensivo se multiplica: datos chilenos + adaptabilidad + compliance local
+
+## Metodología SAASTRE — 5 Capas
+
+```
+┌─────────────────────────────────────────────┐
+│  5. EXPERIENCIA — Dashboard adaptado al rol │
+├─────────────────────────────────────────────┤
+│  4. INTELIGENCIA — Scoring + IA contextual  │
+├─────────────────────────────────────────────┤
+│  3. WORKFLOWS — Automatizaciones a medida   │
+├─────────────────────────────────────────────┤
+│  2. DATOS — Pipeline de enriquecimiento     │
+├─────────────────────────────────────────────┤
+│  1. INFRAESTRUCTURA — Convex + Clerk + n8n  │
+└─────────────────────────────────────────────┘
+```
+
+Ver `docs/SAASTRE-METODOLOGIA.md` para detalle completo de cada capa.
 
 ## Requirements
 
-### Validated (de SAAN v1.0 — se reutiliza)
+### Validated (reutilizable de v1.0 y v2.0)
 
-- OK Convex schema base (tablas de leads, metricas) — reutilizable
-- OK n8n self-hosted en Railway — operativo
-- OK Workflows de lead gen (PhantomBuster, LinkedIn Scoring, B2B Prospecting)
-- OK HTTP Actions Convex (endpoints para n8n)
-- OK Monitor Agent (health checks — reutilizable como infra)
+- ✅ Convex schema base (leads, métricas, subscriptions) — reutilizable
+- ✅ n8n self-hosted en Railway — operativo
+- ✅ Workflows de lead gen (PhantomBuster, LinkedIn Scoring, B2B Prospecting)
+- ✅ HTTP Actions Convex (endpoints para n8n)
+- ✅ Clerk multi-tenant multi-rol — operativo
+- ✅ ICP Engine con scoring algorítmico
+- ✅ Templates de outreach multi-touch
+- ✅ Scripts de enriquecimiento (emails, SII, LinkedIn)
 
 ### Active (H1 2026: Q1-Q2)
 
-**Pipeline de Leads (PRIORIDAD 1 — genera revenue)**
-- [ ] PhantomBuster + LinkedIn Search (gratuito): extraccion automatica de prospectos 3x/semana
-- [ ] SII: validacion de empresas (RUT, actividad economica, tamano)
-- [ ] Gemini scoring: 100 puntos (HOT/WARM/NURTURE/SKIP)
-- [ ] Datos enriquecidos llegan a Convex listos para dashboard
-- [ ] Leads HOT generan notificacion al vendedor
+**Catálogo de Componentes SAASTRE (PRIORIDAD 1)**
+- [ ] Definir componentes base del catálogo (workflows, vistas, integraciones)
+- [ ] Sistema de configuración por cliente (ICP, industry, roles, métricas)
+- [ ] Motor de instanciación: de config → aplicación funcionando
+- [ ] Templates de dashboard por vertical (tech, retail, servicios, fintech)
+- [ ] Workflows componibles activables/desactivables por cliente
 
-**Dashboard Nuevo Desde Cero (PRIORIDAD 2)**
-- [ ] Multi-tenant via Clerk Organizations (cada empresa ve solo sus datos)
-- [ ] Multi-rol: CEO (KPIs), VP Ventas (pipeline), SDR (leads asignados)
-- [ ] Diseno liderado por usuario: investigacion de mercado → referencias → wireframes → build
-- [ ] Conectado a datos reales de Convex (no mockups)
-- [ ] Responsive (funciona en movil para vendedores)
+**Pipeline de Datos Adaptable (PRIORIDAD 2)**
+- [ ] PhantomBuster + LinkedIn Search configurable por ICP del cliente
+- [ ] SII: validación de empresas (RUT, actividad económica, tamaño)
+- [ ] Gemini scoring con pesos ajustables por industria
+- [ ] Fuentes de datos adicionales por vertical
+- [ ] Datos enriquecidos llegan a Convex filtrados por organización
 
-**Compliance Basico Ley 21.719 (PRIORIDAD 3)**
-- [ ] RAT (Registro de Actividades de Tratamiento) documentado
+**Experiencia Moldeable (PRIORIDAD 3)**
+- [ ] Dashboard CEO: KPIs configurables según lo que importa al negocio
+- [ ] Dashboard VP Ventas: pipeline y métricas de equipo
+- [ ] Dashboard SDR: leads del día con contexto de la industria
+- [ ] Vistas custom por industria
+- [ ] Responsive para vendedores en terreno
+
+**Compliance Ley 21.719 (PRIORIDAD 4)**
+- [ ] RAT documentado
 - [ ] Aviso de privacidad en dashboard
 - [ ] Mecanismo de opt-out funcional
-- [ ] Base legal documentada por tipo de dato
+- [ ] Base legal por tipo de dato
 
-**Onboarding Primeros Clientes Fundadores (PRIORIDAD 4)**
-- [ ] Trial de 14 dias con datos reales del vertical del prospecto
-- [ ] Cobro mensual via Reveniu (CLP)
-- [ ] Primeros 3-10 clientes pagando
-- [ ] Caso de estudio documentado
+**Primeros Clientes SAASTRE (PRIORIDAD 5)**
+- [ ] Proceso de descubrimiento (semana 1)
+- [ ] Moldeado de instancia (semana 2)
+- [ ] Go-live con datos reales (semana 3)
+- [ ] Refinamiento continuo con feedback
+- [ ] 3-10 clientes pagando con instancias únicas
 
 ### Out of Scope (por ahora)
 
-| Feature | Razon |
+| Feature | Razón |
 |---------|-------|
-| Construir agentes custom | Usar Lindy/plataformas existentes |
-| Agent-to-agent commerce | Prematuro (2028+), esperar A2A Protocol |
-| SAAN como red de 9 agentes | Simplificado a workflows + data layer |
-| Mobile app | Dashboard web es suficiente |
-| Expansion LATAM | Solo Chile en 2026, investigar para 2027 |
-| Multi-idioma | Solo espanol (es-CL) |
+| Agentes custom | Usar Lindy/plataformas existentes |
+| Self-service configuration | 2027+ cuando la metodología esté madura |
+| Mobile app nativa | Dashboard web responsive es suficiente |
+| Expansión LATAM | Solo Chile en 2026 |
+| API pública | 2028+ cuando haya masa crítica de datos |
 
 ## Context
 
-**Proyecto Sisteco:** Plataforma vertical B2B SaaS de automatizacion de ventas para Chile.
-- Landing page: sisteco.cl (Vercel + Convex `dev:fine-cod-99`)
+**Proyecto SAASTRE:** Metodología de Sisteco para aplicaciones de ventas B2B adaptables.
+- Landing page: sisteco.cl (Vercel + Convex)
 - n8n: `primary-yelp-production.up.railway.app`
-- Dashboard: Desde cero (Convex + vanilla JS + Clerk)
-- Workflows listos: PhantomBuster LinkedIn, Firecrawl enrich, Gemini scoring
+- Instancias: Convex multi-tenant + vanilla JS + Clerk
+- Metodología: docs/SAASTRE-METODOLOGIA.md
 
 **Herramientas disponibles:**
-- Playwright CLI: testing E2E, auditorias
+- Playwright CLI: testing E2E, auditorías
 - Firecrawl: scraping y enriquecimiento
-- n8n-mcp: gestion de workflows
-- Lindy AI: agentes de ventas pre-construidos (evaluar integracion)
+- n8n-mcp: gestión de workflows
+- Lindy AI: agentes de ventas (evaluar integración)
 
-**Vision a largo plazo:** Ser la infraestructura de datos B2B de LATAM.
-- 2026: Chile — datos, compliance, primeros clientes
-- 2027: Pipelines autonomos + expansion regional
-- 2028: API/A2A para que agentes de terceros consuman nuestra data
+**Visión a largo plazo:**
+- 2026 H1: Metodología SAASTRE + primeros clientes Chile
+- 2026 H2: Catálogo 20+ workflows + refinamiento con datos reales
+- 2027: Self-service + expansión LATAM
+- 2028+: API SAASTRE para terceros
 
 ## Constraints
 
-- **Stack**: Convex (DB) + n8n (workflows) + Vercel (deploy) — no cambiar
-- **AI**: Gemini para scoring, Claude para desarrollo, Lindy para agentes de ventas
-- **Legal**: Ley 21.719 compliance nativo — ventaja competitiva
+- **Stack**: Convex + n8n + Vercel — no cambiar
+- **AI**: Gemini (scoring), Claude (desarrollo), Lindy (agentes de ventas)
+- **Legal**: Ley 21.719 compliance nativo
 - **Presupuesto**: ~$65/mes infra + ~$178/mes lead gen tools
 - **Sin Python**: Todo Node.js / JavaScript
 - **Foco**: Revenue first — cada feature debe acercar a un cliente pagando
-- **Dashboard desde cero**: Diseno liderado por usuario, no reutilizar skeleton SAAN
+- **SAASTRE**: Cada cliente es una instancia configurada, no código custom
 
 ## Key Decisions
 
-| Decision | Rationale | Outcome |
-|----------|-----------|---------|
-| Pivote de SAAN a Vertical SaaS | No competir en agentes con OpenAI/Microsoft/Google | 2026-03-09 |
-| Datos B2B Chile como foso defensivo | Nadie tiene datos locales + compliance | En desarrollo |
-| Usar Lindy en vez de construir agentes | Time-to-market semanas vs meses, mejor producto | Evaluar |
+| Decision | Rationale | Fecha |
+|----------|-----------|-------|
+| Pivote SAAN → Vertical SaaS | No competir en agentes con big tech | 2026-03-09 |
+| Pivote Vertical SaaS → SAASTRE | Dashboard fijo no captura diversidad de ventas B2B | 2026-03-27 |
+| Arcilla inteligente como concepto | Adaptabilidad es el verdadero diferenciador | 2026-03-27 |
+| Configuración sobre código custom | Escala sin reescribir por cada cliente | 2026-03-27 |
+| 5 capas SAASTRE | Separación clara entre lo fijo y lo adaptable | 2026-03-27 |
+| Datos B2B Chile como foso | Nadie tiene datos locales + compliance | En desarrollo |
 | PhantomBuster como fuente principal | LinkedIn = mejor fuente B2B, ya configurado | Listo |
-| Dashboard desde cero (no skeleton SAAN) | El skeleton dark mode era para agentes, no clientes B2B | 2026-03-09 |
-| Diseno liderado por usuario | Investigar mercado, seleccionar referencias, validar antes de codear | 2026-03-09 |
-| Multi-tenant via Clerk Organizations | Aislamiento de datos por empresa sin custom auth | 2026-03-09 |
-| Multi-rol (CEO/VP/SDR) | Cada rol ve lo que necesita, no todo | 2026-03-09 |
+| Multi-tenant via Clerk Organizations | Aislamiento por org sin custom auth | 2026-03-09 |
 | Compliance Ley 21.719 como diferenciador | Competidores internacionales no cumplen | En desarrollo |
-| Fases 1 y 2 paralelas | Pipeline de datos y diseno no se bloquean mutuamente | 2026-03-09 |
-| Agentes pospuestos a H3 (2027+) | Usar plataformas existentes, no construir propios | 2026-03-09 |
 
 ---
-*Last updated: 2026-03-09 — Strategic Pivot to Vertical SaaS v2.0*
+*Last updated: 2026-03-27 — Pivote estratégico a SAASTRE (Arcilla Inteligente)*

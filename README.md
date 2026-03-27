@@ -1,7 +1,8 @@
-# Sisteco — Knowledge Transfer Hub
+# Sisteco / SAASTRE — Knowledge Transfer Hub
 
-> Version 1.0 · Marzo 2026
-> Esta carpeta contiene todo el conocimiento institucional de Sisteco. Es portable: copiala completa al inicio de cualquier proyecto nuevo para que el agente (Claude Code u otro) tenga contexto completo desde el primer mensaje.
+> Version 2.0 · Marzo 2026
+> Esta carpeta contiene todo el conocimiento institucional de Sisteco y la metodologia SAASTRE.
+> Es portable: copiala completa al inicio de cualquier proyecto nuevo.
 
 ---
 
@@ -17,12 +18,15 @@
 | `skills/` | Skills de Claude Code disponibles (GSD, UI/UX, n8n, Claude API, etc.) |
 | `mcps/` | MCPs configurados y como usarlos (Firecrawl, Perplexity, Playwright, IDE) |
 | `roadmap/` | Estado actual del proyecto, pendientes, proximas fases |
+| `docs/` | Metodologia SAASTRE, workflows, compliance, specs |
 
 ---
 
 ## Contexto esencial (lee esto primero)
 
-**Que es Sisteco:** Plataforma B2B SaaS de automatizacion de ventas para empresas medianas chilenas. No somos una herramienta — somos la capa de orquestacion que conecta extraccion de datos, IA y activacion multicanal. Nuestro modelo: bajo volumen de leads, alta conversion.
+**Que es Sisteco:** Empresa B2B que opera con la metodologia **SAASTRE** (Sales-As-A-Service Tailored Runtime Environment). No vendemos un producto fijo — creamos aplicaciones de ventas que se comportan como **arcilla inteligente**, totalmente adaptables a la necesidad de cada cliente dentro del dominio de ventas B2B. Nuestro modelo: bajo volumen de leads, alta conversion.
+
+**Que es SAASTRE:** La metodologia propietaria de Sisteco. 5 capas (Infraestructura → Datos → Workflows → Inteligencia → Experiencia). Cada cliente obtiene su propia instancia configurada a su proceso de ventas, industria y equipo. Ver `docs/SAASTRE-METODOLOGIA.md`.
 
 **Frase clave:** "Menos leads, mas cierres."
 

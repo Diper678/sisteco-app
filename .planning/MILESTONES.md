@@ -17,6 +17,42 @@
 - Phase 6: Agent Learning + Dashboard CEO (no ejecutado)
 
 ## v2.0 — Vertical SaaS B2B Chile
+**Status:** Archived (superado por SAASTRE)
+**Period:** 2026-03-09 to 2026-03-27
+**Outcome:** Dashboard multi-tenant funcional, pipeline de datos, compliance inicial.
+Infraestructura reutilizable como Capa 1 de SAASTRE.
+
+### Completed
+- Convex schema completo (leads, subscriptions, users, stats, retention)
+- Clerk multi-tenant multi-rol operativo
+- 6 workflows n8n listos (Lead Scoring, SII, HubSpot/Pipedrive/Salesforce)
+- Scripts de enriquecimiento (26+ scripts)
+- Templates de outreach (email 5-touch + LinkedIn 2-touch)
+- Dashboard skeletons CEO/VP/SDR
+
+### Carried forward to SAASTRE
+- Pipeline de leads (configurable por cliente)
+- Dashboard adaptable por rol e industria
+- Compliance Ley 21.719
+- Onboarding primeros clientes
+
+## v3.0 — SAASTRE (Arcilla Inteligente)
 **Status:** Active
-**Started:** 2026-03-09
-**Goal:** Pipeline de leads activo + dashboard con datos reales → primeros clientes pagando
+**Started:** 2026-03-27
+**Goal:** Metodología SAASTRE operativa → aplicaciones de ventas moldeadas por cliente → primeros 3-10 clientes pagando
+
+### Fase actual: Fundación SAASTRE
+- [ ] Documento de metodología completo (docs/SAASTRE-METODOLOGIA.md)
+- [ ] Sistema de configuración por cliente
+- [ ] Catálogo de componentes (workflows, vistas, integraciones)
+- [ ] Motor de instanciación
+- [ ] Primer cliente piloto con instancia SAASTRE
+
+### Siguiente: Primeros Clientes
+- [ ] 3 clientes con instancias configuradas
+- [ ] Refinamiento con datos reales
+- [ ] Caso de estudio documentado
+- [ ] Modelo de pricing validado
+
+---
+*Last updated: 2026-03-27 — Pivote a SAASTRE v3.0*
